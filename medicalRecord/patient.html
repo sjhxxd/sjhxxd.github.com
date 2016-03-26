@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>    <!--确保适当的绘制和触屏缩放-->
+
+    <title>TestTable</title>
+</head>
+<body>
+
+<div class="container-fluid showpanel">
+    <div id="toolbar" class="btn-group ">
+        <button id="add" class="btn btn-danger">
+            <i class="glyphicon glyphicon-plus"></i> Add
+        </button>
+        <button id="edit" class="btn btn-danger">
+            <i class="glyphicon glyphicon-edit"></i> Edit
+        </button>
+        <button id="remove" class="btn btn-danger">
+            <i class="glyphicon glyphicon-remove"></i> Delete
+        </button>
+    </div>
+    <table id="patientInfoTable"
+           data-toggle="table"
+           data-toolbar="#toolbar"
+           data-search="true"
+           data-show-refresh="true"
+           data-show-toggle="true"
+           data-show-columns="true"
+           data-show-pagination-switch="true"
+           data-page-list="[10, 25, 50, 100, ALL]"
+           data-pagination="true"
+    >
+
+
+    </table>
+</div>
+
+<div class="row addpanel" id="patientaddpanel" style="display: none;">
+    <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h4 class="panel-title" id="changepanel">病人信息添加</h4>
+            </div>
+            <form id="patientform" method="POST" action="http://localhost:8080/patientinfo/saveorupdate/">
+                <div id="validateform">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="patientInfoEntity" name="patientInfoEntity">
+                                    <div class="form-group ">
+                                        <label for="patientId">病人ID</label>
+                                        <input type="text" class="form-control " id="patientId" style="width:90%"
+                                               disabled="true">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patientName">病人姓名</label>
+                                        <input type="text" class="form-control" id="patientName"
+                                               style="width:90%" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patientSex">病人性别</label>
+                                        <input type="text" class="form-control" id="patientSex"
+                                               style="width:90%" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patientAge">病人年龄</label>
+                                        <input type="text" class="form-control" id="patientAge"
+                                               style="width:90%" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patientPhoneNumber">手机号码</label>
+                                        <input type="text" class="form-control" id="patientPhoneNumber"
+                                               style="width:90%" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patientHeight">身高</label>
+                                        <input type="text" class="form-control" id="patientHeight"
+                                               style="width:90%" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patientWeight">体重</label>
+                                        <input type="text" class="form-control" id="patientWeight"
+                                               style="width:90%" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patientProfessional">职业</label>
+                                        <input type="text" class="form-control" id="patientProfessional"
+                                               style="width:90%" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patientAddress">住址</label>
+                                        <input type="text" class="form-control" id="patientAddress"
+                                               style="width:90%" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="patientRemark">备注</label>
+                                        <input type="text" class="form-control" id="patientRemark"
+                                               style="width:90%" required>
+                                    </div>
+                                </div>
+
+                            </div> <!--cil-md-5 -->
+                        </div>  <!--row-->
+                    </div>
+
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-1 col-md-offset-10 col-lg-offset-10 col-lg-1">
+                                <button type="button" class="btn btn-default" style="margin-top:5px" id="cancel">取消
+                                </button>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="submit" class="btn btn-success" style="margin-top:5px" id="doit">创建
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>  <!--col-md-10-->
+</div> <!--row-->
+
+
+</body>
+<script src="js/base_address.js"></script>
+<script src="js/data/patient.js"></script>
+</html>

@@ -1,0 +1,24 @@
+html, body
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgb(243, 243, 243);
+    color: rgba(0,0,0,0.6);
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.left-side{
+    float: left;
+    width: auto;
+    height: 100%;
+}
+.right-side{
+    float: right;
+    height: 100%;
+}

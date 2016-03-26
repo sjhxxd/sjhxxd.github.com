@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>    <!--禁用其缩放-->
+
+    <title>中医现代医案管理平台</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-table.min.js"></script>
+    <script src="js/bootstrap-table-zh-CN.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body>
+<!--顶部导航条-->
+<nav class="navbar navbar-inverse navbar-fixed-top nav_color" style="height: auto">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" style="font-size:20px;">中医现代医案管理平台</a>
+        </div>
+        <div style="">
+            <button class="btn btn-default head-button1" onclick="turnPage()">统计报表<span class="badge" style="background-color: #fa623f;position: absolute;margin-top: 5px;"></span></button>
+            <button class="btn btn-default head-button2" onclick="turnPage()">图表</button>
+        </div>
+
+
+    </div>
+</nav>
+
+<!--侧边栏-->
+<div class="container-fluid">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar" style="overflow-y: auto">
+                <ul class='topnav nav nav-sidebar accordion'>
+                    <li>
+                        <a class="active">就诊病人管理<i class='glyphicon glyphicon-chevron-down'></i></a>
+                        <ul class='nav submenu'>
+                            <li><a onclick="turnPage('patient.html')">病人信息管理</a></li>
+                            <li><a onclick="turnPage()">医学图像管理</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a >临床信息管理<i class='glyphicon glyphicon-chevron-down'></i></a>
+                        <ul class='nav submenu'>
+                            <li><a onclick="turnPage()">主诉信息</a></li>
+                            <li><a onclick="turnPage()">病史信息</a></li>
+                            <li><a onclick="turnPage()">诊断信息</a></li>
+                            <li><a onclick="turnPage()">处方用药信息</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>数据字典管理<i class='glyphicon glyphicon-chevron-down'></i></a>
+                        <ul class='nav submenu'>
+                            <li><a onclick="turnPage('chineseMedicine.html')">中药信息</a></li>
+                            <li><a onclick="turnPage()">方剂信息</a></li>
+                            <li><a onclick="turnPage()">症状信息</a></li>
+                            <li><a onclick="turnPage()">疾病信息</a></li>
+                            <li><a onclick="turnPage()">证型信息</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a>评价信息管理<i class='glyphicon glyphicon-chevron-down'></i></a>
+                        <ul class='nav submenu'>
+                            <li><a onclick="turnPage()">病案评价</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>其他信息管理<i class='glyphicon glyphicon-chevron-down'></i></a>
+                        <ul class='nav submenu'>
+                            <li><a onclick="turnPage()">行政区划管理</a></li>
+                            <li><a onclick="turnPage()">计量单位管理</a></li>
+                            <li><a onclick="turnPage()">图片管理</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+</html>
