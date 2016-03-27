@@ -25,7 +25,7 @@ public class FoodMaterialInfoController {
     @RequestMapping(value = "/foodmaterialinfo/getbyname", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<FoodMaterialInfoEntity> getFoodMaterialInfoByName() {
+    public List<FoodMaterialInfoEntity> getFoodMaterialInfoAll() {
         return foodMaterialInfoService.getAllFood();
     }
 

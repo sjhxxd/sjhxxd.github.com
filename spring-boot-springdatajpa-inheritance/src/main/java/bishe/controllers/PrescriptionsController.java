@@ -25,7 +25,7 @@ public class PrescriptionsController {
     @RequestMapping(value = "/presctiptionsinfo/getbyname", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<PrescriptionsInfoEntity> getPrescriptionsInfoByName(){
+    public List<PrescriptionsInfoEntity> getPrescriptionsInfoAll(){
         return prescriptionsInfoService.getAllPrescriptions();
     }
 

@@ -25,7 +25,7 @@ public class DoctorController {
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
-    public List<DoctorInfoEntity> getDoctorInfoByName() {
+    public List<DoctorInfoEntity> getDoctorInfoAll() {
         return doctorInfoService.getAllDoctor();
 
     }

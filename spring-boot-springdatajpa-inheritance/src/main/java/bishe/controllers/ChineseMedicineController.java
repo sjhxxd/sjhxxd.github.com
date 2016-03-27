@@ -27,7 +27,7 @@ public class ChineseMedicineController {
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
-    public List<ChineseMedicineInfoEntity> getAllChineseMedicine() {
+    public List<ChineseMedicineInfoEntity> getChineseMedicineAll() {
         return chineseMedicineInfoService.getAllChineseMedicine();
     }
 
