@@ -20,7 +20,7 @@ public class PatientController {
     @Autowired
     private PatientInfoService patientInfoService;
 
-    @RequestMapping(value = "/patientinfo/getbyname", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/patientinfo/getall", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
@@ -39,13 +39,19 @@ public class PatientController {
 //        }
     }
 
-    @RequestMapping(value = "/patientinfo/findbyname/{patientname}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/patientinfo/findbyname/{patientName}", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
-    public PatientInfoEntity getPatientByOne(@PathVariable String patientname) {
-        System.out.println(patientInfoRepository.findByPatientName(patientname).getPatientName());
-        return patientInfoRepository.findByPatientName(patientname);
+    public PatientInfoEntity getPatientByName(@PathVariable String patientName) {
+        //if(patientInfoRepository.findByPatientName(patientName))
+        try {
+            System.out.println(patientInfoRepository.findByPatientName(patientName).getPatientName());
+            return patientInfoRepository.findByPatientName(patientName);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return  patientInfoRepository.findByPatientName(patientName);
+        }
     }
 
     @RequestMapping(value = "/patientinfo/findbyid/{patientId}", method = RequestMethod.GET, produces = {"application/json"})
