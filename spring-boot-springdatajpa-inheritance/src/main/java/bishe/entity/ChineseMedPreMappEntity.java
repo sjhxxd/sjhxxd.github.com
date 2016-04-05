@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * Created by sjh on 16/3/28.
  */
+//中药处方映射
 @Entity
 @Inheritance
 @Table(name = "chinesemedpremapp")
@@ -17,13 +18,23 @@ public class ChineseMedPreMappEntity implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private long chineseMedPrescriptMappId;
     private Long tempChineseMedicineId;
     private Long tempDoctorPrescriptionId;
     private Long tempUnitId;
     private Integer chineseMesicineDose;
     private String decoctionMethod;
+     public ChineseMedPreMappEntity(){
+
+     }
+
+    public ChineseMedPreMappEntity(Long tempChineseMedicineId, Long tempDoctorPrescriptionId, Long tempUnitId, Integer chineseMesicineDose, String decoctionMethod) {
+        this.tempChineseMedicineId = tempChineseMedicineId;
+        this.tempDoctorPrescriptionId = tempDoctorPrescriptionId;
+        this.tempUnitId = tempUnitId;
+        this.chineseMesicineDose = chineseMesicineDose;
+        this.decoctionMethod = decoctionMethod;
+    }
 
     public long getChineseMedPrescriptMappId() {
         return chineseMedPrescriptMappId;

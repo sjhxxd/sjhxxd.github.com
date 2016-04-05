@@ -20,39 +20,50 @@ public class SyndromeTypesEntity implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long syndromeTypeId;
-    private String syndromeTypeName;
-    private String dialecticalMethod;
+    private long syndromeId;
+    private String syndromeSystemType;
+    private String syndromeLevelType;
+    private String syndromeName;
 
     public SyndromeTypesEntity(){}
 
-    public SyndromeTypesEntity(String syndromeTypeName, String dialecticalMethod) {
-        this.syndromeTypeName = syndromeTypeName;
-        this.dialecticalMethod = dialecticalMethod;
+    public SyndromeTypesEntity(String syndromeSystemType, String syndromeLevelType, String syndromeName) {
+        this.syndromeSystemType = syndromeSystemType;
+        this.syndromeLevelType = syndromeLevelType;
+        this.syndromeName = syndromeName;
     }
 
-    public long getSyndromeTypeId() {
-        return syndromeTypeId;
+    public long getSyndromeId() {
+        return syndromeId;
     }
 
-    public void setSyndromeTypeId(long syndromeTypeId) {
-        this.syndromeTypeId = syndromeTypeId;
+    public void setSyndromeId(long syndromeId) {
+        this.syndromeId = syndromeId;
     }
 
-    public String getSyndromeTypeName() {
-        return syndromeTypeName;
+    public String getSyndromeSystemType() {
+        return syndromeSystemType;
     }
 
-    public void setSyndromeTypeName(String syndromeTypeName) {
-        this.syndromeTypeName = syndromeTypeName;
+    public void setSyndromeSystemType(String syndromeSystemType) {
+        this.syndromeSystemType = syndromeSystemType;
     }
 
-    public String getDialecticalMethod() {
-        return dialecticalMethod;
+    public String getSyndromeLevelType() {
+        return syndromeLevelType;
     }
 
-    public void setDialecticalMethod(String dialecticalMethod) {
-        this.dialecticalMethod = dialecticalMethod;
+    public void setSyndromeLevelType(String syndromeLevelType) {
+        this.syndromeLevelType = syndromeLevelType;
     }
+
+    public String getSyndromeName() {
+        return syndromeName;
+    }
+
+    public void setSyndromeName(String syndromeName) {
+        this.syndromeName = syndromeName;
+    }
+
 
 }

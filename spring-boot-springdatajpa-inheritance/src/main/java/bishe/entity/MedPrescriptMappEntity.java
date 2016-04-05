@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * Created by sjh on 16/3/28.
  */
+//中药方剂映射
 @Entity
 @Inheritance
 @Table(name = "medprescriptmapp")
