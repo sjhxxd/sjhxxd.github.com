@@ -23,7 +23,7 @@ public class ChineseMedicineController {
     private ChineseMedicineInfoService chineseMedicineInfoService;
 
 
-    @RequestMapping(value = "/chinesemedicineinfo/getbyname", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/chinesemedicineinfo/getall", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
@@ -40,7 +40,7 @@ public class ChineseMedicineController {
     }
 
 
-    @RequestMapping(value = "/chinesemedicineinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.GET}, produces = {"application/json"})
+    @RequestMapping(value = "/chinesemedicineinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Create a hotel resource.", notes = "Returns the URL of the new resource in the Location header.")
     @ResponseBody

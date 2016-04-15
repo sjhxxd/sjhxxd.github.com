@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.lang.Long;
 
 /**
  * Created by sjh on 16/3/23.
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class PrescriptionsInfoEntity implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long prescriptionId;
+    private Long prescriptionId;
     private String prescriptionName;
     private String prescriptionOrigin;
     private String prescriptionEffect;
@@ -40,11 +41,11 @@ public class PrescriptionsInfoEntity implements java.io.Serializable {
         this.prescriptionRemark = prescriptionRemark;
     }
 
-    public long getPrescriptionId() {
+    public Long getPrescriptionId() {
         return prescriptionId;
     }
 
-    public void setPrescriptionId(long prescriptionId) {
+    public void setPrescriptionId(Long prescriptionId) {
         this.prescriptionId = prescriptionId;
     }
 

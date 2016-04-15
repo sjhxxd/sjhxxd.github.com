@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.lang.Long;
 
 /**
  * Created by sjh on 16/3/28.
@@ -17,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class MedPrescriptMappEntity implements java.io.Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long chineseMedPrescriptMappId;
+    private Long chineseMedPrescriptMappId;
     private Long tempChineseMedicineId;
     private Long tempPrescriptionId;
     private String medicineAmount;
@@ -38,11 +39,11 @@ public class MedPrescriptMappEntity implements java.io.Serializable{
         this.medPrescriptMappRemarks = medPrescriptMappRemarks;
     }
 
-    public long getChineseMedPrescriptMappId() {
+    public Long getChineseMedPrescriptMappId() {
         return chineseMedPrescriptMappId;
     }
 
-    public void setChineseMedPrescriptMappId(long chineseMedPrescriptMappId) {
+    public void setChineseMedPrescriptMappId(Long chineseMedPrescriptMappId) {
         this.chineseMedPrescriptMappId = chineseMedPrescriptMappId;
     }
 

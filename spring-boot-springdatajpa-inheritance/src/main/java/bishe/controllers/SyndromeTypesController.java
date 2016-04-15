@@ -41,7 +41,7 @@ public class SyndromeTypesController {
         return syndromeTypesService.findBySyndromeId(syndromeId);
     }
 
-    @RequestMapping(value = "/syndrometypes/saveorupdate", method = {RequestMethod.POST, RequestMethod.GET}, produces = {"application/json"})
+    @RequestMapping(value = "/syndrometypes/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void saveOrUpdateSyndrome(SyndromeTypesEntity syndromeTypesEntity){

@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.lang.Long;
+
 
 /**
  * Created by sjh on 16/3/24.
@@ -16,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class FoodMaterialInfoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long foodMaterialId;
+    private Long foodMaterialId;
     private String foodMaterialName;
     private String foodMaterialProperty;
     private String foodMaterialTaste;
@@ -25,12 +27,11 @@ public class FoodMaterialInfoEntity {
     private String foodMaterialRemark;
     private String foodMaterialEffect;
 
-    public FoodMaterialInfoEntity(){
+    public FoodMaterialInfoEntity() {
 
     }
 
-    public FoodMaterialInfoEntity(long foodMaterialId, String foodMaterialName, String foodMaterialProperty, String foodMaterialTaste, String foodMaterialContent, Long tempPictureLocationId, String foodMaterialRemark, String foodMaterialEffect) {
-        this.foodMaterialId = foodMaterialId;
+    public FoodMaterialInfoEntity(String foodMaterialName, String foodMaterialProperty, String foodMaterialTaste, String foodMaterialContent, Long tempPictureLocationId, String foodMaterialRemark, String foodMaterialEffect) {
         this.foodMaterialName = foodMaterialName;
         this.foodMaterialProperty = foodMaterialProperty;
         this.foodMaterialTaste = foodMaterialTaste;
@@ -40,11 +41,11 @@ public class FoodMaterialInfoEntity {
         this.foodMaterialEffect = foodMaterialEffect;
     }
 
-    public long getFoodMaterialId() {
+    public Long getFoodMaterialId() {
         return foodMaterialId;
     }
 
-    public void setFoodMaterialId(long foodMaterialId) {
+    public void setFoodMaterialId(Long foodMaterialId) {
         this.foodMaterialId = foodMaterialId;
     }
 

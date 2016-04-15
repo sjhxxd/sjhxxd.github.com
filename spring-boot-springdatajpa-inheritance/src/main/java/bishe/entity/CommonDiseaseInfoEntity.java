@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.lang.Long;
+
 
 /**
  * Created by sjh on 16/4/5.
@@ -16,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class CommonDiseaseInfoEntity implements java.io.Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long commonDiseaseId;
+    private Long commonDiseaseId;
     private Long tempCommonDiseaseTypeId;
     private String commonDiseaseName;
     private String commonDiseaseExplain;
@@ -31,11 +33,11 @@ public class CommonDiseaseInfoEntity implements java.io.Serializable{
         this.commonDiseaseExplain = commonDiseaseExplain;
     }
 
-    public long getCommonDiseaseId() {
+    public Long getCommonDiseaseId() {
         return commonDiseaseId;
     }
 
-    public void setCommonDiseaseId(long commonDiseaseId) {
+    public void setCommonDiseaseId(Long commonDiseaseId) {
         this.commonDiseaseId = commonDiseaseId;
     }
 

@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Date;
+import java.lang.Long;
+
 
 /**
  * Created by sjh on 16/3/28.
@@ -17,7 +19,7 @@ import java.sql.Date;
 public class CaseRecordEntity implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long caseId;
+    private Long caseId;
     private Long tempPatientId;
     private Long tempDoctorId;
     private Long tempDiseaseId;
@@ -31,12 +33,14 @@ public class CaseRecordEntity implements java.io.Serializable {
     private String curativeEffect;
     private String caseRemark;
     private String tipsContent;
+    private Long tempSyndromeId;
+
 
     public CaseRecordEntity(){
 
     }
 
-    public CaseRecordEntity(Long tempPatientId, Long tempDoctorId, Long tempDiseaseId, Integer clinicalTime, Date caseDate, String patientTalk, String medicalHistory, Long tempPictureLocationId, String diagnosis, Long tempDoctorPrescriptionId, String curativeEffect, String caseRemark, String tipsContent) {
+    public CaseRecordEntity(Long tempPatientId, Long tempDoctorId, Long tempDiseaseId, Integer clinicalTime, Date caseDate, String patientTalk, String medicalHistory, Long tempPictureLocationId, String diagnosis, Long tempDoctorPrescriptionId, String curativeEffect, String caseRemark, String tipsContent,Long tempSyndromeId) {
         this.tempPatientId = tempPatientId;
         this.tempDoctorId = tempDoctorId;
         this.tempDiseaseId = tempDiseaseId;
@@ -50,13 +54,14 @@ public class CaseRecordEntity implements java.io.Serializable {
         this.curativeEffect = curativeEffect;
         this.caseRemark = caseRemark;
         this.tipsContent = tipsContent;
+        this.tempSyndromeId = tempSyndromeId;
     }
 
-    public long getCaseId() {
+    public Long getCaseId() {
         return caseId;
     }
 
-    public void setCaseId(long caseId) {
+    public void setCaseId(Long caseId) {
         this.caseId = caseId;
     }
 
@@ -162,6 +167,14 @@ public class CaseRecordEntity implements java.io.Serializable {
 
     public void setTipsContent(String tipsContent) {
         this.tipsContent = tipsContent;
+    }
+
+    public Long getTempSyndromeId() {
+        return tempSyndromeId;
+    }
+
+    public void setTempSyndromeId(Long tempSyndromeId) {
+        this.tempSyndromeId = tempSyndromeId;
     }
 
 }

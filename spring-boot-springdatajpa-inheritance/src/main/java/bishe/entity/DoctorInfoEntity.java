@@ -6,9 +6,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.lang.Long;
 
-/**
- * Created by sjh on 16/3/10.
- */
 @Entity
 @Inheritance
 @Table(name = "doctorinfo")
@@ -25,7 +22,7 @@ public class DoctorInfoEntity implements java.io.Serializable {
     private String doctorUnitName;
     private String doctorDepartmentName;
     private String doctorIdentity;
-    private String password;
+    private String doctorPassword;
     private String doctorAddress;
     private Integer checkState;
     private String doctorRemark;
@@ -34,7 +31,7 @@ public class DoctorInfoEntity implements java.io.Serializable {
 
     }
 
-    public DoctorInfoEntity(String doctorName, String doctorSex, Integer doctorAge, String doctorPhoneNumber, String doctorUnitName, String doctorDepartmentName, String doctorIdentity, String password, String doctorAddress, Integer checkState, String doctorRemark) {
+    public DoctorInfoEntity(String doctorName, String doctorSex, Integer doctorAge, String doctorPhoneNumber, String doctorUnitName, String doctorDepartmentName, String doctorIdentity, String doctorPassword, String doctorAddress, Integer checkState, String doctorRemark) {
         this.doctorName = doctorName;
         this.doctorSex = doctorSex;
         this.doctorAge = doctorAge;
@@ -42,7 +39,7 @@ public class DoctorInfoEntity implements java.io.Serializable {
         this.doctorUnitName = doctorUnitName;
         this.doctorDepartmentName = doctorDepartmentName;
         this.doctorIdentity = doctorIdentity;
-        this.password = password;
+        this.doctorPassword = doctorPassword;
         this.doctorAddress = doctorAddress;
         this.checkState = checkState;
         this.doctorRemark = doctorRemark;
@@ -118,11 +115,11 @@ public class DoctorInfoEntity implements java.io.Serializable {
     }
 
     public String getPassword() {
-        return password;
+        return doctorPassword;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.doctorPassword = password;
     }
 
 

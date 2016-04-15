@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.lang.Long;
 
 /**
  * Created by sjh on 16/3/28.
@@ -18,29 +19,29 @@ public class ChineseMedPreMappEntity implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long chineseMedPrescriptMappId;
+    private Long chineseMedPrescriptMappId;
     private Long tempChineseMedicineId;
     private Long tempDoctorPrescriptionId;
     private Long tempUnitId;
-    private Integer chineseMesicineDose;
+    private Integer chineseMedicineDose;
     private String decoctionMethod;
      public ChineseMedPreMappEntity(){
 
      }
 
-    public ChineseMedPreMappEntity(Long tempChineseMedicineId, Long tempDoctorPrescriptionId, Long tempUnitId, Integer chineseMesicineDose, String decoctionMethod) {
+    public ChineseMedPreMappEntity(Long tempChineseMedicineId, Long tempDoctorPrescriptionId, Long tempUnitId, Integer chineseMedicineDose, String decoctionMethod) {
         this.tempChineseMedicineId = tempChineseMedicineId;
         this.tempDoctorPrescriptionId = tempDoctorPrescriptionId;
         this.tempUnitId = tempUnitId;
-        this.chineseMesicineDose = chineseMesicineDose;
+        this.chineseMedicineDose = chineseMedicineDose;
         this.decoctionMethod = decoctionMethod;
     }
 
-    public long getChineseMedPrescriptMappId() {
+    public Long getChineseMedPrescriptMappId() {
         return chineseMedPrescriptMappId;
     }
 
-    public void setChineseMedPrescriptMappId(long chineseMedPrescriptMappId) {
+    public void setChineseMedPrescriptMappId(Long chineseMedPrescriptMappId) {
         this.chineseMedPrescriptMappId = chineseMedPrescriptMappId;
     }
 
@@ -68,12 +69,12 @@ public class ChineseMedPreMappEntity implements java.io.Serializable {
         this.tempUnitId = tempUnitId;
     }
 
-    public Integer getChineseMesicineDose() {
-        return chineseMesicineDose;
+    public Integer getchineseMedicineDose() {
+        return chineseMedicineDose;
     }
 
-    public void setChineseMesicineDose(Integer chineseMesicineDose) {
-        this.chineseMesicineDose = chineseMesicineDose;
+    public void setchineseMedicineDose(Integer chineseMedicineDose) {
+        this.chineseMedicineDose = chineseMedicineDose;
     }
 
     public String getDecoctionMethod() {

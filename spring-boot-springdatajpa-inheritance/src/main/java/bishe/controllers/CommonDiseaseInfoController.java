@@ -42,7 +42,7 @@ public class CommonDiseaseInfoController {
         return commonDiseaseInfoService.findByCommonDiseaseId(commonDiseaseId);
     }
 
-    @RequestMapping(value = "/commondiseaseinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.GET}, produces = {"application/json"})
+    @RequestMapping(value = "/commondiseaseinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void saveOrUpdateCommonDiseaseInfo(CommonDiseaseInfoEntity commonDiseaseInfoEntity){

@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.lang.Long;
 
 /**
  * Created by sjh on 16/3/26.
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class PatentMedicineInfoEntity implements java.io.Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long patentMedicineId;
+    private Long patentMedicineId;
     private String patentMedicineName;
     private String patentMedicineContent;
     private String indicationsFunction;
@@ -45,11 +46,11 @@ public class PatentMedicineInfoEntity implements java.io.Serializable{
         this.patentMedicineRemark = patentMedicineRemark;
     }
 
-    public long getPatentMedicineId() {
+    public Long getPatentMedicineId() {
         return patentMedicineId;
     }
 
-    public void setPatentMedicineId(long patentMedicineId) {
+    public void setPatentMedicineId(Long patentMedicineId) {
         this.patentMedicineId = patentMedicineId;
     }
 

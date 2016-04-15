@@ -33,7 +33,7 @@ public class MedPrescriptMappController {
 
     }
 
-    @RequestMapping(value = "/medprescriptmapp/saveorupdate", method = {RequestMethod.POST, RequestMethod.GET}, produces = {"application/json"})
+    @RequestMapping(value = "/medprescriptmapp/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void saveorUpdateMedPrescriptMapp(MedPrescriptMappEntity medPrescriptMappEntity){

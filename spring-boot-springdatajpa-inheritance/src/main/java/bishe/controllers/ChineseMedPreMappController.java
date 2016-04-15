@@ -31,7 +31,7 @@ public class ChineseMedPreMappController {
         return chineseMedPreMappService.findByChineseMedPrescriptMappId(chineseMedPrescriptMappId);
     }
 
-    @RequestMapping(value = "/chinesemedpremapp/saveorupdate", method = {RequestMethod.POST, RequestMethod.GET}, produces = {"application/json"})
+    @RequestMapping(value = "/chinesemedpremapp/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void saveOrUpdateChineseMedPreMapp(ChineseMedPreMappEntity chineseMedPreMappEntity){

@@ -22,7 +22,7 @@ public class PrescriptionsController {
     private PrescriptionsInfoService prescriptionsInfoService;
 
 //    返回list数据
-    @RequestMapping(value = "/presctiptionsinfo/getbyname", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/presctiptionsinfo/getall", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<PrescriptionsInfoEntity> getPrescriptionsInfoAll(){
@@ -37,7 +37,7 @@ public class PrescriptionsController {
         return prescriptionsInfoRepository.findByprescriptionName(prescriptionName);
     }
 
-    @RequestMapping(value = "/presctiptionsinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.GET}, produces = {"application/json"})
+    @RequestMapping(value = "/presctiptionsinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void saveOrUpdatePrescriptions(PrescriptionsInfoEntity prescriptionsInfoEntity){

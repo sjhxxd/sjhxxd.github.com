@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.lang.Long;
+
 
 /**
  * Created by sjh on 16/3/24.
@@ -16,9 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class DoctorPrescriptionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long doctorPrescriptionId;
-    private Long tempChineseMedicineId;
-    private Integer chineseMedicineDose;
+    private Long doctorPrescriptionId;
     private String prescriptionInstructions;
     private Integer oralDoses;
     private String doctorPrescriptionRemark;
@@ -28,38 +28,23 @@ public class DoctorPrescriptionEntity {
 
     }
 
-    public DoctorPrescriptionEntity(Long tempChineseMedicineId, String prescriptionType, Integer oralDoses, Integer chineseMedicineDose, String prescriptionInstructions, String doctorPrescriptionRemark) {
-        this.tempChineseMedicineId = tempChineseMedicineId;
+    public DoctorPrescriptionEntity(String prescriptionType, Integer oralDoses, String prescriptionInstructions, String doctorPrescriptionRemark) {
         this.prescriptionType = prescriptionType;
         this.oralDoses = oralDoses;
-        this.chineseMedicineDose = chineseMedicineDose;
         this.prescriptionInstructions = prescriptionInstructions;
         this.doctorPrescriptionRemark = doctorPrescriptionRemark;
     }
 
-    public long getDoctorPrescriptionId() {
+    public Long getDoctorPrescriptionId() {
         return doctorPrescriptionId;
     }
 
-    public void setDoctorPrescriptionId(long doctorPrescriptionId) {
+    public void setDoctorPrescriptionId(Long doctorPrescriptionId) {
         this.doctorPrescriptionId = doctorPrescriptionId;
     }
 
-    public Long getTempChineseMedicineId() {
-        return tempChineseMedicineId;
-    }
 
-    public void setTempChineseMedicineId(Long tempChineseMedicineId) {
-        this.tempChineseMedicineId = tempChineseMedicineId;
-    }
 
-    public Integer getChineseMedicineDose() {
-        return chineseMedicineDose;
-    }
-
-    public void setChineseMedicineDose(Integer chineseMedicineDose) {
-        this.chineseMedicineDose = chineseMedicineDose;
-    }
 
     public String getPrescriptionInstructions() {
         return prescriptionInstructions;

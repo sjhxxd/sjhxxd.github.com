@@ -33,7 +33,7 @@ public class LocationInfoController {
         return locationInfoService.fingByLocationInfoId(locationInfoId);
     }
 
-    @RequestMapping(value = "/locationinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.GET}, produces = {"application/json"})
+    @RequestMapping(value = "/locationinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void saveOrUpdateLocation(LocationInfoEntity locationInfoEntity){

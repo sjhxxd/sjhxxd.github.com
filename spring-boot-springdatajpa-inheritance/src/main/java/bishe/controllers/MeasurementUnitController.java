@@ -41,7 +41,7 @@ public class MeasurementUnitController {
         return measurementUnitService.findByUnitId(unitId);
     }
 
-    @RequestMapping(value = "/measurementunit/saveorupdate", method = {RequestMethod.POST, RequestMethod.GET}, produces = {"application/json"})
+    @RequestMapping(value = "/measurementunit/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void saveOrUpdateUnit(MeasurementUnitEntity measurementUnitEntity) {

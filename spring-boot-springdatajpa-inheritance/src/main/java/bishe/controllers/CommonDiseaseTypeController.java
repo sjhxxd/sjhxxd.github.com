@@ -41,7 +41,7 @@ public class CommonDiseaseTypeController {
         return commonDiseaseTypeService.findByCommonDiseaseTypeId(commonDiseaseTypeid);
     }
 
-    @RequestMapping(value = "/commondiseasetype/saveorupdate", method = {RequestMethod.POST, RequestMethod.GET}, produces = {"application/json"})
+    @RequestMapping(value = "/commondiseasetype/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void saveOrUpdateCommonDiseaseType(CommonDiseaseTypeEntity commonDiseaseTypeEntity){

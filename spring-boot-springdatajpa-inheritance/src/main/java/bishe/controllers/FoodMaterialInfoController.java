@@ -22,7 +22,7 @@ public class FoodMaterialInfoController {
     private FoodMaterialInfoService foodMaterialInfoService;
 
 
-    @RequestMapping(value = "/foodmaterialinfo/getbyname", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/foodmaterialinfo/getall", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<FoodMaterialInfoEntity> getFoodMaterialInfoAll() {
@@ -37,7 +37,7 @@ public class FoodMaterialInfoController {
         return foodMaterialInfoRepository.findByFoodMaterialName(foodMaterialName);
     }
 
-    @RequestMapping(value = "/foodmaterialinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.GET}, produces = {"application/json"})
+    @RequestMapping(value = "/foodmaterialinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void saveOrUpdateFood(FoodMaterialInfoEntity foodMaterialInfoEntity) {

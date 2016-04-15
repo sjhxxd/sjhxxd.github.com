@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.math.BigDecimal;
+import java.lang.Long;
 
 /**
  * Created by sjh on 16/3/28.
@@ -18,7 +19,7 @@ public class LocationInfoEntity implements java.io.Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long locationInfoId;
+    private Long locationInfoId;
     private BigDecimal locationLongitude;
     private BigDecimal locationLatitude;
     private String realLocation;
@@ -44,11 +45,11 @@ public class LocationInfoEntity implements java.io.Serializable{
         this.locationRemarks = locationRemarks;
     }
 
-    public long getLocationInfoId() {
+    public Long getLocationInfoId() {
         return locationInfoId;
     }
 
-    public void setLocationInfoId(long locationInfoId) {
+    public void setLocationInfoId(Long locationInfoId) {
         this.locationInfoId = locationInfoId;
     }
 

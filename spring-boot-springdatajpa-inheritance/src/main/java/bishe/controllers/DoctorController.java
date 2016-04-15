@@ -21,7 +21,7 @@ public class DoctorController {
     @Autowired
     private DoctorInfoService doctorInfoService;
 
-    @RequestMapping(value = "/doctorinfo/getbyname", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/doctorinfo/getall", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
@@ -43,8 +43,7 @@ public class DoctorController {
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Create a hotel resource.", notes = "Returns the URL of the new resource in the Location header.")
     @ResponseBody
-    public void saveOrUpdateDoctor(
-            DoctorInfoEntity doctorInfoEntity) {
+    public void saveOrUpdateDoctor(DoctorInfoEntity doctorInfoEntity) {
         doctorInfoService.saveOrUpdateDoctor(doctorInfoEntity);
 
     }

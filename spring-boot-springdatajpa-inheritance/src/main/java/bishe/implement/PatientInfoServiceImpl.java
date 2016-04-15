@@ -32,7 +32,8 @@ public class PatientInfoServiceImpl implements PatientInfoService {
             System.out.println(patientInfoEntity.getPatientId());
             patientInfoRepository.save(patientInfoEntity);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println(patientInfoEntity.getPatientId());
+            System.out.println("PATIENT_ERROR"+e.getMessage());
 
         }
         return patientInfoEntity;

@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.lang.Long;
 
 /**
  * Created by sjh on 16/3/28.
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class PictureListEntity implements java.io.Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long pictureLocationId;
+    private Long pictureLocationId;
     private String originalPicturePath;
     private String smallPicturePath;
     private String pictureClass;
@@ -37,11 +38,11 @@ public class PictureListEntity implements java.io.Serializable{
         this.pictureRemarks = pictureRemarks;
     }
 
-    public long getPictureLocationId() {
+    public Long getPictureLocationId() {
         return pictureLocationId;
     }
 
-    public void setPictureLocationId(long pictureLocationId) {
+    public void setPictureLocationId(Long pictureLocationId) {
         this.pictureLocationId = pictureLocationId;
     }
 

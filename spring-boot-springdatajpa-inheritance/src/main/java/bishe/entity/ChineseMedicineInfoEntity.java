@@ -4,6 +4,8 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.lang.Long;
+
 
 /**
  * Created by sjh on 16/3/22.
@@ -16,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ChineseMedicineInfoEntity implements java.io.Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long chineseMedicineId;
+    private Long chineseMedicineId;
     private String medicineName;
     private String medicineProperty;
     private String medicineTaste;
@@ -47,11 +49,11 @@ public class ChineseMedicineInfoEntity implements java.io.Serializable{
         this.anotherName = anotherName;
     }
 
-    public long getChineseMedicineId() {
+    public Long getChineseMedicineId() {
         return chineseMedicineId;
     }
 
-    public void setChineseMedicineId(long chineseMedicineId) {
+    public void setChineseMedicineId(Long chineseMedicineId) {
         this.chineseMedicineId = chineseMedicineId;
     }
 

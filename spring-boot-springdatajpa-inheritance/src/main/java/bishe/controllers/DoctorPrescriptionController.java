@@ -19,7 +19,7 @@ public class DoctorPrescriptionController {
     @Autowired
     private DoctorPrescriptionService doctorPrescriptionService;
 
-    @RequestMapping(value = "/doctorpresctiption/getall", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/doctorprescription/getall", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<DoctorPrescriptionEntity> getDoctorPrescriptionAll(){
@@ -34,7 +34,7 @@ public class DoctorPrescriptionController {
 
     }
 
-    @RequestMapping(value = "/doctorpresctiption/saveorupdate", method = {RequestMethod.POST, RequestMethod.GET}, produces = {"application/json"})
+    @RequestMapping(value = "/doctorpresctiption/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void saveOrUpdateDoctorPrescription(DoctorPrescriptionEntity doctorPrescriptionEntity){

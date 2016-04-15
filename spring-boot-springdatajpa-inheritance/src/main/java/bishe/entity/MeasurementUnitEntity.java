@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.lang.Long;
 
 /**
  * Created by sjh on 16/3/28.
@@ -16,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class MeasurementUnitEntity implements java.io.Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private long unitId;
+    private Long unitId;
     private String unitName;
     private Integer hexadecimal;
     private String unitRemarks;
@@ -31,11 +32,11 @@ public class MeasurementUnitEntity implements java.io.Serializable{
         this.hexadecimal = hexadecimal;
     }
 
-    public long getUnitId() {
+    public Long getUnitId() {
         return unitId;
     }
 
-    public void setUnitId(long unitId) {
+    public void setUnitId(Long unitId) {
         this.unitId = unitId;
     }
 
