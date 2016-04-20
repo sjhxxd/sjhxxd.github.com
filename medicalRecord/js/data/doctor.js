@@ -1,8 +1,6 @@
 //医生信息表
 var $table = $("#doctorInfoTable");
-var $add = $("#add");
 var rowcontent = null;
-var tag = null;
 function initTable() {
     $table.bootstrapTable({
         url:baseAddress+"/doctorinfo/getall",
@@ -55,8 +53,7 @@ function initTable() {
 
 initTable();
 
-$add.click(function () {
-    tag = "add";
+$("#add").click(function () {
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
 });
@@ -72,7 +69,6 @@ $('#cancel').click(function () {
 
 
 $("#edit").click(function(){
-    tag="edit";
     var jsonobject = eval('(' + rowcontent + ')');
     $("#doctorId").val(jsonobject.doctorId);
     $("#doctorName").val(jsonobject.doctorName);
@@ -86,8 +82,6 @@ $("#edit").click(function(){
     $("#doctorAddress").val(jsonobject.doctorAddress);
     $("#checkState").val(jsonobject.checkState);
     $("#doctorRemark").val(jsonobject.doctorRemark);
-
-    console.log(jsonobject);
 
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
@@ -150,7 +144,6 @@ $(function(){
 
 $('#remove').click(function () {
     var jsonobject = eval('(' + rowcontent + ')');
-    //确认是否删除
     if (confirm("是否删除此条医生信息？")) {
         $.ajax({
             type: 'delete',

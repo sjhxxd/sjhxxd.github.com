@@ -20,37 +20,24 @@
     <favorites_list name="medicalRecord" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.6505163">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="measurementUnit.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/measurementUnit.html">
+          <file leaf-file-name="doctor.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/js/data/doctor.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-3.75">
-                  <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
-                  <folding>
-                    <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="pictureList.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/js/data/pictureList.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.60708785">
-                  <caret line="91" column="45" selection-start-line="91" selection-start-column="45" selection-end-line="91" selection-end-column="45" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="82" column="48" selection-start-line="82" selection-start-column="48" selection-end-line="82" selection-end-column="48" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="location.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/location.html">
+          <file leaf-file-name="caseRecord.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/caseRecord.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-14.5">
-                  <caret line="90" column="58" selection-start-line="90" selection-start-column="58" selection-end-line="90" selection-end-column="58" />
+                <state vertical-scroll-proportion="-7.0">
+                  <caret line="128" column="38" selection-start-line="128" selection-start-column="38" selection-end-line="128" selection-end-column="38" />
                   <folding />
                 </state>
               </provider>
@@ -59,8 +46,18 @@
           <file leaf-file-name="common.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/css/common.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-10.5">
-                  <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+                <state vertical-scroll-proportion="-26.375">
+                  <caret line="211" column="22" selection-start-line="211" selection-start-column="22" selection-end-line="211" selection-end-column="22" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="caseRecord.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/js/data/caseRecord.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.7008547">
+                  <caret line="236" column="90" selection-start-line="236" selection-start-column="90" selection-end-line="236" selection-end-column="90" />
                   <folding />
                 </state>
               </provider>
@@ -70,31 +67,31 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="location.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/data/location.js">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-11.679245">
-                  <caret line="137" column="3" selection-start-line="46" selection-start-column="0" selection-end-line="137" selection-end-column="3" />
+                <state vertical-scroll-proportion="-0.75">
+                  <caret line="59" column="63" selection-start-line="59" selection-start-column="63" selection-end-line="59" selection-end-column="63" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="pictureList.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/pictureList.html">
+          <file leaf-file-name="doctor.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/doctor.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.35840708">
-                  <caret line="38" column="50" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
+                <state vertical-scroll-proportion="-16.25">
+                  <caret line="92" column="56" selection-start-line="92" selection-start-column="56" selection-end-line="92" selection-end-column="56" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="measurementUnit.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/data/measurementUnit.js">
+          <file leaf-file-name="commonDiseaseInfo.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/js/data/commonDiseaseInfo.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-1.4150944">
-                  <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+                <state vertical-scroll-proportion="0.61538464">
+                  <caret line="113" column="0" selection-start-line="109" selection-start-column="3" selection-end-line="113" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -116,7 +113,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/data/doctor_prescription.js" />
         <option value="$PROJECT_DIR$/js/baseAddress.js" />
         <option value="$PROJECT_DIR$/login.html" />
         <option value="$PROJECT_DIR$/testdemo.html" />
@@ -131,22 +127,15 @@
         <option value="$PROJECT_DIR$/medPreScriptMapp.css" />
         <option value="$PROJECT_DIR$/js/data/chineseMedPreMapp.js" />
         <option value="$PROJECT_DIR$/chineseMedPreMapp.html" />
-        <option value="$PROJECT_DIR$/doctorPrescription.html" />
         <option value="$PROJECT_DIR$/js/data/doctorPrescription.js" />
         <option value="$PROJECT_DIR$/loaction.html" />
         <option value="$PROJECT_DIR$/medPreScriptMapp.html" />
         <option value="$PROJECT_DIR$/js/data/medPreScriptMapp.js" />
-        <option value="$PROJECT_DIR$/patentMedicine.html" />
-        <option value="$PROJECT_DIR$/js/data/patentMedicine.js" />
-        <option value="$PROJECT_DIR$/caseRecord.html" />
-        <option value="$PROJECT_DIR$/js/data/caseRecord.js" />
         <option value="$PROJECT_DIR$/js/base_address.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/common.js" />
         <option value="$PROJECT_DIR$/js/data/patient.js" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1" />
         <option value="$PROJECT_DIR$/js/data/commonDiseaseType.js" />
-        <option value="$PROJECT_DIR$/prescriptions.html" />
         <option value="$PROJECT_DIR$/js/data/foodMaterial.js" />
         <option value="$PROJECT_DIR$/js/data/chineseMedicine.js" />
         <option value="$PROJECT_DIR$/js/data/commonDiseaseInfo.js" />
@@ -157,16 +146,24 @@
         <option value="$PROJECT_DIR$/foodMaterial.html" />
         <option value="$PROJECT_DIR$/patient.html" />
         <option value="$PROJECT_DIR$/syndromeTypes.html" />
-        <option value="$PROJECT_DIR$/css/common.css" />
         <option value="$PROJECT_DIR$/js/data/syndromeTypes.js" />
-        <option value="$PROJECT_DIR$/measurementUnit.html" />
-        <option value="$PROJECT_DIR$/doctor.html" />
         <option value="$PROJECT_DIR$/location.html" />
-        <option value="$PROJECT_DIR$/js/data/doctor.js" />
         <option value="$PROJECT_DIR$/js/data/measurementUnit.js" />
         <option value="$PROJECT_DIR$/js/data/location.js" />
         <option value="$PROJECT_DIR$/pictureList.html" />
+        <option value="$PROJECT_DIR$/doctorPrescription.html" />
+        <option value="$PROJECT_DIR$/measurementUnit.html" />
         <option value="$PROJECT_DIR$/js/data/pictureList.js" />
+        <option value="$PROJECT_DIR$/prescriptions.html" />
+        <option value="$PROJECT_DIR$/js/common.js" />
+        <option value="$PROJECT_DIR$/js/data/prescriptions.js" />
+        <option value="$PROJECT_DIR$/patentMedicine.html" />
+        <option value="$PROJECT_DIR$/js/data/patentMedicine.js" />
+        <option value="$PROJECT_DIR$/js/data/doctor.js" />
+        <option value="$PROJECT_DIR$/css/common.css" />
+        <option value="$PROJECT_DIR$/doctor.html" />
+        <option value="$PROJECT_DIR$/caseRecord.html" />
+        <option value="$PROJECT_DIR$/js/data/caseRecord.js" />
       </list>
     </option>
   </component>
@@ -300,7 +297,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/微会议/houduan" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -308,7 +305,7 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="CoffeeScript&#10;AngularJS" />
     <property name="FullScreen" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="do&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/doctor.html&#10;pic&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/pictureList.html&#10;pi&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/pictureList.js&#10;lo&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/location.js&#10;doc&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/doctor.js&#10;common.css&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/css/common.css&#10;unit&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/measurementUnit.js&#10;ind&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/index.html&#10;SY&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/syndromeTypes.html&#10;common&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/commonDiseaseInfo.js&#10;prescriptions&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/prescriptions.html&#10;f&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/foodMaterial.js&#10;foodMateria&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/foodMaterial.html&#10;index&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/index.html" />
+    <property name="SearchEverywhereHistoryKey" value="common&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/commonDiseaseInfo.js&#10;case&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/caseRecord.js&#10;comm&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/commonDiseaseInfo.html&#10;ca&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/caseRecord.html&#10;index&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/index.html&#10;d&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/doctor.js&#10;pic&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/pictureList.html&#10;pre&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/prescriptions.html&#10;doc&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/doctorPrescription.js&#10;do&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/doctor.html&#10;pi&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/pictureList.js&#10;lo&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/location.js&#10;common.css&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/css/common.css&#10;unit&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/measurementUnit.js&#10;ind&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/index.html&#10;SY&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/syndromeTypes.html&#10;prescriptions&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/prescriptions.html&#10;f&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/js/data/foodMaterial.js&#10;foodMateria&#9;FILE&#9;file:///Users/sjh/Documents/sjhxxd.github.com/medicalRecord/foodMaterial.html" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -441,12 +438,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/data/doctor.js</url>
-          <line>6</line>
+          <line>4</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/js/data/doctor.js</url>
-          <line>102</line>
+          <line>96</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
@@ -532,31 +529,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/data/doctorPrescription.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/data/medPreScriptMapp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/data/patentMedicine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="51" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/data/prescriptions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -571,13 +547,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="12" selection-start-line="0" selection-start-column="0" selection-end-line="36" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/data/caseRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7350689">
-          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -600,24 +569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10413476">
-          <caret line="108" column="17" selection-start-line="108" selection-start-column="8" selection-end-line="108" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/base_address.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06410257">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#36#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -645,34 +596,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/data/commonDiseaseInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3396226">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.625">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.75">
-          <caret line="6" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/caseRecord.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.625">
-          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -693,14 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/commonDiseaseInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.4805195">
-          <caret line="51" column="106" selection-start-line="51" selection-start-column="106" selection-end-line="51" selection-end-column="106" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/commonDiseaseType.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.3896104">
@@ -709,34 +628,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doctorPrescription.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.375">
-          <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/patentMedicine.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.875">
-          <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/patient.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.8701298">
           <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prescriptions.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -773,77 +668,184 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/data/doctorPrescription.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7051282">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doctorPrescription.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35840708">
+          <caret line="73" column="22" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/measurementUnit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.75">
-          <caret line="52" column="28" selection-start-line="52" selection-start-column="28" selection-end-line="52" selection-end-column="28" />
+        <state vertical-scroll-proportion="1.992">
+          <caret line="83" column="71" selection-start-line="83" selection-start-column="71" selection-end-line="83" selection-end-column="71" />
           <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/data/measurementUnit.js">
+    <entry file="file://$PROJECT_DIR$/js/data/pictureList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.4150944">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/data/location.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.679245">
-          <caret line="137" column="3" selection-start-line="46" selection-start-column="0" selection-end-line="137" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.18489985">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="9" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/location.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.5">
+        <state vertical-scroll-proportion="0.5132743">
           <caret line="90" column="58" selection-start-line="90" selection-start-column="58" selection-end-line="90" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/data/doctor.js">
+    <entry file="file://$PROJECT_DIR$/js/data/location.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17094018">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.95377505">
+          <caret line="137" column="3" selection-start-line="46" selection-start-column="0" selection-end-line="137" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/doctor.html">
+    <entry file="file://$PROJECT_DIR$/js/data/measurementUnit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8539823">
-          <caret line="114" column="38" selection-start-line="114" selection-start-column="38" selection-end-line="114" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.5">
-          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/data/pictureList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60708785">
-          <caret line="91" column="45" selection-start-line="91" selection-start-column="45" selection-end-line="91" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.1155624">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pictureList.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2920354">
+          <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/base_address.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06410257">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#36#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44017094">
+          <caret line="96" column="33" selection-start-line="96" selection-start-column="33" selection-end-line="96" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/patentMedicine.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07079646">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.375">
+          <caret line="211" column="22" selection-start-line="211" selection-start-column="22" selection-end-line="211" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/data/patentMedicine.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71648693">
+          <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/data/prescriptions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4017094">
+          <caret line="120" column="0" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prescriptions.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35840708">
-          <caret line="38" column="50" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
+          <caret line="54" column="56" selection-start-line="54" selection-start-column="56" selection-end-line="54" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commonDiseaseInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44247788">
+          <caret line="62" column="97" selection-start-line="62" selection-start-column="80" selection-end-line="62" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/data/doctor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="48" selection-start-line="82" selection-start-column="48" selection-end-line="82" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doctor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.25">
+          <caret line="92" column="56" selection-start-line="92" selection-start-column="56" selection-end-line="92" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.75">
+          <caret line="59" column="63" selection-start-line="59" selection-start-column="63" selection-end-line="59" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/data/commonDiseaseInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61538464">
+          <caret line="113" column="0" selection-start-line="109" selection-start-column="3" selection-end-line="113" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/caseRecord.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.0">
+          <caret line="128" column="38" selection-start-line="128" selection-start-column="38" selection-end-line="128" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/data/caseRecord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7008547">
+          <caret line="236" column="90" selection-start-line="236" selection-start-column="90" selection-end-line="236" selection-end-column="90" />
           <folding />
         </state>
       </provider>

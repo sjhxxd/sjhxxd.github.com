@@ -43,6 +43,82 @@
                 <h4 class="panel-title" id="changepanel">中成药信息添加</h4>
             </div>
             <form id="patentMedicineform" method="post">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="patentMedicineEntity" name="patentMedicineEntity">
+                                <div class="form-group hidden">
+                                    <label for="patentMedicineId">中成药ID</label>
+                                    <input type="text" class="form-control " id="patentMedicineId"
+                                           disabled="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="patentMedicineName">中成药名称</label>
+                                    <input type="text" class="form-control" id="patentMedicineName"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patentMedicineContent">中成药内容</label>
+                                    <input type="text" class="form-control" id="patentMedicineContent"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="indicationsFunction">功能主治</label>
+                                    <input type="text" class="form-control" id="indicationsFunction"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="shape">性状</label>
+                                    <input type="text" class="form-control" id="shape"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="usageDosage">用法与用量</label>
+                                    <input type="text" class="form-control" id="usageDosage"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="attention">注意</label>
+                                    <input type="text" class="form-control" id="attention"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="specifications">规格</label>
+                                    <input type="text" class="form-control" id="specifications"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="storageMethod">贮藏方式</label>
+                                    <input type="password" class="form-control" id="storageMethod"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="saute">制法</label>
+                                    <input type="text" class="form-control" id="saute"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patentMedicineRemark">备注</label>
+                                    <input type="text" class="form-control" id="patentMedicineRemark"
+                                           required>
+                                </div>
+                            </div>
+                        </div> <!--cil-md-5 -->
+                    </div>  <!--row-->
+                </div>
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-1 col-md-offset-10 col-lg-offset-10 col-lg-1">
+                            <button type="button" class="btn btn-default" id="cancel">取消
+                            </button>
+                        </div>
+                        <div class="col-md-1">
+                            <button type="submit" class="btn btn-success" id="doit">创建
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
             </form>
         </div>

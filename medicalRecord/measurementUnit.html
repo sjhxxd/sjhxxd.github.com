@@ -9,7 +9,7 @@
     <title>TestTable</title>
 </head>
 <body>
-<!--计量单位表-->
+<!--方剂信息表-->
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
         <button id="add" class="btn btn-danger">
@@ -22,7 +22,7 @@
             <i class="glyphicon glyphicon-remove"></i> Delete
         </button>
     </div>
-    <table id="measurementUnitTable"
+    <table id="prescriptionsInfoTable"
            data-height="530"
            data-toggle="table"
            data-toolbar="#toolbar"
@@ -43,31 +43,56 @@
     <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h4 class="panel-title" id="changepanel">计量单位添加</h4>
+                <h4 class="panel-title" id="changepanel">中药方剂添加</h4>
             </div>
-            <form id="measurementUnitform" method="POST">
+            <form id="prescriptionsInfoform" method="POST">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <div id="MeasurementUnitEntity" name="MeasurementUnitEntity">
+                            <div id="prescriptionsInfoEntity" name="prescriptionsInfoEntity">
                                 <div class="form-group hidden">
-                                    <label for="unitId">计量单位ID</label>
-                                    <input type="text" class="form-control " id="unitId"
+                                    <label for="prescriptionId">中药方剂ID</label>
+                                    <input type="text" class="form-control " id="prescriptionId"
                                            disabled="true">
                                 </div>
                                 <div class="form-group">
-                                    <label for="unitName">计量单位名</label>
-                                    <input type="text" class="form-control" id="unitName"
+                                    <label for="prescriptionName">方剂名称</label>
+                                    <input type="text" class="form-control" id="prescriptionName"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="hexadecimal">进制</label>
-                                    <input type="text" class="form-control" id="hexadecimal"
+                                    <label for="prescriptionOrigin">出处</label>
+                                    <input type="text" class="form-control" id="prescriptionOrigin"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="unitRemarks">计量单位备注</label>
-                                    <input type="text" class="form-control" id="unitRemarks"
+                                    <label for="prescriptionEffect">功效</label>
+                                    <input type="text" class="form-control" id="prescriptionEffect"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prescriptionClass">剂型</label>
+                                    <input type="text" class="form-control" id="prescriptionClass"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prescriptionFunction">功能主治</label>
+                                    <input type="text" class="form-control" id="prescriptionFunction"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prescriptionSummary">概述</label>
+                                    <input type="text" class="form-control" id="prescriptionSummary"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prescriptionInstruction">用法说明</label>
+                                    <input type="text" class="form-control" id="prescriptionInstruction"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prescriptionRemark">备注</label>
+                                    <input type="text" class="form-control" id="prescriptionRemark"
                                            required>
                                 </div>
                             </div>
@@ -95,5 +120,5 @@
 
 </body>
 <script src="js/base_address.js"></script>
-<script src="js/data/measurementUnit.js"></script>
+<script src="js/data/prescriptionsInfo.js"></script>
 </html>

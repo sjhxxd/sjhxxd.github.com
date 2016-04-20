@@ -36,13 +36,114 @@
     </table>
 </div>
 
-<div class="row addpanel"  style="display: none;">
+<div class="row addpanel" style="display: none;">
     <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h4 class="panel-title" id="changepanel">病案信息添加</h4>
             </div>
             <form id="caseRecordform" method="post">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="caseRecordEntity" name="caseRecordEntity">
+                                <div class="form-group hidden">
+                                    <label for="caseId">病案ID</label>
+                                    <input type="text" class="form-control " id="caseId"
+                                           disabled="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tempPatientId">病人ID</label>
+                                    <select type="text" class="form-control" id="tempPatientId"
+                                            required>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tempDoctorId">医生ID</label>
+                                    <select type="text" class="form-control" id="tempDoctorId"
+                                            required>
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="tempDiseaseId">常见疾病ID</label>
+                                    <select type="text" class="form-control" id="tempDiseaseId"
+                                            required>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clinicalTime">诊次</label>
+                                    <input type="text" class="form-control" id="clinicalTime"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="caseDate">时间</label>
+                                    <input type="date" class="form-control" id="caseDate"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientTalk">主诉</label>
+                                    <input type="text" class="form-control" id="patientTalk"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="medicalHistory">病史</label>
+                                    <input type="text" class="form-control" id="medicalHistory"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tempPictureLocationId">图片ID</label>
+                                    <input type="password" class="form-control" id="tempPictureLocationId"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="diagnosis">诊断</label>
+                                    <input type="text" class="form-control" id="diagnosis"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tempDoctorPrescriptionId">处方ID</label>
+                                    <input type="text" class="form-control" id="tempDoctorPrescriptionId"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="curativeEffect">疗效</label>
+                                    <input type="text" class="form-control" id="curativeEffect"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="caseRemark">备注</label>
+                                    <input type="text" class="form-control" id="caseRemark"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tipsContent">心得体会</label>
+                                    <input type="text" class="form-control" id="tipsContent"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tempSyndromeId">证型ID</label>
+                                    <select type="text" class="form-control" id="tempSyndromeId"
+                                            required>
+                                    </select>
+                                </div>
+                            </div>
+                        </div> <!--cil-md-5 -->
+                    </div>  <!--row-->
+                </div>
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-1 col-md-offset-10 col-lg-offset-10 col-lg-1">
+                            <button type="button" class="btn btn-default" id="cancel">取消
+                            </button>
+                        </div>
+                        <div class="col-md-1">
+                            <button type="submit" class="btn btn-success" id="doit">创建
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
             </form>
         </div>

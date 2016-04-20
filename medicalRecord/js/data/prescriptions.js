@@ -3,8 +3,11 @@
  */
 //方剂信息表
 var $table=$("#prescriptionsInfoTable");
+var rowcontent = null;
 function initTable(){
     $table.bootstrapTable({
+        url:baseAddress+"/presctiptionsinfo/getall",
+        dataType:"json",
         columns: [{
             field: 'state',
             checkbox: true,
@@ -43,3 +46,98 @@ function initTable(){
 }
 
 initTable();
+
+$("#add").click(function () {
+    $('.showpanel').css('display', 'none');
+    $('.addpanel').css('display', 'block');
+});
+
+//阻止表单提交
+$("form").submit(function (e) {
+    e.preventDefault();
+});
+$('#cancel').click(function () {
+    $('.showpanel').css('display', 'block');
+    $('.addpanel').css('display', 'none');
+});
+
+
+$("#edit").click(function(){
+    var jsonobject = eval('(' + rowcontent + ')');
+    $("#prescriptionId").val(jsonobject.prescriptionId);
+    $("#prescriptionName").val(jsonobject.prescriptionName);
+    $("#prescriptionOrigin").val(jsonobject.prescriptionOrigin);
+    $("#prescriptionEffect").val(jsonobject.prescriptionEffect);
+    $("#prescriptionClass").val(jsonobject.prescriptionClass);
+    $("#prescriptionFunction").val(jsonobject.prescriptionFunction);
+    $("#prescriptionSummary").val(jsonobject.prescriptionSummary);
+    $("#prescriptionInstruction").val(jsonobject.prescriptionInstruction);
+    $("#prescriptionRemark").val(jsonobject.prescriptionRemark);
+
+    $('.showpanel').css('display', 'none');
+    $('.addpanel').css('display', 'block');
+    $('#changepanel').html("中药方剂信息编辑");
+    $('#doit').html("确定");
+
+});
+$table.on('check.bs.table', function (e, row) {
+    rowcontent = JSON.stringify(row);
+    //function returnrow(){
+    //    return rowcontent;
+    //}
+
+});
+
+$(function(){
+    $("#doit").click(
+        function(){
+            var prescriptionId=$("#prescriptionId").val();
+            var prescriptionName=$("#prescriptionName").val();
+            var prescriptionOrigin=$("#prescriptionOrigin").val();
+            var prescriptionEffect=$("#prescriptionEffect").val();
+            var prescriptionClass=$("#prescriptionClass").val();
+            var prescriptionFunction=$("#prescriptionFunction").val();
+            var prescriptionSummary=$("#prescriptionSummary").val();
+            var prescriptionInstruction=$("#prescriptionInstruction").val();
+            var prescriptionRemark=$("#prescriptionRemark").val();
+
+            $.ajax({
+                url:baseAddress+"/presctiptionsinfo/saveorupdate",
+                type:"post",
+                dateType:"json",
+                data:{
+                    "prescriptionId":prescriptionId,
+                    "prescriptionName":prescriptionName,
+                    "prescriptionOrigin":prescriptionOrigin,
+                    "prescriptionEffect":prescriptionEffect,
+                    "prescriptionClass":prescriptionClass,
+                    "prescriptionFunction":prescriptionFunction,
+                    "prescriptionSummary":prescriptionSummary,
+                    "prescriptionInstruction":prescriptionInstruction,
+                    "prescriptionRemark":prescriptionRemark
+                },
+                success:function(msg){
+                    turnPage('prescriptions.html');
+                },
+                error:function(msg){
+                    turnPage('prescriptions.html');
+                    alert("presctiptions_error:"+msg)
+
+                }
+
+            });
+        });
+});
+
+$('#remove').click(function () {
+    var jsonobject = eval('(' + rowcontent + ')');
+    if (confirm("是否删除此条信息？")) {
+        $.ajax({
+            type: 'delete',
+            url: baseAddress+"/presctiptionsinfo/deletebyid/" + jsonobject.prescriptionId + "/",
+            success: function (json) {
+                turnPage('prescriptions.html');
+            }
+        })
+    }
+});

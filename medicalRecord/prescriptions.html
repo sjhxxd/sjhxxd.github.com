@@ -2,10 +2,120 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    <!--确保适当的绘制和触屏缩放-->
+
+    <title>TestTable</title>
 </head>
 <body>
-方剂
+
+<div class="container-fluid showpanel">
+    <div id="toolbar" class="btn-group ">
+        <button id="add" class="btn btn-danger">
+            <i class="glyphicon glyphicon-plus"></i> Add
+        </button>
+        <button id="edit" class="btn btn-danger">
+            <i class="glyphicon glyphicon-edit"></i> Edit
+        </button>
+        <button id="remove" class="btn btn-danger">
+            <i class="glyphicon glyphicon-remove"></i> Delete
+        </button>
+    </div>
+    <table id="prescriptionsInfoTable"
+           data-height="500"
+           data-toggle="table"
+           data-toolbar="#toolbar"
+           data-search="true"
+           data-show-refresh="true"
+           data-show-toggle="true"
+           data-show-columns="true"
+           data-show-pagination-switch="true"
+           data-page-list="[10, 25, 50, 100, ALL]"
+           data-pagination="true"
+    >
+
+    </table>
+</div>
+
+<div class="row addpanel" style="display: none;">
+    <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h4 class="panel-title" id="changepanel">中药方剂信息添加</h4>
+            </div>
+            <form id="prescriptionsform" method="post">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="prescriptionsInfoEntity" name="prescriptionsInfoEntity">
+                                <div class="form-group hidden">
+                                    <label for="prescriptionId">中药方剂ID</label>
+                                    <input type="text" class="form-control " id="prescriptionId"
+                                           disabled="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="prescriptionName">方剂名称</label>
+                                    <input type="text" class="form-control" id="prescriptionName"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prescriptionOrigin">出处</label>
+                                    <input type="text" class="form-control" id="prescriptionOrigin"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prescriptionEffect">功效</label>
+                                    <input type="text" class="form-control" id="prescriptionEffect"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prescriptionClass">剂型</label>
+                                    <input type="text" class="form-control" id="prescriptionClass"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prescriptionFunction">功能主治</label>
+                                    <input type="text" class="form-control" id="prescriptionFunction"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prescriptionSummary">概述</label>
+                                    <input type="text" class="form-control" id="prescriptionSummary"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prescriptionInstruction">用法说明</label>
+                                    <input type="text" class="form-control" id="prescriptionInstruction"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="prescriptionRemark">备注</label>
+                                    <input type="text" class="form-control" id="prescriptionRemark"
+                                           required>
+                                </div>
+                            </div>
+                        </div> <!--cil-md-12 -->
+                    </div>  <!--row-->
+                </div>
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-1 col-md-offset-10 col-lg-offset-10 col-lg-1">
+                            <button type="button" class="btn btn-default" id="cancel">取消
+                            </button>
+                        </div>
+                        <div class="col-md-1">
+                            <button type="submit" class="btn btn-success" id="doit">创建
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>  <!--col-md-10-->
+</div> <!--row-->
+
 
 </body>
+<script src="js/base_address.js"></script>
+<script src="js/data/prescriptions.js"></script>
 </html>

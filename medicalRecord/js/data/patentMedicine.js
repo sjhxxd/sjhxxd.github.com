@@ -3,6 +3,7 @@
  */
     //中成药信息表
 var $table=$("#patentMedicineInfoTable");
+var rowcontent = null;
 function initTable(){
     $table.bootstrapTable({
         url:baseAddress+"/patentmedicineinfo/getall",
@@ -50,3 +51,102 @@ function initTable(){
 }
 
 initTable();
+
+$("#add").click(function () {
+    $('.showpanel').css('display', 'none');
+    $('.addpanel').css('display', 'block');
+});
+
+//阻止表单提交
+$("form").submit(function (e) {
+    e.preventDefault();
+});
+$('#cancel').click(function () {
+    $('.showpanel').css('display', 'block');
+    $('.addpanel').css('display', 'none');
+});
+
+
+$("#edit").click(function(){
+    var jsonobject = eval('(' + rowcontent + ')');
+    $("#patentMedicineId").val(jsonobject.patentMedicineId);
+    $("#patentMedicineName").val(jsonobject.patentMedicineName);
+    $("#patentMedicineContent").val(jsonobject.patentMedicineContent);
+    $("#indicationsFunction").val(jsonobject.indicationsFunction);
+    $("#shape").val(jsonobject.shape);
+    $("#usageDosage").val(jsonobject.usageDosage);
+    $("#attention").val(jsonobject.attention);
+    $("#specifications").val(jsonobject.specifications);
+    $("#storageMethod").val(jsonobject.storageMethod);
+    $("#saute").val(jsonobject.saute);
+    $("#patentMedicineRemark").val(jsonobject.patentMedicineRemark);
+
+    $('.showpanel').css('display', 'none');
+    $('.addpanel').css('display', 'block');
+
+    $('#changepanel').html("中成药信息编辑");
+    $('#doit').html("确定");
+
+});
+$table.on('check.bs.table', function (e, row) {
+    rowcontent = JSON.stringify(row);
+});
+
+$(function(){
+    $("#doit").click(
+        function(){
+            var patentMedicineId=$("#patentMedicineId").val();
+            var patentMedicineName=$("#patentMedicineName").val();
+            var patentMedicineContent=$("#patentMedicineContent").val();
+            var indicationsFunction=$("#indicationsFunction").val();
+            var shape=$("#shape").val();
+            var usageDosage=$("#usageDosage").val();
+            var attention=$("#attention").val();
+            var specifications=$("#specifications").val();
+            var storageMethod=$("#storageMethod").val();
+            var saute=$("#saute").val();
+            var patentMedicineRemark=$("#patentMedicineRemark").val();
+
+            $.ajax({
+                url:baseAddress+"/patentmedicineinfo/saveorupdate",
+                type:"post",
+                dateType:"json",
+                data:{
+                    "patentMedicineId":patentMedicineId,
+                    "patentMedicineName":patentMedicineName,
+                    "patentMedicineContent":patentMedicineContent,
+                    "indicationsFunction":indicationsFunction,
+                    "shape":shape,
+                    "usageDosage":usageDosage,
+                    "attention":attention,
+                    "specifications":specifications,
+                    "storageMethod":storageMethod,
+                    "saute":saute,
+                    "patentMedicineRemark":patentMedicineRemark
+                },
+                success:function(msg){
+                    turnPage('patentMedicine.html');
+                    console.log("patentMedicine_success:"+msg)
+                },
+                error:function(msg){
+                    turnPage('patentMedicine.html');
+                    console.log("patentMedicine_error:"+msg)
+
+                }
+
+            });
+        });
+});
+
+$('#remove').click(function () {
+    var jsonobject = eval('(' + rowcontent + ')');
+    if (confirm("是否删除此条信息？")) {
+        $.ajax({
+            type: 'delete',
+            url: baseAddress+"/patentmedicineinfo/deletebyid/" + jsonobject.patentMedicineId + "/",
+            success: function (json) {
+                turnPage('patentMedicine.html');
+            }
+        })
+    }
+});

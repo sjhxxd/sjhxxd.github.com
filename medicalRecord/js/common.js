@@ -93,7 +93,8 @@ function turnPage(url) {    //url:请求的url  res：存放网页的地址，�
             $('#content').empty();    //首先清空centent区
             $('#content').html(html);  //把下载的html文件添加到centent区中
         },
-        error: function () {
+        error: function (mag) {
+            console.log(   mag );
             $('#content').empty();
             $('#content').html('<p>出了一些差错，请耐心等待修复：）</p>');
         }

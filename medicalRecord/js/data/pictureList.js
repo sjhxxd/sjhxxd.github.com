@@ -4,7 +4,6 @@
 //图片信息表
 var $table=$("#pictureListTable");
 var rowcontent = null;
-
 function initTable(){
     $table.bootstrapTable({
         url:baseAddress+"/picturelist/getall",
