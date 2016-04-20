@@ -38,7 +38,7 @@ public class ChineseMedicineServiceImpl implements ChineseMedicineInfoService {
     }
 
     @Override
-    public ChineseMedicineInfoEntity deleteChineseMedicine(long chineseMedicineId) {
+    public ChineseMedicineInfoEntity deleteChineseMedicine(Long chineseMedicineId) {
         chineseMedicineInfoRepository.delete(chineseMedicineId);
         return null;
     }
