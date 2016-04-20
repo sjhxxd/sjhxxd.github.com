@@ -1,6 +1,8 @@
 /**
  * Created by Mesogene on 3/13/16.
  */
+
+
 //ajax函数定义
 function restful(typeInfo, urlInfo, dataInfo) {
     /**typeInfo:操作类型；
@@ -99,7 +101,7 @@ function turnPage(url) {    //url:请求的url  res：存放网页的地址，�
 }
 
 
-$(function(){
+$(function () {
 
 
     $(".submenu").hide();  //默认二级菜单隐藏
@@ -111,25 +113,34 @@ $(function(){
         $(this).siblings().toggle(500);
         $(this).parent().siblings().find('ul').hide(500);
 
+        var imsi = document.getElementsByTagName("i");
+        for (var j = 0; j < imsi.length; j++) {
+        var curr_i=imsi[j];
+
+        }
+        //if (!document.getElementsByTagName) return false;
+        //var imsi = document.getElementsByTagName("i");
+        //for (var j = 0; j < imsi.length; j++) {
+        //    var curr_i = imsi[j];
+        //    var down = curr_i.getAttribute("class");
+        //
+        //        curr_i.removeAttribute("class");
+        //
+        //    var right_icon = curr_i.setAttribute("class", "glyphicon glyphicon-chevron-right");
+        //    console.log(down)
+        //}
+
     });
 
     $(".submenu> li>a").click(function () {
         $(this).addClass("activeSec");
         $(this).parent().siblings().find('a').removeClass("activeSec");
         $(this).parent().parent().siblings().addClass('active');
+
+
     });
 
 });
 
-////每分钟自动刷新获取实时警报
-//function warning(){
-//    var url = "/api/tbrealtimedata/?warning=realtime";
-//    $.get(url, function(rel) {
-//        var len = rel.length;
-//        $('.badge').html(len);
-//    });
-//}
-//$(function() {
-//    warning();
-//    setInterval('warning()', 1000); //注意:执行的函数需要加引号,否则会报错的
-//});
+
+

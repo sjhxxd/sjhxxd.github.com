@@ -5,6 +5,8 @@
 var $table = $("#doctorPrescriptionTable");
 function initTable() {
     $table.bootstrapTable({
+        ulr:baseAddress+"/doctorprescription/getall",
+        dataType:"json",
         columns: [{
             field: 'state',
             checkbox: true,
@@ -14,26 +16,17 @@ function initTable() {
             visible: false,
             title: '处方ID'
         }, {
-            field: 'tempChineseMedicineId',
-            title: 'temp_药品ID'
-        }, {
-            field: 'chineseMedicineDose',
-            title: '药品用量'
-        }, {
             field: 'prescriptionInstructions',
-            title: '药品用量'
+            title: '用法说明'
         }, {
             field: 'oralDoses',
-            title: '笔记类别'
-        }, {
-            field: 'prescriptionInstructions',
-            title: '笔记类别'
+            title: '服用剂量'
         }, {
             field: 'doctorPrescriptionRemark',
-            title: '笔记类别'
+            title: '备注'
         }, {
             field: 'prescriptionType',
-            title: '笔记类别'
+            title: '处方类型'
         }]
 
     });

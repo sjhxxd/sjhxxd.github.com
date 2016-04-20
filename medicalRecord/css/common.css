@@ -19,14 +19,16 @@ body {
 
 
 /*icon style*/
-.accordion li i.glyphicon-chevron-down {
+.accordion li i.glyphicon-chevron-down,
+.accordion li i.glyphicon-chevron-right {
     right: 12px;
     left:auto;
     font-size: 16px;
     top:12px;
 }
 
-.accordion li.open i.glyphicon-chevron-down {
+.accordion li.open i.glyphicon-chevron-down,
+.accordion li.open i.glyphicon-chevron-right {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
@@ -130,33 +132,12 @@ a {
     padding-left: 20px;
 }
 
-/*.nav-sidebar > .active > a,
-.nav-sidebar > .active > a:hover,
-.nav-sidebar > .active > a:focus {
-    color: #fff;
-    background-color: #428bca;
-}
-
-.nav-sidebar >.submenu> .active > a,
-.nav-sidebar > .submenu>.active > a:hover,
-.nav-sidebar >.submenu> .active > a:focus {
-    color: #fff;
-    background-color: #428bca;
-}*/
 .active{
     color: #fff;
     background-color: #428bca;
 }
 
-.activeSec{
-    color: #fff;
-    background-color: lightblue;
-}
 
-/*.activeSec{
-    color: #fff;
-    background-color: red;
-}*/
 
 .accordion a{
     cursor: pointer;
@@ -202,21 +183,27 @@ a {
 }
 
 
-/*
- * Placeholder dashboard ideas
- */
 
-.placeholders {
-    margin-bottom: 30px;
-    text-align: center;
+thead,
+tbody {
+    overflow: hidden;
+    max-width: 100px;
+    height: 100px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
-.placeholders h4 {
-    margin-bottom: 0;
+
+.panel-footer button{
+    margin-top:5px;
+    padding: 6px 9px;
 }
-.placeholder {
-    margin-bottom: 20px;
+
+.form-group label{
+    margin-left: 5%;
 }
-.placeholder img {
-    display: inline-block;
-    border-radius: 50%;
+
+.form-group>input,
+.form-group>select{
+    width:90%;
+    margin:0 auto;
 }

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>    <!--禁用其缩放-->
 
     <title>中医现代医案管理平台</title>
@@ -13,7 +14,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-table.min.js"></script>
     <script src="js/bootstrap-table-zh-CN.js"></script>
-    <script src="js/common.js"></script>
 </head>
 <body>
 <!--顶部导航条-->
@@ -48,20 +48,23 @@
                     <li>
                         <a >临床信息管理<i class='glyphicon glyphicon-chevron-down'></i></a>
                         <ul class='nav submenu'>
-                            <li><a onclick="turnPage()">主诉信息</a></li>
-                            <li><a onclick="turnPage()">病史信息</a></li>
-                            <li><a onclick="turnPage()">诊断信息</a></li>
-                            <li><a onclick="turnPage()">处方用药信息</a></li>
+                            <li><a onclick="turnPage('caseRecord.html')">病案信息管理</a></li>
+                            <li><a onclick="turnPage('doctor.html')">医生信息管理</a></li>
+                            <li><a onclick="turnPage('doctorPrescription.html')">医生处方管理</a></li>
                         </ul>
                     </li>
                     <li>
                         <a>数据字典管理<i class='glyphicon glyphicon-chevron-down'></i></a>
                         <ul class='nav submenu'>
                             <li><a onclick="turnPage('chineseMedicine.html')">中药信息</a></li>
-                            <li><a onclick="turnPage()">方剂信息</a></li>
-                            <li><a onclick="turnPage()">症状信息</a></li>
-                            <li><a onclick="turnPage()">疾病信息</a></li>
-                            <li><a onclick="turnPage()">证型信息</a></li>
+                            <li><a onclick="turnPage('prescriptions.html')">方剂信息</a></li>
+                            <li><a onclick="turnPage('patentMedicine.html')">中成药信息</a></li>
+                            <li><a onclick="turnPage('commonDiseaseInfo.html')">常见疾病信息</a></li>
+                            <li><a onclick="turnPage('commonDiseaseType.html')">常见疾病类别信息</a></li>
+                            <li><a onclick="turnPage('syndromeTypes.html')">证型信息</a></li>
+                            <li><a onclick="turnPage('medPreScriptMapp.html')">中药方剂映射管理</a></li>
+                            <li><a onclick="turnPage('chineseMedPreMapp.html')">中药处方映射管理</a></li>
+                            <li><a onclick="turnPage('foodMaterial.html')">食材信息管理</a></li>
                         </ul>
                     </li>
 
@@ -74,9 +77,9 @@
                     <li>
                         <a>其他信息管理<i class='glyphicon glyphicon-chevron-down'></i></a>
                         <ul class='nav submenu'>
-                            <li><a onclick="turnPage()">行政区划管理</a></li>
-                            <li><a onclick="turnPage()">计量单位管理</a></li>
-                            <li><a onclick="turnPage()">图片管理</a></li>
+                            <li><a onclick="turnPage('location.html')">行政区划管理</a></li>
+                            <li><a onclick="turnPage('measurementUnit.html')">计量单位管理</a></li>
+                            <li><a onclick="turnPage('pictureList.html')">图片管理</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -87,6 +90,7 @@
         </div>
     </div>
 </div>
+<script src="js/common.js"></script>
 
 </body>
 

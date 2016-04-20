@@ -2,9 +2,10 @@
  * Created by sjh on 16/3/8.
  */
     //中成药信息表
-var $table=$("#petentMedicineInfoTable");
+var $table=$("#patentMedicineInfoTable");
 function initTable(){
     $table.bootstrapTable({
+        url:baseAddress+"/patentmedicineinfo/getall",
         columns: [{
             field: 'state',
             checkbox: true,

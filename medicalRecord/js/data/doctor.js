@@ -1,10 +1,12 @@
-/**
- * Created by sjh on 16/3/8.
- */
 //医生信息表
 var $table = $("#doctorInfoTable");
+var $add = $("#add");
+var rowcontent = null;
+var tag = null;
 function initTable() {
     $table.bootstrapTable({
+        url:baseAddress+"/doctorinfo/getall",
+        dataType:"json",
         columns: [{
             field: 'state',
             checkbox: true,
@@ -35,7 +37,7 @@ function initTable() {
             field: 'doctorIdentity',
             title: '登录身份'
         }, {
-            field: 'password',
+            field: 'doctorPassword',
             title: '登录密码'
         }, {
             field: 'doctorAddress',
@@ -52,3 +54,110 @@ function initTable() {
 }
 
 initTable();
+
+$add.click(function () {
+    tag = "add";
+    $('.showpanel').css('display', 'none');
+    $('.addpanel').css('display', 'block');
+});
+
+//阻止表单提交
+$("form").submit(function (e) {
+    e.preventDefault();
+});
+$('#cancel').click(function () {
+    $('.showpanel').css('display', 'block');
+    $('.addpanel').css('display', 'none');
+});
+
+
+$("#edit").click(function(){
+    tag="edit";
+    var jsonobject = eval('(' + rowcontent + ')');
+    $("#doctorId").val(jsonobject.doctorId);
+    $("#doctorName").val(jsonobject.doctorName);
+    $("#doctorSex").val(jsonobject.doctorSex);
+    $("#doctorAge").val(jsonobject.doctorAge);
+    $("#doctorPhoneNumber").val(jsonobject.doctorPhoneNumber);
+    $("#doctorUnitName").val(jsonobject.doctorUnitName);
+    $("#doctorDepartmentName").val(jsonobject.doctorDepartmentName);
+    $("#doctorIdentity").val(jsonobject.doctorIdentity);
+    $("#doctorPassword").val(jsonobject.doctorPassword);
+    $("#doctorAddress").val(jsonobject.doctorAddress);
+    $("#checkState").val(jsonobject.checkState);
+    $("#doctorRemark").val(jsonobject.doctorRemark);
+
+    console.log(jsonobject);
+
+    $('.showpanel').css('display', 'none');
+    $('.addpanel').css('display', 'block');
+
+    $('#changepanel').html("医生信息编辑");
+    $('#doit').html("确定");
+
+});
+$table.on('check.bs.table', function (e, row) {
+    rowcontent = JSON.stringify(row);
+});
+
+$(function(){
+    $("#doit").click(
+        function(){
+            var doctorId=$("#doctorId").val();
+            var doctorName=$("#doctorName").val();
+            var doctorSex=$("#doctorSex").val();
+            var doctorAge=$("#doctorAge").val();
+            var doctorPhoneNumber=$("#doctorPhoneNumber").val();
+            var doctorUnitName=$("#doctorUnitName").val();
+            var doctorDepartmentName=$("#doctorDepartmentName").val();
+            var doctorIdentity=$("#doctorIdentity").val();
+            var doctorPassword=$("#doctorPassword").val();
+            var doctorAddress=$("#doctorAddress").val();
+            var checkState=$("#checkState").val();
+            var doctorRemark=$("#doctorRemark").val();
+
+            $.ajax({
+                url:baseAddress+"/doctorinfo/saveorupdate",
+                type:"post",
+                dateType:"json",
+                data:{
+                    "doctorId":doctorId,
+                    "doctorName":doctorName,
+                    "doctorSex":doctorSex,
+                    "doctorAge":doctorAge,
+                    "doctorPhoneNumber":doctorPhoneNumber,
+                    "doctorUnitName":doctorUnitName,
+                    "doctorDepartmentName":doctorDepartmentName,
+                    "doctorIdentity":doctorIdentity,
+                    "doctorPassword":doctorPassword,
+                    "doctorAddress":doctorAddress,
+                    "checkState":checkState,
+                    "doctorRemark":doctorRemark
+                },
+                success:function(msg){
+                    turnPage('doctor.html');
+                    console.log("doctor_success:"+msg)
+                },
+                error:function(msg){
+                    turnPage('doctor.html');
+                    console.log("doctor_error:"+msg)
+
+                }
+
+            });
+        });
+});
+
+$('#remove').click(function () {
+    var jsonobject = eval('(' + rowcontent + ')');
+    //确认是否删除
+    if (confirm("是否删除此条医生信息？")) {
+        $.ajax({
+            type: 'delete',
+            url: baseAddress+"/doctorinfo/deletebyid/" + jsonobject.doctorId + "/",
+            success: function (json) {
+                turnPage('doctor.html');
+            }
+        })
+    }
+});

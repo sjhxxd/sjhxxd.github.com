@@ -8,7 +8,7 @@ var rowcontent = null;
 var tag = null;
 function initTable(){
     $table.bootstrapTable({
-        url: baseAddress+"/chinesemedicineinfo/getbyname/",
+        url: baseAddress+"/chinesemedicineinfo/getall/",
         dataType:"json",
         columns: [{
             field: 'state',
@@ -55,8 +55,8 @@ function initTable(){
         }]
 
         //data:[{
-        //    doctorID:1,
-        //    doctorName:"施嘉豪"
+        //    chineseMedicineId:1,
+        //    medicineName:"施嘉豪"
         //}]
 
     });
@@ -93,12 +93,73 @@ $('#edit').click(function () {
     $('#chineseMedicineRemark').val(jsonobject.chineseMedicineRemark);
     $('#anotherName').val(jsonobject.anotherName);
 
+
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
 
     $('#changepanel').html("中药信息编辑");
     $('#doit').html("确定");
 });
-$('#chineseMedicineInfoTable').on('check.bs.table', function (e, row) {
+$table.on('check.bs.table', function (e, row) {
     rowcontent = JSON.stringify(row);
+});
+
+$(function(){
+    $("#doit").click(
+        function(){
+            var chineseMedicineId=$("#chineseMedicineId").val();
+            var medicineName=$("#medicineName").val();
+            var medicineProperty=$("#medicineProperty").val();
+            var medicineTaste=$("#medicineTaste").val();
+            var effectType=$("#effectType").val();
+            var medicineGrade=$("#medicineGrade").val();
+            var channelTropism=$("#channelTropism").val();
+            var indicationsFunction=$("#indicationsFunction").val();
+            var tempPictureLocationId=$("#tempPictureLocationId").val();
+            var chineseMedicineRemark=$("#chineseMedicineRemark").val();
+            var anotherName=$("#anotherName").val();
+
+            $.ajax({
+                url:baseAddress+"/chinesemedicineinfo/saveorupdate",
+                type:"post",
+                dateType:"json",
+                data:{
+                    "chineseMedicineId":chineseMedicineId,
+                    "medicineName":medicineName,
+                    "medicineProperty":medicineProperty,
+                    "medicineTaste":medicineTaste,
+                    "effectType":effectType,
+                    "medicineGrade":medicineGrade,
+                    "channelTropism":channelTropism,
+                    "indicationsFunction":indicationsFunction,
+                    "tempPictureLocationId":tempPictureLocationId,
+                    "chineseMedicineRemark":chineseMedicineRemark,
+                    "anotherName":anotherName
+                },
+                success:function(msg){
+                    turnPage('chineseMedicine.html');
+                    console.log("chineseMedicine_success:"+msg)
+                },
+                error:function(msg){
+                    turnPage('chineseMedicine.html');
+                    alert("chineseMedicine_error:"+msg)
+
+                }
+
+            });
+        });
+});
+
+$('#remove').click(function () {
+    var jsonobject = eval('(' + rowcontent + ')');
+    //确认是否删除
+    if (confirm("是否删除此条医生信息？")) {
+        $.ajax({
+            type: 'delete',
+            url: baseAddress+"/chinesemedicineinfo/deletebyid/" + jsonobject.chineseMedicineId + "/",
+            success: function (json) {
+                turnPage('chineseMedicine.html');
+            }
+        })
+    }
 });

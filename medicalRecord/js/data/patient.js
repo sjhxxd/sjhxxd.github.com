@@ -3,13 +3,14 @@
  */
 //病人信息表
 var $table = $("#patientInfoTable");
+
 var $add = $("#add");
 var rowcontent = null;
 var tag = null;
 function initTable() {
     $table.bootstrapTable({
 
-        url: baseAddress + "/patientinfo/getbyname/",
+        url: baseAddress + "/patientinfo/getall/",
         dataType: "json",
 
         columns: [{
@@ -60,7 +61,6 @@ function initTable() {
 
 initTable();
 
-
 $add.click(function () {
     tag = "add";
     $('.showpanel').css('display', 'none');
@@ -75,6 +75,7 @@ $('#cancel').click(function () {
     $('.showpanel').css('display', 'block');
     $('.addpanel').css('display', 'none');
 });
+
 $('#edit').click(function () {
     tag = "edit";
     var jsonobject = eval('(' + rowcontent + ')');
@@ -90,13 +91,15 @@ $('#edit').click(function () {
     $('#patientAddress').val(jsonobject.patientAddress);
     $('#patientRemark').val(jsonobject.patientRemark);
 
+    console.log(jsonobject);
+
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
 
     $('#changepanel').html("病人信息编辑");
     $('#doit').html("确定");
 });
-$('#patientInfoTable').on('check.bs.table', function (e, row) {
+$table.on('check.bs.table', function (e, row) {
     rowcontent = JSON.stringify(row);
 });
 
@@ -116,6 +119,7 @@ $(function () {
             var patientRemark = $('#patientRemark').val();
 
             $.ajax({
+                url: baseAddress+"/patientinfo/saveorupdate",
                 type: "post",
                 dataType: "json",
                 data: {
@@ -130,13 +134,14 @@ $(function () {
                     "patientAddress": patientAddress,
                     "patientRemark": patientRemark
                 },
-                url: baseAddress+"/patientinfo/saveorupdate/",
                 success: function (msg) {
                     turnPage('patient.html');
-                    console.log(msg);
+                    console.log("patient_success:"+msg)
                 },
                 error: function (msg){
-                    alert(msg);
+                    turnPage('patient.html');
+                    console.log("patient_error:"+msg)
+
                 }
             });
         });
@@ -145,7 +150,7 @@ $(function () {
 $('#remove').click(function () {
     var jsonobject = eval('(' + rowcontent + ')');
     //确认是否删除
-    if (confirm("是否删除此条信息？")) {
+    if (confirm("是否删除此条病人信息？")) {
         $.ajax({
             type: 'delete',
             url: baseAddress+"/patientinfo/deletebyid/" + jsonobject.patientId + "/",

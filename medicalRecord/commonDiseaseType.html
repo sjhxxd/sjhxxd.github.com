@@ -20,7 +20,7 @@
             <i class="glyphicon glyphicon-remove"></i> Delete
         </button>
     </div>
-    <table id="syndromeTypesTable"
+    <table id="commonDiseaseTypeTable"
            data-height="500"
            data-toggle="table"
            data-toolbar="#toolbar"
@@ -36,42 +36,36 @@
     </table>
 </div>
 
-<div class="row addpanel" style="display: none;">
+<div class="row addpanel"  style="display: none;">
     <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h4 class="panel-title" id="changepanel">证型信息添加</h4>
+                <h4 class="panel-title" id="changepanel">常见疾病类别添加</h4>
             </div>
-            <form id="syndromeTypesform" method="post">
-
+            <form id="commonDiseaseTypeform" method="post">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <div id="syndromeTypesEntity" name="syndromeTypesEntity">
+                            <div id="commonDiseaseTypeEntity" name="commonDiseaseTypeEntity">
                                 <div class="form-group hidden">
-                                    <label for="syndromeId">证型ID</label>
-                                    <input type="text" class="form-control" id="syndromeId" disabled
-                                    >
+                                    <label for="commonDiseaseTypeId">常见疾病类别ID</label>
+                                    <input type="text" class="form-control " id="commonDiseaseTypeId" disabled
+                                           >
                                 </div>
                                 <div class="form-group">
-                                    <label for="syndromeSystemType">证型系别</label>
-                                    <input class="form-control" id="syndromeSystemType"
-                                           required>
+                                    <label for="commonDiseaseTypeName">常见疾病类别名</label>
+                                    <input type="text" class="form-control" id="commonDiseaseTypeName"
+                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="syndromeLevelType">证型类别</label>
-                                    <input type="text" class="form-control" id="syndromeLevelType"
-                                           required>
+                                    <label for="commonDiseaseTypeCode">常见疾病代码</label>
+                                    <input type="text" class="form-control" id="commonDiseaseTypeCode"
+                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="syndromeName">证型名</label>
-                                    <input type="text" class="form-control" id="syndromeName"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="syndromeRemark">备注</label>
-                                    <input type="text" class="form-control" id="syndromeRemark"
-                                           required>
+                                    <label for="commonDiseaseTypeExplain">常见疾病类别说明</label>
+                                    <input type="text" class="form-control" id="commonDiseaseTypeExplain"
+                                            required>
                                 </div>
                             </div>
 
@@ -82,7 +76,7 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-md-1 col-md-offset-10 col-lg-offset-10 col-lg-1">
-                            <button type="button" class="btn btn-default" id="cancel">取消
+                            <button type="button" class="btn btn-default"  id="cancel">取消
                             </button>
                         </div>
                         <div class="col-md-1">
@@ -91,6 +85,7 @@
                         </div>
                     </div>
                 </div>
+
             </form>
         </div>
     </div>  <!--col-md-10-->
@@ -99,5 +94,5 @@
 
 </body>
 <script src="js/base_address.js"></script>
-<script src="js/data/syndromeTypes.js"></script>
+<script src="js/data/commonDiseaseType.js"></script>
 </html>

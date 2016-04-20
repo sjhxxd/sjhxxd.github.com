@@ -20,7 +20,7 @@
             <i class="glyphicon glyphicon-remove"></i> Delete
         </button>
     </div>
-    <table id="chineseMedicineInfoTable"
+    <table id="locationInfoTable"
            data-height="500"
            data-toggle="table"
            data-toolbar="#toolbar"
@@ -40,76 +40,60 @@
     <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h4 class="panel-title" id="changepanel">中药信息添加</h4>
+                <h4 class="panel-title" id="changepanel">行政区划信息添加</h4>
             </div>
-            <form id="chineseMedicineInfoform" method="post">
+            <form id="locationform" method="post">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <div id="chineseMedicineInfoEntity" name="chineseMedicineInfoEntity">
+                            <div id="MeasurementUnitEntity" name="MeasurementUnitEntity">
                                 <div class="form-group hidden">
-                                    <label for="chineseMedicineId">中药ID</label>
-                                    <input type="text" class="form-control " id="chineseMedicineId"
+                                    <label for="locationInfoId">地理信息ID</label>
+                                    <input type="text" class="form-control " id="locationInfoId"
                                            disabled="true">
                                 </div>
                                 <div class="form-group">
-                                    <label for="medicineName">中药名称</label>
-                                    <input type="text" class="form-control" id="medicineName"
+                                    <label for="locationLongitude">经度</label>
+                                    <input type="text" class="form-control" id="locationLongitude"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="medicineProperty">药性</label>
-                                    <input type="text" class="form-control" id="medicineProperty"
+                                    <label for="locationLatitude">纬度</label>
+                                    <input type="text" class="form-control" id="locationLatitude"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="medicineTaste">药味</label>
-                                    <input type="text" class="form-control" id="medicineTaste"
+                                    <label for="realLocation">具体地理位置</label>
+                                    <input type="text" class="form-control" id="realLocation"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="effectType">功效类别</label>
-                                    <input type="text" class="form-control" id="effectType"
+                                    <label for="locationProvince">所在省</label>
+                                    <input type="text" class="form-control" id="locationProvince"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="medicineGrade">品级</label>
-                                    <input type="text" class="form-control" id="medicineGrade"
+                                    <label for="locationCity">所在市</label>
+                                    <input type="text" class="form-control" id="locationCity"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="channelTropism">归经</label>
-                                    <input type="text" class="form-control" id="channelTropism"
+                                    <label for="locationClassify">所在区</label>
+                                    <input type="text" class="form-control" id="locationClassify"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="indicationsFunction">功能主治</label>
-                                    <input type="text" class="form-control" id="indicationsFunction"
+                                    <label for="locationCounty">所在县</label>
+                                    <input type="text" class="form-control" id="locationCounty"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="clinicalApplication">临床应用</label>
-                                    <input type="text" class="form-control" id="clinicalApplication"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tempPictureLocationId">图片ID</label>
-                                    <input type="text" class="form-control" id="tempPictureLocationId"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="chineseMedicineRemark">中药备注</label>
-                                    <input type="text" class="form-control" id="chineseMedicineRemark"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="anotherName">别名</label>
-                                    <input type="text" class="form-control" id="anotherName"
+                                    <label for="locationRemarks">地理位置备注</label>
+                                    <input type="text" class="form-control" id="locationRemarks"
                                            required>
                                 </div>
                             </div>
-
-                        </div> <!--cil-md-5 -->
+                        </div> <!--cil-md-12 -->
                     </div>  <!--row-->
                 </div>
 
@@ -125,7 +109,6 @@
                         </div>
                     </div>
                 </div>
-
             </form>
         </div>
     </div>  <!--col-md-10-->
@@ -134,5 +117,5 @@
 
 </body>
 <script src="js/base_address.js"></script>
-<script src="js/data/chineseMedicine.js"></script>
+<script src="js/data/location.js"></script>
 </html>

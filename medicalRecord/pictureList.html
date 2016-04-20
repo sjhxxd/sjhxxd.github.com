@@ -20,7 +20,7 @@
             <i class="glyphicon glyphicon-remove"></i> Delete
         </button>
     </div>
-    <table id="syndromeTypesTable"
+    <table id="pictureListTable"
            data-height="500"
            data-toggle="table"
            data-toolbar="#toolbar"
@@ -36,46 +36,54 @@
     </table>
 </div>
 
-<div class="row addpanel" style="display: none;">
+<div class="row addpanel"  style="display: none;">
     <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h4 class="panel-title" id="changepanel">证型信息添加</h4>
+                <h4 class="panel-title" id="changepanel">图片信息添加</h4>
             </div>
-            <form id="syndromeTypesform" method="post">
-
+            <form id="pictureListform" method="post">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <div id="syndromeTypesEntity" name="syndromeTypesEntity">
+                            <div id="pictureListEntity" name="pictureListEntity">
                                 <div class="form-group hidden">
-                                    <label for="syndromeId">证型ID</label>
-                                    <input type="text" class="form-control" id="syndromeId" disabled
-                                    >
+                                    <label for="pictureLocationId">图片位置ID</label>
+                                    <input type="text" class="form-control " id="pictureLocationId"
+                                           disabled="true">
                                 </div>
                                 <div class="form-group">
-                                    <label for="syndromeSystemType">证型系别</label>
-                                    <input class="form-control" id="syndromeSystemType"
+                                    <label for="originalPicturePath">原图路径</label>
+                                    <input type="text" class="form-control" id="originalPicturePath"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="syndromeLevelType">证型类别</label>
-                                    <input type="text" class="form-control" id="syndromeLevelType"
+                                    <label for="smallPicturePath">缩略图路径</label>
+                                    <input type="text" class="form-control" id="smallPicturePath"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="syndromeName">证型名</label>
-                                    <input type="text" class="form-control" id="syndromeName"
+                                    <label for="pictureClass">图片类别</label>
+                                    <input type="text" class="form-control" id="pictureClass"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="syndromeRemark">备注</label>
-                                    <input type="text" class="form-control" id="syndromeRemark"
+                                    <label for="pictureName">图片名</label>
+                                    <input type="text" class="form-control" id="pictureName"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pictureTitle">图片主题</label>
+                                    <input type="text" class="form-control" id="pictureTitle"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pictureRemarks">图片备注</label>
+                                    <input type="text" class="form-control" id="pictureRemarks"
                                            required>
                                 </div>
                             </div>
-
-                        </div> <!--cil-md-5 -->
+                        </div> <!--cil-md-12 -->
                     </div>  <!--row-->
                 </div>
 
@@ -99,5 +107,5 @@
 
 </body>
 <script src="js/base_address.js"></script>
-<script src="js/data/syndromeTypes.js"></script>
+<script src="js/data/pictureList.js"></script>
 </html>

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    <!--确保适当的绘制和触屏缩放-->
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>    <!--确保适当的绘制和触屏缩放-->
 
     <title>TestTable</title>
 </head>
 <body>
-
+<!--计量单位表-->
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
         <button id="add" class="btn btn-danger">
@@ -20,8 +22,8 @@
             <i class="glyphicon glyphicon-remove"></i> Delete
         </button>
     </div>
-    <table id="syndromeTypesTable"
-           data-height="500"
+    <table id="measurementUnitTable"
+           data-height="530"
            data-toggle="table"
            data-toolbar="#toolbar"
            data-search="true"
@@ -33,6 +35,7 @@
            data-pagination="true"
     >
 
+
     </table>
 </div>
 
@@ -40,53 +43,46 @@
     <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h4 class="panel-title" id="changepanel">证型信息添加</h4>
+                <h4 class="panel-title" id="changepanel">计量单位添加</h4>
             </div>
-            <form id="syndromeTypesform" method="post">
-
+            <form id="measurementUnitform" method="POST">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <div id="syndromeTypesEntity" name="syndromeTypesEntity">
+                            <div id="MeasurementUnitEntity" name="MeasurementUnitEntity">
                                 <div class="form-group hidden">
-                                    <label for="syndromeId">证型ID</label>
-                                    <input type="text" class="form-control" id="syndromeId" disabled
-                                    >
+                                    <label for="unitId">计量单位ID</label>
+                                    <input type="text" class="form-control " id="unitId"
+                                           disabled="true">
                                 </div>
                                 <div class="form-group">
-                                    <label for="syndromeSystemType">证型系别</label>
-                                    <input class="form-control" id="syndromeSystemType"
+                                    <label for="unitName">计量单位名</label>
+                                    <input type="text" class="form-control" id="unitName"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="syndromeLevelType">证型类别</label>
-                                    <input type="text" class="form-control" id="syndromeLevelType"
+                                    <label for="hexadecimal">进制</label>
+                                    <input type="text" class="form-control" id="hexadecimal"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="syndromeName">证型名</label>
-                                    <input type="text" class="form-control" id="syndromeName"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="syndromeRemark">备注</label>
-                                    <input type="text" class="form-control" id="syndromeRemark"
+                                    <label for="unitRemarks">计量单位备注</label>
+                                    <input type="text" class="form-control" id="unitRemarks"
                                            required>
                                 </div>
                             </div>
-
-                        </div> <!--cil-md-5 -->
+                        </div> <!--cil-md-12 -->
                     </div>  <!--row-->
                 </div>
 
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-md-1 col-md-offset-10 col-lg-offset-10 col-lg-1">
-                            <button type="button" class="btn btn-default" id="cancel">取消
+                            <button type="button" class="btn btn-default" style="margin-top:5px" id="cancel">取消
                             </button>
                         </div>
                         <div class="col-md-1">
-                            <button type="submit" class="btn btn-success" id="doit">创建
+                            <button type="submit" class="btn btn-success" style="margin-top:5px" id="doit">创建
                             </button>
                         </div>
                     </div>
@@ -99,5 +95,5 @@
 
 </body>
 <script src="js/base_address.js"></script>
-<script src="js/data/syndromeTypes.js"></script>
+<script src="js/data/measurementUnit.js"></script>
 </html>
