@@ -33,6 +33,13 @@ public class DoctorPrescriptionController {
         return doctorPrescriptionService.findByDoctorPrescriptionId(doctorPrescriptionId);
 
     }
+    @RequestMapping(value = "/doctorpresctiption/findbyname/{prescriptionName}", method = RequestMethod.GET, produces = {"application/json"})
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public DoctorPrescriptionEntity getPatientByName(@PathVariable String prescriptionName){
+        return doctorPrescriptionRepository.findByPrescriptionName(prescriptionName);
+
+    }
 
     @RequestMapping(value = "/doctorpresctiption/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
@@ -41,7 +48,7 @@ public class DoctorPrescriptionController {
         doctorPrescriptionService.saveOrUpdateDoctorPrescription(doctorPrescriptionEntity);
     }
 
-    @RequestMapping(value = "/doctorpresctiption/deletebyid/{doctorPrescriptionId}", method = {RequestMethod.POST, RequestMethod.GET}, produces = {"application/json"})
+    @RequestMapping(value = "/doctorpresctiption/deletebyid/{doctorPrescriptionId}", method = RequestMethod.DELETE, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public Long deleteDoctorPrescription(@PathVariable Long doctorPrescriptionId){

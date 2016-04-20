@@ -47,7 +47,7 @@ public class CaseRecordController {
         caseRecordService.saveOrUpdateCaseRecord(caseRecordEntity);
     }
 
-    @RequestMapping(value = "/caserecord/deletebyid/{patientId}", method = RequestMethod.DELETE, produces = {"application/json"})
+    @RequestMapping(value = "/caserecord/deletebyid/{caseId}", method = RequestMethod.DELETE, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public Long deleteCaseRecord(@PathVariable Long caseId){

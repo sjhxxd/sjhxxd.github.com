@@ -11,6 +11,6 @@ public interface PrescriptionsInfoService {
     public List<PrescriptionsInfoEntity> getAllPrescriptions();
     public PrescriptionsInfoEntity findByPrescriptionId(Long prescriptionId);
     public PrescriptionsInfoEntity saveOrUpdatePrescriptions(PrescriptionsInfoEntity prescriptionsInfoEntity);
-    public PrescriptionsInfoEntity deletePresriptions(long prescriptionId);
+    public PrescriptionsInfoEntity deletePresriptions(Long prescriptionId);
 }
 

@@ -23,7 +23,7 @@ public class PrescriptionsInfoServiceImpl implements PrescriptionsInfoService{
 
     @Override
     public PrescriptionsInfoEntity findByPrescriptionId(Long prescriptionId) {
-        return null;
+        return prescriptionsInfoRepository.findOne(prescriptionId);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class PrescriptionsInfoServiceImpl implements PrescriptionsInfoService{
     }
 
     @Override
-    public PrescriptionsInfoEntity deletePresriptions(long prescriptionId) {
+    public PrescriptionsInfoEntity deletePresriptions(Long prescriptionId) {
         prescriptionsInfoRepository.delete(prescriptionId);
         return null;
     }

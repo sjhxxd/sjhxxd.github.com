@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.lang.Long;
+import java.sql.Date;
 
 
 /**
@@ -15,7 +16,7 @@ import java.lang.Long;
 @Table(name = "doctorprescription")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DoctorPrescriptionEntity {
+public class DoctorPrescriptionEntity implements java.io.Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long doctorPrescriptionId;
@@ -23,16 +24,19 @@ public class DoctorPrescriptionEntity {
     private Integer oralDoses;
     private String doctorPrescriptionRemark;
     private String prescriptionType;
-
+    private String prescriptionName;
+    private Date prescriptionDate;
     public DoctorPrescriptionEntity(){
 
     }
 
-    public DoctorPrescriptionEntity(String prescriptionType, Integer oralDoses, String prescriptionInstructions, String doctorPrescriptionRemark) {
-        this.prescriptionType = prescriptionType;
-        this.oralDoses = oralDoses;
+    public DoctorPrescriptionEntity(String prescriptionInstructions, Integer oralDoses, String doctorPrescriptionRemark, String prescriptionType, String prescriptionName, Date prescriptionDate) {
         this.prescriptionInstructions = prescriptionInstructions;
+        this.oralDoses = oralDoses;
         this.doctorPrescriptionRemark = doctorPrescriptionRemark;
+        this.prescriptionType = prescriptionType;
+        this.prescriptionName = prescriptionName;
+        this.prescriptionDate = prescriptionDate;
     }
 
     public Long getDoctorPrescriptionId() {
@@ -42,9 +46,6 @@ public class DoctorPrescriptionEntity {
     public void setDoctorPrescriptionId(Long doctorPrescriptionId) {
         this.doctorPrescriptionId = doctorPrescriptionId;
     }
-
-
-
 
     public String getPrescriptionInstructions() {
         return prescriptionInstructions;
@@ -78,5 +79,20 @@ public class DoctorPrescriptionEntity {
         this.prescriptionType = prescriptionType;
     }
 
+    public String getPrescriptionName() {
+        return prescriptionName;
+    }
+
+    public void setPrescriptionName(String prescriptionName) {
+        this.prescriptionName = prescriptionName;
+    }
+
+    public Date getPrescriptionDate() {
+        return prescriptionDate;
+    }
+
+    public void setPrescriptionDate(Date prescriptionDate) {
+        this.prescriptionDate = prescriptionDate;
+    }
 
 }
