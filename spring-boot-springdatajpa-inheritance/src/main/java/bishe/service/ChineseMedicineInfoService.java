@@ -11,5 +11,5 @@ public interface ChineseMedicineInfoService {
     public List<ChineseMedicineInfoEntity> getAllChineseMedicine();
     public ChineseMedicineInfoEntity findByChineseMedicineId(Long chineseMedicineId);
     public ChineseMedicineInfoEntity saveOrUpdateChineseMedicine(ChineseMedicineInfoEntity chineseMedicineInfoEntity);
-    public ChineseMedicineInfoEntity deleteChineseMedicine(long chineseMedicineId);
+    public ChineseMedicineInfoEntity deleteChineseMedicine(Long chineseMedicineId);
 }

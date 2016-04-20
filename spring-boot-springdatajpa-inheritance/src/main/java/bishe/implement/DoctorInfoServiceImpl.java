@@ -43,7 +43,7 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 
 
     @Override
-    public DoctorInfoEntity deleteDoctor(long doctorId) {
+    public DoctorInfoEntity deleteDoctor(Long doctorId) {
         doctorInfoRepository.delete(doctorId);
         return null;
     }

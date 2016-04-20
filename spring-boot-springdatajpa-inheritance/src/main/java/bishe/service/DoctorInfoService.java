@@ -11,5 +11,5 @@ public interface DoctorInfoService {
     public List<DoctorInfoEntity> getAllDoctor();
     public DoctorInfoEntity findByDoctorId(Long doctorId);
     public DoctorInfoEntity saveOrUpdateDoctor(DoctorInfoEntity doctorInfoEntity);
-    public DoctorInfoEntity deleteDoctor(long doctorId);
+    public DoctorInfoEntity deleteDoctor(Long doctorId);
 }
