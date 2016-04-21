@@ -34,13 +34,15 @@ public class CaseRecordEntity implements java.io.Serializable {
     private String caseRemark;
     private String tipsContent;
     private Long tempSyndromeId;
+    private Long tempInquiryResultId;
+
 
 
     public CaseRecordEntity(){
 
     }
 
-    public CaseRecordEntity(Long tempPatientId, Long tempDoctorId, Long tempDiseaseId, Integer clinicalTime, Date caseDate, String patientTalk, String medicalHistory, Long tempPictureLocationId, String diagnosis, Long tempDoctorPrescriptionId, String curativeEffect, String caseRemark, String tipsContent,Long tempSyndromeId) {
+    public CaseRecordEntity(Long tempPatientId, Long tempDoctorId, Long tempDiseaseId, Integer clinicalTime, Date caseDate, String patientTalk, String medicalHistory, Long tempPictureLocationId, String diagnosis, Long tempDoctorPrescriptionId, String curativeEffect, String caseRemark, String tipsContent, Long tempSyndromeId, Long tempInquiryResultId) {
         this.tempPatientId = tempPatientId;
         this.tempDoctorId = tempDoctorId;
         this.tempDiseaseId = tempDiseaseId;
@@ -55,7 +57,9 @@ public class CaseRecordEntity implements java.io.Serializable {
         this.caseRemark = caseRemark;
         this.tipsContent = tipsContent;
         this.tempSyndromeId = tempSyndromeId;
+        this.tempInquiryResultId = tempInquiryResultId;
     }
+
 
     public Long getCaseId() {
         return caseId;
@@ -175,6 +179,14 @@ public class CaseRecordEntity implements java.io.Serializable {
 
     public void setTempSyndromeId(Long tempSyndromeId) {
         this.tempSyndromeId = tempSyndromeId;
+    }
+
+    public Long getTempInquiryResultId() {
+        return tempInquiryResultId;
+    }
+
+    public void setTempInquiryResultId(Long tempInquiryResultId) {
+        this.tempInquiryResultId = tempInquiryResultId;
     }
 
 }

@@ -30,9 +30,31 @@ public class ChineseMedicineInfoEntity implements java.io.Serializable{
     private Long tempPictureLocationId;
     private String chineseMedicineRemark;
     private String anotherName;
+    private String producingArea;
+    private String commonUsedPrescription;
+    private String machiningProcessing;
+    private String usePrecaution;
 
     public ChineseMedicineInfoEntity(){
 
+    }
+
+    public ChineseMedicineInfoEntity(String medicineName, String medicineProperty, String medicineTaste, String effectType, String medicineGrade, String channelTropism, String indicationsFunction, String clinicalApplication, Long tempPictureLocationId, String chineseMedicineRemark, String anotherName, String producingArea, String commonUsedPrescription, String machiningProcessing, String usePrecaution) {
+        this.medicineName = medicineName;
+        this.medicineProperty = medicineProperty;
+        this.medicineTaste = medicineTaste;
+        this.effectType = effectType;
+        this.medicineGrade = medicineGrade;
+        this.channelTropism = channelTropism;
+        this.indicationsFunction = indicationsFunction;
+        this.clinicalApplication = clinicalApplication;
+        this.tempPictureLocationId = tempPictureLocationId;
+        this.chineseMedicineRemark = chineseMedicineRemark;
+        this.anotherName = anotherName;
+        this.producingArea = producingArea;
+        this.commonUsedPrescription = commonUsedPrescription;
+        this.machiningProcessing = machiningProcessing;
+        this.usePrecaution = usePrecaution;
     }
 
     public ChineseMedicineInfoEntity(String medicineName, String medicineProperty, String medicineTaste, String effectType, String medicineGrade, String channelTropism, String indicationsFunction, String clinicalApplication, Long tempPictureLocationId, String chineseMedicineRemark, String anotherName) {
@@ -146,6 +168,36 @@ public class ChineseMedicineInfoEntity implements java.io.Serializable{
 
     public void setAnotherName(String anotherName) {
         this.anotherName = anotherName;
+    }
+
+    public String getProducingArea() {
+        return producingArea;
+    }
+
+    public void setProducingArea(String producingArea) {
+        this.producingArea = producingArea;
+    }
+
+    public String getCommonUsedPrescription() {
+        return commonUsedPrescription;
+    }
+
+    public void setCommonUsedPrescription(String commonUsedPrescription) {this.commonUsedPrescription = commonUsedPrescription;}
+
+    public String getMachiningProcessing() {
+        return machiningProcessing;
+    }
+
+    public void setMachiningProcessing(String machiningProcessing) {
+        this.machiningProcessing = machiningProcessing;
+    }
+
+    public String getUsePrecaution() {
+        return usePrecaution;
+    }
+
+    public void setUsePrecaution(String usePrecaution) {
+        this.usePrecaution = usePrecaution;
     }
 
 }

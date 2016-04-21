@@ -26,9 +26,29 @@ public class DoctorInfoEntity implements java.io.Serializable {
     private String doctorAddress;
     private Integer checkState;
     private String doctorRemark;
+    private String doctorWechat;
+    private String doctorIntroduction;
+    private Long tempPictureLocationId;
 
     public DoctorInfoEntity() {
 
+    }
+
+    public DoctorInfoEntity(String doctorName, String doctorSex, Integer doctorAge, String doctorPhoneNumber, String doctorUnitName, String doctorDepartmentName, String doctorIdentity, String doctorPassword, String doctorAddress, Integer checkState, String doctorRemark, String doctorWechat, String doctorIntroduction, Long tempPictureLocationId) {
+        this.doctorName = doctorName;
+        this.doctorSex = doctorSex;
+        this.doctorAge = doctorAge;
+        this.doctorPhoneNumber = doctorPhoneNumber;
+        this.doctorUnitName = doctorUnitName;
+        this.doctorDepartmentName = doctorDepartmentName;
+        this.doctorIdentity = doctorIdentity;
+        this.doctorPassword = doctorPassword;
+        this.doctorAddress = doctorAddress;
+        this.checkState = checkState;
+        this.doctorRemark = doctorRemark;
+        this.doctorWechat = doctorWechat;
+        this.doctorIntroduction = doctorIntroduction;
+        this.tempPictureLocationId = tempPictureLocationId;
     }
 
     public DoctorInfoEntity(String doctorName, String doctorSex, Integer doctorAge, String doctorPhoneNumber, String doctorUnitName, String doctorDepartmentName, String doctorIdentity, String doctorPassword, String doctorAddress, Integer checkState, String doctorRemark) {
@@ -146,6 +166,30 @@ public class DoctorInfoEntity implements java.io.Serializable {
 
     public void setDoctorRemark(String doctorRemark) {
         this.doctorRemark = doctorRemark;
+    }
+
+    public String getDoctorWechat() {
+        return doctorWechat;
+    }
+
+    public void setDoctorWechat(String doctorWechat) {
+        this.doctorWechat = doctorWechat;
+    }
+
+    public String getDoctorIntroduction() {
+        return doctorIntroduction;
+    }
+
+    public void setDoctorIntroduction(String doctorIntroduction) {
+        this.doctorIntroduction = doctorIntroduction;
+    }
+
+    public Long getTempPictureLocationId() {
+        return tempPictureLocationId;
+    }
+
+    public void setTempPictureLocationId(Long tempPictureLocationId) {
+        this.tempPictureLocationId = tempPictureLocationId;
     }
 
 

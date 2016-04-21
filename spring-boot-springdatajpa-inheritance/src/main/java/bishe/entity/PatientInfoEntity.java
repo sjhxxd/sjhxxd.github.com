@@ -20,13 +20,29 @@ public class PatientInfoEntity implements java.io.Serializable {
     private String patientSex;
     private Integer patientAge;
     private String patientPhoneNumber;
+    private String patientIdentityCard;
     private Integer patientHeight;
     private Double patientWeight;
+    private String patientPosture;
     private String patientProfessional;
     private String patientAddress;
     private String patientRemark;
 
     public PatientInfoEntity() {
+    }
+
+    public PatientInfoEntity(String patientName, String patientSex, Integer patientAge, String patientPhoneNumber, String patientIdentityCard, Integer patientHeight, Double patientWeight, String patientPosture, String patientProfessional, String patientAddress, String patientRemark) {
+        this.patientName = patientName;
+        this.patientSex = patientSex;
+        this.patientAge = patientAge;
+        this.patientPhoneNumber = patientPhoneNumber;
+        this.patientIdentityCard = patientIdentityCard;
+        this.patientHeight = patientHeight;
+        this.patientWeight = patientWeight;
+        this.patientPosture = patientPosture;
+        this.patientProfessional = patientProfessional;
+        this.patientAddress = patientAddress;
+        this.patientRemark = patientRemark;
     }
 
     public PatientInfoEntity(String patientName, String patientSex, Integer patientAge, String patientPhoneNumber, Integer patientHeight, Double patientWeight, String patientProfessional, String patientAddress, String patientRemark) {
@@ -84,6 +100,13 @@ public class PatientInfoEntity implements java.io.Serializable {
         this.patientPhoneNumber = patientPhoneNumber;
     }
 
+    public String getPatientIdentityCard() {
+        return patientIdentityCard;
+    }
+
+    public void setPatientIdentityCard(String patientIdentityCard) {
+        this.patientIdentityCard = patientIdentityCard;
+    }
 
     public Integer getPatientHeight() {
         return patientHeight;
@@ -99,6 +122,14 @@ public class PatientInfoEntity implements java.io.Serializable {
 
     public void setPatientWeight(Double patientWeight) {
         this.patientWeight = patientWeight;
+    }
+
+    public String getPatientPosture() {
+        return patientPosture;
+    }
+
+    public void setPatientPosture(String patientPosture) {
+        this.patientPosture = patientPosture;
     }
 
     public String getPatientProfessional() {
