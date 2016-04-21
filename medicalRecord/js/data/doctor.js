@@ -3,8 +3,8 @@ var $table = $("#doctorInfoTable");
 var rowcontent = null;
 function initTable() {
     $table.bootstrapTable({
-        url:baseAddress+"/doctorinfo/getall",
-        dataType:"json",
+        url: baseAddress + "/doctorinfo/getall",
+        dataType: "json",
         columns: [{
             field: 'state',
             checkbox: true,
@@ -46,6 +46,15 @@ function initTable() {
         }, {
             field: 'doctorRemark',
             title: '备注'
+        }, {
+            field: 'doctorWechat',
+            title: '微信'
+        }, {
+            field: 'doctorIntroduction',
+            title: '自我介绍'
+        }, {
+            field: 'tempPictureLocationId',
+            title: '图片ID'
         }]
 
     });
@@ -68,7 +77,7 @@ $('#cancel').click(function () {
 });
 
 
-$("#edit").click(function(){
+$("#edit").click(function () {
     var jsonobject = eval('(' + rowcontent + ')');
     $("#doctorId").val(jsonobject.doctorId);
     $("#doctorName").val(jsonobject.doctorName);
@@ -82,6 +91,9 @@ $("#edit").click(function(){
     $("#doctorAddress").val(jsonobject.doctorAddress);
     $("#checkState").val(jsonobject.checkState);
     $("#doctorRemark").val(jsonobject.doctorRemark);
+    $("#doctorWechat").val(jsonobject.doctorWechat);
+    $("#doctorIntroduction").val(jsonobject.doctorIntroduction);
+    $("#tempPictureLocationId").val(jsonobject.tempPictureLocationId);
 
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
@@ -94,47 +106,53 @@ $table.on('check.bs.table', function (e, row) {
     rowcontent = JSON.stringify(row);
 });
 
-$(function(){
+$(function () {
     $("#doit").click(
-        function(){
-            var doctorId=$("#doctorId").val();
-            var doctorName=$("#doctorName").val();
-            var doctorSex=$("#doctorSex").val();
-            var doctorAge=$("#doctorAge").val();
-            var doctorPhoneNumber=$("#doctorPhoneNumber").val();
-            var doctorUnitName=$("#doctorUnitName").val();
-            var doctorDepartmentName=$("#doctorDepartmentName").val();
-            var doctorIdentity=$("#doctorIdentity").val();
-            var doctorPassword=$("#doctorPassword").val();
-            var doctorAddress=$("#doctorAddress").val();
-            var checkState=$("#checkState").val();
-            var doctorRemark=$("#doctorRemark").val();
+        function () {
+            var doctorId = $("#doctorId").val();
+            var doctorName = $("#doctorName").val();
+            var doctorSex = $("#doctorSex").val();
+            var doctorAge = $("#doctorAge").val();
+            var doctorPhoneNumber = $("#doctorPhoneNumber").val();
+            var doctorUnitName = $("#doctorUnitName").val();
+            var doctorDepartmentName = $("#doctorDepartmentName").val();
+            var doctorIdentity = $("#doctorIdentity").val();
+            var doctorPassword = $("#doctorPassword").val();
+            var doctorAddress = $("#doctorAddress").val();
+            var checkState = $("#checkState").val();
+            var doctorRemark = $("#doctorRemark").val();
+            var doctorWechat = $("#doctorWechat").val();
+            var doctorIntroduction = $("#doctorIntroduction").val();
+            var tempPictureLocationId = $("#tempPictureLocationId").val();
 
             $.ajax({
-                url:baseAddress+"/doctorinfo/saveorupdate",
-                type:"post",
-                dateType:"json",
-                data:{
-                    "doctorId":doctorId,
-                    "doctorName":doctorName,
-                    "doctorSex":doctorSex,
-                    "doctorAge":doctorAge,
-                    "doctorPhoneNumber":doctorPhoneNumber,
-                    "doctorUnitName":doctorUnitName,
-                    "doctorDepartmentName":doctorDepartmentName,
-                    "doctorIdentity":doctorIdentity,
-                    "doctorPassword":doctorPassword,
-                    "doctorAddress":doctorAddress,
-                    "checkState":checkState,
-                    "doctorRemark":doctorRemark
+                url: baseAddress + "/doctorinfo/saveorupdate",
+                type: "post",
+                dateType: "json",
+                data: {
+                    "doctorId": doctorId,
+                    "doctorName": doctorName,
+                    "doctorSex": doctorSex,
+                    "doctorAge": doctorAge,
+                    "doctorPhoneNumber": doctorPhoneNumber,
+                    "doctorUnitName": doctorUnitName,
+                    "doctorDepartmentName": doctorDepartmentName,
+                    "doctorIdentity": doctorIdentity,
+                    "doctorPassword": doctorPassword,
+                    "doctorAddress": doctorAddress,
+                    "checkState": checkState,
+                    "doctorRemark": doctorRemark,
+                    "doctorWechat": doctorWechat,
+                    "doctorIntroduction": doctorIntroduction,
+                    "tempPictureLocationId": tempPictureLocationId
                 },
-                success:function(msg){
+                success: function (msg) {
                     turnPage('doctor.html');
-                    console.log("doctor_success:"+msg)
+                    console.log("doctor_success:" + msg)
                 },
-                error:function(msg){
+                error: function (msg) {
                     turnPage('doctor.html');
-                    console.log("doctor_error:"+msg)
+                    console.log("doctor_error:" + msg)
 
                 }
 
@@ -147,7 +165,7 @@ $('#remove').click(function () {
     if (confirm("是否删除此条医生信息？")) {
         $.ajax({
             type: 'delete',
-            url: baseAddress+"/doctorinfo/deletebyid/" + jsonobject.doctorId + "/",
+            url: baseAddress + "/doctorinfo/deletebyid/" + jsonobject.doctorId + "/",
             success: function (json) {
                 turnPage('doctor.html');
             }

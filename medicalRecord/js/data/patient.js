@@ -34,6 +34,9 @@ function initTable() {
             field: 'patientPhoneNumber',
             title: '手机号码'
         }, {
+            field: 'patientIdentityCard',
+            title: '身份证'
+        }, {
             field: 'patientHeight',
             title: '病人身高',
             formatter: function (value, row, index) {
@@ -45,6 +48,9 @@ function initTable() {
             formatter: function (value, row, index) {
                 return value + " kg";
             }
+        }, {
+            field: 'patientPosture',
+            title: '病人体态'
         }, {
             field: 'patientProfessional',
             title: '病人职业'
@@ -85,8 +91,10 @@ $('#edit').click(function () {
     $('#patientSex').val(jsonobject.patientSex);
     $('#patientAge').val(jsonobject.patientAge);
     $('#patientPhoneNumber').val(jsonobject.patientPhoneNumber);
+    $('#patientIdentityCard').val(jsonobject.patientIdentityCard);
     $('#patientHeight').val(jsonobject.patientHeight);
     $('#patientWeight').val(jsonobject.patientWeight);
+    $('#patientPosture').val(jsonobject.patientPosture);
     $('#patientProfessional').val(jsonobject.patientProfessional);
     $('#patientAddress').val(jsonobject.patientAddress);
     $('#patientRemark').val(jsonobject.patientRemark);
@@ -112,35 +120,39 @@ $(function () {
             var patientSex = $('#patientSex').val();
             var patientAge = $('#patientAge').val();
             var patientPhoneNumber = $('#patientPhoneNumber').val();
+            var patientIdentityCard = $('#patientIdentityCard').val();
             var patientHeight = $('#patientHeight').val();
             var patientWeight = $('#patientWeight').val();
+            var patientPosture = $('#patientPosture').val();
             var patientProfessional = $('#patientProfessional').val();
             var patientAddress = $('#patientAddress').val();
             var patientRemark = $('#patientRemark').val();
 
             $.ajax({
-                url: baseAddress+"/patientinfo/saveorupdate",
+                url: baseAddress + "/patientinfo/saveorupdate",
                 type: "post",
                 dataType: "json",
                 data: {
-                    "patientId":patientId,
+                    "patientId": patientId,
                     "patientName": patientName,
                     'patientSex': patientSex,
                     "patientAge": patientAge,
                     "patientPhoneNumber": patientPhoneNumber,
+                    "patientIdentityCard": patientIdentityCard,
                     "patientHeight": patientHeight,
                     "patientWeight": patientWeight,
+                    "patientPosture": patientPosture,
                     "patientProfessional": patientProfessional,
                     "patientAddress": patientAddress,
                     "patientRemark": patientRemark
                 },
                 success: function (msg) {
                     turnPage('patient.html');
-                    console.log("patient_success:"+msg)
+                    console.log("patient_success:" + msg)
                 },
-                error: function (msg){
+                error: function (msg) {
                     turnPage('patient.html');
-                    console.log("patient_error:"+msg)
+                    console.log("patient_error:" + msg)
 
                 }
             });
@@ -153,7 +165,7 @@ $('#remove').click(function () {
     if (confirm("是否删除此条病人信息？")) {
         $.ajax({
             type: 'delete',
-            url: baseAddress+"/patientinfo/deletebyid/" + jsonobject.patientId + "/",
+            url: baseAddress + "/patientinfo/deletebyid/" + jsonobject.patientId + "/",
             success: function (json) {
                 turnPage('patient.html');
             }
