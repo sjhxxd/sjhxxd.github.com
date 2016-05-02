@@ -9,17 +9,17 @@
     <title>TestTable</title>
 </head>
 <body>
-
+<div id="right-nav"><strong>病人信息表</strong></div>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
         <button id="add" class="btn btn-danger">
-            <i class="glyphicon glyphicon-plus"></i> Add
+            <i class="glyphicon glyphicon-plus"></i> 添加
         </button>
         <button id="edit" class="btn btn-danger">
-            <i class="glyphicon glyphicon-edit"></i> Edit
+            <i class="glyphicon glyphicon-edit"></i> 修改
         </button>
         <button id="remove" class="btn btn-danger">
-            <i class="glyphicon glyphicon-remove"></i> Delete
+            <i class="glyphicon glyphicon-remove"></i> 删除
         </button>
     </div>
     <table id="patientInfoTable"
@@ -45,89 +45,91 @@
             <div class="panel-heading">
                 <h4 class="panel-title" id="changepanel">病人信息添加</h4>
             </div>
-            <form id="patientform" method="POST" >
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div id="patientInfoEntity" name="patientInfoEntity">
-                                    <div class="form-group hidden">
-                                        <label for="patientId">病人ID</label>
-                                        <input type="text" class="form-control " id="patientId" 
-                                               disabled="true">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="patientName">病人姓名</label>
-                                        <input type="text" class="form-control" id="patientName"
-                                                required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="patientSex">病人性别</label>
-                                        <input type="text" class="form-control" id="patientSex"
-                                                required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="patientAge">病人年龄</label>
-                                        <input type="text" class="form-control" id="patientAge"
-                                                required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="patientPhoneNumber">手机号码</label>
-                                        <input type="text" class="form-control" id="patientPhoneNumber"
-                                                required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="patientIdentityCard">身份证</label>
-                                        <input type="text" class="form-control" id="patientIdentityCard"
-                                                required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="patientHeight">病人身高</label>
-                                        <input type="text" class="form-control" id="patientHeight"
-                                                required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="patientWeight">病人体重</label>
-                                        <input type="text" class="form-control" id="patientWeight"
-                                                required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="patientPosture">病人体态</label>
-                                        <input type="text" class="form-control" id="patientPosture"
-                                                required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="patientProfessional">病人职业</label>
-                                        <input type="text" class="form-control" id="patientProfessional"
-                                                required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="patientAddress">病人住址</label>
-                                        <input type="text" class="form-control" id="patientAddress"
-                                                required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="patientRemark">备注</label>
-                                        <input type="text" class="form-control" id="patientRemark"
-                                                required>
-                                    </div>
+            <form id="patientform" method="POST">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="patientInfoEntity" name="patientInfoEntity">
+                                <div class="form-group hidden">
+                                    <label for="patientId">病人ID</label>
+                                    <input type="text" class="form-control " id="patientId"
+                                           disabled="true">
                                 </div>
-
-                            </div> <!--cil-md-5 -->
-                        </div>  <!--row-->
-                    </div>
-
-                    <div class="panel-footer">
-                        <div class="row">
-                            <div class="col-md-1 col-md-offset-10 col-lg-offset-10 col-lg-1">
-                                <button type="button" class="btn btn-default"  id="cancel">取消
-                                </button>
+                                <div class="form-group">
+                                    <label for="patientName">病人姓名</label>
+                                    <input type="text" class="form-control" id="patientName"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientSex">病人性别</label>
+                                    <input type="text" class="form-control" id="patientSex"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientAge">病人年龄</label>
+                                    <input type="text" class="form-control" id="patientAge" name="patientAge"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientPhoneNumber">手机号码</label>
+                                    <input type="text" class="form-control" id="patientPhoneNumber"
+                                           name="patientPhoneNumber"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientIdentityCard">身份证</label>
+                                    <input type="text" class="form-control" id="patientIdentityCard"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientHeight">病人身高</label>
+                                    <input type="text" class="form-control" id="patientHeight" min="100" max="250"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientWeight">病人体重</label>
+                                    <input type="text" class="form-control" id="patientWeight"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientPosture">病人体态</label>
+                                    <input type="text" class="form-control" id="patientPosture"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientProfessional">病人职业</label>
+                                    <input type="text" class="form-control" id="patientProfessional" name="val50"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientAddress">病人住址</label>
+                                    <input type="text" class="form-control" id="patientAddress" name="val50"
+                                           >
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientRemark">备注</label>
+                                        <textarea type="text" class="form-control" id="patientRemark" name="val1024"
+                                                  cols="0" rows="6" required>
+                                        </textarea>
+                                </div>
                             </div>
-                            <div class="col-md-1">
-                                <button type="submit" class="btn btn-success"  id="doit">创建
-                                </button>
-                            </div>
+
+                        </div> <!--cil-md-5 -->
+                    </div>  <!--row-->
+                </div>
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-1 col-md-offset-10 col-lg-offset-10 col-lg-1">
+                            <button type="button" class="btn btn-default" id="cancel">取消
+                            </button>
+                        </div>
+                        <div class="col-md-1">
+                            <button type="submit" class="btn btn-success" id="doit">创建
+                            </button>
                         </div>
                     </div>
+                </div>
             </form>
         </div>
     </div>  <!--col-md-10-->

@@ -3,7 +3,7 @@
  */
 //病案信息表
 var $table = $("#caseRecordTable");
-
+var rowcontent = null;
 function initTable() {
     $table.bootstrapTable({
         url: baseAddress + "/caserecord/getall",
@@ -28,10 +28,9 @@ function initTable() {
             //            for (i in msg) {
             //                str += "<option value =" + msg[i].patientId + " >" + msg[i].patientName + "</option>";
             //            }
-            //            $("#tempPatientId").append(str);
+            //            return str;
             //        }
-            //    };
-            //    return name;
+            //    });
             //},
             title: '病人ID'
         }, {
@@ -91,8 +90,7 @@ $("form").submit(function (e) {
     e.preventDefault();
 });
 $('#cancel').click(function () {
-    $('.showpanel').css('display', 'block');
-    $('.addpanel').css('display', 'none');
+    turnPage('caseRecord.html');
 });
 
 

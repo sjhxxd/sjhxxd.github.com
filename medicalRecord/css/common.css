@@ -197,12 +197,16 @@ tbody {
     margin-top:5px;
     padding: 6px 9px;
 }
-
+.help-block,
 .form-group label{
     margin-left: 5%;
 }
+.form-control-feedback{
+    margin-right: 5%;
+}
 
 .form-group>input,
+.form-group>textarea,
 .form-group>select{
     width:90%;
     margin:0 auto;

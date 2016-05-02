@@ -50,8 +50,6 @@ function initTable(){
     });
 }
 
-initTable();
-
 $("#add").click(function () {
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
@@ -62,8 +60,7 @@ $("form").submit(function (e) {
     e.preventDefault();
 });
 $('#cancel').click(function () {
-    $('.showpanel').css('display', 'block');
-    $('.addpanel').css('display', 'none');
+    turnPage('patentMedicine.html');
 });
 
 
@@ -83,7 +80,6 @@ $("#edit").click(function(){
 
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
-
     $('#changepanel').html("中成药信息编辑");
     $('#doit').html("确定");
 
@@ -93,6 +89,7 @@ $table.on('check.bs.table', function (e, row) {
 });
 
 $(function(){
+    initTable();
     $("#doit").click(
         function(){
             var patentMedicineId=$("#patentMedicineId").val();

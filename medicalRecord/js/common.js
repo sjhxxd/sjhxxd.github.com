@@ -114,23 +114,6 @@ $(function () {
         $(this).siblings().toggle(500);
         $(this).parent().siblings().find('ul').hide(500);
 
-        var imsi = document.getElementsByTagName("i");
-        for (var j = 0; j < imsi.length; j++) {
-        var curr_i=imsi[j];
-
-        }
-        //if (!document.getElementsByTagName) return false;
-        //var imsi = document.getElementsByTagName("i");
-        //for (var j = 0; j < imsi.length; j++) {
-        //    var curr_i = imsi[j];
-        //    var down = curr_i.getAttribute("class");
-        //
-        //        curr_i.removeAttribute("class");
-        //
-        //    var right_icon = curr_i.setAttribute("class", "glyphicon glyphicon-chevron-right");
-        //    console.log(down)
-        //}
-
     });
 
     $(".submenu> li>a").click(function () {

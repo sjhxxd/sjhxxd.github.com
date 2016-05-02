@@ -11,13 +11,13 @@
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
         <button id="add" class="btn btn-danger">
-            <i class="glyphicon glyphicon-plus"></i> Add
+            <i class="glyphicon glyphicon-plus"></i> 添加
         </button>
         <button id="edit" class="btn btn-danger">
-            <i class="glyphicon glyphicon-edit"></i> Edit
+            <i class="glyphicon glyphicon-edit"></i> 修改
         </button>
         <button id="remove" class="btn btn-danger">
-            <i class="glyphicon glyphicon-remove"></i> Delete
+            <i class="glyphicon glyphicon-remove"></i> 删除
         </button>
     </div>
     <table id="chineseMedPreMappTable"
@@ -43,6 +43,57 @@
                 <h4 class="panel-title" id="changepanel">中药处方映射关系添加</h4>
             </div>
             <form id="chineseMedPreMappform" method="post">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="dchineseMedPreMappEntity" name="chineseMedPreMappEntity">
+                                <div class="form-group hidden">
+                                    <label for="chineseMedPrescriptMappId">中药处方映射ID</label>
+                                    <input type="text" class="form-control " id="chineseMedPrescriptMappId"
+                                           disabled="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tempChineseMedicineId">中药ID</label>
+                                    <select type="text" class="form-control" id="tempChineseMedicineId"
+                                           required></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tempDoctorPrescriptionId">处方ID</label>
+                                    <select type="text" class="form-control" id="tempDoctorPrescriptionId"
+                                           required></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="chineseMedicineDose">中药用量</label>
+                                    <input type="text" class="form-control" id="chineseMedicineDose"
+                                           required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tempUnitId">计量单位ID</label>
+                                    <select type="text" class="form-control" id="tempUnitId"
+                                            required></select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="decoctionMethod">煎法</label>
+                                    <input type="text" class="form-control" id="decoctionMethod"
+                                           required>
+                                </div>
+                            </div>
+                        </div> <!--cil-md-5 -->
+                    </div>  <!--row-->
+                </div>
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-1 col-md-offset-10 col-lg-offset-10 col-lg-1">
+                            <button type="button" class="btn btn-default" id="cancel">取消
+                            </button>
+                        </div>
+                        <div class="col-md-1">
+                            <button type="submit" class="btn btn-success" id="doit">创建
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
             </form>
         </div>

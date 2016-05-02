@@ -2,7 +2,6 @@
 //常见疾病类别表
 var $table = $("#commonDiseaseTypeTable");
 var rowcontent = null;
-var tag = null;
 function initTable() {
     $table.bootstrapTable({
         url: baseAddress + "/commondiseasetype/getall",
@@ -30,7 +29,6 @@ function initTable() {
 initTable();
 
 $("#add").click(function () {
-    tag = "add";
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
 });
@@ -40,8 +38,7 @@ $("form").submit(function (e) {
     e.preventDefault();
 });
 $('#cancel').click(function () {
-    $('.showpanel').css('display', 'block');
-    $('.addpanel').css('display', 'none');
+    turnPage('commonDiseaseType.html');
 });
 $table.on('check.bs.table', function (e, row) {
     rowcontent = JSON.stringify(row);
@@ -54,12 +51,9 @@ $("#edit").click(function(){
     $("#commonDiseaseTypeName").val(jsonobject.commonDiseaseTypeName);
     $("#commonDiseaseTypeCode").val(jsonobject.commonDiseaseTypeCode);
     $("#commonDiseaseTypeExplain").val(jsonobject.commonDiseaseTypeExplain);
-
-
-
+    
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
-
     $('#changepanel').html("疾病类别信息编辑");
     $('#doit').html("确定");
 

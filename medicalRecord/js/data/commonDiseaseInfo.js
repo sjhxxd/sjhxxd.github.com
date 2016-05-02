@@ -1,8 +1,6 @@
 //常见疾病信息
 var $table = $("#commonDiseaseInfoTable");
 var rowcontent = null;
-var tag = null;
-
 function initTable() {
     $table.bootstrapTable({
         url: baseAddress + "/commondiseaseinfo/getall",
@@ -30,7 +28,6 @@ function initTable() {
 initTable();
 
 $("#add").click(function () {
-    tag = "add";
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
 });
@@ -40,15 +37,13 @@ $("form").submit(function (e) {
     e.preventDefault();
 });
 $('#cancel').click(function () {
-    $('.showpanel').css('display', 'block');
-    $('.addpanel').css('display', 'none');
+    turnPage('commondiseaseinfo.html');
 });
 $table.on('check.bs.table', function (e, row) {
     rowcontent = JSON.stringify(row);
 });
 
 $("#edit").click(function () {
-    tag = "edit";
     var jsonobject = eval('(' + rowcontent + ')');
     $("#commonDiseaseId").val(jsonobject.commonDiseaseId);
     $("#tempCommonDiseaseTypeId").val(jsonobject.tempCommonDiseaseTypeId);

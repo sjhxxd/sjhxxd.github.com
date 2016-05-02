@@ -1,6 +1,7 @@
 //医生信息表
 var $table = $("#doctorInfoTable");
 var rowcontent = null;
+
 function initTable() {
     $table.bootstrapTable({
         url: baseAddress + "/doctorinfo/getall",
@@ -60,7 +61,6 @@ function initTable() {
     });
 }
 
-initTable();
 
 $("#add").click(function () {
     $('.showpanel').css('display', 'none');
@@ -72,8 +72,7 @@ $("form").submit(function (e) {
     e.preventDefault();
 });
 $('#cancel').click(function () {
-    $('.showpanel').css('display', 'block');
-    $('.addpanel').css('display', 'none');
+    turnPage('doctor.html');
 });
 
 
@@ -81,7 +80,11 @@ $("#edit").click(function () {
     var jsonobject = eval('(' + rowcontent + ')');
     $("#doctorId").val(jsonobject.doctorId);
     $("#doctorName").val(jsonobject.doctorName);
-    $("#doctorSex").val(jsonobject.doctorSex);
+    if (jsonobject.doctorSex.toString() == "男") {
+        $("#male").attr("checked", "true")
+    } else {
+        $("#female").attr("checked", "true")
+    }
     $("#doctorAge").val(jsonobject.doctorAge);
     $("#doctorPhoneNumber").val(jsonobject.doctorPhoneNumber);
     $("#doctorUnitName").val(jsonobject.doctorUnitName);
@@ -94,6 +97,7 @@ $("#edit").click(function () {
     $("#doctorWechat").val(jsonobject.doctorWechat);
     $("#doctorIntroduction").val(jsonobject.doctorIntroduction);
     $("#tempPictureLocationId").val(jsonobject.tempPictureLocationId);
+    console.log("doctorEntity--->", jsonobject);
 
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
@@ -107,6 +111,8 @@ $table.on('check.bs.table', function (e, row) {
 });
 
 $(function () {
+    initTable();
+
     $("#doit").click(
         function () {
             var doctorId = $("#doctorId").val();

@@ -35,12 +35,8 @@ function initTable(){
             field: 'pictureRemarks',
             title: '图片备注'
         }]
-
     });
 }
-
-initTable();
-
 $("#add").click(function () {
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
@@ -51,8 +47,7 @@ $("form").submit(function (e) {
     e.preventDefault();
 });
 $('#cancel').click(function () {
-    $('.showpanel').css('display', 'block');
-    $('.addpanel').css('display', 'none');
+    turnPage('pictureList.html');
 });
 
 
@@ -77,6 +72,7 @@ $table.on('check.bs.table', function (e, row) {
 });
 
 $(function(){
+    initTable();
     $("#doit").click(
         function(){
             var pictureLocationId=$("#pictureLocationId").val();

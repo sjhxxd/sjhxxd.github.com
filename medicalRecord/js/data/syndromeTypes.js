@@ -1,8 +1,6 @@
 //证型信息表
 var $table=$("#syndromeTypesTable");
 var rowcontent = null;
-var tag = null;
-
 function initTable(){
     $table.bootstrapTable({
         url:baseAddress+"/syndrometypes/getall",
@@ -34,7 +32,6 @@ function initTable(){
 initTable();
 
 $("#add").click(function () {
-    tag = "add";
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
 });
@@ -44,15 +41,14 @@ $("form").submit(function (e) {
     e.preventDefault();
 });
 $('#cancel').click(function () {
-    $('.showpanel').css('display', 'block');
-    $('.addpanel').css('display', 'none');
+    turnPage('syndromeTypes.html');
 });
+
 $table.on('check.bs.table', function (e, row) {
     rowcontent = JSON.stringify(row);
 });
 
 $("#edit").click(function () {
-    tag = "edit";
     var jsonobject = eval('(' + rowcontent + ')');
     $("#syndromeId").val(jsonobject.syndromeId);
     $("#syndromeSystemType").val(jsonobject.syndromeSystemType);
