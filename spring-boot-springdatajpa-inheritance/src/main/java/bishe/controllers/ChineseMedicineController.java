@@ -31,11 +31,11 @@ public class ChineseMedicineController {
         return chineseMedicineInfoService.getAllChineseMedicine();
     }
 
-    @RequestMapping(value = "/chinesemedicineinfo/findbyname/{medicineName}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/chinesemedicineinfo/findbyname",params="medicineName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
-    public ChineseMedicineInfoEntity getChineseMedicineByOne(@PathVariable String medicineName) {
+    public ChineseMedicineInfoEntity getChineseMedicineByOne(@RequestParam(value = "medicineName", required = true) String medicineName) {
         return chineseMedicineInfoRepository.findByMedicineName(medicineName);
     }
 

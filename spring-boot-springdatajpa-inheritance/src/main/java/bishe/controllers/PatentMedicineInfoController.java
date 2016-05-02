@@ -26,11 +26,11 @@ public class PatentMedicineInfoController {
         return patentMedicineInfoService.getAllPatentMedicine();
     }
 
-    @RequestMapping(value = "/patentmedicineinfo/findbyname/{patentmedicinename}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/patentmedicineinfo/findbyname",params="patentmedicineName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public PatentMedicineInfoEntity getPatentMedicineByOne(@PathVariable String patentmedicinename) {
-        return patentMedicineInfoRepository.findByPatentMedicineName(patentmedicinename);
+    public PatentMedicineInfoEntity getPatentMedicineByOne(@RequestParam(value = "patentmedicineName", required = true) String patentmedicineName) {
+        return patentMedicineInfoRepository.findByPatentMedicineName(patentmedicineName);
     }
 
 

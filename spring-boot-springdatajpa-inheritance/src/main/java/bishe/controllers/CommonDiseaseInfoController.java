@@ -28,10 +28,10 @@ public class CommonDiseaseInfoController {
     }
 
 
-    @RequestMapping(value = "/commondiseaseinfo/findbyname/{commonDiseaseName}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/commondiseaseinfo/findbyname",params="commonDiseaseName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public CommonDiseaseInfoEntity getCommonDiseaseInfoByName(@PathVariable String commonDiseaseName){
+    public CommonDiseaseInfoEntity getCommonDiseaseInfoByName(@RequestParam(value = "commonDiseaseName", required = true) String commonDiseaseName){
         return commonDiseaseInfoRepository.findByCommonDiseaseName(commonDiseaseName);
     }
 

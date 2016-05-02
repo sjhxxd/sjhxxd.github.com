@@ -30,10 +30,10 @@ public class FoodMaterialInfoController {
     }
 
 
-    @RequestMapping(value = "/foodmaterialinfo/findbyname/{foodMaterialName}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/foodmaterialinfo/findbyname",params="foodMaterialName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public FoodMaterialInfoEntity getFoodMaterialByOne(@PathVariable String foodMaterialName) {
+    public FoodMaterialInfoEntity getFoodMaterialByOne(@RequestParam(value = "foodMaterialName", required = true) String foodMaterialName) {
         return foodMaterialInfoRepository.findByFoodMaterialName(foodMaterialName);
     }
 

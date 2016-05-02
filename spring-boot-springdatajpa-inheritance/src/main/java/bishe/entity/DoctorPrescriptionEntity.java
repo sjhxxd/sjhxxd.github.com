@@ -1,11 +1,14 @@
 package bishe.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.lang.Long;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 
 /**
@@ -25,12 +28,12 @@ public class DoctorPrescriptionEntity implements java.io.Serializable{
     private String doctorPrescriptionRemark;
     private String prescriptionType;
     private String prescriptionName;
-    private Date prescriptionDate;
+    private Timestamp prescriptionDate;
     public DoctorPrescriptionEntity(){
 
     }
 
-    public DoctorPrescriptionEntity(String prescriptionInstructions, Integer oralDoses, String doctorPrescriptionRemark, String prescriptionType, String prescriptionName, Date prescriptionDate) {
+    public DoctorPrescriptionEntity(String prescriptionInstructions, Integer oralDoses, String doctorPrescriptionRemark, String prescriptionType, String prescriptionName, Timestamp prescriptionDate) {
         this.prescriptionInstructions = prescriptionInstructions;
         this.oralDoses = oralDoses;
         this.doctorPrescriptionRemark = doctorPrescriptionRemark;
@@ -86,12 +89,12 @@ public class DoctorPrescriptionEntity implements java.io.Serializable{
     public void setPrescriptionName(String prescriptionName) {
         this.prescriptionName = prescriptionName;
     }
-
-    public Date getPrescriptionDate() {
+    @JsonFormat(pattern="yyyy-MM-dd")
+    public Timestamp getPrescriptionDate() {
         return prescriptionDate;
     }
 
-    public void setPrescriptionDate(Date prescriptionDate) {
+    public void setPrescriptionDate(Timestamp prescriptionDate) {
         this.prescriptionDate = prescriptionDate;
     }
 

@@ -27,10 +27,10 @@ public class CommonDiseaseTypeController {
         return commonDiseaseTypeService.getAllCommonDiseaseType();
     }
 
-    @RequestMapping(value = "/commondiseasetype/findbyname/{commonDiseaseTypeName}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/commondiseasetype/findbyname",params="commonDiseaseTypeName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public CommonDiseaseTypeEntity getCommonDiseaseTypeByName(@PathVariable String commonDiseaseTypeName){
+    public CommonDiseaseTypeEntity getCommonDiseaseTypeByName(@RequestParam(value = "commonDiseaseTypeName", required = true) String commonDiseaseTypeName){
         return commonDiseaseTypeRepository.findByCommonDiseaseTypeName(commonDiseaseTypeName);
     }
 

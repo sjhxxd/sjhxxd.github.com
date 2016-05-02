@@ -30,10 +30,10 @@ public class PrescriptionsController {
     }
 
 //    prescriptionsInfoRepository中findname方法
-    @RequestMapping(value = "/presctiptionsinfo/findbyname/{prescriptionName}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/presctiptionsinfo/findbyname", params="prescriptionName",method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public PrescriptionsInfoEntity getPrescriptionsByOne(@PathVariable String prescriptionName){
+    public PrescriptionsInfoEntity getPrescriptionsByOne(@RequestParam(value = "prescriptionName", required = true) String prescriptionName){
         return prescriptionsInfoRepository.findByprescriptionName(prescriptionName);
     }
 

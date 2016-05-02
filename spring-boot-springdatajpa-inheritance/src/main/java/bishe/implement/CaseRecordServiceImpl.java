@@ -28,6 +28,7 @@ public class CaseRecordServiceImpl implements CaseRecordService {
 
     @Override
     public CaseRecordEntity findBytempDiseaseId(Long tempDiseaseId) {
+//        return (List<CaseRecordEntity>) caseRecordRepository.findAll(tempDiseaseId);
         return caseRecordRepository.findOne(tempDiseaseId);
     }
 

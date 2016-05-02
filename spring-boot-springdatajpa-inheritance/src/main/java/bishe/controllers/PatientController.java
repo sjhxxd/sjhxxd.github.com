@@ -39,25 +39,24 @@ public class PatientController {
 //        }
     }
 
-    @RequestMapping(value = "/patientinfo/findbyname/{patientName}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/patientinfo/findbyname", params = "patientName",method= RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
-    @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
-    public PatientInfoEntity getPatientByName(@PathVariable String patientName) {
+    public PatientInfoEntity getPatientByName(@RequestParam(value = "patientName", required = true) String patientName) {
         //if(patientInfoRepository.findByPatientName(patientName))
         try {
             System.out.println(patientInfoRepository.findByPatientName(patientName).getPatientName());
             return patientInfoRepository.findByPatientName(patientName);
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            return  patientInfoRepository.findByPatientName(patientName);
+            return patientInfoRepository.findByPatientName(patientName);
         }
     }
 
     @RequestMapping(value = "/patientinfo/findbyid/{patientId}", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public PatientInfoEntity getPatientById(@PathVariable Long patientId){
+    public PatientInfoEntity getPatientById(@PathVariable Long patientId) {
         return patientInfoService.findByPatientId(patientId);
 
     }
@@ -75,7 +74,7 @@ public class PatientController {
 //            System.out.println(e.getMessage());
 //
 //        }
-         patientInfoService.saveOrUpdatePatient(patientInfoEntity);
+        patientInfoService.saveOrUpdatePatient(patientInfoEntity);
 
     }
 

@@ -26,10 +26,10 @@ public class PictureListController {
         return pictureListService.getAllPicture();
     }
 
-    @RequestMapping(value = "/picturelist/findbyname/{pictureName}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/picturelist/findbyname",params="pictureName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public PictureListEntity getPictureByone(@PathVariable String pictureName){
+    public PictureListEntity getPictureByone(@RequestParam(value = "pictureName", required = true) String pictureName){
         return pictureListRepository.findByPictureName(pictureName);
     }
 

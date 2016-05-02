@@ -27,11 +27,11 @@ public class MeasurementUnitController {
         return measurementUnitService.getAllMeasurementUnit();
     }
 
-    @RequestMapping(value = "/measurementunit/findbyname/{unitname}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/measurementunit/findbyname",params="unitName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public MeasurementUnitEntity getUnitByName(@PathVariable String unitname) {
-        return measurementUnitRepository.findByUnitName(unitname);
+    public MeasurementUnitEntity getUnitByName(@RequestParam(value = "unitName", required = true) String unitName) {
+        return measurementUnitRepository.findByUnitName(unitName);
     }
 
     @RequestMapping(value = "/measurementunit/findbyid/{unitId}", method = RequestMethod.GET, produces = {"application/json"})
