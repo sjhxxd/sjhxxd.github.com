@@ -3,6 +3,7 @@ package bishe.repository;
 import bishe.entity.ChineseMedicineInfoEntity;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * Created by sjh on 16/3/23.
@@ -10,5 +11,5 @@ import javax.transaction.Transactional;
 
 @Transactional
 public interface ChineseMedicineInfoRepository extends BaseRepository<ChineseMedicineInfoEntity>{
-    public ChineseMedicineInfoEntity findByMedicineName(String medicineName);
+    public List<ChineseMedicineInfoEntity> findByMedicineName(String medicineName);
 }

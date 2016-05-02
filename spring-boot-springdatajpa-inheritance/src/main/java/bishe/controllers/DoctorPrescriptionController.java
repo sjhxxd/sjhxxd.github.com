@@ -38,7 +38,7 @@ public class DoctorPrescriptionController {
     @RequestMapping(value = "/doctorpresctiption/findbyname", params = "prescriptionName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public DoctorPrescriptionEntity getPatientByName(@RequestParam(value = "prescriptionName", required = true) String prescriptionName) {
+    public List<DoctorPrescriptionEntity> getPatientByName(@RequestParam(value = "prescriptionName", required = true) String prescriptionName) {
         try {
             return doctorPrescriptionRepository.findByPrescriptionName(prescriptionName);
         } catch (Exception e) {
@@ -51,7 +51,7 @@ public class DoctorPrescriptionController {
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public void saveOrUpdateDoctorPrescription(DoctorPrescriptionEntity doctorPrescriptionEntity,
-                                               @RequestParam String timeFormat) {
+                                               @RequestParam(value = "timeFormat", required = true)  String timeFormat) {
         try {
             Timestamp timeStamp = Timestamp.valueOf(timeFormat + ":00");
             doctorPrescriptionEntity.setPrescriptionDate(timeStamp);

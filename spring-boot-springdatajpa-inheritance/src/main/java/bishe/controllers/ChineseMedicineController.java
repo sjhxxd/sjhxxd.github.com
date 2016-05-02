@@ -25,7 +25,6 @@ public class ChineseMedicineController {
 
     @RequestMapping(value = "/chinesemedicineinfo/getall", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
-    @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
     public List<ChineseMedicineInfoEntity> getChineseMedicineAll() {
         return chineseMedicineInfoService.getAllChineseMedicine();
@@ -33,9 +32,8 @@ public class ChineseMedicineController {
 
     @RequestMapping(value = "/chinesemedicineinfo/findbyname",params="medicineName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
-    @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
-    public ChineseMedicineInfoEntity getChineseMedicineByOne(@RequestParam(value = "medicineName", required = true) String medicineName) {
+    public List<ChineseMedicineInfoEntity> getChineseMedicineByOne(@RequestParam(value = "medicineName", required = true) String medicineName) {
         return chineseMedicineInfoRepository.findByMedicineName(medicineName);
     }
 
@@ -46,10 +44,7 @@ public class ChineseMedicineController {
     @ResponseBody
     public void saveOrUpdateChineseMedicine(ChineseMedicineInfoEntity chineseMedicineInfoEntity) {
         chineseMedicineInfoService.saveOrUpdateChineseMedicine(chineseMedicineInfoEntity);
-
-
     }
-
 
     @RequestMapping(value = "/chinesemedicineinfo/deletebyid/{chineseMedicineId}", method = RequestMethod.DELETE, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)

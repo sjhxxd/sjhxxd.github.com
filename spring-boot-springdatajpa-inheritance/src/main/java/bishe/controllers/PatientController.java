@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 /**
  * Created by sjh on 16/3/9.
  */
@@ -39,13 +40,12 @@ public class PatientController {
 //        }
     }
 
-    @RequestMapping(value = "/patientinfo/findbyname", params = "patientName",method= RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/patientinfo/findbynames", params = "patientName",method= RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public PatientInfoEntity getPatientByName(@RequestParam(value = "patientName", required = true) String patientName) {
+    public List<PatientInfoEntity> getPatientByNames(@RequestParam(value = "patientName", required = true) String patientName) {
         //if(patientInfoRepository.findByPatientName(patientName))
         try {
-            System.out.println(patientInfoRepository.findByPatientName(patientName).getPatientName());
             return patientInfoRepository.findByPatientName(patientName);
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -52,8 +52,7 @@ public class DoctorController {
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
-    public DoctorInfoEntity getDoctorByOne(@RequestParam(value = "doctorName", required = true) String doctorName) {
-        System.out.println(doctorInfoRepository.findByDoctorName(doctorName).getDoctorName());
+    public List<DoctorInfoEntity> getDoctorByOne(@RequestParam(value = "doctorName", required = true) String doctorName) {
         return doctorInfoRepository.findByDoctorName(doctorName);
     }
 

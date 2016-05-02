@@ -18,8 +18,6 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
 
     @Override
     public List<DoctorInfoEntity> getAllDoctor() {
-
-
         return (List<DoctorInfoEntity>) doctorInfoRepository.findAll();
     }
 
@@ -33,14 +31,11 @@ public class DoctorInfoServiceImpl implements DoctorInfoService {
         try {
             System.out.println(doctorInfoEntity.getDoctorId());
             doctorInfoRepository.save(doctorInfoEntity);
-
         } catch (Exception e) {
             System.out.println(e.getMessage());
-
         }
         return doctorInfoEntity;
     }
-
 
     @Override
     public DoctorInfoEntity deleteDoctor(Long doctorId) {
