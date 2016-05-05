@@ -103,25 +103,19 @@ function turnPage(url) {    //url:请求的url  res：存放网页的地址，�
 
 
 $(function () {
-
-
     $(".submenu").hide();  //默认二级菜单隐藏
     /*侧边栏鼠标点击颜色切换*/
     $('.accordion> li>a').click(function () {
         $(this).addClass('active');
         $(this).parent().siblings().find('a').removeClass('active');
-        $(this).parent().siblings().find('a').removeClass('activeSec');
         $(this).siblings().toggle(500);
         $(this).parent().siblings().find('ul').hide(500);
-
     });
 
     $(".submenu> li>a").click(function () {
-        $(this).addClass("activeSec");
-        $(this).parent().siblings().find('a').removeClass("activeSec");
+        $(this).addClass("active");
+        $(this).parent().siblings().find('a').removeClass("active");
         $(this).parent().parent().siblings().addClass('active');
-
-
     });
 
 });

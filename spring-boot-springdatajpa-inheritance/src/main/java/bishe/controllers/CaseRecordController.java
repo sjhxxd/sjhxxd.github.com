@@ -1,6 +1,7 @@
 package bishe.controllers;
 
 import bishe.entity.CaseRecordEntity;
+import bishe.repository.CaseRecordRepository;
 import bishe.service.CaseRecordService;
 import com.wordnik.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ import java.util.List;
 @RestController
 public class CaseRecordController {
     @Autowired
+    private CaseRecordRepository caseRecordRepository;
+    @Autowired
     private CaseRecordService caseRecordService;
 
     @RequestMapping(value = "/caserecord/getall", method = RequestMethod.GET, produces = {"application/json"})
@@ -28,15 +31,22 @@ public class CaseRecordController {
     @RequestMapping(value = "/caserecord/findbytemppatientid/{tempPatientId}", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public CaseRecordEntity getCaseRecordByTempPatientId(@PathVariable Long tempPatientId){
-        return caseRecordService.findByTempPatientId(tempPatientId);
+    public List<CaseRecordEntity> getCaseRecordByTempPatientId(@PathVariable Long tempPatientId){
+        return caseRecordRepository.findByTempPatientId(tempPatientId);
     }
 
     @RequestMapping(value = "/caserecord/findbytempdiseaseid/{tempDiseaseId}", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public CaseRecordEntity getCaseRecordByTempDiseaseId(@PathVariable Long tempDiseaseId){
-        return caseRecordService.findBytempDiseaseId(tempDiseaseId);
+    public List<CaseRecordEntity> getCaseRecordByTempDiseaseId(@PathVariable Long tempDiseaseId){
+        return caseRecordRepository.findByTempDiseaseId(tempDiseaseId);
+    }
+
+    @RequestMapping(value = "/caserecord/findbytempSyndromeId/{tempSyndromeId}", method = RequestMethod.GET, produces = {"application/json"})
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<CaseRecordEntity> getCaseRecordByTempSyndromeId(@PathVariable Long tempSyndromeId){
+        return caseRecordRepository.findByTempSyndromeId(tempSyndromeId);
     }
 
 

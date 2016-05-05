@@ -10,14 +10,7 @@ import java.util.List;
 public interface CaseRecordService {
     public List<CaseRecordEntity> getAllCaseRecord();
 
-//    通过病人名字查找
-    public CaseRecordEntity findByTempPatientId(Long tempPatientId);
 
-
-//    通过疾病查找
-    public CaseRecordEntity findBytempDiseaseId(Long tempDiseaseId);
-
-//    通过证型查找
 
     public CaseRecordEntity saveOrUpdateCaseRecord(CaseRecordEntity caseRecordEntity);
 

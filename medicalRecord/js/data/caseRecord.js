@@ -78,7 +78,12 @@ function initTable() {
         }]
     })
 }
-initTable();
+
+$("#caseDate").datetimepicker({
+    format: 'yyyy-mm-dd',
+    //todayHighlight:true,
+    autoclose: true
+});
 
 $("#add").click(function () {
     $('.showpanel').css('display', 'none');
@@ -121,6 +126,7 @@ $table.on('check.bs.table', function (e, row) {
 });
 
 $(function () {
+    initTable();
     $("#doit").click(
         function () {
             var caseId = $("#caseId").val();
@@ -220,13 +226,13 @@ jQuery(function ($) {
     $.ajax({
         type: "get",
         dataType: "json",
-        url: baseAddress + "/commondiseasetype/getall",
+        url: baseAddress + "/commondiseaseinfo/getall",
         success: function (msg) {
             var str = "";
             for (i in msg) {
-                str += "<option value =" + msg[i].commonDiseaseTypeId + " >" + msg[i].commonDiseaseTypeName + "</option>";
+                str += "<option value =" + msg[i].commonDiseaseId + " >" + msg[i].commonDiseaseName + "</option>";
             }
-            $("#tempCommonDiseaseTypeId").append(str);
+            $("#tempDiseaseId").append(str);
         }
     })
 });

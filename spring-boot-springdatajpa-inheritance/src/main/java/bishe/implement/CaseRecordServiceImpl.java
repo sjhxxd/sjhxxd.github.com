@@ -22,17 +22,6 @@ public class CaseRecordServiceImpl implements CaseRecordService {
     }
 
     @Override
-    public CaseRecordEntity findByTempPatientId(Long tempPatientId) {
-        return caseRecordRepository.findOne(tempPatientId);
-    }
-
-    @Override
-    public CaseRecordEntity findBytempDiseaseId(Long tempDiseaseId) {
-//        return (List<CaseRecordEntity>) caseRecordRepository.findAll(tempDiseaseId);
-        return caseRecordRepository.findOne(tempDiseaseId);
-    }
-
-    @Override
     public CaseRecordEntity saveOrUpdateCaseRecord(CaseRecordEntity caseRecordEntity) {
         try {
             System.out.println(caseRecordEntity.getCaseId());

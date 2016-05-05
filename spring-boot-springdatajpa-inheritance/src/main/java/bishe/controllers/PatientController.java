@@ -40,7 +40,7 @@ public class PatientController {
 //        }
     }
 
-    @RequestMapping(value = "/patientinfo/findbynames", params = "patientName",method= RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/patientinfo/findbyname", params = "patientName",method= RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<PatientInfoEntity> getPatientByNames(@RequestParam(value = "patientName", required = true) String patientName) {
@@ -74,8 +74,13 @@ public class PatientController {
 //            System.out.println(e.getMessage());
 //
 //        }
-        patientInfoService.saveOrUpdatePatient(patientInfoEntity);
-
+        try {
+            System.out.println(patientInfoEntity.getPatientName());
+            patientInfoService.saveOrUpdatePatient(patientInfoEntity);
+            System.out.println("看看--->"+patientInfoEntity.getPatientName());
+        } catch (Exception e) {
+            System.out.println("添加错误:"+e.getMessage());
+        }
     }
 
     @RequestMapping(value = "/patientinfo/deletebyid/{patientId}", method = RequestMethod.DELETE, produces = {"application/json"})

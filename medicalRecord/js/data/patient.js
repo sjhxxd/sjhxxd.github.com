@@ -103,7 +103,6 @@ $(function () {
         function () {
             var patientId = $('#patientId').val();
             var patientName = $('#patientName').val();
-
             var patientSex = $('#patientSex').val();
             var patientAge = $('#patientAge').val();
             var patientPhoneNumber = $('#patientPhoneNumber').val();
@@ -140,7 +139,6 @@ $(function () {
                 error: function (msg) {
                     turnPage('patient.html');
                     console.log("patient_error:" + msg)
-
                 }
             });
         });
@@ -175,8 +173,19 @@ $('#patientInfoEntity').bootstrapValidator({
                     message: '手机号不能为空'
                 },
                 regexp: {
-                    regexp: /^1[3|4|5|8][0-9]\d{4,8}$/,
-                    message: '不是完整的11位手机号或者正确的手机号前七位'
+                    regexp: /^1[3|5|7|8|][0-9]{9}$/,
+                    message: '请输入正确的手机号'
+                }
+            }
+        },
+        patientIdentityCard: {
+            validators: {
+                notEmpty: {
+                    message: '身份证号不能为空'
+                },
+                regexp: {
+                    regexp: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
+                    message: '请输入正确的身份证号'
                 }
             }
         },
@@ -188,6 +197,14 @@ $('#patientInfoEntity').bootstrapValidator({
                 regexp: {
                     regexp: /^[1-9]\d?$|^1[01]\d$|^120$/,
                     message: '年龄1-120岁之间'
+                }
+            }
+        },
+        patientWeight: {
+            validators: {
+                regexp: {
+                    regexp: /^\d{1,3}(\.\d{1,2})$/,
+                    message: '限制最多三位整数以及两位小数'
                 }
             }
         },
@@ -206,7 +223,7 @@ $('#patientInfoEntity').bootstrapValidator({
             validators: {
                 stringLength: {
                     max: 1024,
-                    message: '不能超过1024个字符'
+                    message: '请输入不超过1024个字符的内容'
                 }
             }
         }

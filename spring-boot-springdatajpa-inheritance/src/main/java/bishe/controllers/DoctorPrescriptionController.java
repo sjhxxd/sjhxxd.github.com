@@ -47,14 +47,11 @@ public class DoctorPrescriptionController {
         }
     }
 
-    @RequestMapping(value = "/doctorpresctiption/saveorupdate", params = "timeFormat", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
+    @RequestMapping(value = "/doctorpresctiption/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void saveOrUpdateDoctorPrescription(DoctorPrescriptionEntity doctorPrescriptionEntity,
-                                               @RequestParam(value = "timeFormat", required = true)  String timeFormat) {
+    public void saveOrUpdateDoctorPrescription(DoctorPrescriptionEntity doctorPrescriptionEntity) {
         try {
-            Timestamp timeStamp = Timestamp.valueOf(timeFormat + ":00");
-            doctorPrescriptionEntity.setPrescriptionDate(timeStamp);
             doctorPrescriptionService.saveOrUpdateDoctorPrescription(doctorPrescriptionEntity);
         } catch (Exception e) {
             System.out.println("time——error" + e.getMessage());

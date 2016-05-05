@@ -17,24 +17,24 @@ function initTable() {
             field: 'doctorPrescriptionId',
             visible: false,
             title: '处方ID'
-            }, {
-                field: 'prescriptionName',
-                title: '处方名'
-            }, {
-                field: 'prescriptionInstructions',
-                title: '用法说明'
-            }, {
-                field: 'oralDoses',
-                title: '服用剂量'
-            }, {
-                field: 'doctorPrescriptionRemark',
-                title: '备注'
-            }, {
-                field: 'prescriptionType',
-                title: '处方类型'
-            }, {
-                field: 'prescriptionDate',
-                title: '处方时间'
+        }, {
+            field: 'prescriptionName',
+            title: '处方名'
+        }, {
+            field: 'prescriptionInstructions',
+            title: '用法说明'
+        }, {
+            field: 'oralDoses',
+            title: '服用剂量'
+        }, {
+            field: 'doctorPrescriptionRemark',
+            title: '备注'
+        }, {
+            field: 'prescriptionType',
+            title: '处方类型'
+        }, {
+            field: 'prescriptionDate',
+            title: '处方时间'
         }]
 
     });
@@ -42,11 +42,11 @@ function initTable() {
 
 
 //时间
-$("#prescriptionDate").datetimepicker({
-    format: 'yyyy-mm-dd hh:ii:ss',
-    //todayHighlight:true,
-    autoclose: true
-});
+//$("#prescriptionDate").datetimepicker({
+//    format: 'yyyy-mm-dd',
+//    //todayHighlight:true,
+//    autoclose: true
+//});
 
 $("#add").click(function () {
     $('.showpanel').css('display', 'none');
@@ -73,7 +73,6 @@ $("#edit").click(function () {
 
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
-
     $('#changepanel').html("医生处方信息编辑");
     $('#doit').html("确定");
 
@@ -95,7 +94,7 @@ $(function () {
             var prescriptionDate = $("#prescriptionDate").val();
 
             $.ajax({
-                url: baseAddress + "/doctorprescription/saveorupdate/?timeFormat=" + prescriptionDate,
+                url: baseAddress + "/doctorprescription/saveorupdate/",
                 type: "post",
                 dateType: "json",
                 data: {
@@ -109,11 +108,27 @@ $(function () {
                 },
                 success: function (msg) {
                     turnPage('doctorPrescription.html');
-                    console.log("doctorPrescription_success:" + msg)
+                    console.log("doctorPrescription_success:" + msg);
+
+                    if (prescriptionDate instanceof String) {
+                        console.log("prescriptionDatesucc is String ")
+                    }
+                    else {
+                        console.log("Date");
+                        console.log("prescriptionDatesucc", prescriptionDate);
+                    }
                 },
                 error: function (err) {
                     alert("doctorPrescription_error:" + err);
                     turnPage('doctorPrescription.html');
+
+                    if (prescriptionDate instanceof String) {
+                        console.log("prescriptionDateerr is String ")
+                    }
+                    else {
+                        console.log("Date");
+                        console.log("prescriptionDateerr", prescriptionDate);
+                    }
                 }
             });
         });
