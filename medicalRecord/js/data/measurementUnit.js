@@ -4,11 +4,10 @@
 //计量单位表
 var $table=$("#measurementUnitTable");
 var rowcontent = null;
-var tag = null;
 function initTable(){
     $table.bootstrapTable({
         url:baseAddress+"/measurementunit/getall",
-        dateType:"json",
+        dataType:"json",
         columns: [{
             field: 'state',
             checkbox: true,
@@ -31,10 +30,8 @@ function initTable(){
     });
 }
 
-initTable();
 
 $("#add").click(function () {
-    tag = "add";
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
 });
@@ -47,26 +44,24 @@ $('#cancel').click(function () {
     turnPage('measurementUnit.html');
 });
 
-
 $("#edit").click(function(){
-    tag="edit";
     var jsonobject = eval('(' + rowcontent + ')');
     $("#unitId").val(jsonobject.unitId);
     $("#unitName").val(jsonobject.unitName);
     $("#hexadecimal").val(jsonobject.hexadecimal);
     $("#unitRemarks").val(jsonobject.unitRemarks);
+
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
-
     $('#changepanel').html("计量单位编辑");
     $('#doit').html("确定");
-
 });
 $table.on('check.bs.table', function (e, row) {
     rowcontent = JSON.stringify(row);
 });
 
 $(function(){
+    initTable();
     $("#doit").click(
         function(){
             var unitId=$("#unitId").val();
@@ -77,7 +72,7 @@ $(function(){
             $.ajax({
                 url:baseAddress+"/measurementunit/saveorupdate",
                 type:"post",
-                dateType:"json",
+                dataType:"text",
                 data:{
                     "unitId":unitId,
                     "unitName":unitName,
@@ -85,13 +80,11 @@ $(function(){
                     "unitRemarks":unitRemarks
                 },
                 success:function(msg){
-                    turnPage('measurementUnit.html');
                     console.log("measurementUnit_success:"+msg)
+                    turnPage('measurementUnit.html');
                 },
                 error:function(msg){
-                    turnPage('measurementUnit.html');
                     alert("measurementUnit_error:"+msg)
-
                 }
 
             });

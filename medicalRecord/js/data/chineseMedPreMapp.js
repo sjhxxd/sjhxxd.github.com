@@ -84,7 +84,7 @@ $(function () {
             $.ajax({
                 url: baseAddress + "/chinesemedpremapp/saveorupdate",
                 type: "post",
-                dateType: "json",
+                dataType:'text',
                 data: {
                     "chineseMedPrescriptMappId": chineseMedPrescriptMappId,
                     "tempChineseMedicineId": tempChineseMedicineId,
@@ -98,7 +98,6 @@ $(function () {
                     console.log("chineseMedPreMapp_success:" + msg)
                 },
                 error: function (msg) {
-                    turnPage('chineseMedPreMapp.html');
                     console.log("chineseMedPreMapp_error:" + msg)
 
                 }

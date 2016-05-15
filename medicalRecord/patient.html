@@ -7,10 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>    <!--确保适当的绘制和触屏缩放-->
 
     <title>TestTable</title>
+    <style>
+        input:focus{
+            background-color: #CCC;
+        }
+    </style>
 </head>
 <body>
-<div id="right-nav"><strong>病人信息表</strong></div>
-<hr>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
         <button id="add" class="btn btn-danger">
@@ -35,8 +38,6 @@
            data-page-list="[10, 25, 50, 100, ALL]"
            data-pagination="true"
     >
-
-
     </table>
 </div>
 
@@ -139,5 +140,6 @@
 
 </body>
 <script src="js/base_address.js"></script>
+<script src="js/commonTable.js"></script>
 <script src="js/data/patient.js"></script>
 </html>

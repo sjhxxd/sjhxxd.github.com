@@ -4,7 +4,7 @@ var rowcontent = null;
 function initTable() {
     $table.bootstrapTable({
         url: baseAddress + "/commondiseaseinfo/getall",
-        dateType: "json",
+        dataType: "json",
         columns: [{
             field: 'state',
             checkbox: true,
@@ -50,10 +50,8 @@ $("#edit").click(function () {
     $("#commonDiseaseName").val(jsonobject.commonDiseaseName);
     $("#commonDiseaseExplain").val(jsonobject.commonDiseaseExplain);
 
-
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
-
     $('#changepanel').html("疾病类别信息编辑");
     $('#doit').html("确定");
 
@@ -69,7 +67,7 @@ $(function () {
             $.ajax({
                 url: baseAddress + "/commondiseaseinfo/saveorupdate",
                 type: "post",
-                dateType: "json",
+                dataType: "text",
                 data: {
                     "commonDiseaseId": commonDiseaseId,
                     "tempCommonDiseaseTypeId": tempCommonDiseaseTypeId,
@@ -81,9 +79,7 @@ $(function () {
                     console.log("commondiseaseinfo_success:" + msg)
                 },
                 error: function (msg) {
-                    turnPage('commondiseaseinfo.html');
                     console.log("commondiseaseinfo_error:" + msg)
-
                 }
 
             });

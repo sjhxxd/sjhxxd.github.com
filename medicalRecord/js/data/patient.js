@@ -3,7 +3,6 @@
  */
 //病人信息表
 var $table = $("#patientInfoTable");
-var rowcontent = null;
 function initTable() {
     $table.bootstrapTable({
         url: baseAddress + "/patientinfo/getall/",
@@ -59,22 +58,12 @@ function initTable() {
     });
 }
 
-$("#add").click(function () {
-    $('.showpanel').css('display', 'none');
-    $('.addpanel').css('display', 'block');
-});
-
-//阻止表单提交
-$("form").submit(function (e) {
-    e.preventDefault();
-});
 $('#cancel').click(function () {
     turnPage('patient.html');
 });
 $table.on('check.bs.table', function (e, row) {
     rowcontent = JSON.stringify(row);
 });
-
 $('#edit').click(function () {
     var jsonobject = eval('(' + rowcontent + ')');
 
@@ -117,7 +106,7 @@ $(function () {
             $.ajax({
                 url: baseAddress + "/patientinfo/saveorupdate",
                 type: "post",
-                dataType: "json",
+                dataType:'text',
                 data: {
                     "patientId": patientId,
                     "patientName": patientName,
@@ -133,17 +122,15 @@ $(function () {
                     "patientRemark": patientRemark
                 },
                 success: function (msg) {
-                    turnPage('patient.html');
-                    console.log("patient_success:" + msg)
+                    console.log("patient_success:",msg );
+                    turnPage('patient.html')
                 },
                 error: function (msg) {
-                    turnPage('patient.html');
-                    console.log("patient_error:" + msg)
+                    console.log("patient_error:",msg )
                 }
             });
         });
 });
-
 $('#remove').click(function () {
     var jsonobject = eval('(' + rowcontent + ')');
     //确认是否删除
@@ -157,7 +144,6 @@ $('#remove').click(function () {
         })
     }
 });
-
 $('#patientInfoEntity').bootstrapValidator({
     excluded: ':disabled',
     feedbackIcons: {

@@ -96,7 +96,7 @@ $(function(){
             $.ajax({
                 url:baseAddress+"/locationinfo/saveorupdate",
                 type:"post",
-                dateType:"json",
+                dataType:"text",
                 data:{
                     "locationInfoId":locationInfoId,
                     "locationLongitude":locationLongitude,
@@ -109,15 +109,12 @@ $(function(){
                     "locationRemarks":locationRemarks
                 },
                 success:function(msg){
-                    turnPage('location.html');
                     console.log("location_success:"+msg)
+                    turnPage('location.html');
                 },
                 error:function(msg){
-                    turnPage('location.html');
                     alert("location_error:"+msg)
-
                 }
-
             });
         });
 });

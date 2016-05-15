@@ -147,7 +147,7 @@ $(function () {
             $.ajax({
                 url: baseAddress + "/caserecord/saveorupdate",
                 type: "post",
-                dateType: "json",
+                dataType: "text",
                 data: {
                     "caseId": caseId,
                     "tempPatientId": tempPatientId,
@@ -169,7 +169,6 @@ $(function () {
                     console.log("caseRecord_success:" + msg)
                 },
                 error: function (err) {
-                    turnPage('caseRecord.html');
                     console.log("caseRecord_error:" + err)
 
                 }

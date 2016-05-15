@@ -7,6 +7,7 @@ var rowcontent = null;
 function initTable(){
     $table.bootstrapTable({
         url:baseAddress+"/patentmedicineinfo/getall",
+        dataType:"json",
         columns: [{
             field: 'state',
             checkbox: true,
@@ -107,7 +108,7 @@ $(function(){
             $.ajax({
                 url:baseAddress+"/patentmedicineinfo/saveorupdate",
                 type:"post",
-                dateType:"json",
+                dataType:"text",
                 data:{
                     "patentMedicineId":patentMedicineId,
                     "patentMedicineName":patentMedicineName,
@@ -122,13 +123,11 @@ $(function(){
                     "patentMedicineRemark":patentMedicineRemark
                 },
                 success:function(msg){
-                    turnPage('patentMedicine.html');
-                    console.log("patentMedicine_success:"+msg)
+                    console.log("patentMedicine_success:"+msg);
+                    turnPage('patentMedicine.html')
                 },
                 error:function(msg){
-                    turnPage('patentMedicine.html');
                     console.log("patentMedicine_error:"+msg)
-
                 }
 
             });
@@ -141,7 +140,7 @@ $('#remove').click(function () {
         $.ajax({
             type: 'delete',
             url: baseAddress+"/patentmedicineinfo/deletebyid/" + jsonobject.patentMedicineId + "/",
-            success: function (json) {
+            success: function () {
                 turnPage('patentMedicine.html');
             }
         })

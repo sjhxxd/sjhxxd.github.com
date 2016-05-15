@@ -69,7 +69,7 @@ $(function(){
             $.ajax({
                 url:baseAddress+"/commondiseasetype/saveorupdate",
                 type:"post",
-                dateType:"json",
+                dataType:"text",
                 data:{
                     "commonDiseaseTypeId":commonDiseaseTypeId,
                     "commonDiseaseTypeName":commonDiseaseTypeName,
@@ -81,11 +81,8 @@ $(function(){
                     console.log("commonDiseaseType_success:"+msg)
                 },
                 error:function(msg){
-                    turnPage('commonDiseaseType.html');
                     console.log("commonDiseaseType_error:"+msg)
-
                 }
-
             });
         });
 });

@@ -96,7 +96,7 @@ $(function () {
             $.ajax({
                 url: baseAddress + "/doctorprescription/saveorupdate/",
                 type: "post",
-                dateType: "json",
+                dataType: "text",
                 data: {
                     "doctorPrescriptionId": doctorPrescriptionId,
                     "prescriptionName": prescriptionName,
@@ -107,28 +107,11 @@ $(function () {
                     "prescriptionDate": prescriptionDate
                 },
                 success: function (msg) {
-                    turnPage('doctorPrescription.html');
                     console.log("doctorPrescription_success:" + msg);
-
-                    if (prescriptionDate instanceof String) {
-                        console.log("prescriptionDatesucc is String ")
-                    }
-                    else {
-                        console.log("Date");
-                        console.log("prescriptionDatesucc", prescriptionDate);
-                    }
+                    turnPage('doctorPrescription.html');
                 },
                 error: function (err) {
                     alert("doctorPrescription_error:" + err);
-                    turnPage('doctorPrescription.html');
-
-                    if (prescriptionDate instanceof String) {
-                        console.log("prescriptionDateerr is String ")
-                    }
-                    else {
-                        console.log("Date");
-                        console.log("prescriptionDateerr", prescriptionDate);
-                    }
                 }
             });
         });
@@ -140,7 +123,7 @@ $('#remove').click(function () {
         $.ajax({
             type: 'delete',
             url: baseAddress + "/doctorprescription/deletebyid/" + jsonobject.doctorPrescriptionId + "/",
-            success: function (json) {
+            success: function () {
                 turnPage('doctorPrescription.html');
             }
         })

@@ -4,6 +4,7 @@ var rowcontent = null;
 function initTable(){
     $table.bootstrapTable({
         url:baseAddress+"/syndrometypes/getall",
+        dataType:"json",
         columns: [{
             field: 'state',
             checkbox: true,
@@ -77,7 +78,7 @@ $(function () {
             $.ajax({
                 url: baseAddress + "/syndrometypes/saveorupdate",
                 type: "post",
-                dateType: "json",
+                dataType: "text",
                 data: {
                     "syndromeId": syndromeId,
                     "syndromeSystemType": syndromeSystemType,
@@ -86,11 +87,10 @@ $(function () {
                     "syndromeRemark": syndromeRemark
                 },
                 success: function (msg) {
-                    turnPage('syndromeTypes.html');
-                    console.log("syndromeTypes_success:" + msg)
+                    console.log("syndromeTypes_success:" + msg);
+                    turnPage('syndromeTypes.html')
                 },
                 error: function (msg) {
-                    turnPage('syndromeTypes.html');
                     alert("syndromeTypes_error:" + msg)
                 }
             });

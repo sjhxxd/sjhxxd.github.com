@@ -19,16 +19,20 @@ body {
 
 
 /*icon style*/
-.accordion li i.glyphicon-chevron-down,
-.accordion li i.glyphicon-chevron-right {
+.accordion li i.glyphicon-chevron-down{
     right: 12px;
     left:auto;
     font-size: 16px;
     top:12px;
 }
 
-.accordion li.open i.glyphicon-chevron-down,
-.accordion li.open i.glyphicon-chevron-right {
+.accordion li.open i.glyphicon-chevron-down{
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.fanzhuan{
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
@@ -72,21 +76,15 @@ ul{
     text-decoration: none;
 }
 
-/*
 a {
   color: #337ab7;
   background-color: transparent;
   padding-left: 20px;
   padding-right: 20px;
 }
-*/
 
 
-/*表格中确定样式*/
-.send {
-    color:#337ab7;
-    text-decoration: none
-}
+
 
 /*
  * Top navigation
@@ -214,4 +212,10 @@ tbody {
 
 #changepanel{
     text-align: center;
+}
+hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #808080;
 }

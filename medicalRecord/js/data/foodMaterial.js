@@ -5,7 +5,6 @@
 
 var $table=$("#foodMaterialInfoTable");
 var rowcontent = null;
-var tag = null;
 function initTable(){
     $table.bootstrapTable({
         url: baseAddress+"/foodmaterialinfo/getall/",
@@ -43,10 +42,8 @@ function initTable(){
     });
 }
 
-initTable();
 
 $("#add").click(function () {
-    tag = "add";
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
 });
@@ -58,7 +55,6 @@ $('#cancel').click(function () {
     turnPage('foodMaterial.html');
 });
 $('#edit').click(function () {
-    tag = "edit";
     var jsonobject = eval('(' + rowcontent + ')');
 
     $('#foodMaterialId').val(jsonobject.foodMaterialId);
@@ -69,12 +65,9 @@ $('#edit').click(function () {
     $('#tempPictureLocationId').val(jsonobject.tempPictureLocationId);
     $('#foodMaterialRemark').val(jsonobject.foodMaterialRemark);
     $('#foodMaterialEffect').val(jsonobject.foodMaterialEffect);
-    console.log(jsonobject)
-
 
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
-
     $('#changepanel').html("中药信息编辑");
     $('#doit').html("确定");
 });
@@ -83,6 +76,7 @@ $table.on('check.bs.table', function (e, row) {
 });
 
 $(function(){
+    initTable();
     $("#doit").click(
         function(){
             var foodMaterialId=$("#foodMaterialId").val();
@@ -97,7 +91,7 @@ $(function(){
             $.ajax({
                 url:baseAddress+"/foodmaterialinfo/saveorupdate",
                 type:"post",
-                dateType:"json",
+                dataType:"text",
                 data:{
                     "foodMaterialId":foodMaterialId,
                     "foodMaterialName":foodMaterialName,

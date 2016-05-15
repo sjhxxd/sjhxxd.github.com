@@ -82,10 +82,6 @@ $("#edit").click(function(){
 });
 $table.on('check.bs.table', function (e, row) {
     rowcontent = JSON.stringify(row);
-    //function returnrow(){
-    //    return rowcontent;
-    //}
-
 });
 
 $(function(){
@@ -104,7 +100,7 @@ $(function(){
             $.ajax({
                 url:baseAddress+"/presctiptionsinfo/saveorupdate",
                 type:"post",
-                dateType:"json",
+                dataType:"text",
                 data:{
                     "prescriptionId":prescriptionId,
                     "prescriptionName":prescriptionName,
@@ -117,12 +113,11 @@ $(function(){
                     "prescriptionRemark":prescriptionRemark
                 },
                 success:function(msg){
-                    turnPage('prescriptions.html');
+                    console.log("presctiptions_success:"+msg);
+                    turnPage('prescriptions.html')
                 },
                 error:function(msg){
-                    turnPage('prescriptions.html');
-                    alert("presctiptions_error:"+msg)
-
+                    console.log("presctiptions_error:"+msg)
                 }
 
             });
@@ -135,7 +130,7 @@ $('#remove').click(function () {
         $.ajax({
             type: 'delete',
             url: baseAddress+"/presctiptionsinfo/deletebyid/" + jsonobject.prescriptionId + "/",
-            success: function (json) {
+            success: function () {
                 turnPage('prescriptions.html');
             }
         })

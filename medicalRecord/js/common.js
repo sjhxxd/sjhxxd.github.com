@@ -81,26 +81,27 @@ function restfulArray(typeInfo, urlInfo, dataInfo) {
     return result;
 }
 
+
+
 /* 点击切换中间content */
-function turnPage(url) {    //url:请求的url  res：存放网页的地址，使用相对地址，django会在自动搜索app的templates文件夹，子目录要自己写  url和res参数格式是 String
+function turnPage(url) {    //url:请求的url
+    var $content=$('#content');
     $.ajax({
         type: "get",
         url: url,
         cache: false,
-        dateType: "html",
+        dataType: "html",
         data: {area: url},
         success: function (html) {
-            $('#content').empty();    //首先清空centent区
-            $('#content').html(html);  //把下载的html文件添加到centent区中
+            $content.empty();    //首先清空centent区
+            $content.html(html);  //把下载的html文件添加到centent区中
         },
         error: function (mag) {
-            console.log(   mag );
-            $('#content').empty();
-            $('#content').html('<p>出了一些差错，请耐心等待修复：）</p>');
+            $content.empty();
+            $content.html('<p>出了一些差错，请耐心等待修复：）</p>');
         }
     });
 }
-
 
 $(function () {
     $(".submenu").hide();  //默认二级菜单隐藏
@@ -109,10 +110,13 @@ $(function () {
         $(this).addClass('active');
         $(this).parent().siblings().find('a').removeClass('active');
         $(this).siblings().toggle(500);
+        $(this).parent().find('li').addClass('open');
         $(this).parent().siblings().find('ul').hide(500);
     });
 
     $(".submenu> li>a").click(function () {
+        var leftName =this.firstChild.nodeValue;
+        $("#right-nav").html(leftName);
         $(this).addClass("active");
         $(this).parent().siblings().find('a').removeClass("active");
         $(this).parent().parent().siblings().addClass('active');

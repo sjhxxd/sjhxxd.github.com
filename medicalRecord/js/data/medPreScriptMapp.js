@@ -7,7 +7,7 @@ var rowcontent = null;
 function initTable() {
     $table.bootstrapTable({
         url: baseAddress + "/medprescriptmapp/getall",
-        dateType: "json",
+        dataType: "json",
         columns: [{
             field: 'state',
             checkbox: true,
@@ -35,7 +35,6 @@ function initTable() {
             field: 'medPrescriptMappRemarks',
             title: '映射备注'
         }]
-
     });
 }
 
@@ -72,7 +71,6 @@ $('#edit').click(function () {
     $('#doit').html("确定");
 });
 
-
 $(function () {
     initTable();
     $('#doit').click(
@@ -88,7 +86,7 @@ $(function () {
             $.ajax({
                 url: baseAddress + "/medprescriptmapp/saveorupdate",
                 type: "post",
-                dataType: "json",
+                dataType: "text",
                 data: {
                     "chineseMedPrescriptMappId": chineseMedPrescriptMappId,
                     "tempChineseMedicineId": tempChineseMedicineId,
@@ -99,13 +97,11 @@ $(function () {
                     "medPrescriptMappRemarks": medPrescriptMappRemarks
                 },
                 success: function (msg) {
+                    console.log("medPreScriptMapp_success:" + msg);
                     turnPage('medPreScriptMapp.html');
-                    console.log("medPreScriptMapp_success:" + msg)
                 },
                 error: function (msg) {
-                    turnPage('medPreScriptMapp.html');
                     console.log("patient_error:" + msg)
-
                 }
             });
         });
@@ -118,7 +114,7 @@ $('#remove').click(function () {
         $.ajax({
             type: 'delete',
             url: baseAddress + "/medprescriptmapp/deletebyid/" + jsonobject.chineseMedPrescriptMappId + "/",
-            success: function (json) {
+            success: function () {
                 turnPage('medPreScriptMapp.html');
             }
         })

@@ -86,7 +86,7 @@ $(function(){
             $.ajax({
                 url:baseAddress+"/picturelist/saveorupdate",
                 type:"post",
-                dateType:"json",
+                dataType:"text",
                 data:{
                     "pictureLocationId":pictureLocationId,
                     "originalPicturePath":originalPicturePath,
@@ -97,11 +97,10 @@ $(function(){
                     "pictureRemarks":pictureRemarks
                 },
                 success:function(msg){
-                    turnPage('pictureList.html');
-                    console.log("pictureList_success:"+msg)
+                    console.log("pictureList_success:"+msg);
+                    turnPage('pictureList.html')
                 },
                 error:function(msg){
-                    turnPage('pictureList.html');
                     alert("pictureList_error:"+msg)
 
                 }

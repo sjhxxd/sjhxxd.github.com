@@ -5,7 +5,6 @@
 
 var $table = $("#chineseMedicineInfoTable");
 var rowcontent = null;
-var tag = null;
 function initTable() {
     $table.bootstrapTable({
         url: baseAddress + "/chinesemedicineinfo/getall/",
@@ -74,10 +73,8 @@ function initTable() {
     });
 }
 
-initTable();
 
 $("#add").click(function () {
-    tag = "add";
     $('.showpanel').css('display', 'none');
     $('.addpanel').css('display', 'block');
 });
@@ -88,8 +85,10 @@ $("form").submit(function (e) {
 $('#cancel').click(function () {
     turnPage('chineseMedicine.html');
 });
+$table.on('check.bs.table', function (e, row) {
+    rowcontent = JSON.stringify(row);
+});
 $('#edit').click(function () {
-    tag = "edit";
     var jsonobject = eval('(' + rowcontent + ')');
 
     $('#chineseMedicineId').val(jsonobject.chineseMedicineId);
@@ -100,6 +99,7 @@ $('#edit').click(function () {
     $('#medicineGrade').val(jsonobject.medicineGrade);
     $('#channelTropism').val(jsonobject.channelTropism);
     $('#indicationsFunction').val(jsonobject.indicationsFunction);
+    $('#clinicalApplication').val(jsonobject.clinicalApplication);
     $('#tempPictureLocationId').val(jsonobject.tempPictureLocationId);
     $('#chineseMedicineRemark').val(jsonobject.chineseMedicineRemark);
     $('#anotherName').val(jsonobject.anotherName);
@@ -115,11 +115,11 @@ $('#edit').click(function () {
     $('#changepanel').html("中药信息编辑");
     $('#doit').html("确定");
 });
-$table.on('check.bs.table', function (e, row) {
-    rowcontent = JSON.stringify(row);
-});
+
 
 $(function () {
+    initTable();
+
     $("#doit").click(
         function () {
             var chineseMedicineId = $("#chineseMedicineId").val();
@@ -130,6 +130,7 @@ $(function () {
             var medicineGrade = $("#medicineGrade").val();
             var channelTropism = $("#channelTropism").val();
             var indicationsFunction = $("#indicationsFunction").val();
+            var clinicalApplication = $("#clinicalApplication").val();
             var tempPictureLocationId = $("#tempPictureLocationId").val();
             var chineseMedicineRemark = $("#chineseMedicineRemark").val();
             var anotherName = $("#anotherName").val();
@@ -141,7 +142,7 @@ $(function () {
             $.ajax({
                 url: baseAddress + "/chinesemedicineinfo/saveorupdate",
                 type: "post",
-                dateType: "json",
+                dataType: "text",
                 data: {
                     "chineseMedicineId": chineseMedicineId,
                     "medicineName": medicineName,
@@ -151,6 +152,7 @@ $(function () {
                     "medicineGrade": medicineGrade,
                     "channelTropism": channelTropism,
                     "indicationsFunction": indicationsFunction,
+                    "clinicalApplication": clinicalApplication,
                     "tempPictureLocationId": tempPictureLocationId,
                     "chineseMedicineRemark": chineseMedicineRemark,
                     "anotherName": anotherName,
@@ -164,7 +166,6 @@ $(function () {
                     console.log("chineseMedicine_success:" + msg)
                 },
                 error: function (msg) {
-                    turnPage('chineseMedicine.html');
                     alert("chineseMedicine_error:" + msg)
 
                 }

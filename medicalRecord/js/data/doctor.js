@@ -112,7 +112,6 @@ $table.on('check.bs.table', function (e, row) {
 
 $(function () {
     initTable();
-
     $("#doit").click(
         function () {
             var doctorId = $("#doctorId").val();
@@ -134,7 +133,7 @@ $(function () {
             $.ajax({
                 url: baseAddress + "/doctorinfo/saveorupdate",
                 type: "post",
-                dateType: "json",
+                dataType: "text",
                 data: {
                     "doctorId": doctorId,
                     "doctorName": doctorName,
@@ -157,9 +156,7 @@ $(function () {
                     console.log("doctor_success:" + msg)
                 },
                 error: function (msg) {
-                    turnPage('doctor.html');
                     console.log("doctor_error:" + msg)
-
                 }
 
             });
