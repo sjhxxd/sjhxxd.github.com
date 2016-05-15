@@ -10,8 +10,6 @@ import java.lang.Long;
 @Entity
 @Inheritance
 @Table(name = "patientinfo")
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 public class PatientInfoEntity implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.lang.Long;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 
@@ -28,12 +29,12 @@ public class DoctorPrescriptionEntity implements java.io.Serializable{
     private String doctorPrescriptionRemark;
     private String prescriptionType;
     private String prescriptionName;
-    private Timestamp prescriptionDate;
+    private Date prescriptionDate;
     public DoctorPrescriptionEntity(){
 
     }
 
-    public DoctorPrescriptionEntity(String prescriptionInstructions, Integer oralDoses, String doctorPrescriptionRemark, String prescriptionType, String prescriptionName, Timestamp prescriptionDate) {
+    public DoctorPrescriptionEntity(String prescriptionInstructions, Integer oralDoses, String doctorPrescriptionRemark, String prescriptionType, String prescriptionName, Date prescriptionDate) {
         this.prescriptionInstructions = prescriptionInstructions;
         this.oralDoses = oralDoses;
         this.doctorPrescriptionRemark = doctorPrescriptionRemark;
@@ -89,12 +90,12 @@ public class DoctorPrescriptionEntity implements java.io.Serializable{
     public void setPrescriptionName(String prescriptionName) {
         this.prescriptionName = prescriptionName;
     }
-    @JsonFormat(pattern="yyyy-MM-dd")
-    public Timestamp getPrescriptionDate() {
+
+    public Date getPrescriptionDate() {
         return prescriptionDate;
     }
 
-    public void setPrescriptionDate(Timestamp prescriptionDate) {
+    public void setPrescriptionDate(Date prescriptionDate) {
         this.prescriptionDate = prescriptionDate;
     }
 

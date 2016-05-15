@@ -23,36 +23,44 @@ public class SyndromeTypesController {
     @RequestMapping(value = "/syndrometypes/getall", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<SyndromeTypesEntity> getSyndromeTypesAll(){
+    public List<SyndromeTypesEntity> getSyndromeTypesAll() {
         return syndromeTypesService.getAllSyndromeTypes();
     }
 
-    @RequestMapping(value = "/syndrometypes/findbyname",params="syndromeName", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/syndrometypes/findbyname", params = "syndromeName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public SyndromeTypesEntity getSyndromeByName(@RequestParam(value = "syndromeName", required = true) String syndromeName){
+    public SyndromeTypesEntity getSyndromeByName(@RequestParam(value = "syndromeName", required = true) String syndromeName) {
         return syndromeTypesReopsitory.findBySyndromeName(syndromeName);
     }
 
     @RequestMapping(value = "/syndrometypes/findbyid/{syndromeId}", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public SyndromeTypesEntity getSyndromeById(@PathVariable Long syndromeId){
+    public SyndromeTypesEntity getSyndromeById(@PathVariable Long syndromeId) {
         return syndromeTypesService.findBySyndromeId(syndromeId);
     }
 
     @RequestMapping(value = "/syndrometypes/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void saveOrUpdateSyndrome(SyndromeTypesEntity syndromeTypesEntity){
-        syndromeTypesService.saveOrUpdateSyndromeTypes(syndromeTypesEntity);
+    public String saveOrUpdateSyndrome(SyndromeTypesEntity syndromeTypesEntity) {
+        try {
+            syndromeTypesService.saveOrUpdateSyndromeTypes(syndromeTypesEntity);
+            return "Success";
+        } catch (Exception e) {
+            System.out.println("错误:" + e.getMessage());
+            return "Error";
+
+        }
+
 
     }
 
     @RequestMapping(value = "/syndrometypes/deletebyid/{syndromeId}", method = RequestMethod.DELETE, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public Long deleteSyndrome(@PathVariable Long syndromeId){
+    public Long deleteSyndrome(@PathVariable Long syndromeId) {
         syndromeTypesService.deleteSyndromeTypes(syndromeId);
         return syndromeId;
     }

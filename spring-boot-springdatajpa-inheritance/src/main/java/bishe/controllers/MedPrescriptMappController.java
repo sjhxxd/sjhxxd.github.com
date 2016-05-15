@@ -36,8 +36,14 @@ public class MedPrescriptMappController {
     @RequestMapping(value = "/medprescriptmapp/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void saveorUpdateMedPrescriptMapp(MedPrescriptMappEntity medPrescriptMappEntity){
-        medPrescriptMappService.saveOrUpdateMedPrescriptMapp(medPrescriptMappEntity);
+    public String saveorUpdateMedPrescriptMapp(MedPrescriptMappEntity medPrescriptMappEntity){
+        try {
+            medPrescriptMappService.saveOrUpdateMedPrescriptMapp(medPrescriptMappEntity);
+            return "Success";
+        } catch (Exception e) {
+            System.out.println("错误:" + e.getMessage());
+            return "Error";
+        }
     }
 
     @RequestMapping(value = "/medprescriptmapp/deletebyid/{chineseMedPrescriptMappId}", method = RequestMethod.DELETE, produces = {"application/json"})

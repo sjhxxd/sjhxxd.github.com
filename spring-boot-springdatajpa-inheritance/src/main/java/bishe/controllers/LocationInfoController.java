@@ -36,8 +36,14 @@ public class LocationInfoController {
     @RequestMapping(value = "/locationinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void saveOrUpdateLocation(LocationInfoEntity locationInfoEntity){
-        locationInfoService.saveOrUpdateLocation(locationInfoEntity);
+    public String saveOrUpdateLocation(LocationInfoEntity locationInfoEntity){
+        try {
+            locationInfoService.saveOrUpdateLocation(locationInfoEntity);
+            return "Success";
+        } catch (Exception e) {
+            System.out.println("错误:" + e.getMessage());
+            return "Error";
+        }
     }
 
     @RequestMapping(value = "/locationinfo/deletebyid/{locationInfoId}", method = RequestMethod.DELETE, produces = {"application/json"})

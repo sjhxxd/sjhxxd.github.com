@@ -42,8 +42,14 @@ public class ChineseMedicineController {
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Create a hotel resource.", notes = "Returns the URL of the new resource in the Location header.")
     @ResponseBody
-    public void saveOrUpdateChineseMedicine(ChineseMedicineInfoEntity chineseMedicineInfoEntity) {
-        chineseMedicineInfoService.saveOrUpdateChineseMedicine(chineseMedicineInfoEntity);
+    public String saveOrUpdateChineseMedicine(ChineseMedicineInfoEntity chineseMedicineInfoEntity) {
+        try {
+            chineseMedicineInfoService.saveOrUpdateChineseMedicine(chineseMedicineInfoEntity);
+            return "Success";
+        } catch (Exception e) {
+            System.out.println("错误:" + e.getMessage());
+            return "Error";
+        }
     }
 
     @RequestMapping(value = "/chinesemedicineinfo/deletebyid/{chineseMedicineId}", method = RequestMethod.DELETE, produces = {"application/json"})

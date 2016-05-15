@@ -36,10 +36,7 @@ public class CaseRecordEntity implements java.io.Serializable {
     private Long tempSyndromeId;
     private Long tempInquiryResultId;
 
-
-
     public CaseRecordEntity(){
-
     }
 
     public CaseRecordEntity(Long tempPatientId, Long tempDoctorId, Long tempDiseaseId, Integer clinicalTime, Date caseDate, String patientTalk, String medicalHistory, Long tempPictureLocationId, String diagnosis, Long tempDoctorPrescriptionId, String curativeEffect, String caseRemark, String tipsContent, Long tempSyndromeId, Long tempInquiryResultId) {
@@ -59,7 +56,6 @@ public class CaseRecordEntity implements java.io.Serializable {
         this.tempSyndromeId = tempSyndromeId;
         this.tempInquiryResultId = tempInquiryResultId;
     }
-
 
     public Long getCaseId() {
         return caseId;

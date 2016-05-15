@@ -3,6 +3,7 @@ package bishe.controllers;
 import bishe.entity.PatientInfoEntity;
 import bishe.repository.PatientInfoRepository;
 import bishe.service.PatientInfoService;
+import com.google.gson.Gson;
 import com.wordnik.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,10 +21,10 @@ public class PatientController {
     private PatientInfoRepository patientInfoRepository;
     @Autowired
     private PatientInfoService patientInfoService;
+    Gson gson = new Gson();
 
     @RequestMapping(value = "/patientinfo/getall", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
-    @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
     public List<PatientInfoEntity> getPatientInfoAll() {
         return patientInfoService.getAllPatient();
@@ -40,7 +41,7 @@ public class PatientController {
 //        }
     }
 
-    @RequestMapping(value = "/patientinfo/findbyname", params = "patientName",method= RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/patientinfo/findbyname", params = "patientName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<PatientInfoEntity> getPatientByNames(@RequestParam(value = "patientName", required = true) String patientName) {
@@ -66,20 +67,20 @@ public class PatientController {
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Create a hotel resource.", notes = "Returns the URL of the new resource in the Location header.")
     @ResponseBody
-    public void saveOrUpdatePatient(PatientInfoEntity patientInfoEntity) {
-//        try {
-//            System.out.println(patientInfoEntity.getPatientId());
-//            patientInfoRepository.save(patientInfoEntity);
-//        } catch (Exception e) {
-//            System.out.println(e.getMessage());
-//
-//        }
+    public String saveOrUpdatePatient(PatientInfoEntity patientInfoEntity, @RequestBody String requestBody) {
         try {
-            System.out.println(patientInfoEntity.getPatientName());
+            if (requestBody.substring(0, 1).equals("[")) {
+                System.out.println("Android input");
+                PatientInfoEntity patientInfoEntity1 = gson.fromJson(requestBody.substring(1, requestBody.length() - 1), PatientInfoEntity.class);
+                patientInfoService.saveOrUpdatePatient(patientInfoEntity1);
+                return "Success";
+            }
             patientInfoService.saveOrUpdatePatient(patientInfoEntity);
-            System.out.println("看看--->"+patientInfoEntity.getPatientName());
+            return "Success";
         } catch (Exception e) {
-            System.out.println("添加错误:"+e.getMessage());
+            System.out.println("错误:" + e.getMessage());
+            return "Error";
+
         }
     }
 

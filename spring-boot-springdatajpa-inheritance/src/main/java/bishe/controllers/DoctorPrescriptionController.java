@@ -50,11 +50,13 @@ public class DoctorPrescriptionController {
     @RequestMapping(value = "/doctorpresctiption/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void saveOrUpdateDoctorPrescription(DoctorPrescriptionEntity doctorPrescriptionEntity) {
+    public String saveOrUpdateDoctorPrescription(DoctorPrescriptionEntity doctorPrescriptionEntity) {
         try {
             doctorPrescriptionService.saveOrUpdateDoctorPrescription(doctorPrescriptionEntity);
+            return "Success";
         } catch (Exception e) {
-            System.out.println("time——error" + e.getMessage());
+            System.out.println("错误:" + e.getMessage());
+            return "Error";
         }
     }
 

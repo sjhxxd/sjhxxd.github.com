@@ -40,9 +40,14 @@ public class PrescriptionsController {
     @RequestMapping(value = "/presctiptionsinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void saveOrUpdatePrescriptions(PrescriptionsInfoEntity prescriptionsInfoEntity){
-       prescriptionsInfoService.saveOrUpdatePrescriptions(prescriptionsInfoEntity);
-
+    public String saveOrUpdatePrescriptions(PrescriptionsInfoEntity prescriptionsInfoEntity){
+        try {
+            prescriptionsInfoService.saveOrUpdatePrescriptions(prescriptionsInfoEntity);
+            return "Success";
+        } catch (Exception e) {
+            System.out.println("错误:" + e.getMessage());
+            return "Error";
+        }
     }
 
     @RequestMapping(value = "/presctiptionsinfo/deletebyid/{prescriptionId}", method = RequestMethod.DELETE, produces = {"application/json"})

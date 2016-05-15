@@ -44,8 +44,14 @@ public class CommonDiseaseTypeController {
     @RequestMapping(value = "/commondiseasetype/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void saveOrUpdateCommonDiseaseType(CommonDiseaseTypeEntity commonDiseaseTypeEntity){
-        commonDiseaseTypeService.saveOrUpdateCommonDiseaseType(commonDiseaseTypeEntity);
+    public String saveOrUpdateCommonDiseaseType(CommonDiseaseTypeEntity commonDiseaseTypeEntity){
+        try {
+            commonDiseaseTypeService.saveOrUpdateCommonDiseaseType(commonDiseaseTypeEntity);
+            return "Success";
+        } catch (Exception e) {
+            System.out.println("错误:" + e.getMessage());
+            return "Error";
+        }
     }
 
     @RequestMapping(value = "/commondiseasetype/deletebyid/{commonDiseaseTypeid}", method = RequestMethod.DELETE, produces = {"application/json"})

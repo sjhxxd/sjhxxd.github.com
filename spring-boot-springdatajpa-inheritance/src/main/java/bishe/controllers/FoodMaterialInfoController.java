@@ -40,8 +40,14 @@ public class FoodMaterialInfoController {
     @RequestMapping(value = "/foodmaterialinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void saveOrUpdateFood(FoodMaterialInfoEntity foodMaterialInfoEntity) {
-        foodMaterialInfoService.saveOrUpdateFood(foodMaterialInfoEntity);
+    public String saveOrUpdateFood(FoodMaterialInfoEntity foodMaterialInfoEntity) {
+        try {
+            foodMaterialInfoService.saveOrUpdateFood(foodMaterialInfoEntity);
+            return "Success";
+        } catch (Exception e) {
+            System.out.println("错误:" + e.getMessage());
+            return "Error";
+        }
     }
 
     @RequestMapping(value = "/foodmaterialinfo/deletebyid/{foodMaterialId}", method = RequestMethod.DELETE, produces = {"application/json"})

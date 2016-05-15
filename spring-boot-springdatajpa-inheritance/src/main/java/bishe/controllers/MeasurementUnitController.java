@@ -44,8 +44,14 @@ public class MeasurementUnitController {
     @RequestMapping(value = "/measurementunit/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void saveOrUpdateUnit(MeasurementUnitEntity measurementUnitEntity) {
-        measurementUnitService.saveOrUpdateMeasurementUnit(measurementUnitEntity);
+    public String saveOrUpdateUnit(MeasurementUnitEntity measurementUnitEntity) {
+        try {
+            measurementUnitService.saveOrUpdateMeasurementUnit(measurementUnitEntity);
+            return "Success";
+        } catch (Exception e) {
+            System.out.println("错误:" + e.getMessage());
+            return "Error";
+        }
 
     }
 

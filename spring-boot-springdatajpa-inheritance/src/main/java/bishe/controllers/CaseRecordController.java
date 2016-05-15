@@ -53,8 +53,14 @@ public class CaseRecordController {
     @RequestMapping(value = "/caserecord/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void saveOrUpdateCaseRecord(CaseRecordEntity caseRecordEntity){
-        caseRecordService.saveOrUpdateCaseRecord(caseRecordEntity);
+    public String saveOrUpdateCaseRecord(CaseRecordEntity caseRecordEntity){
+        try {
+            caseRecordService.saveOrUpdateCaseRecord(caseRecordEntity);
+            return "Success";
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return "Error";
+        }
     }
 
     @RequestMapping(value = "/caserecord/deletebyid/{caseId}", method = RequestMethod.DELETE, produces = {"application/json"})

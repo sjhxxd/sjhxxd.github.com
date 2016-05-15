@@ -35,8 +35,14 @@ public class TbInquiryresultController {
     @RequestMapping(value = "/inquiryresult/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void saveOrUpdateInquiryResult(TbInquiryresultEntity tbInquiryresultEntity){
-        tbInquiryresultService.saveOrUpdateInquiryResult(tbInquiryresultEntity);
+    public String saveOrUpdateInquiryResult(TbInquiryresultEntity tbInquiryresultEntity){
+        try {
+            tbInquiryresultService.saveOrUpdateInquiryResult(tbInquiryresultEntity);
+            return "Success";
+        } catch (Exception e) {
+            System.out.println("错误:" + e.getMessage());
+            return "Error";
+        }
     }
 
     @RequestMapping(value = "/inquiryresult/deletebyid/{inquiryResultId}", method = RequestMethod.DELETE, produces = {"application/json"})

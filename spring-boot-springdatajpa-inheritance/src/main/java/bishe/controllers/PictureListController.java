@@ -36,8 +36,14 @@ public class PictureListController {
     @RequestMapping(value = "/picturelist/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void saveOrUpdate(PictureListEntity pictureListEntity){
-        pictureListService.saveOrUpdatePicture(pictureListEntity);
+    public String saveOrUpdate(PictureListEntity pictureListEntity){
+        try {
+            pictureListService.saveOrUpdatePicture(pictureListEntity);
+            return "Success";
+        } catch (Exception e) {
+            System.out.println("错误:" + e.getMessage());
+            return "Error";
+        }
     }
 
     @RequestMapping(value = "/picturelist/deletebyid/{pictureId}", method = RequestMethod.DELETE, produces = {"application/json"})

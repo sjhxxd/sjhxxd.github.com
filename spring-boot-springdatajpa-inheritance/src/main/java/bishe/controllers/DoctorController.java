@@ -4,6 +4,7 @@ import bishe.entity.DoctorInfoEntity;
 import bishe.frontentity.ReturnModel;
 import bishe.repository.DoctorInfoRepository;
 import bishe.service.DoctorInfoService;
+import com.google.gson.Gson;
 import com.wordnik.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,7 @@ public class DoctorController {
     private DoctorInfoRepository doctorInfoRepository;
     @Autowired
     private DoctorInfoService doctorInfoService;
+    Gson gson = new Gson();
 
 //    @RequestMapping(value="/doctor/login",method=RequestMethod.POST)
 //    public ReturnModel DoctorLogin(@RequestParam("doctorName") String doctorName, @RequestParam("doctorPassword") String password){
@@ -48,7 +50,7 @@ public class DoctorController {
 
     }
 
-    @RequestMapping(value = "/doctorinfo/findbyname", params="doctorName",method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/doctorinfo/findbyname", params = "doctorName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
@@ -60,15 +62,23 @@ public class DoctorController {
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Create a hotel resource.", notes = "Returns the URL of the new resource in the Location header.")
     @ResponseBody
-    public void saveOrUpdateDoctor(DoctorInfoEntity doctorInfoEntity) {
-        doctorInfoService.saveOrUpdateDoctor(doctorInfoEntity);
+    public String saveOrUpdateDoctor(DoctorInfoEntity doctorInfoEntity, @RequestBody String requestBody) {
+        try {
+            if (requestBody.substring(0, 1).equals("[")) {
+                DoctorInfoEntity doctorInfoEntity1 = gson.fromJson(requestBody.substring(1, requestBody.length() - 1), DoctorInfoEntity.class);
+                doctorInfoService.saveOrUpdateDoctor(doctorInfoEntity1);
+                return "Android_Success";
+            }
+            doctorInfoService.saveOrUpdateDoctor(doctorInfoEntity);
+            return "Success";
+        } catch (Exception e) {
+            return "Error";
+        }
 
     }
 
-
     @RequestMapping(value = "/doctorinfo/deletebyid/{doctorId}", method = RequestMethod.DELETE, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
-    @ApiOperation(value = "delete a hotel resource.", notes = "Returns the URL of the new resource in the Location header.")
     @ResponseBody
     public Long deleteDoctorInfo(@PathVariable Long doctorId) {
         doctorInfoService.deleteDoctor(doctorId);

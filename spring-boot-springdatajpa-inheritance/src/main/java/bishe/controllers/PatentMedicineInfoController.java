@@ -37,8 +37,14 @@ public class PatentMedicineInfoController {
     @RequestMapping(value = "/patentmedicineinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
-    public void saveOrUpdatePatentMedicine(PatentMedicineInfoEntity patentMedicineInfoEntity) {
-        patentMedicineInfoService.saveOrUpdatePatentMedicine(patentMedicineInfoEntity);
+    public String saveOrUpdatePatentMedicine(PatentMedicineInfoEntity patentMedicineInfoEntity) {
+        try {
+            patentMedicineInfoService.saveOrUpdatePatentMedicine(patentMedicineInfoEntity);
+            return "Success";
+        } catch (Exception e) {
+            System.out.println("错误:" + e.getMessage());
+            return "Error";
+        }
     }
 
     @RequestMapping(value = "/patentmedicineinfo/deletebyid/{patentMedicineId}", method = RequestMethod.DELETE, produces = {"application/json"})
