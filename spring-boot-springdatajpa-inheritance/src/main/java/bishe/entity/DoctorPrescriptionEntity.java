@@ -9,8 +9,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.lang.Long;
 import java.sql.Date;
-import java.sql.Timestamp;
-
 
 /**
  * Created by sjh on 16/3/24.

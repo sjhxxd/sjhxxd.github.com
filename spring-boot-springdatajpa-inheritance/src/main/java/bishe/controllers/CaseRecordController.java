@@ -3,11 +3,9 @@ package bishe.controllers;
 import bishe.entity.CaseRecordEntity;
 import bishe.repository.CaseRecordRepository;
 import bishe.service.CaseRecordService;
-import com.wordnik.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 /**
@@ -28,21 +26,21 @@ public class CaseRecordController {
     }
 
 //    通过病人Id查找还是病人名字?
-    @RequestMapping(value = "/caserecord/findbytemppatientid/{tempPatientId}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/caserecord/findbytemppatientid/{tempPatientId}", method = RequestMethod.POST, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<CaseRecordEntity> getCaseRecordByTempPatientId(@PathVariable Long tempPatientId){
         return caseRecordRepository.findByTempPatientId(tempPatientId);
     }
 
-    @RequestMapping(value = "/caserecord/findbytempdiseaseid/{tempDiseaseId}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/caserecord/findbytempdiseaseid/{tempDiseaseId}", method = RequestMethod.POST, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<CaseRecordEntity> getCaseRecordByTempDiseaseId(@PathVariable Long tempDiseaseId){
         return caseRecordRepository.findByTempDiseaseId(tempDiseaseId);
     }
 
-    @RequestMapping(value = "/caserecord/findbytempSyndromeId/{tempSyndromeId}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/caserecord/findbytempSyndromeId/{tempSyndromeId}", method = RequestMethod.POST, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<CaseRecordEntity> getCaseRecordByTempSyndromeId(@PathVariable Long tempSyndromeId){

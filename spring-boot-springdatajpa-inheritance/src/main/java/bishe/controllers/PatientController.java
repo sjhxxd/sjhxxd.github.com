@@ -73,9 +73,13 @@ public class PatientController {
                 System.out.println("Android input");
                 PatientInfoEntity patientInfoEntity1 = gson.fromJson(requestBody.substring(1, requestBody.length() - 1), PatientInfoEntity.class);
                 patientInfoService.saveOrUpdatePatient(patientInfoEntity1);
+                System.out.println("A_ID--->"+patientInfoEntity.getPatientId());
+                System.out.println("A_Name--->"+patientInfoEntity.getPatientName());
                 return "Success";
             }
             patientInfoService.saveOrUpdatePatient(patientInfoEntity);
+            System.out.println("ID--->"+patientInfoEntity.getPatientId());
+            System.out.println("Name--->"+patientInfoEntity.getPatientName());
             return "Success";
         } catch (Exception e) {
             System.out.println("错误:" + e.getMessage());

@@ -14,7 +14,7 @@ import java.lang.Long;
 @Table(name = "picturelist")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class PictureListEntity implements java.io.Serializable{
+public class PictureListEntity implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long pictureLocationId;
@@ -24,18 +24,20 @@ public class PictureListEntity implements java.io.Serializable{
     private String pictureName;
     private String pictureTitle;
     private String pictureRemarks;
+    private String folderName;
 
-    public PictureListEntity(){
+    public PictureListEntity() {
 
     }
 
-    public PictureListEntity(String originalPicturePath, String smallPicturePath, String pictureClass, String pictureName, String pictureTitle, String pictureRemarks) {
+    public PictureListEntity(String originalPicturePath, String smallPicturePath, String pictureClass, String pictureName, String pictureTitle, String pictureRemarks, String folderName) {
         this.originalPicturePath = originalPicturePath;
         this.smallPicturePath = smallPicturePath;
         this.pictureClass = pictureClass;
         this.pictureName = pictureName;
         this.pictureTitle = pictureTitle;
         this.pictureRemarks = pictureRemarks;
+        this.folderName = folderName;
     }
 
     public Long getPictureLocationId() {
@@ -92,6 +94,14 @@ public class PictureListEntity implements java.io.Serializable{
 
     public void setPictureRemarks(String pictureRemarks) {
         this.pictureRemarks = pictureRemarks;
+    }
+
+    public String getFolderName() {
+        return folderName;
+    }
+
+    public void setFolderName(String folderName) {
+        this.folderName = folderName;
     }
 
 }
