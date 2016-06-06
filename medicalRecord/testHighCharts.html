@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>医生每月接诊病人人次</title>
+</head>
+<body>
+<div id="container" style="min-width: 800px;height:400px"></div>
+
+<script>
+    $(function () {
+        $('#container').highcharts({
+            credits:{
+              enabled:false
+            },
+
+            title: {
+                text: '医生每月接诊病人人次',
+                x: -20 //center
+            },
+            xAxis: {
+                categories: ['一月', '二月', '三月', '四月', '五月', '六月',
+                    '七月', '八月', '九月', '十月', '十一月', '十二月']
+            },
+            yAxis: {
+                title: {
+                    text: '就诊(人次)'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: '人次'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            plotLines:[{
+                // ..., 省略代码
+                label:{
+                    text:'我是标示线的标签',     //标签的内容
+                    align:'left',                //标签的水平位置，水平居左,默认是水平居中center
+                    x:10                         //标签相对于被定位的位置水平偏移的像素，重新定位，水平居左10px
+                }
+            }],
+            series: [{
+                name: '医生1',
+                data: [120, 160, 190, 115, 118, 222, 225, 226, 223, 183, 139, 136]
+            }, {
+                name: '医生2',
+                data: [122, 118, 157, 113, 170, 220, 248, 241, 201, 141, 186,125]
+            }, {
+                name: '医生3',
+                data: [129, 106, 135, 184, 135, 170, 186, 179, 143, 190, 139, 110]
+            }, {
+                name: '医生4',
+                data: [139, 142, 157, 185, 119, 152, 170, 166, 142, 103, 166, 148]
+            }]
+        });
+    });
+</script>
+</body>
+</html>

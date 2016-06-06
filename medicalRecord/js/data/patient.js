@@ -17,6 +17,8 @@ function initTable() {
             title: '病人ID'
         }, {
             field: 'patientName',
+            sortOrder: "desc",
+
             title: '病人姓名'
         }, {
             field: 'patientSex',
@@ -50,9 +52,11 @@ function initTable() {
             title: '病人职业'
         }, {
             field: 'patientAddress',
+            formatter: value20,
             title: '病人住址'
         }, {
             field: 'patientRemark',
+            formatter: value20,
             title: '备注'
         }]
     });
@@ -65,25 +69,30 @@ $table.on('check.bs.table', function (e, row) {
     rowcontent = JSON.stringify(row);
 });
 $('#edit').click(function () {
-    var jsonobject = eval('(' + rowcontent + ')');
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行修改操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        $('#patientId').val(jsonobject.patientId);
+        $('#patientName').val(jsonobject.patientName);
+        $('#patientSex').val(jsonobject.patientSex);
+        $('#patientAge').val(jsonobject.patientAge);
+        $('#patientPhoneNumber').val(jsonobject.patientPhoneNumber);
+        $('#patientIdentityCard').val(jsonobject.patientIdentityCard);
+        $('#patientHeight').val(jsonobject.patientHeight);
+        $('#patientWeight').val(jsonobject.patientWeight);
+        $('#patientPosture').val(jsonobject.patientPosture);
+        $('#patientProfessional').val(jsonobject.patientProfessional);
+        $('#patientAddress').val(jsonobject.patientAddress);
+        $('#patientRemark').val(jsonobject.patientRemark);
 
-    $('#patientId').val(jsonobject.patientId);
-    $('#patientName').val(jsonobject.patientName);
-    $('#patientSex').val(jsonobject.patientSex);
-    $('#patientAge').val(jsonobject.patientAge);
-    $('#patientPhoneNumber').val(jsonobject.patientPhoneNumber);
-    $('#patientIdentityCard').val(jsonobject.patientIdentityCard);
-    $('#patientHeight').val(jsonobject.patientHeight);
-    $('#patientWeight').val(jsonobject.patientWeight);
-    $('#patientPosture').val(jsonobject.patientPosture);
-    $('#patientProfessional').val(jsonobject.patientProfessional);
-    $('#patientAddress').val(jsonobject.patientAddress);
-    $('#patientRemark').val(jsonobject.patientRemark);
-
-    $('.showpanel').css('display', 'none');
-    $('.addpanel').css('display', 'block');
-    $('#changepanel').html("病人信息编辑");
-    $('#doit').html("确定");
+        $('.showpanel').css('display', 'none');
+        $('.addpanel').css('display', 'block');
+        $('#changepanel').html("病人信息编辑");
+        $('#doit').html("确定");
+    }
 });
 
 $(function () {
@@ -104,9 +113,10 @@ $(function () {
             var patientRemark = $('#patientRemark').val();
 
             $.ajax({
+                async: true,
                 url: baseAddress + "/patientinfo/saveorupdate",
                 type: "post",
-                dataType:'text',
+                dataType: 'text',
                 data: {
                     "patientId": patientId,
                     "patientName": patientName,
@@ -122,99 +132,119 @@ $(function () {
                     "patientRemark": patientRemark
                 },
                 success: function (msg) {
-                    console.log("patient_success:",msg );
+                    console.log("patient_success:", msg);
                     turnPage('patient.html')
                 },
                 error: function (msg) {
-                    console.log("patient_error:",msg )
+                    console.log("patient_error:", msg)
                 }
             });
         });
 });
 $('#remove').click(function () {
-    var jsonobject = eval('(' + rowcontent + ')');
-    //确认是否删除
-    if (confirm("是否删除此条病人信息？")) {
-        $.ajax({
-            type: 'delete',
-            url: baseAddress + "/patientinfo/deletebyid/" + jsonobject.patientId + "/",
-            success: function (json) {
-                turnPage('patient.html');
-            }
-        })
+    checkboxFun();
+    if (n == 0) {
+        showTip();
     }
-});
-$('#patientInfoEntity').bootstrapValidator({
-    excluded: ':disabled',
-    feedbackIcons: {
-        valid: 'glyphicon glyphicon-ok',
-        invalid: 'glyphicon glyphicon-remove',
-        validating: 'glyphicon glyphicon-refresh'
-    },
-
-    fields: {
-        patientPhoneNumber: {
-            validators: {
-                notEmpty: {
-                    message: '手机号不能为空'
-                },
-                regexp: {
-                    regexp: /^1[3|5|7|8|][0-9]{9}$/,
-                    message: '请输入正确的手机号'
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        //确认是否删除
+        if (confirm("是否删除'" + jsonobject.patientName + "'这条信息？")) {
+            $.ajax({
+                type: 'delete',
+                url: baseAddress + "/patientinfo/deletebyid/" + jsonobject.patientId + "/",
+                success: function (json) {
+                    turnPage('patient.html');
                 }
-            }
-        },
-        patientIdentityCard: {
-            validators: {
-                notEmpty: {
-                    message: '身份证号不能为空'
-                },
-                regexp: {
-                    regexp: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
-                    message: '请输入正确的身份证号'
-                }
-            }
-        },
-        patientAge: {
-            validators: {
-                notEmpty: {
-                    message: '年龄不能为空'
-                },
-                regexp: {
-                    regexp: /^[1-9]\d?$|^1[01]\d$|^120$/,
-                    message: '年龄1-120岁之间'
-                }
-            }
-        },
-        patientWeight: {
-            validators: {
-                regexp: {
-                    regexp: /^\d{1,3}(\.\d{1,2})$/,
-                    message: '限制最多三位整数以及两位小数'
-                }
-            }
-        },
-        val50: {
-            validators: {
-                notEmpty: {
-                    message: '不能为空'
-                },
-                stringLength: {
-                    max: 50,
-                    message: '不能超过50个字符'
-                }
-            }
-        },
-        val1024: {
-            validators: {
-                stringLength: {
-                    max: 1024,
-                    message: '请输入不超过1024个字符的内容'
-                }
-            }
+            })
         }
     }
 });
+$(document).ready(function () {
+    $('#patientform').bootstrapValidator({
+        excluded: ':disabled',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+
+        fields: {
+            patientName: {
+                validators: {
+                    notEmpty: {
+                        message: '姓名不能为空'
+                    },
+                    regexp: {
+                        regexp: /^[\u4e00-\u9fa5]+$/,
+                        message: '姓名只能包含中文'
+                    }
+                }
+            },
+            patientPhoneNumber: {
+                validators: {
+                    notEmpty: {
+                        message: '手机号不能为空'
+                    },
+                    regexp: {
+                        regexp: /^1[3|5|7|8|][0-9]{9}$/,
+                        message: '请输入正确的手机号'
+                    }
+                }
+            },
+            patientIdentityCard: {
+                validators: {
+                    notEmpty: {
+                        message: '身份证号不能为空'
+                    },
+                    regexp: {
+                        regexp: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
+                        message: '请输入正确的身份证号'
+                    }
+                }
+            },
+            patientAge: {
+                validators: {
+                    notEmpty: {
+                        message: '年龄不能为空'
+                    },
+                    regexp: {
+                        regexp: /^[1-9]\d?$|^1[01]\d$|^120$/,
+                        message: '年龄1-120岁之间'
+                    }
+                }
+            },
+            patientWeight: {
+                validators: {
+                    regexp: {
+                        regexp: /^\d{1,3}(\.\d{1,2})$/,
+                        message: '限制最多三位整数以及两位小数'
+                    }
+                }
+            },
+            val50: {
+                validators: {
+                    notEmpty: {
+                        message: '不能为空'
+                    },
+                    stringLength: {
+                        max: 50,
+                        message: '不能超过50个字符'
+                    }
+                }
+            },
+            val1024: {
+                validators: {
+                    stringLength: {
+                        max: 1024,
+                        message: '请输入不超过1024个字符的内容'
+                    }
+                }
+            }
+        }
+    });
+
+})
 
 
 

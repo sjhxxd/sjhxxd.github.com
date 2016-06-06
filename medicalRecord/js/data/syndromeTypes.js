@@ -1,10 +1,10 @@
 //证型信息表
-var $table=$("#syndromeTypesTable");
+var $table = $("#syndromeTypesTable");
 var rowcontent = null;
-function initTable(){
+function initTable() {
     $table.bootstrapTable({
-        url:baseAddress+"/syndrometypes/getall",
-        dataType:"json",
+        url: baseAddress + "/syndrometypes/getall",
+        dataType: "json",
         columns: [{
             field: 'state',
             checkbox: true,
@@ -24,13 +24,13 @@ function initTable(){
             title: '证型名'
         }, {
             field: 'syndromeRemark',
+            formatter: value20,
             title: '备注'
         }]
 
     });
 }
 
-initTable();
 
 $("#add").click(function () {
     $('.showpanel').css('display', 'none');
@@ -50,24 +50,29 @@ $table.on('check.bs.table', function (e, row) {
 });
 
 $("#edit").click(function () {
-    var jsonobject = eval('(' + rowcontent + ')');
-    $("#syndromeId").val(jsonobject.syndromeId);
-    $("#syndromeSystemType").val(jsonobject.syndromeSystemType);
-    $("#syndromeLevelType").val(jsonobject.syndromeLevelType);
-    $("#syndromeName").val(jsonobject.syndromeName);
-    $("#syndromeRemark").val(jsonobject.syndromeRemark);
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行修改操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        $("#syndromeId").val(jsonobject.syndromeId);
+        $("#syndromeSystemType").val(jsonobject.syndromeSystemType);
+        $("#syndromeLevelType").val(jsonobject.syndromeLevelType);
+        $("#syndromeName").val(jsonobject.syndromeName);
+        $("#syndromeRemark").val(jsonobject.syndromeRemark);
 
 
+        $('.showpanel').css('display', 'none');
+        $('.addpanel').css('display', 'block');
 
-    $('.showpanel').css('display', 'none');
-    $('.addpanel').css('display', 'block');
-
-    $('#changepanel').html("证型信息编辑");
-    $('#doit').html("确定");
-
+        $('#changepanel').html("证型信息编辑");
+        $('#doit').html("确定");
+    }
 });
 
 $(function () {
+    initTable();
     $("#doit").click(
         function () {
             var syndromeId = $("#syndromeId").val();
@@ -98,15 +103,21 @@ $(function () {
 });
 
 $('#remove').click(function () {
-    var jsonobject = eval('(' + rowcontent + ')');
-    //确认是否删除
-    if (confirm("是否删除此条信息？")) {
-        $.ajax({
-            type: 'delete',
-            url: baseAddress + "/syndrometypes/deletebyid/" + jsonobject.syndromeId + "/",
-            success: function (json) {
-                turnPage('syndromeTypes.html');
-            }
-        })
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行删除操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        //确认是否删除
+        if (confirm("是否删除'" + jsonobject.syndromeName + "'这条信息？")) {
+            $.ajax({
+                type: 'delete',
+                url: baseAddress + "/syndrometypes/deletebyid/" + jsonobject.syndromeId + "/",
+                success: function () {
+                    turnPage('syndromeTypes.html');
+                }
+            })
+        }
     }
 });

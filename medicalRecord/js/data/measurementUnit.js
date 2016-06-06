@@ -2,12 +2,12 @@
  * Created by sjh on 16/3/8.
  */
 //计量单位表
-var $table=$("#measurementUnitTable");
+var $table = $("#measurementUnitTable");
 var rowcontent = null;
-function initTable(){
+function initTable() {
     $table.bootstrapTable({
-        url:baseAddress+"/measurementunit/getall",
-        dataType:"json",
+        url: baseAddress + "/measurementunit/getall",
+        dataType: "json",
         columns: [{
             field: 'state',
             checkbox: true,
@@ -24,6 +24,7 @@ function initTable(){
             title: '进制'
         }, {
             field: 'unitRemarks',
+            formatter: value20,
             title: '计量单位备注'
         }]
 
@@ -44,47 +45,53 @@ $('#cancel').click(function () {
     turnPage('measurementUnit.html');
 });
 
-$("#edit").click(function(){
-    var jsonobject = eval('(' + rowcontent + ')');
-    $("#unitId").val(jsonobject.unitId);
-    $("#unitName").val(jsonobject.unitName);
-    $("#hexadecimal").val(jsonobject.hexadecimal);
-    $("#unitRemarks").val(jsonobject.unitRemarks);
+$("#edit").click(function () {
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行修改操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        $("#unitId").val(jsonobject.unitId);
+        $("#unitName").val(jsonobject.unitName);
+        $("#hexadecimal").val(jsonobject.hexadecimal);
+        $("#unitRemarks").val(jsonobject.unitRemarks);
 
-    $('.showpanel').css('display', 'none');
-    $('.addpanel').css('display', 'block');
-    $('#changepanel').html("计量单位编辑");
-    $('#doit').html("确定");
+        $('.showpanel').css('display', 'none');
+        $('.addpanel').css('display', 'block');
+        $('#changepanel').html("计量单位编辑");
+        $('#doit').html("确定");
+    }
 });
 $table.on('check.bs.table', function (e, row) {
     rowcontent = JSON.stringify(row);
 });
 
-$(function(){
+$(function () {
     initTable();
     $("#doit").click(
-        function(){
-            var unitId=$("#unitId").val();
-            var unitName=$("#unitName").val();
-            var hexadecimal=$("#hexadecimal").val();
-            var unitRemarks=$("#unitRemarks").val();
+        function () {
+            var unitId = $("#unitId").val();
+            var unitName = $("#unitName").val();
+            var hexadecimal = $("#hexadecimal").val();
+            var unitRemarks = $("#unitRemarks").val();
 
             $.ajax({
-                url:baseAddress+"/measurementunit/saveorupdate",
-                type:"post",
-                dataType:"text",
-                data:{
-                    "unitId":unitId,
-                    "unitName":unitName,
-                    "hexadecimal":hexadecimal,
-                    "unitRemarks":unitRemarks
+                url: baseAddress + "/measurementunit/saveorupdate",
+                type: "post",
+                dataType: "text",
+                data: {
+                    "unitId": unitId,
+                    "unitName": unitName,
+                    "hexadecimal": hexadecimal,
+                    "unitRemarks": unitRemarks
                 },
-                success:function(msg){
-                    console.log("measurementUnit_success:"+msg)
+                success: function (msg) {
+                    console.log("measurementUnit_success:" + msg)
                     turnPage('measurementUnit.html');
                 },
-                error:function(msg){
-                    alert("measurementUnit_error:"+msg)
+                error: function (msg) {
+                    alert("measurementUnit_error:" + msg)
                 }
 
             });
@@ -92,15 +99,21 @@ $(function(){
 });
 
 $('#remove').click(function () {
-    var jsonobject = eval('(' + rowcontent + ')');
-    //确认是否删除
-    if (confirm("是否删除此条信息？")) {
-        $.ajax({
-            type: 'delete',
-            url: baseAddress+"/measurementunit/deletebyid/" + jsonobject.unitId + "/",
-            success: function (json) {
-                turnPage('measurementUnit.html');
-            }
-        })
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行删除操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        //确认是否删除
+        if (confirm("是否删除 "+jsonobject.unitName+" 这条信息？")) {
+            $.ajax({
+                type: 'delete',
+                url: baseAddress + "/measurementunit/deletebyid/" + jsonobject.unitId + "/",
+                success: function () {
+                    turnPage('measurementUnit.html');
+                }
+            })
+        }
     }
 });

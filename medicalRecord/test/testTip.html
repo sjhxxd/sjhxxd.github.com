@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #tip {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            display: none;
+            z-index: 9999;
+        }
+    </style>
+
+</head>
+<body>
+<strong id="tip"></strong>
+
+<div class="form-group" style="display: inline-block">
+    <!--<i class="glyphicon glyphicon-user"></i>-->
+    <input type="text" id="userName" class="form-control" autofocus placeholder="用户名" required>
+</div>
+<div class="form-group">
+    <input type="password" id="password" class="form-control" placeholder="密码" required>
+</div>
+<label for="remember">
+    <input id="remember" type="checkbox" checked="checked">
+    记住密码
+</label>
+
+<div class="form-group">
+    <button type="submit" class="btn btn-lg btn-primary btn-block" id="login" onclick="show()">登录</button>
+</div>
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script>
+    function show() {
+        var $name = $("#userName");
+        if ($name.val() == "") {
+            return ShowWarn("请输入用户名", $name)
+        }
+        var $pwd=$("#password");
+        var pwd=$pwd.val();
+        if(pwd==""){
+            return ShowWarn('请输入密码',$pwd);
+        }
+        if(pwd.length<6 ||pwd.length>20){
+            return ShowWarn("请输入6-20位密码",$pwd,true);
+        }
+
+        return true;
+    }
+    //tip是提示信息，type:'success'是成功信息，'danger'是失败信息,'info'是普通信息,'warning'是警告信息
+    function ShowTip(tip, type) {
+        var $tip = $('#tip');
+        if ($tip.length == 0) {
+            $tip = $('<strong id="tip" style="position:absolute;top:50px;left: 50%;z-index:9999"></strong>');
+            $('body').append($tip);
+        }
+        $tip.stop(true).prop('class', 'alert alert-' + type).text(tip).css('margin-left', -$tip.outerWidth() / 2).fadeIn(500).delay(2000).fadeOut(500);
+    }
+
+    function ShowMsg(msg) {
+        ShowTip(msg, 'info');
+    }
+
+    function ShowSuccess(msg) {
+        ShowTip(msg, 'success');
+    }
+
+    function ShowFailure(msg) {
+        ShowTip(msg, 'danger');
+    }
+
+    function ShowWarn(msg, $focus, clear) {
+        ShowTip(msg, 'warning');
+        if ($focus) {
+            $focus.focus();
+            if (clear) $focus.val('');
+        }
+        return false;
+    }
+</script>
+</body>
+</html>

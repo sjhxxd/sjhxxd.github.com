@@ -7,7 +7,8 @@
     <title>TestTable</title>
 </head>
 <body>
-
+<div id="right-nav"><strong>中药信息管理</strong></div>
+<hr>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
         <button id="add" class="btn btn-danger">
@@ -20,20 +21,22 @@
             <i class="glyphicon glyphicon-remove"></i> 删除
         </button>
     </div>
-    <table id="chineseMedicineInfoTable"
-           data-height="500"
-           data-toggle="table"
-           data-toolbar="#toolbar"
-           data-search="true"
-           data-show-refresh="true"
-           data-show-toggle="true"
-           data-show-columns="true"
-           data-show-pagination-switch="true"
-           data-page-list="[10, 25, 50, 100, ALL]"
-           data-pagination="true"
-    >
+    <div>
+        <table id="chineseMedicineInfoTable"
+               data-height="850"
+               data-toggle="table"
+               data-toolbar="#toolbar"
+               data-search="true"
+               data-show-refresh="true"
+               data-show-toggle="true"
+               data-show-columns="true"
+               data-show-pagination-switch="true"
+               data-page-list="[10, 25, 50, 100, ALL]"
+               data-pagination="true"
+        >
+        </table>
+    </div>
 
-    </table>
 </div>
 
 <div class="row addpanel" style="display: none;">
@@ -44,95 +47,143 @@
             </div>
             <form id="chineseMedicineInfoform" method="post">
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="chineseMedicineInfoEntity" name="chineseMedicineInfoEntity">
-                                <div class="form-group hidden">
-                                    <label for="chineseMedicineId">中药ID</label>
-                                    <input type="text" class="form-control " id="chineseMedicineId"
-                                           disabled="true">
-                                </div>
-                                <div class="form-group">
-                                    <label for="medicineName">中药名称</label>
-                                    <input type="text" class="form-control" id="medicineName"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="medicineProperty">药性</label>
-                                    <input type="text" class="form-control" id="medicineProperty"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="medicineTaste">药味</label>
-                                    <input type="text" class="form-control" id="medicineTaste"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="effectType">功效类别</label>
-                                    <input type="text" class="form-control" id="effectType"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="medicineGrade">品级</label>
-                                    <input type="text" class="form-control" id="medicineGrade"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="channelTropism">归经</label>
-                                    <input type="text" class="form-control" id="channelTropism"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="indicationsFunction">功能主治</label>
-                                    <input type="text" class="form-control" id="indicationsFunction"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="clinicalApplication">临床应用</label>
-                                    <input type="text" class="form-control" id="clinicalApplication"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tempPictureLocationId">图片ID</label>
-                                    <input type="text" class="form-control" id="tempPictureLocationId"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="chineseMedicineRemark">中药备注</label>
-                                    <input type="text" class="form-control" id="chineseMedicineRemark"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="anotherName">别名</label>
-                                    <input type="text" class="form-control" id="anotherName"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="producingArea">产地</label>
-                                    <input type="text" class="form-control" id="producingArea"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="commonUsedPrescription">常见方</label>
-                                    <input type="text" class="form-control" id="commonUsedPrescription"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="machiningProcessing">加工炮制</label>
-                                    <input type="text" class="form-control" id="machiningProcessing"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="usePrecaution">使用注意</label>
-                                    <input type="text" class="form-control" id="usePrecaution"
-                                           required>
-                                </div>
+                    <div class="row" id="chineseMedicineInfoEntity" name="chineseMedicineInfoEntity">
+                        <div class="col-md-5">
+                            <div class="form-group hidden">
+                                <label for="chineseMedicineId">中药ID</label>
+                                <input type="text" class="form-control " id="chineseMedicineId"
+                                       disabled="true">
                             </div>
+                            <div class="form-group">
+                                <label for="medicineName">中药名称</label>
+                                <input type="text" class="form-control" id="medicineName" autofocus
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="medicineProperty">药性</label>
+                                <select class="form-control" id="medicineProperty"
+                                        required>
+                                    <option value="寒">寒</option>
+                                    <option value="凉">凉</option>
+                                    <option value="平">平</option>
+                                    <option value="温">温</option>
+                                    <option value="热">热</option>
+                                </select>
 
-                        </div> <!--cil-md-5 -->
-                    </div>  <!--row-->
+                            </div>
+                            <div class="form-group">
+                                <label for="medicineTaste">药味</label>
+                                <select class="form-control" id="medicineTaste"
+                                        required>
+                                    <option value="酸">酸</option>
+                                    <option value="涩">涩</option>
+                                    <option value="甘">甘</option>
+                                    <option value="苦">苦</option>
+                                    <option value="辛">辛</option>
+                                    <option value="咸">咸</option>
+                                    <option value="淡">淡</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="effectType">功效类别</label>
+                                <select class="form-control" id="effectType">
+                                    <option value="解表药">解表药</option>
+                                    <option value="清热药">清热药</option>
+                                    <option value="泻下药">泻下药</option>
+                                    <option value="祛风湿药">祛风湿药</option>
+                                    <option value="芳香化湿药">芳香化湿药</option>
+                                    <option value="利水渗湿药">利水渗湿药</option>
+                                    <option value="温里药">温里药</option>
+                                    <option value="理气药">理气药</option>
+                                    <option value="消食药">消食药</option>
+                                    <option value="驱虫药">驱虫药</option>
+                                    <option value="止血药">止血药</option>
+                                    <option value="活血祛瘀药">活血祛瘀药</option>
+                                    <option value="化痰止咳平喘药">化痰止咳平喘药</option>
+                                    <option value="安神药">安神药</option>
+                                    <option value="平肝息风药">平肝息风药</option>
+                                    <option value="开窍药">开窍药</option>
+                                    <option value="补虚药">补虚药</option>
+                                    <option value="收涩药">收涩药</option>
+                                    <option value="涌吐药">涌吐药</option>
+                                    <option value="万用药及其他">万用药及其他</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="medicineGrade">品级</label>
+                                <select type="text" class="form-control" id="medicineGrade"
+                                        required>
+                                    <option value="上品">上品</option>
+                                    <option value="中品">中品</option>
+                                    <option value="下品">下品</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="channelTropism">归经</label>
+                                <input type="text" class="form-control" id="channelTropism"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="indicationsFunction">功能主治</label>
+                                <textarea class="form-control" id="indicationsFunction"
+                                          cols="20" rows="4">
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="clinicalApplication">临床应用</label>
+                                <textarea  class="form-control" id="clinicalApplication"
+                                           cols="20" rows="4">
+                                </textarea>
+                            </div>
+                        </div><!--cil-md-5 -->
+                        <div class="col-md-1"></div>
+
+                        <div class="col-md-5">
+
+
+                            <div class="form-group">
+                                <label for="tempPictureLocationId">图片ID</label>
+                                <select  class="form-control" id="tempPictureLocationId"
+                                        >
+                                    <option value="" disabled>请选择</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="chineseMedicineRemark">中药备注</label>
+                                <input type="text" class="form-control" id="chineseMedicineRemark"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="anotherName">别名</label>
+                                <input type="text" class="form-control" id="anotherName"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="producingArea">产地</label>
+                                <input type="text" class="form-control" id="producingArea"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="commonUsedPrescription">常见方</label>
+                                <input type="text" class="form-control" id="commonUsedPrescription"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="machiningProcessing">加工炮制</label>
+                                <textarea  class="form-control" id="machiningProcessing"
+                                           cols="20" rows="4">
+                                </textarea>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="usePrecaution">使用注意</label>
+                                <textarea  class="form-control" id="usePrecaution"
+                                           cols="20" rows="4">
+                                </textarea>
+                            </div>
+                        </div> <!--col-md-5 -->
+                    </div><!--row-->
                 </div>
-
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-md-1 col-md-offset-10 col-lg-offset-10 col-lg-1">
@@ -145,7 +196,6 @@
                         </div>
                     </div>
                 </div>
-
             </form>
         </div>
     </div>  <!--col-md-10-->

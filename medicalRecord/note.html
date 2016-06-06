@@ -7,7 +7,7 @@
     <title>TestTable</title>
 </head>
 <body>
-<div id="right-nav"> <strong>中成药信息管理</strong></div>
+<div id="right-nav"><strong>评论信息管理</strong></div>
 <hr>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
@@ -21,7 +21,7 @@
             <i class="glyphicon glyphicon-remove"></i> 删除
         </button>
     </div>
-    <table id="patentMedicineInfoTable"
+    <table id="noteTable"
            data-height="500"
            data-toggle="table"
            data-toolbar="#toolbar"
@@ -33,76 +33,83 @@
            data-page-list="[10, 25, 50, 100, ALL]"
            data-pagination="true"
     >
+
     </table>
 </div>
 
-<div class="row addpanel"  style="display: none;">
+<div class="row addpanel" style="display: none;">
     <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h4 class="panel-title" id="changepanel">中成药信息添加</h4>
+                <h4 class="panel-title" id="changepanel">评论信息添加</h4>
             </div>
-            <form id="patentMedicineform" method="post">
+            <form id="noteform" method="post">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <div id="patentMedicineEntity" name="patentMedicineEntity">
+                            <div id="noteEntity" >
                                 <div class="form-group hidden">
-                                    <label for="patentMedicineId">中成药ID</label>
-                                    <input type="text" class="form-control " id="patentMedicineId"
+                                    <label for="myNoteId">笔记ID</label>
+                                    <input type="text" class="form-control " id="myNoteId"
                                            disabled="true">
                                 </div>
                                 <div class="form-group">
-                                    <label for="patentMedicineName">中成药名称</label>
-                                    <input type="text" class="form-control" id="patentMedicineName"
+                                    <label for="tempDoctorId">医生ID</label>
+                                    <select  class="form-control" id="tempDoctorId">
+                                        <option value="">--请选择--</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tempNoteTypeId">笔记类别</label>
+                                    <select  class="form-control" id="tempNoteTypeId"
+                                           required>
+                                        <option value="1">中药</option>
+                                        <option value="2">食材</option>
+                                        <option value="3">中成药</option>
+                                        <option value="4">方剂</option>
+                                        </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="noteDate">笔记时间</label>
+                                    <input type="text" class="form-control" id="noteDate"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="patentMedicineContent">中成药内容</label>
-                                    <input type="text" class="form-control" id="patentMedicineContent"
+                                    <label for="noteContent">笔记内容</label>
+                                    <input type="text" class="form-control" id="noteContent"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="indicationsFunction">功能主治</label>
-                                    <input type="text" class="form-control" id="indicationsFunction"
+                                    <label for="noteRemark">笔记备注</label>
+                                    <input type="text" class="form-control" id="noteRemark"
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="shape">性状</label>
-                                    <input type="text" class="form-control" id="shape"
-                                           required>
+                                    <label for="tempChineseMedicineId">中药ID</label>
+                                    <select  class="form-control" id="tempChineseMedicineId">
+                                        <option value="">--请选择--</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="usageDosage">用法与用量</label>
-                                    <input type="text" class="form-control" id="usageDosage"
-                                           required>
+                                    <label for="tempFoodMaterialId">食材ID</label>
+                                    <select  class="form-control" id="tempFoodMaterialId">
+                                        <option value="">--请选择--</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="attention">注意</label>
-                                    <input type="text" class="form-control" id="attention"
-                                           required>
+                                    <label for="tempPatentMedicineId">中成药ID</label>
+                                    <select  class="form-control" id="tempPatentMedicineId">
+                                        <option value="">--请选择--</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="specifications">规格</label>
-                                    <input type="text" class="form-control" id="specifications"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="storageMethod">贮藏方式</label>
-                                    <input type="text" class="form-control" id="storageMethod"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="saute">制法</label>
-                                    <input type="text" class="form-control" id="saute"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="patentMedicineRemark">备注</label>
-                                    <input type="text" class="form-control" id="patentMedicineRemark"
-                                           required>
+                                    <label for="tempPrescriptionId">方剂ID</label>
+                                    <select  class="form-control" id="tempPrescriptionId">
+                                        <option value="">--请选择--</option>
+                                    </select>
                                 </div>
                             </div>
+
                         </div> <!--cil-md-5 -->
                     </div>  <!--row-->
                 </div>
@@ -128,5 +135,5 @@
 
 </body>
 <script src="js/base_address.js"></script>
-<script src="js/data/patentMedicine.js"></script>
+<script src="js/data/note.js"></script>
 </html>

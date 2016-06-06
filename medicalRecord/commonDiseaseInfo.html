@@ -7,7 +7,8 @@
     <title>TestTable</title>
 </head>
 <body>
-
+<div id="right-nav"> <strong>常见疾病信息管理</strong></div>
+<hr>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
         <button id="add" class="btn btn-danger">
@@ -21,7 +22,7 @@
         </button>
     </div>
     <table id="commonDiseaseInfoTable"
-           data-height="500"
+           data-height="530"
            data-toggle="table"
            data-toolbar="#toolbar"
            data-search="true"
@@ -64,9 +65,20 @@
                                             required>
                                 </div>
                                 <div class="form-group">
+                                    <label for="commonDiseaseCode">常见疾病代码</label>
+                                    <input type="text" class="form-control" id="commonDiseaseCode"
+                                           required>
+                                </div>
+                                <div class="form-group">
                                     <label for="commonDiseaseExplain">常见疾病说明</label>
-                                    <input type="text" class="form-control" id="commonDiseaseExplain"
-                                            required>
+                                    <textarea  class="form-control" id="commonDiseaseExplain"
+                                            cols="20" rows="4">
+                                    </textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientNumber">病人人数</label>
+                                    <input type="text" class="form-control" id="patientNumber"
+                                           required>
                                 </div>
                             </div>
 

@@ -9,7 +9,8 @@
     <title>TestTable</title>
 </head>
 <body>
-
+<div id="right-nav"><strong>医生信息管理</strong></div>
+<hr>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
         <button id="add" class="btn btn-danger">
@@ -34,8 +35,6 @@
            data-page-list="[10, 25, 50, 100, ALL]"
            data-pagination="true"
     >
-
-
     </table>
 </div>
 
@@ -57,42 +56,49 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="doctorName">医生姓名</label>
-                                    <input type="text" class="form-control" id="doctorName"
+                                    <input type="text" class="form-control" id="doctorName" name="doctorName"
                                            required>
                                 </div>
                                 <div class="form-group">
                                     <label for="doctorSex">医生性别</label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="doctorSex" value="男" id="male">男
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="doctorSex" value="女" id="female">女
-                                    </label>
+                                    <select class="form-control" id="doctorSex"
+                                            required>
+                                        <option value="男">男</option>
+                                        <option value="女">女</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="doctorAge">医生年龄</label>
-                                    <input type="text" class="form-control" id="doctorAge"
+                                    <input type="text" class="form-control" id="doctorAge" name="doctorAge"
                                            required>
                                 </div>
                                 <div class="form-group">
                                     <label for="doctorPhoneNumber">手机号码</label>
                                     <input type="text" class="form-control" id="doctorPhoneNumber"
+                                           name="doctorPhoneNumber"
                                            required>
                                 </div>
                                 <div class="form-group">
                                     <label for="doctorUnitName">所在单位</label>
-                                    <input type="text" class="form-control" id="doctorUnitName"
-                                           required>
+                                    <input type="text" class="form-control" id="doctorUnitName" name="val50"
+                                    >
                                 </div>
                                 <div class="form-group">
                                     <label for="doctorDepartmentName">所在科室</label>
-                                    <input type="text" class="form-control" id="doctorDepartmentName"
-                                           required>
+                                    <input type="text" class="form-control" id="doctorDepartmentName" name="val50"
+                                    >
                                 </div>
                                 <div class="form-group">
                                     <label for="doctorIdentity">登录身份</label>
-                                    <input type="text" class="form-control" id="doctorIdentity"
-                                           required>
+                                    <select class="form-control" id="doctorIdentity"
+                                            required>
+                                        <option value="职业医师">职业医师</option>
+                                        <option value="中医从业者">中医从业者</option>
+                                        <option value="民间中医">民间中医</option>
+                                        <option value="中医爱好者">中医爱好者</option>
+                                        <option value="医学院师生">医学院师生</option>
+
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="doctorPassword">登录密码</label>
@@ -101,13 +107,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="doctorAddress">所在地区</label>
-                                    <input type="text" class="form-control" id="doctorAddress"
-                                           required>
+                                    <input type="text" class="form-control" id="doctorAddress" name="val50"
+                                    >
                                 </div>
                                 <div class="form-group">
                                     <label for="checkState">审核状态</label>
-                                    <input type="text" class="form-control" id="checkState"
-                                           required>
+                                    <select type="text" class="form-control" id="checkState">
+                                        <option value="0" disabled>未审核</option>
+                                        <option value="1">已通过</option>
+                                        <option value="2">未通过</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="doctorRemark">备注</label>
@@ -116,18 +125,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="doctorWechat">微信</label>
-                                    <input type="text" class="form-control" id="doctorWechat"
-                                           required>
+                                    <input type="text" class="form-control" id="doctorWechat">
                                 </div>
                                 <div class="form-group">
                                     <label for="doctorIntroduction">自我介绍</label>
-                                    <input type="text" class="form-control" id="doctorIntroduction"
-                                           required>
+                                    <textarea class="form-control" id="doctorIntroduction" name="val1024"
+                                              cols="4" rows="6">
+                                        </textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="tempPictureLocationId">图片ID</label>
-                                    <input type="text" class="form-control" id="tempPictureLocationId"
-                                           required>
+                                    <select class="form-control" id="tempPictureLocationId">
+                                        <option value="">--请选择--</option>
+                                    </select>
                                 </div>
                             </div>
                         </div> <!--cil-md-5 -->
@@ -154,5 +164,6 @@
 
 </body>
 <script src="js/base_address.js"></script>
+<script src="js/commonTable.js"></script>
 <script src="js/data/doctor.js"></script>
 </html>

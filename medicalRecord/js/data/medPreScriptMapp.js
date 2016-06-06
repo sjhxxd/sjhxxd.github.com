@@ -30,9 +30,11 @@ function initTable() {
             title: '计量单位ID'
         }, {
             field: 'decoctionMethod',
+            formatter: value20,
             title: '煎法'
         }, {
             field: 'medPrescriptMappRemarks',
+            formatter: value20,
             title: '映射备注'
         }]
     });
@@ -55,20 +57,55 @@ $table.on('check.bs.table', function (e, row) {
 });
 
 $('#edit').click(function () {
-    var jsonobject = eval('(' + rowcontent + ')');
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行修改操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        //中药修改
+        $.ajax({
+            async:true,
+            type: "get",
+            dataType: "json",
+            url: baseAddress + "/chinesemedicineinfo/findbyname/?medicineName=" + jsonobject.tempChineseMedicineId.toString(),
+            success: function (msg) {
+                var ChineseMedicineId = msg[0].chineseMedicineId;
+                $('#tempChineseMedicineId').val(ChineseMedicineId);
+            }
+        });
+        //方剂修改
+        $.ajax({
+            async:true,
+            type: "get",
+            dataType: "json",
+            url: baseAddress + "/presctiptionsinfo/findbyname/?prescriptionName=" + jsonobject.tempPrescriptionId.toString(),
+            success: function (msg) {
+               var  PrescriptionId = msg[0].prescriptionId;
+                $('#tempPrescriptionId').val(PrescriptionId);
+            }
+        });
+        //计量单位修改
+        $.ajax({
+            async:true,
+            type: "get",
+            dataType: "json",
+            url: baseAddress + "/measurementunit/findbyname/?unitName=" + jsonobject.tempUnitId.toString(),
+            success: function (msg) {
+                var  UnitId = msg.unitId;
+                $('#tempUnitId').val(UnitId);
+            }
+        });
+        $('#chineseMedPrescriptMappId').val(jsonobject.chineseMedPrescriptMappId);
+        $('#medicineAmount').val(jsonobject.medicineAmount);
+        $('#decoctionMethod').val(jsonobject.decoctionMethod);
+        $('#medPrescriptMappRemarks').val(jsonobject.medPrescriptMappRemarks);
 
-    $('#chineseMedPrescriptMappId').val(jsonobject.chineseMedPrescriptMappId);
-    $('#tempChineseMedicineId').val(jsonobject.tempChineseMedicineId);
-    $('#tempPrescriptionId').val(jsonobject.tempPrescriptionId);
-    $('#medicineAmount').val(jsonobject.medicineAmount);
-    $('#tempUnitId').val(jsonobject.tempUnitId);
-    $('#decoctionMethod').val(jsonobject.decoctionMethod);
-    $('#medPrescriptMappRemarks').val(jsonobject.medPrescriptMappRemarks);
-
-    $('.showpanel').css('display', 'none');
-    $('.addpanel').css('display', 'block');
-    $('#changepanel').html("中药方剂映射关系编辑");
-    $('#doit').html("确定");
+        $('.showpanel').css('display', 'none');
+        $('.addpanel').css('display', 'block');
+        $('#changepanel').html("中药方剂映射关系编辑");
+        $('#doit').html("确定");
+    }
 });
 
 $(function () {
@@ -108,15 +145,69 @@ $(function () {
 });
 
 $('#remove').click(function () {
-    var jsonobject = eval('(' + rowcontent + ')');
-    //确认是否删除
-    if (confirm("是否删除此条信息？")) {
-        $.ajax({
-            type: 'delete',
-            url: baseAddress + "/medprescriptmapp/deletebyid/" + jsonobject.chineseMedPrescriptMappId + "/",
-            success: function () {
-                turnPage('medPreScriptMapp.html');
-            }
-        })
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行删除操作!");
     }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        //确认是否删除
+        if (confirm("是否删除此条信息？")) {
+            $.ajax({
+                type: 'delete',
+                url: baseAddress + "/medprescriptmapp/deletebyid/" + jsonobject.chineseMedPrescriptMappId + "/",
+                success: function () {
+                    turnPage('medPreScriptMapp.html');
+                }
+            })
+        }
+    }
+});
+
+//中药
+jQuery(function ($) {
+    $.ajax({
+        type: "get",
+        dataType: "json",
+        url: baseAddress + "/chinesemedicineinfo/getall",
+        success: function (msg) {
+            var str = "";
+            for (var i in msg) {
+                str += "<option value =" + msg[i].chineseMedicineId + " >" + msg[i].medicineName + "</option>";
+            }
+            $("#tempChineseMedicineId").append(str);
+        }
+    })
+});
+
+
+//方剂
+jQuery(function ($) {
+    $.ajax({
+        type: "get",
+        dataType: "json",
+        url: baseAddress + "/presctiptionsinfo/getall",
+        success: function (msg) {
+            var str = "";
+            for (var i in msg) {
+                str += "<option value =" + msg[i].prescriptionId + " >" + msg[i].prescriptionName + "</option>";
+            }
+            $("#tempPrescriptionId").append(str);
+        }
+    })
+});
+//计量单位
+jQuery(function ($) {
+    $.ajax({
+        type: "get",
+        dataType: "json",
+        url: baseAddress + "/measurementunit/getall",
+        success: function (msg) {
+            var str = "";
+            for (var i in msg) {
+                str += "<option value =" + msg[i].unitId + " >" + msg[i].unitName + "</option>";
+            }
+            $("#tempUnitId").append(str);
+        }
+    })
 });

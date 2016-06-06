@@ -7,7 +7,8 @@
     <title>TestTable</title>
 </head>
 <body>
-
+<div id="right-nav"><strong>中药方剂映射管理</strong></div>
+<hr>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
         <button id="add" class="btn btn-danger">
@@ -36,11 +37,11 @@
     </table>
 </div>
 
-<div class="row addpanel"  style="display: none;">
+<div class="row addpanel" style="display: none;">
     <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h4 class="panel-title" id="changepanel">中药方剂映射关系添加</h4>
+                <h4 class="panel-title" id="changepanel">中药方剂映射添加</h4>
             </div>
             <form id="medPreScriptMappform" method="post">
                 <div class="panel-body">
@@ -54,13 +55,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="tempChineseMedicineId">中药ID</label>
-                                    <input type="text" class="form-control" id="tempChineseMedicineId"
-                                           required>
+                                    <select class="form-control" id="tempChineseMedicineId"
+                                            required>
+                                        <option value="" disabled>--请选择--</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="tempPrescriptionId">方剂ID</label>
-                                    <input type="text" class="form-control" id="tempPrescriptionId"
-                                           required>
+                                    <select class="form-control" id="tempPrescriptionId"
+                                            required>
+                                        <option value="" disabled>--请选择--</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="medicineAmount">中药用量</label>
@@ -69,8 +74,10 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="tempUnitId">计量单位ID</label>
-                                    <input type="text" class="form-control" id="tempUnitId" name="patientPhoneNumber"
-                                           required>
+                                    <select class="form-control" id="tempUnitId" name="patientPhoneNumber"
+                                            required>
+                                        <option value="" disabled>--请选择--</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="decoctionMethod">煎法</label>
@@ -79,7 +86,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="medPrescriptMappRemarks">映射备注</label>
-                                    <input type="text" class="form-control" id="medPrescriptMappRemarks" min="100" max="250"
+                                    <input type="text" class="form-control" id="medPrescriptMappRemarks" min="100"
+                                           max="250"
                                            required>
                                 </div>
                             </div>
@@ -91,11 +99,11 @@
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-md-1 col-md-offset-10 col-lg-offset-10 col-lg-1">
-                            <button type="button" class="btn btn-default"  id="cancel">取消
+                            <button type="button" class="btn btn-default" id="cancel">取消
                             </button>
                         </div>
                         <div class="col-md-1">
-                            <button type="submit" class="btn btn-success"  id="doit">创建
+                            <button type="submit" class="btn btn-success" id="doit">创建
                             </button>
                         </div>
                     </div>

@@ -7,6 +7,8 @@
     <title>TestTable</title>
 </head>
 <body>
+<div id="right-nav"><strong>病案信息管理</strong></div>
+<hr>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
         <button id="add" class="btn btn-danger">
@@ -43,100 +45,114 @@
             </div>
             <form id="caseRecordform" method="post">
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="caseRecordEntity" name="caseRecordEntity">
-                                <div class="form-group hidden">
-                                    <label for="caseId">病案ID</label>
-                                    <input type="text" class="form-control " id="caseId"
-                                           disabled="true">
-                                </div>
-                                <div class="form-group">
-                                    <label for="tempPatientId">病人ID</label>
-                                    <select type="text" class="form-control" id="tempPatientId"
-                                            required>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tempDoctorId">医生ID</label>
-                                    <select type="text" class="form-control" id="tempDoctorId"
-                                            required>
-                                    </select>
-
-                                </div>
-                                <div class="form-group">
-                                    <label for="tempDiseaseId">常见疾病ID</label>
-                                    <select type="text" class="form-control" id="tempDiseaseId"
-                                            required>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="clinicalTime">诊次</label>
-                                    <input type="text" class="form-control" id="clinicalTime"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="caseDate">时间</label>
-                                    <input type="text" class="form-control" id="caseDate"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="patientTalk">主诉</label>
-                                    <input type="text" class="form-control" id="patientTalk"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="medicalHistory">病史</label>
-                                    <input type="text" class="form-control" id="medicalHistory"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tempPictureLocationId">图片ID</label>
-                                    <input type="password" class="form-control" id="tempPictureLocationId"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="diagnosis">诊断</label>
-                                    <input type="text" class="form-control" id="diagnosis"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tempDoctorPrescriptionId">处方ID</label>
-                                    <input type="text" class="form-control" id="tempDoctorPrescriptionId"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="curativeEffect">疗效</label>
-                                    <input type="text" class="form-control" id="curativeEffect"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="caseRemark">备注</label>
-                                    <input type="text" class="form-control" id="caseRemark"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tipsContent">心得体会</label>
-                                    <input type="text" class="form-control" id="tipsContent"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tempSyndromeId">证型ID</label>
-                                    <select type="text" class="form-control" id="tempSyndromeId"
-                                            required>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="tempInquiryResultId">问诊结果ID</label>
-                                    <select type="text" class="form-control" id="tempInquiryResultId"
-                                            required>
-                                    </select>
-                                </div>
+                    <div class="row" id="caseRecordEntity" name="caseRecordEntity">
+                        <div class="col-md-5">
+                            <div class="form-group hidden">
+                                <label for="caseId">病案ID</label>
+                                <input type="text" class="form-control " id="caseId"
+                                       disabled="true">
                             </div>
-                        </div> <!--cil-md-5 -->
-                    </div>  <!--row-->
-                </div>
+                            <div class="form-group">
+                                <label for="tempPatientId">病人ID</label>
+                                <select type="text" class="form-control" id="tempPatientId"
+                                        required>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tempDoctorId">医生ID</label>
+                                <select type="text" class="form-control" id="tempDoctorId"
+                                        required>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tempDiseaseId">常见疾病ID</label>
+                                <select type="text" class="form-control" id="tempDiseaseId"
+                                        required>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="clinicalTime">诊次</label>
+                                <select type="text" class="form-control" id="clinicalTime"
+                                       >
+                                    <option value="1">初诊</option>
+                                    <option value="2">次诊</option>
+                                    <option value="3">三诊</option>
+                                    <option value="4">四诊</option>
+                                    <option value="5">五诊</option>
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="caseDate">时间</label>
+                                <input type="text" class="form-control" id="caseDate"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientTalk">主诉</label>
+                                <input type="text" class="form-control" id="patientTalk"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="medicalHistory">病史</label>
+                                <input type="text" class="form-control" id="medicalHistory"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tempPictureLocationId">图片ID</label>
+                                <select  class="form-control" id="tempPictureLocationId">
+                                    <option value="" >--请选择--</option>
+                                </select>
+                            </div>
+                        </div> <!--col-md-5 -->
+                        <div class="col-md-1"></div>
 
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="diagnosis">诊断</label>
+                                <input type="text" class="form-control" id="diagnosis"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tempDoctorPrescriptionId">处方ID</label>
+                                <select  class="form-control" id="tempDoctorPrescriptionId"
+                                        required>
+                                </select>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="curativeEffect">疗效</label>
+                                <input type="text" class="form-control" id="curativeEffect"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="caseRemark">备注</label>
+                                <textarea  class="form-control" id="caseRemark"
+                                          cols="20" rows="4">
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="tipsContent">心得体会</label>
+                                <textarea  class="form-control" id="tipsContent"
+                                          cols="20" rows="4">
+
+                                </textarea>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="tempSyndromeId">证型ID</label>
+                                <select  class="form-control" id="tempSyndromeId"
+                                >
+                                    <option value="" disabled>--请选择--</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tempInquiryResultId">问诊结果ID</label>
+                                <select type="text" class="form-control" id="tempInquiryResultId"
+                                        required>
+                                </select>
+                            </div>
+                        </div> <!--col-md-5 -->
+                    </div>
+                </div>
                 <div class="panel-footer">
                     <div class="row">
                         <div class="col-md-1 col-md-offset-10 col-lg-offset-10 col-lg-1">
@@ -149,7 +165,6 @@
                         </div>
                     </div>
                 </div>
-
             </form>
         </div>
     </div>  <!--col-md-10-->

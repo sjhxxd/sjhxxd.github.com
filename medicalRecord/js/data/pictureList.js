@@ -2,12 +2,12 @@
  * Created by sjh on 16/3/8.
  */
 //图片信息表
-var $table=$("#pictureListTable");
+var $table = $("#pictureListTable");
 var rowcontent = null;
-function initTable(){
+function initTable() {
     $table.bootstrapTable({
-        url:baseAddress+"/picturelist/getall",
-        dataType:"json",
+        url: baseAddress + "/picturelist/getall",
+        dataType: "json",
         columns: [{
             field: 'state',
             checkbox: true,
@@ -18,6 +18,7 @@ function initTable(){
             title: '图片位置ID'
         }, {
             field: 'originalPicturePath',
+            formatter: showPic,
             title: '原图路径'
         }, {
             field: 'smallPicturePath',
@@ -33,6 +34,7 @@ function initTable(){
             title: '图片主题'
         }, {
             field: 'pictureRemarks',
+            formatter: value20,
             title: '图片备注'
         }]
     });
@@ -51,57 +53,62 @@ $('#cancel').click(function () {
 });
 
 
-$("#edit").click(function(){
-    var jsonobject = eval('(' + rowcontent + ')');
-    $("#pictureLocationId").val(jsonobject.pictureLocationId);
-    $("#originalPicturePath").val(jsonobject.originalPicturePath);
-    $("#smallPicturePath").val(jsonobject.smallPicturePath);
-    $("#pictureClass").val(jsonobject.pictureClass);
-    $("#pictureName").val(jsonobject.pictureName);
-    $("#pictureTitle").val(jsonobject.pictureTitle);
-    $("#pictureRemarks").val(jsonobject.pictureRemarks);
+$("#edit").click(function () {
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行修改操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        $("#pictureLocationId").val(jsonobject.pictureLocationId);
+        $("#originalPicturePath").val(jsonobject.originalPicturePath);
+        $("#smallPicturePath").val(jsonobject.smallPicturePath);
+        $("#pictureClass").val(jsonobject.pictureClass);
+        $("#pictureName").val(jsonobject.pictureName);
+        $("#pictureTitle").val(jsonobject.pictureTitle);
+        $("#pictureRemarks").val(jsonobject.pictureRemarks);
 
-    $('.showpanel').css('display', 'none');
-    $('.addpanel').css('display', 'block');
-    $('#changepanel').html("图片信息编辑");
-    $('#doit').html("确定");
-
+        $('.showpanel').css('display', 'none');
+        $('.addpanel').css('display', 'block');
+        $('#changepanel').html("图片信息编辑");
+        $('#doit').html("确定");
+    }
 });
 $table.on('check.bs.table', function (e, row) {
     rowcontent = JSON.stringify(row);
 });
 
-$(function(){
+$(function () {
     initTable();
     $("#doit").click(
-        function(){
-            var pictureLocationId=$("#pictureLocationId").val();
-            var originalPicturePath=$("#originalPicturePath").val();
-            var smallPicturePath=$("#smallPicturePath").val();
-            var pictureClass=$("#pictureClass").val();
-            var pictureName=$("#pictureName").val();
-            var pictureTitle=$("#pictureTitle").val();
-            var pictureRemarks=$("#pictureRemarks").val();
+        function () {
+            var pictureLocationId = $("#pictureLocationId").val();
+            var originalPicturePath = $("#originalPicturePath").val();
+            var smallPicturePath = $("#smallPicturePath").val();
+            var pictureClass = $("#pictureClass").val();
+            var pictureName = $("#pictureName").val();
+            var pictureTitle = $("#pictureTitle").val();
+            var pictureRemarks = $("#pictureRemarks").val();
 
             $.ajax({
-                url:baseAddress+"/picturelist/saveorupdate",
-                type:"post",
-                dataType:"text",
-                data:{
-                    "pictureLocationId":pictureLocationId,
-                    "originalPicturePath":originalPicturePath,
-                    "smallPicturePath":smallPicturePath,
-                    "pictureClass":pictureClass,
-                    "pictureName":pictureName,
-                    "pictureTitle":pictureTitle,
-                    "pictureRemarks":pictureRemarks
+                url: baseAddress + "/picturelist/saveorupdate",
+                type: "post",
+                dataType: "text",
+                data: {
+                    "pictureLocationId": pictureLocationId,
+                    "originalPicturePath": originalPicturePath,
+                    "smallPicturePath": smallPicturePath,
+                    "pictureClass": pictureClass,
+                    "pictureName": pictureName,
+                    "pictureTitle": pictureTitle,
+                    "pictureRemarks": pictureRemarks
                 },
-                success:function(msg){
-                    console.log("pictureList_success:"+msg);
+                success: function (msg) {
+                    console.log("pictureList_success:" + msg);
                     turnPage('pictureList.html')
                 },
-                error:function(msg){
-                    alert("pictureList_error:"+msg)
+                error: function (msg) {
+                    console.log("pictureList_error:" + msg)
 
                 }
 
@@ -110,15 +117,21 @@ $(function(){
 });
 
 $('#remove').click(function () {
-    var jsonobject = eval('(' + rowcontent + ')');
-    //确认是否删除
-    if (confirm("是否删除此条信息？")) {
-        $.ajax({
-            type: 'delete',
-            url: baseAddress+"/picturelist/deletebyid/" + jsonobject.pictureLocationId + "/",
-            success: function (json) {
-                turnPage('pictureList.html');
-            }
-        })
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行删除操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        //确认是否删除
+        if (confirm("是否删除 " + jsonobject.pictureName + " 这条信息？")) {
+            $.ajax({
+                type: 'delete',
+                url: baseAddress + "/picturelist/deletebyid/" + jsonobject.pictureLocationId + "/",
+                success: function (json) {
+                    turnPage('pictureList.html');
+                }
+            })
+        }
     }
 });

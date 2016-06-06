@@ -20,8 +20,15 @@ function initTable() {
             field: 'commonDiseaseName',
             title: '常见疾病名称'
         }, {
+            field: 'commonDiseaseCode',
+            title: '常见疾病代码'
+        }, {
             field: 'commonDiseaseExplain',
+            formatter: value20,
             title: '常见疾病说明'
+        }, {
+            field: 'patientNumber',
+            title: '病人人数'
         }]
     })
 }
@@ -44,17 +51,34 @@ $table.on('check.bs.table', function (e, row) {
 });
 
 $("#edit").click(function () {
-    var jsonobject = eval('(' + rowcontent + ')');
-    $("#commonDiseaseId").val(jsonobject.commonDiseaseId);
-    $("#tempCommonDiseaseTypeId").val(jsonobject.tempCommonDiseaseTypeId);
-    $("#commonDiseaseName").val(jsonobject.commonDiseaseName);
-    $("#commonDiseaseExplain").val(jsonobject.commonDiseaseExplain);
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行修改操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        //疾病类别修改
+        $.ajax({
+            async: true,
+            type: "get",
+            dataType: "json",
+            url: baseAddress + "/commondiseasetype/findbyname/?commonDiseaseTypeName=" + jsonobject.tempCommonDiseaseTypeId.toString(),
+            success: function (msg) {
+                var CommonDiseaseTypeId = msg.commonDiseaseTypeId;
+                $('#tempCommonDiseaseTypeId').val(CommonDiseaseTypeId);
+            }
+        });
+        $("#commonDiseaseId").val(jsonobject.commonDiseaseId);
+        $("#commonDiseaseName").val(jsonobject.commonDiseaseName);
+        $("#commonDiseaseCode").val(jsonobject.commonDiseaseCode);
+        $("#commonDiseaseExplain").val(jsonobject.commonDiseaseExplain);
+        $("#patientNumber").val(jsonobject.patientNumber);
 
-    $('.showpanel').css('display', 'none');
-    $('.addpanel').css('display', 'block');
-    $('#changepanel').html("疾病类别信息编辑");
-    $('#doit').html("确定");
-
+        $('.showpanel').css('display', 'none');
+        $('.addpanel').css('display', 'block');
+        $('#changepanel').html("疾病信息编辑");
+        $('#doit').html("确定");
+    }
 });
 
 $(function () {
@@ -63,7 +87,9 @@ $(function () {
             var commonDiseaseId = $("#commonDiseaseId").val();
             var tempCommonDiseaseTypeId = $("#tempCommonDiseaseTypeId").val();
             var commonDiseaseName = $("#commonDiseaseName").val();
+            var commonDiseaseCode = $("#commonDiseaseCode").val();
             var commonDiseaseExplain = $("#commonDiseaseExplain").val();
+            var patientNumber = $("#patientNumber").val();
             $.ajax({
                 url: baseAddress + "/commondiseaseinfo/saveorupdate",
                 type: "post",
@@ -72,7 +98,9 @@ $(function () {
                     "commonDiseaseId": commonDiseaseId,
                     "tempCommonDiseaseTypeId": tempCommonDiseaseTypeId,
                     "commonDiseaseName": commonDiseaseName,
-                    "commonDiseaseExplain": commonDiseaseExplain
+                    "commonDiseaseCode": commonDiseaseCode,
+                    "commonDiseaseExplain": commonDiseaseExplain,
+                    "patientNumber": patientNumber
                 },
                 success: function (msg) {
                     turnPage('commondiseaseinfo.html');
@@ -87,16 +115,21 @@ $(function () {
 });
 
 $('#remove').click(function () {
-    var jsonobject = eval('(' + rowcontent + ')');
-    //确认是否删除
-    if (confirm("是否删除此条信息？")) {
-        $.ajax({
-            type: 'delete',
-            url: baseAddress + "/commondiseaseinfo/deletebyid/" + jsonobject.commonDiseaseId + "/",
-            success: function (json) {
-                turnPage('commondiseaseinfo.html');
-            }
-        })
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行删除操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        if (confirm("是否删除 " + jsonobject.commonDiseaseName + " 这条信息？")) {
+            $.ajax({
+                type: 'delete',
+                url: baseAddress + "/commondiseaseinfo/deletebyid/" + jsonobject.commonDiseaseId + "/",
+                success: function (json) {
+                    turnPage('commondiseaseinfo.html');
+                }
+            })
+        }
     }
 });
 

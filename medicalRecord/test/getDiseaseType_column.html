@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>疾病大类</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/highCharts/highcharts.js"></script>
+    <script src="../js/base_address.js"></script>
+</head>
+<body>
+<div class="control-group" style="padding-bottom: 30px">
+    请选择疾病类别：
+    <select class="input_select" id="diseaseType" style="width: 150px;" onchange="showChart()">
+        <option value="">--请选择--</option>
+    </select>
+</div>
+<div class="row">
+    <div class="col-md-6 ">
+        <div id="container" style="height: 400px;width: 800px ;margin-left: 150px"></div>
+
+    </div>
+</div>
+<script>
+    function restful(typeInfo, urlInfo, dataInfo) {
+        /**typeInfo:操作类型；
+         * urlInfo:地址；
+         * dataInfo:json数据；
+         * 操作类型：
+         * get：获取（dataInfo为空时，查询所有；dataInfo不为空，条件查询）；
+         * 查询(数据分页，暂时每页是十条数据，可后台更改)
+         * post：上传；
+         * put：更新(按照id)；
+         * delete：删除数据（id）；
+         * */
+        var result = null;
+        $.ajax({
+            async: false,
+            type: typeInfo,
+            url: urlInfo,
+            dataType: "json",
+            data: dataInfo,
+            success: function (json) {
+                result = json;
+            },
+            error: function () {
+                result = "fail";
+            }
+        });
+        //	.success(function (json) {
+        //	//result = json;
+        //	result= json;
+        //	return result;
+        //}).error(function(json){
+        //	result = json;
+        //	return result;
+        //});
+        return result;
+    }
+    //点击切换疾病类别
+    function showChart() {
+        var checkText = $("#diseaseType").find("option:selected").val();
+        var checkText1 = $("#diseaseType").find("option:selected").text();
+        console.log("checkText1--", checkText1);
+        var dataSeries = restful("get", baseAddress + "/commondiseaseinfo/findbytypeid/" + checkText, null);
+        var xRay = [];
+        var data1 = [];
+        var totalData = null;
+
+        $.each(dataSeries, function (i) {
+            xRay.push(dataSeries[i].commonDiseaseName);
+            data1.push(parseInt(dataSeries[i].patientNumber));
+
+
+        });
+        console.log("data1-->", data1)
+        var dataLength = data1.length;
+        for(var i=0;i<dataLength;i++){
+            totalData += data1[i];
+        }
+
+
+        console.log("totalData-->", totalData)
+        $("#container").highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: checkText1 + "图表"
+            },
+            exporting: {
+                url: 'http://export.hcharts.cn/'
+            },
+            legend: {
+                data: checkText1
+            },
+            credits: {
+                enabled: false
+            },
+            xAxis: {
+                categories: xRay
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '病患(人数)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                colorByPoint: true,
+                name: xRay,
+                data: data1
+            }]
+
+        });
+    }
+
+    $(function () {
+        /*************疾病类别下拉框**********************/
+        var msg = restful("get", baseAddress + "/commondiseasetype/getall");
+        var str = "";
+        $.each(msg, function (i) {
+            str += "<option value=" + msg[i].commonDiseaseTypeId + ">" + msg[i].commonDiseaseTypeName + "</option>";
+        });
+        $("#diseaseType").html(str);
+    });
+</script>
+</body>
+</html>

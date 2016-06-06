@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>疾病大类</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/highCharts/highcharts.js"></script>
+</head>
+<body>
+<div class="container-fluid"></div>
+<div class="row">
+    <div class="col-md-6 ">
+        <div id="container" style="height: 400px;width: auto"></div>
+
+    </div>
+    <div class="col-md-6 ">
+        <div id="container1" style="height: 400px;width: auto"></div>
+
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '疾病类别图'
+            },
+            credits:{
+              enabled:false
+            },
+            xAxis: {
+                categories: [
+                    '传染病',
+                    '寄生虫病',
+                    '恶性肿瘤',
+                    '良性肿瘤',
+                    '内分泌病',
+                    '血液和造血器官病',
+                    '精神病',
+                    '神经系病',
+                    '眼及附器疾病',
+                    '耳和乳突疾病',
+                    '循环系统疾病',
+                    '呼吸系统疾病',
+                    '消化系统疾病',
+                    '泌尿生殖系统疾病',
+                    '妊娠、分娩病及产褥期并发症',
+                    '皮肤和皮下组织疾病',
+                    '肌肉、骨骼系统和结缔组织疾病',
+                    '先天异常',
+                    '起源于围产期的情况',
+                    '损伤和中毒',
+                    '其他',
+                    '不明'
+                ]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '病患 (人数)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.0f} 人数</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: "疾病类别",
+                colorByPoint : true,
+                data: [50, 72, 106, 129, 144, 176, 135, 148, 216, 194, 95, 54, 49, 71, 108, 129, 147, 170, 156, 185, 124, 194]
+            }]
+        });
+        $('#container1').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '疾病类别图'
+            },
+            credits:{
+                enabled:false
+            },
+            xAxis: {
+                categories: [
+                    '传染病',
+                    '寄生虫病',
+                    '恶性肿瘤',
+                    '良性肿瘤',
+                    '内分泌病',
+                    '血液和造血器官病',
+                    '精神病',
+                    '神经系病',
+                    '眼及附器疾病',
+                    '耳和乳突疾病',
+                    '循环系统疾病',
+                    '呼吸系统疾病',
+                    '消化系统疾病',
+                    '泌尿生殖系统疾病',
+                    '妊娠、分娩病及产褥期并发症',
+                    '皮肤和皮下组织疾病',
+                    '肌肉、骨骼系统和结缔组织疾病',
+                    '先天异常',
+                    '起源于围产期的情况',
+                    '损伤和中毒',
+                    '其他',
+                    '不明'
+                ]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '病患 (人数)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: "疾病类别",
+                colorByPoint : true,
+                data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4, 49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1]
+            }]
+        });
+    });
+</script>
+</body>
+</html>

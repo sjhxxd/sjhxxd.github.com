@@ -82,10 +82,9 @@ function restfulArray(typeInfo, urlInfo, dataInfo) {
 }
 
 
-
 /* 点击切换中间content */
 function turnPage(url) {    //url:请求的url
-    var $content=$('#content');
+    var $content = $('#content');
     $.ajax({
         type: "get",
         url: url,
@@ -115,8 +114,8 @@ $(function () {
     });
 
     $(".submenu> li>a").click(function () {
-        var leftName =this.firstChild.nodeValue;
-        $("#right-nav").html(leftName);
+        //var leftName =this.firstChild.nodeValue;
+        //$("#right-nav").html(leftName);
         $(this).addClass("active");
         $(this).parent().siblings().find('a').removeClass("active");
         $(this).parent().parent().siblings().addClass('active');
@@ -124,5 +123,66 @@ $(function () {
 
 });
 
+//不登录无法直接访问
+if (sessionStorage.getItem('userId') == null) {
+    if (sessionStorage.getItem('userName') == null) {
+        location.href = 'login_a.html';
+    }
+} else {
+    if (sessionStorage.getItem('userName') != null) {
+        $('#u_name').html(sessionStorage.getItem('userName'));
+    }
+}
+//退出登录
+$('#logoutBtn').click(function (event) {
+    sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('userName');
+    location.href = 'login_a.html';
+});
 
+//Bootstrap Table 默认设置
+$.extend($.fn.bootstrapTable.defaults, {
+    singleSelect: true,
+    striped: true
+});
+
+
+//checkbox全选
+$("input[name='btSelectAll']").on("click", function () {
+    if ($(this).prop("checked") === true) {
+        $("input[name='btSelectItem']").prop("checked", $(this).prop("checked"));
+        $('$table tbody tr').addClass('selected');
+    } else {
+        $("input[name='btSelectItem']").prop("checked", false);
+        $('$table tbody tr').removeClass('selected');
+    }
+});
+//检验选择了几个checkbox
+function checkboxFun() {
+    checks = $("input[name='btSelectItem']");
+    n = 0;
+    for (i = 0; i < checks.length; i++) {
+        if (checks[i].checked) {
+            n++;
+            x = i;
+        }
+    }
+}
+
+//取前20个字显示
+function value20(value) {
+    if (value != null) {
+        return value.length > 21 ? '<span title="' + value + '">' + value.substr(0, 20) + '...</span>' : value;
+    }
+}
+
+//显示图片
+function showPic(value) {
+    if (value != null) {
+        return '<img src="' + value + '" alt="抢修中..." height="50" width="50">'
+    }
+    else if (value == null) {
+        return value;
+    }
+}
 

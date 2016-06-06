@@ -7,15 +7,16 @@
     <title>TestTable</title>
 </head>
 <body>
-
+<div id="right-nav"> <strong>图片信息管理</strong></div>
+<hr>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
         <button id="add" class="btn btn-danger">
             <i class="glyphicon glyphicon-plus"></i> 添加
         </button>
-        <button id="edit" class="btn btn-danger">
-            <i class="glyphicon glyphicon-edit"></i> 修改
-        </button>
+        <!--<button id="edit" class="btn btn-danger">-->
+            <!--<i class="glyphicon glyphicon-edit"></i> 修改-->
+        <!--</button>-->
         <button id="remove" class="btn btn-danger">
             <i class="glyphicon glyphicon-remove"></i> 删除
         </button>
@@ -41,7 +42,7 @@
             <div class="panel-heading">
                 <h4 class="panel-title" id="changepanel">图片信息添加</h4>
             </div>
-            <form id="pictureListform" method="post">
+            <form id="pictureListform" method="post" enctype="multipart/form-data">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
@@ -63,8 +64,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="pictureClass">图片类别</label>
-                                    <input type="text" class="form-control" id="pictureClass"
+                                    <select type="text" class="form-control" id="pictureClass"
                                            required>
+                                        <option value="">--请选择--</option>
+                                        <option value="中药">中药</option>
+                                        <option value="中成药">中成药</option>
+                                        <option value="方剂">方剂</option>
+                                        <option value="食材">食材</option>
+                                    </select>
+
                                 </div>
                                 <div class="form-group">
                                     <label for="pictureName">图片名</label>

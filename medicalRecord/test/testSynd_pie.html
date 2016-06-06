@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>证型系别</title>
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/highCharts/highcharts.js"></script>
+</head>
+<body>
+<div id="syng_pie"></div>
+<script>
+    $(function () {
+        $('#syng_pie').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '中医医案证型分布图'
+            },
+            credits:{
+              enabled:false
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                data: [
+                    ['肺系',   34.0],
+                    ['心系',       26.8],
+                    {
+                        name: '脾胃系',
+                        y: 12.8,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['肝胆系',    23],
+                    ['肾系',     16.2]
+                ]
+            }]
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>证型系别</title>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-7 ">
+        <div id="container" style="height: 400px;width: auto"></div>
+
+    </div>
+    <div class="col-md-5 ">
+        <div id="syng_pie"></div>
+
+    </div>
+</div>
+<div id="disease_pie"></div>
+
+<script>
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '疾病类别分布图'
+            },
+            credits:{
+                enabled:false
+            },
+            xAxis: {
+                categories: [
+                    '传染病',
+                    '寄生虫病',
+                    '恶性肿瘤',
+                    '良性肿瘤',
+                    '内分泌病',
+                    '血液和造血器官病',
+                    '精神病',
+                    '神经系病',
+                    '眼及附器疾病',
+                    '耳和乳突疾病',
+                    '循环系统疾病',
+                    '呼吸系统疾病',
+                    '消化系统疾病',
+                    '泌尿生殖系统疾病',
+                    '妊娠、分娩病及产褥期并发症',
+                    '皮肤和皮下组织疾病',
+                    '肌肉、骨骼系统和结缔组织疾病',
+                    '先天异常',
+                    '起源于围产期的情况',
+                    '损伤和中毒',
+                    '其他',
+                    '不明'
+                ]
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '病患 (人数)'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.0f} 人数</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: "疾病",
+                colorByPoint : true,
+                data: [2530, 556, 2171, 663, 1106, 539, 914, 1353, 859, 554, 4315, 2988, 3409, 2542, 2633, 1226, 1127, 1313, 1195, 1586, 1149, 353]
+            }]
+        });
+
+        $('#disease_pie').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '疾病类别比例图'
+            },
+            credits:{
+                enabled:false
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                data: [
+                    ['传染病',   2530],
+                    ['寄生虫病',       556],
+                    {
+                        name: '恶性肿瘤',
+                        y: 2171,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['良性肿瘤',    663],
+                    ['内分泌病',    1106],
+                    ['血液和造血器官病',    539],
+                    ['精神病',    914],
+                    ['神经系病',    1353],
+                    ['眼及附器疾病',    859],
+                    ['耳和乳突疾病',    554],
+                    ['循环系统疾病',    4315],
+                    ['呼吸系统疾病',    2988],
+                    ['消化系统疾病',    3409],
+                    ['泌尿生殖系统疾病',    2542],
+                    ['妊娠、分娩病及产褥期并发症',    2633],
+                    ['皮肤和皮下组织疾病',    1226],
+                    ['肌肉、骨骼系统和结缔组织疾病',    1127],
+                    ['先天异常',    1313],
+                    ['起源于围产期的情况',    1195],
+                    ['损伤和中毒',    1586],
+                    ['其他',    1149],
+                    ['不明',     353]
+                ]
+            }]
+        });
+
+        $('#syng_pie').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: '中医医案证型分布图'
+            },
+            credits:{
+                enabled:false
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        color: '#000000',
+                        connectorColor: '#000000',
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                data: [
+                    ['肺系',   34.0],
+                    ['心系',       26.8],
+                    {
+                        name: '脾胃系',
+                        y: 12.8,
+                        sliced: true,
+                        selected: true
+                    },
+                    ['肝胆系',    23],
+                    ['肾系',     16.2]
+                ]
+            }]
+        });
+    });
+</script>
+</body>
+</html>

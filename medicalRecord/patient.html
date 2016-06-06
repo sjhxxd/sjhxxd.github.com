@@ -7,13 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>    <!--确保适当的绘制和触屏缩放-->
 
     <title>TestTable</title>
-    <style>
-        input:focus{
-            background-color: #CCC;
-        }
-    </style>
 </head>
 <body>
+<div id="right-nav"> <strong>病人信息管理</strong></div>
+<hr>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
         <button id="add" class="btn btn-danger">
@@ -47,7 +44,7 @@
             <div class="panel-heading">
                 <h4 class="panel-title" id="changepanel">病人信息添加</h4>
             </div>
-            <form id="patientform" method="POST">
+            <form id="patientform" method="POST" autocomplete="off">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
@@ -59,13 +56,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="patientName">病人姓名</label>
-                                    <input type="text" class="form-control" id="patientName"
+                                    <input type="text" class="form-control" id="patientName" onfocus="true" name="patientName"
                                            required>
                                 </div>
                                 <div class="form-group">
                                     <label for="patientSex">病人性别</label>
-                                    <input type="text" class="form-control" id="patientSex"
+                                    <select  class="form-control" id="patientSex"
                                            required>
+                                        <option value="男">男</option>
+                                        <option value="女">女</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="patientAge">病人年龄</label>
@@ -85,18 +85,22 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="patientHeight">病人身高</label>
-                                    <input type="text" class="form-control" id="patientHeight" min="100" max="250"
+                                    <input type="text" class="form-control" id="patientHeight" placeholder="单位为:cm" min="100" max="250"
                                            required>
                                 </div>
                                 <div class="form-group">
                                     <label for="patientWeight">病人体重</label>
-                                    <input type="text" class="form-control" id="patientWeight" name="patientWeight"
+                                    <input type="text" class="form-control" id="patientWeight" placeholder="单位为:kg" name="patientWeight"
                                            required>
                                 </div>
                                 <div class="form-group">
                                     <label for="patientPosture">病人体态</label>
-                                    <input type="text" class="form-control" id="patientPosture"
+                                    <select  class="form-control" id="patientPosture"
                                            required>
+                                        <option value="偏瘦">偏瘦</option>
+                                        <option value="正常">正常</option>
+                                        <option value="偏胖">偏胖</option>
+                                        </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="patientProfessional">病人职业</label>
@@ -111,7 +115,7 @@
                                 <div class="form-group">
                                     <label for="patientRemark">备注</label>
                                         <textarea type="text" class="form-control" id="patientRemark" name="val1024"
-                                                  cols="0" rows="6" required>
+                                                  cols="4" rows="6" >
                                         </textarea>
                                 </div>
                             </div>
@@ -136,7 +140,6 @@
         </div>
     </div>  <!--col-md-10-->
 </div> <!--row-->
-
 
 </body>
 <script src="js/base_address.js"></script>

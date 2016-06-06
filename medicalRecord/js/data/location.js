@@ -3,8 +3,8 @@ var $table = $("#locationInfoTable");
 var rowcontent = null;
 function initTable() {
     $table.bootstrapTable({
-        url:baseAddress+"/locationinfo/getall",
-        dataType:"json",
+        url: baseAddress + "/locationinfo/getall",
+        dataType: "json",
         columns: [{
             field: 'state',
             checkbox: true,
@@ -36,6 +36,7 @@ function initTable() {
             title: '所在县'
         }, {
             field: 'locationRemarks',
+            formatter: value20,
             title: '地理位置备注'
         }]
 
@@ -58,77 +59,88 @@ $('#cancel').click(function () {
 });
 
 
-$("#edit").click(function(){
-    var jsonobject = eval('(' + rowcontent + ')');
-    $("#locationInfoId").val(jsonobject.locationInfoId);
-    $("#locationLongitude").val(jsonobject.locationLongitude);
-    $("#locationLatitude").val(jsonobject.locationLatitude);
-    $("#realLocation").val(jsonobject.realLocation);
-    $("#locationProvince").val(jsonobject.locationProvince);
-    $("#locationCity").val(jsonobject.locationCity);
-    $("#locationClassify").val(jsonobject.locationClassify);
-    $("#locationCounty").val(jsonobject.locationCounty);
-    $("#locationRemarks").val(jsonobject.locationRemarks);
+$("#edit").click(function () {
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行修改操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        $("#locationInfoId").val(jsonobject.locationInfoId);
+        $("#locationLongitude").val(jsonobject.locationLongitude);
+        $("#locationLatitude").val(jsonobject.locationLatitude);
+        $("#realLocation").val(jsonobject.realLocation);
+        $("#locationProvince").val(jsonobject.locationProvince);
+        $("#locationCity").val(jsonobject.locationCity);
+        $("#locationClassify").val(jsonobject.locationClassify);
+        $("#locationCounty").val(jsonobject.locationCounty);
+        $("#locationRemarks").val(jsonobject.locationRemarks);
 
-    $('.showpanel').css('display', 'none');
-    $('.addpanel').css('display', 'block');
-    $('#changepanel').html("地理位置信息编辑");
-    $('#doit').html("确定");
-
+        $('.showpanel').css('display', 'none');
+        $('.addpanel').css('display', 'block');
+        $('#changepanel').html("地理位置信息编辑");
+        $('#doit').html("确定");
+    }
 });
 $table.on('check.bs.table', function (e, row) {
-     rowcontent = JSON.stringify(row);
+    rowcontent = JSON.stringify(row);
 });
 
-$(function(){
+$(function () {
     $("#doit").click(
-        function(){
-            var locationInfoId=$("#locationInfoId").val();
-            var locationLongitude=$("#locationLongitude").val();
-            var locationLatitude=$("#locationLatitude").val();
-            var realLocation=$("#realLocation").val();
-            var locationProvince=$("#locationProvince").val();
-            var locationCity=$("#locationCity").val();
-            var locationClassify=$("#locationClassify").val();
-            var locationCounty=$("#locationCounty").val();
-            var locationRemarks=$("#locationRemarks").val();
+        function () {
+            var locationInfoId = $("#locationInfoId").val();
+            var locationLongitude = $("#locationLongitude").val();
+            var locationLatitude = $("#locationLatitude").val();
+            var realLocation = $("#realLocation").val();
+            var locationProvince = $("#locationProvince").val();
+            var locationCity = $("#locationCity").val();
+            var locationClassify = $("#locationClassify").val();
+            var locationCounty = $("#locationCounty").val();
+            var locationRemarks = $("#locationRemarks").val();
 
             $.ajax({
-                url:baseAddress+"/locationinfo/saveorupdate",
-                type:"post",
-                dataType:"text",
-                data:{
-                    "locationInfoId":locationInfoId,
-                    "locationLongitude":locationLongitude,
-                    "locationLatitude":locationLatitude,
-                    "realLocation":realLocation,
-                    "locationProvince":locationProvince,
-                    "locationCity":locationCity,
-                    "locationClassify":locationClassify,
-                    "locationCounty":locationCounty,
-                    "locationRemarks":locationRemarks
+                url: baseAddress + "/locationinfo/saveorupdate",
+                type: "post",
+                dataType: "text",
+                data: {
+                    "locationInfoId": locationInfoId,
+                    "locationLongitude": locationLongitude,
+                    "locationLatitude": locationLatitude,
+                    "realLocation": realLocation,
+                    "locationProvince": locationProvince,
+                    "locationCity": locationCity,
+                    "locationClassify": locationClassify,
+                    "locationCounty": locationCounty,
+                    "locationRemarks": locationRemarks
                 },
-                success:function(msg){
-                    console.log("location_success:"+msg)
+                success: function (msg) {
+                    console.log("location_success:" + msg);
                     turnPage('location.html');
                 },
-                error:function(msg){
-                    alert("location_error:"+msg)
+                error: function (msg) {
+                    alert("location_error:" + msg)
                 }
             });
         });
 });
 
 $('#remove').click(function () {
-    var jsonobject = eval('(' + rowcontent + ')');
-    //确认是否删除
-    if (confirm("是否删除此条信息？")) {
-        $.ajax({
-            type: 'delete',
-            url: baseAddress+"/locationinfo/deletebyid/" + jsonobject.locationInfoId + "/",
-            success: function (json) {
-                turnPage('location.html');
-            }
-        })
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行删除操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        //确认是否删除
+        if (confirm("是否删除此条信息？")) {
+            $.ajax({
+                type: 'delete',
+                url: baseAddress + "/locationinfo/deletebyid/" + jsonobject.locationInfoId + "/",
+                success: function (json) {
+                    turnPage('location.html');
+                }
+            })
+        }
     }
 });

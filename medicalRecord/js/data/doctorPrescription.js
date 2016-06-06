@@ -7,7 +7,7 @@ var rowcontent = null;
 
 function initTable() {
     $table.bootstrapTable({
-        url: "http://localhost:8080/doctorprescription/getall",
+        url: baseAddress+"/doctorprescription/getall",
         dataType: "json",
         columns: [{
             field: 'state',
@@ -22,12 +22,14 @@ function initTable() {
             title: '处方名'
         }, {
             field: 'prescriptionInstructions',
+            formatter: value20,
             title: '用法说明'
         }, {
             field: 'oralDoses',
             title: '服用剂量'
         }, {
             field: 'doctorPrescriptionRemark',
+            formatter: value20,
             title: '备注'
         }, {
             field: 'prescriptionType',
@@ -41,12 +43,7 @@ function initTable() {
 }
 
 
-//时间
-//$("#prescriptionDate").datetimepicker({
-//    format: 'yyyy-mm-dd',
-//    //todayHighlight:true,
-//    autoclose: true
-//});
+
 
 $("#add").click(function () {
     $('.showpanel').css('display', 'none');
@@ -62,26 +59,33 @@ $('#cancel').click(function () {
 });
 
 $("#edit").click(function () {
-    var jsonobject = eval('(' + rowcontent + ')');
-    $("#doctorPrescriptionId").val(jsonobject.doctorPrescriptionId);
-    $("#prescriptionName").val(jsonobject.prescriptionName);
-    $("#prescriptionInstructions").val(jsonobject.prescriptionInstructions);
-    $("#oralDoses").val(jsonobject.oralDoses);
-    $("#doctorPrescriptionRemark").val(jsonobject.doctorPrescriptionRemark);
-    $("#prescriptionType").val(jsonobject.prescriptionType);
-    $("#prescriptionDate").val(jsonobject.prescriptionDate);
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行修改操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        $("#doctorPrescriptionId").val(jsonobject.doctorPrescriptionId);
+        $("#prescriptionName").val(jsonobject.prescriptionName);
+        $("#prescriptionInstructions").val(jsonobject.prescriptionInstructions);
+        $("#oralDoses").val(jsonobject.oralDoses);
+        $("#doctorPrescriptionRemark").val(jsonobject.doctorPrescriptionRemark);
+        $("#prescriptionType").val(jsonobject.prescriptionType);
+        $("#prescriptionDate").val(jsonobject.prescriptionDate);
 
-    $('.showpanel').css('display', 'none');
-    $('.addpanel').css('display', 'block');
-    $('#changepanel').html("医生处方信息编辑");
-    $('#doit').html("确定");
-
+        $('.showpanel').css('display', 'none');
+        $('.addpanel').css('display', 'block');
+        $('#changepanel').html("医生处方信息编辑");
+        $('#doit').html("确定");
+    }
 });
 $table.on('check.bs.table', function (e, row) {
     rowcontent = JSON.stringify(row);
 });
 
 $(function () {
+    //时间
+
     initTable();
     $("#doit").click(
         function () {
@@ -118,14 +122,20 @@ $(function () {
 });
 
 $('#remove').click(function () {
-    var jsonobject = eval('(' + rowcontent + ')');
-    if (confirm("是否删除此条信息？")) {
-        $.ajax({
-            type: 'delete',
-            url: baseAddress + "/doctorprescription/deletebyid/" + jsonobject.doctorPrescriptionId + "/",
-            success: function () {
-                turnPage('doctorPrescription.html');
-            }
-        })
+    checkboxFun();
+    if (n == 0) {
+        alert("请选择一条记录进行删除操作!");
+    }
+    else if (n == 1) {
+        var jsonobject = eval('(' + rowcontent + ')');
+        if (confirm("是否删除 " + jsonobject.prescriptionName + " 这条信息？")) {
+            $.ajax({
+                type: 'delete',
+                url: baseAddress + "/doctorprescription/deletebyid/" + jsonobject.doctorPrescriptionId + "/",
+                success: function () {
+                    turnPage('doctorPrescription.html');
+                }
+            })
+        }
     }
 });

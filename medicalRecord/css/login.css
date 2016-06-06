@@ -54,11 +54,9 @@ html, body
 
 }
 
-
-
 .form-group {
     position: relative;
-    margin:20px 15px;
+    margin:10px 15px;
     width: 350px;
 }
 
@@ -117,32 +115,7 @@ html, body
     font-size: 12px;
 }
 
-.form-group .username, .form-group .password {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 38px;
-    font-size: 11px;
-    color: #d34336;
-    font-weight: 300;
-    transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) all;
-    -moz-transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) all;
-    -webkit-transition: 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) all;
-    opacity: 0;
-}
 
-.form-group .username i,.form-group .password i {
-    position: absolute;
-    right: 0;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    float: right;
-}
-
-.form-group .username i, .form-group .password i{
-    fill:#d34336;
-}
 
 .form-group[errr] .float-label {
     color: #d34336 !important;
@@ -189,11 +162,7 @@ a:hover{
     text-decoration:none;
 }
 
-input[type=checkbox]
-{
-    display: none;
-    visibility: hidden;
-}
+
 
 input[type="checkbox"] + label
 {
@@ -240,6 +209,7 @@ div label {
     float: left;
     margin-top: -15px;
     margin-bottom: -20px;
+    margin-left:15px;
 }
 
 
