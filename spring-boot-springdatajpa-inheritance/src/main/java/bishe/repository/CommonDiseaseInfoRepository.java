@@ -3,11 +3,12 @@ package bishe.repository;
 import bishe.entity.CommonDiseaseInfoEntity;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
-/**
- * Created by sjh on 16/4/5.
- */
+
 @Transactional
 public interface CommonDiseaseInfoRepository  extends BaseRepository<CommonDiseaseInfoEntity>{
     public CommonDiseaseInfoEntity findByCommonDiseaseName(String commonDiseaseName);
+    public List<CommonDiseaseInfoEntity> findByTempCommonDiseaseTypeId(Long tempCommonDiseaseTypeId);
+
 }

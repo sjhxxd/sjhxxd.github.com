@@ -12,27 +12,28 @@ import java.util.List;
  * Created by sjh on 16/3/27.
  */
 @RestController
+@RequestMapping(value="/doctorprescription")
 public class DoctorPrescriptionController {
     @Autowired
     private DoctorPrescriptionRepository doctorPrescriptionRepository;
     @Autowired
     private DoctorPrescriptionService doctorPrescriptionService;
 
-    @RequestMapping(value = "/doctorprescription/getall", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "getall", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<DoctorPrescriptionEntity> getDoctorPrescriptionAll() {
         return doctorPrescriptionService.getAllDoctorPrescription();
     }
 
-    @RequestMapping(value = "/doctorpresctiption/findbyid/{doctorPrescriptionId}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "findbyid/{doctorPrescriptionId}", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public DoctorPrescriptionEntity getPatientById(@PathVariable Long doctorPrescriptionId) {
         return doctorPrescriptionService.findByDoctorPrescriptionId(doctorPrescriptionId);
     }
 
-    @RequestMapping(value = "/doctorpresctiption/findbyname", params = "prescriptionName", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "findbyname", params = "prescriptionName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<DoctorPrescriptionEntity> getPatientByName(@RequestParam(value = "prescriptionName", required = true) String prescriptionName) {
@@ -44,7 +45,7 @@ public class DoctorPrescriptionController {
         }
     }
 
-    @RequestMapping(value = "/doctorpresctiption/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
+    @RequestMapping(value = "saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public String saveOrUpdateDoctorPrescription(DoctorPrescriptionEntity doctorPrescriptionEntity) {
@@ -57,7 +58,7 @@ public class DoctorPrescriptionController {
         }
     }
 
-    @RequestMapping(value = "/doctorpresctiption/deletebyid/{doctorPrescriptionId}", method = RequestMethod.DELETE, produces = {"application/json"})
+    @RequestMapping(value = "deletebyid/{doctorPrescriptionId}", method = RequestMethod.DELETE, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody
     public Long deleteDoctorPrescription(@PathVariable Long doctorPrescriptionId) {

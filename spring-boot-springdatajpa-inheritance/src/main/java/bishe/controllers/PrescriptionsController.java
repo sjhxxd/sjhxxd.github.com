@@ -33,7 +33,7 @@ public class PrescriptionsController {
     @RequestMapping(value = "/presctiptionsinfo/findbyname", params="prescriptionName",method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public PrescriptionsInfoEntity getPrescriptionsByOne(@RequestParam(value = "prescriptionName", required = true) String prescriptionName){
+    public List<PrescriptionsInfoEntity> getPrescriptionsByOne(@RequestParam(value = "prescriptionName", required = true) String prescriptionName){
         return prescriptionsInfoRepository.findByprescriptionName(prescriptionName);
     }
 

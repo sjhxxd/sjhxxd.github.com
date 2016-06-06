@@ -27,7 +27,7 @@ public class ChineseMedicineInfoEntity implements java.io.Serializable{
     private String channelTropism;
     private String indicationsFunction;
     private String clinicalApplication;
-    private Long tempPictureLocationId;
+    private String tempPictureLocationId;
     private String chineseMedicineRemark;
     private String anotherName;
     private String producingArea;
@@ -39,7 +39,7 @@ public class ChineseMedicineInfoEntity implements java.io.Serializable{
 
     }
 
-    public ChineseMedicineInfoEntity(String medicineName, String medicineProperty, String medicineTaste, String effectType, String medicineGrade, String channelTropism, String indicationsFunction, String clinicalApplication, Long tempPictureLocationId, String chineseMedicineRemark, String anotherName, String producingArea, String commonUsedPrescription, String machiningProcessing, String usePrecaution) {
+    public ChineseMedicineInfoEntity(String medicineName, String medicineProperty, String medicineTaste, String effectType, String medicineGrade, String channelTropism, String indicationsFunction, String clinicalApplication, String tempPictureLocationId, String chineseMedicineRemark, String anotherName, String producingArea, String commonUsedPrescription, String machiningProcessing, String usePrecaution) {
         this.medicineName = medicineName;
         this.medicineProperty = medicineProperty;
         this.medicineTaste = medicineTaste;
@@ -57,7 +57,7 @@ public class ChineseMedicineInfoEntity implements java.io.Serializable{
         this.usePrecaution = usePrecaution;
     }
 
-    public ChineseMedicineInfoEntity(String medicineName, String medicineProperty, String medicineTaste, String effectType, String medicineGrade, String channelTropism, String indicationsFunction, String clinicalApplication, Long tempPictureLocationId, String chineseMedicineRemark, String anotherName) {
+    public ChineseMedicineInfoEntity(String medicineName, String medicineProperty, String medicineTaste, String effectType, String medicineGrade, String channelTropism, String indicationsFunction, String clinicalApplication, String tempPictureLocationId, String chineseMedicineRemark, String anotherName) {
         this.medicineName = medicineName;
         this.medicineProperty = medicineProperty;
         this.medicineTaste = medicineTaste;
@@ -146,11 +146,11 @@ public class ChineseMedicineInfoEntity implements java.io.Serializable{
         this.clinicalApplication = clinicalApplication;
     }
 
-    public Long getTempPictureLocationId() {
+    public String getTempPictureLocationId() {
         return tempPictureLocationId;
     }
 
-    public void setTempPictureLocationId(Long tempPictureLocationId) {
+    public void setTempPictureLocationId(String tempPictureLocationId) {
         this.tempPictureLocationId = tempPictureLocationId;
     }
 

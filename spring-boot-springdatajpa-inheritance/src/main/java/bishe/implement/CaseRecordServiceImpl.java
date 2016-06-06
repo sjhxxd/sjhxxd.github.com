@@ -18,7 +18,13 @@ public class CaseRecordServiceImpl implements CaseRecordService {
 
     @Override
     public List<CaseRecordEntity> getAllCaseRecord() {
+
         return (List<CaseRecordEntity>) caseRecordRepository.findAll();
+    }
+
+    @Override
+    public CaseRecordEntity findByCaseId(Long caseId) {
+        return caseRecordRepository.findOne(caseId);
     }
 
     @Override

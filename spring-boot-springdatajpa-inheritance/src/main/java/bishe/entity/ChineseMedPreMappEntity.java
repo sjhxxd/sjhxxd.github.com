@@ -23,13 +23,13 @@ public class ChineseMedPreMappEntity implements java.io.Serializable {
     private Long tempChineseMedicineId;
     private Long tempDoctorPrescriptionId;
     private Long tempUnitId;
-    private Integer chineseMedicineDose;
+    private String chineseMedicineDose;
     private String decoctionMethod;
      public ChineseMedPreMappEntity(){
 
      }
 
-    public ChineseMedPreMappEntity(Long tempChineseMedicineId, Long tempDoctorPrescriptionId, Long tempUnitId, Integer chineseMedicineDose, String decoctionMethod) {
+    public ChineseMedPreMappEntity(Long tempChineseMedicineId, Long tempDoctorPrescriptionId, Long tempUnitId, String chineseMedicineDose, String decoctionMethod) {
         this.tempChineseMedicineId = tempChineseMedicineId;
         this.tempDoctorPrescriptionId = tempDoctorPrescriptionId;
         this.tempUnitId = tempUnitId;
@@ -69,11 +69,11 @@ public class ChineseMedPreMappEntity implements java.io.Serializable {
         this.tempUnitId = tempUnitId;
     }
 
-    public Integer getchineseMedicineDose() {
+    public String getchineseMedicineDose() {
         return chineseMedicineDose;
     }
 
-    public void setchineseMedicineDose(Integer chineseMedicineDose) {
+    public void setchineseMedicineDose(String chineseMedicineDose) {
         this.chineseMedicineDose = chineseMedicineDose;
     }
 

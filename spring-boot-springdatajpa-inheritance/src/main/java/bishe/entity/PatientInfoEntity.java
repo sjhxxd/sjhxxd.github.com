@@ -1,16 +1,14 @@
 package bishe.entity;
 
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.lang.Long;
 
 
 @Entity
 @Inheritance
 @Table(name = "patientinfo")
-public class PatientInfoEntity implements java.io.Serializable {
+public class PatientInfoEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long patientId;

@@ -1,18 +1,19 @@
 package bishe.controllers;
 
 import bishe.entity.DoctorInfoEntity;
-import bishe.frontentity.ReturnModel;
 import bishe.repository.DoctorInfoRepository;
 import bishe.service.DoctorInfoService;
+import bishe.utils.ExtReturn;
 import com.google.gson.Gson;
 import com.wordnik.swagger.annotations.ApiOperation;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import org.slf4j.Logger;
+
 
 /**
  * Created by sjh on 16/3/10.
@@ -24,6 +25,8 @@ public class DoctorController {
     @Autowired
     private DoctorInfoService doctorInfoService;
     Gson gson = new Gson();
+
+    //private static final Logger logger = LoggerFactory.getLogger(DoctorController.class);
 
 //    @RequestMapping(value="/doctor/login",method=RequestMethod.POST)
 //    public ReturnModel DoctorLogin(@RequestParam("doctorName") String doctorName, @RequestParam("doctorPassword") String password){
@@ -76,6 +79,30 @@ public class DoctorController {
         }
 
     }
+
+
+
+//    手机号登录
+//    @RequestMapping(value="/doctor/login" ,method = RequestMethod.POST)
+//    public ExtReturn MobileLogin(@RequestParam(value="mobile") String mobile , @RequestParam(value="userPwd") String userPwd , HttpSession session) throws Exception {
+//        logger.info("phoneNumber:"+mobile);
+//        logger.info("passWord:"+userPwd);
+//        if(service.checkPhoneNumber(mobile)!=null) {
+//            if (service.getPassWordByMobile(mobile).equals(MD5Util.MD5Encode(userPwd,"UTF-8"))) {
+//                session.setAttribute("sessionId",service.getUserIdByMobile(mobile));
+//                logger.info("登陆成功");
+//
+//                return new ExtReturn("success","登陆成功",service.getUserIfoByMobile(mobile));
+//            } else {
+//                return new ExtReturn("fail","账号或密码错误",1);
+//            }
+//        }else{
+//            return new ExtReturn("fail","账号或密码错误",1);
+//        }
+//
+//    }
+
+
 
     @RequestMapping(value = "/doctorinfo/deletebyid/{doctorId}", method = RequestMethod.DELETE, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)

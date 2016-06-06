@@ -28,13 +28,13 @@ public class DoctorInfoEntity implements java.io.Serializable {
     private String doctorRemark;
     private String doctorWechat;
     private String doctorIntroduction;
-    private Long tempPictureLocationId;
+    private String tempPictureLocationId;
 
     public DoctorInfoEntity() {
 
     }
 
-    public DoctorInfoEntity(String doctorName, String doctorSex, Integer doctorAge, String doctorPhoneNumber, String doctorUnitName, String doctorDepartmentName, String doctorIdentity, String doctorPassword, String doctorAddress, Integer checkState, String doctorRemark, String doctorWechat, String doctorIntroduction, Long tempPictureLocationId) {
+    public DoctorInfoEntity(String doctorName, String doctorSex, Integer doctorAge, String doctorPhoneNumber, String doctorUnitName, String doctorDepartmentName, String doctorIdentity, String doctorPassword, String doctorAddress, Integer checkState, String doctorRemark, String doctorWechat, String doctorIntroduction, String tempPictureLocationId) {
         this.doctorName = doctorName;
         this.doctorSex = doctorSex;
         this.doctorAge = doctorAge;
@@ -184,11 +184,11 @@ public class DoctorInfoEntity implements java.io.Serializable {
         this.doctorIntroduction = doctorIntroduction;
     }
 
-    public Long getTempPictureLocationId() {
+    public String getTempPictureLocationId() {
         return tempPictureLocationId;
     }
 
-    public void setTempPictureLocationId(Long tempPictureLocationId) {
+    public void setTempPictureLocationId(String tempPictureLocationId) {
         this.tempPictureLocationId = tempPictureLocationId;
     }
 

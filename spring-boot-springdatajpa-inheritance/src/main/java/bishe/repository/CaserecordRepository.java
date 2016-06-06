@@ -11,7 +11,6 @@ public interface CaseRecordRepository extends BaseRepository<CaseRecordEntity>{
     //    通过病人名字查找
     public List<CaseRecordEntity> findByTempPatientId(Long tempPatientId);
 
-
     //    通过疾病查找
     public List<CaseRecordEntity> findByTempDiseaseId(Long tempDiseaseId);
 

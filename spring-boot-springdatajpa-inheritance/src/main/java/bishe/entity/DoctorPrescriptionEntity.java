@@ -1,7 +1,5 @@
 package bishe.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -28,6 +26,7 @@ public class DoctorPrescriptionEntity implements java.io.Serializable{
     private String prescriptionType;
     private String prescriptionName;
     private Date prescriptionDate;
+
     public DoctorPrescriptionEntity(){
 
     }

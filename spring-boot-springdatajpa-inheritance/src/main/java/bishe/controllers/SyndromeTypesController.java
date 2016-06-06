@@ -30,7 +30,7 @@ public class SyndromeTypesController {
     @RequestMapping(value = "/syndrometypes/findbyname", params = "syndromeName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public SyndromeTypesEntity getSyndromeByName(@RequestParam(value = "syndromeName", required = true) String syndromeName) {
+    public List<SyndromeTypesEntity> getSyndromeByName(@RequestParam(value = "syndromeName", required = true) String syndromeName) {
         return syndromeTypesReopsitory.findBySyndromeName(syndromeName);
     }
 

@@ -16,6 +16,7 @@ import java.util.List;
  * Created by sjh on 16/3/9.
  */
 @RestController
+@RequestMapping(value = "/patientinfo")
 public class PatientController {
     @Autowired
     private PatientInfoRepository patientInfoRepository;
@@ -23,7 +24,7 @@ public class PatientController {
     private PatientInfoService patientInfoService;
     Gson gson = new Gson();
 
-    @RequestMapping(value = "/patientinfo/getall", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "getall", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<PatientInfoEntity> getPatientInfoAll() {
@@ -41,7 +42,7 @@ public class PatientController {
 //        }
     }
 
-    @RequestMapping(value = "/patientinfo/findbyname", params = "patientName", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "findbyname", params = "patientName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<PatientInfoEntity> getPatientByNames(@RequestParam(value = "patientName", required = true) String patientName) {
@@ -54,7 +55,7 @@ public class PatientController {
         }
     }
 
-    @RequestMapping(value = "/patientinfo/findbyid/{patientId}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "findbyid/{patientId}", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public PatientInfoEntity getPatientById(@PathVariable Long patientId) {
@@ -63,7 +64,7 @@ public class PatientController {
     }
 
 
-    @RequestMapping(value = "/patientinfo/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
+    @RequestMapping(value = "saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Create a hotel resource.", notes = "Returns the URL of the new resource in the Location header.")
     @ResponseBody
@@ -73,8 +74,8 @@ public class PatientController {
                 System.out.println("Android input");
                 PatientInfoEntity patientInfoEntity1 = gson.fromJson(requestBody.substring(1, requestBody.length() - 1), PatientInfoEntity.class);
                 patientInfoService.saveOrUpdatePatient(patientInfoEntity1);
-                System.out.println("A_ID--->"+patientInfoEntity.getPatientId());
-                System.out.println("A_Name--->"+patientInfoEntity.getPatientName());
+                System.out.println("A_ID--->"+patientInfoEntity1.getPatientId());
+                System.out.println("A_Name--->"+patientInfoEntity1.getPatientName());
                 return "Success";
             }
             patientInfoService.saveOrUpdatePatient(patientInfoEntity);
@@ -84,11 +85,10 @@ public class PatientController {
         } catch (Exception e) {
             System.out.println("错误:" + e.getMessage());
             return "Error";
-
         }
     }
 
-    @RequestMapping(value = "/patientinfo/deletebyid/{patientId}", method = RequestMethod.DELETE, produces = {"application/json"})
+    @RequestMapping(value = "deletebyid/{patientId}", method = RequestMethod.DELETE, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Create a hotel resource.", notes = "Returns the URL of the new resource in the Location header.")
     @ResponseBody

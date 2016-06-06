@@ -42,6 +42,13 @@ public class PictureListController {
         return pictureListRepository.findByPictureName(pictureName);
     }
 
+    @RequestMapping(value = "/picturelist/findbyname", params = "pictureClass", method = RequestMethod.GET, produces = {"application/json"})
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<PictureListEntity> getPictureByPictureClass(@RequestParam(value = "pictureClass", required = true) String pictureClass) {
+        return pictureListRepository.findByPictureClass(pictureClass);
+    }
+
     @RequestMapping(value = "/picturelist/saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
     @ResponseStatus(HttpStatus.CREATED)
     @ResponseBody

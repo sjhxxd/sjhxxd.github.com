@@ -27,7 +27,7 @@ public class CaseRecordEntity implements java.io.Serializable {
     private Date caseDate;
     private String patientTalk;
     private String medicalHistory;
-    private Long tempPictureLocationId;
+    private String tempPictureLocationId;
     private String diagnosis;
     private Long tempDoctorPrescriptionId;
     private String curativeEffect;
@@ -39,7 +39,7 @@ public class CaseRecordEntity implements java.io.Serializable {
     public CaseRecordEntity(){
     }
 
-    public CaseRecordEntity(Long tempPatientId, Long tempDoctorId, Long tempDiseaseId, Integer clinicalTime, Date caseDate, String patientTalk, String medicalHistory, Long tempPictureLocationId, String diagnosis, Long tempDoctorPrescriptionId, String curativeEffect, String caseRemark, String tipsContent, Long tempSyndromeId, Long tempInquiryResultId) {
+    public CaseRecordEntity(Long tempPatientId, Long tempDoctorId, Long tempDiseaseId, Integer clinicalTime, Date caseDate, String patientTalk, String medicalHistory, String tempPictureLocationId, String diagnosis, Long tempDoctorPrescriptionId, String curativeEffect, String caseRemark, String tipsContent, Long tempSyndromeId, Long tempInquiryResultId) {
         this.tempPatientId = tempPatientId;
         this.tempDoctorId = tempDoctorId;
         this.tempDiseaseId = tempDiseaseId;
@@ -121,11 +121,11 @@ public class CaseRecordEntity implements java.io.Serializable {
         this.medicalHistory = medicalHistory;
     }
 
-    public Long getTempPictureLocationId() {
+    public String getTempPictureLocationId() {
         return tempPictureLocationId;
     }
 
-    public void setTempPictureLocationId(Long tempPictureLocationId) {
+    public void setTempPictureLocationId(String tempPictureLocationId) {
         this.tempPictureLocationId = tempPictureLocationId;
     }
 

@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface CaseRecordService {
     public List<CaseRecordEntity> getAllCaseRecord();
+    public CaseRecordEntity findByCaseId(Long caseId);
     public CaseRecordEntity saveOrUpdateCaseRecord(CaseRecordEntity caseRecordEntity);
     public CaseRecordEntity deleteCaseRecord(Long caseId);
 }

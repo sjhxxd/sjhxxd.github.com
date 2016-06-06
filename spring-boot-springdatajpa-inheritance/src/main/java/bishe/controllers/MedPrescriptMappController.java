@@ -1,13 +1,13 @@
 package bishe.controllers;
 
 import bishe.entity.MedPrescriptMappEntity;
-import bishe.entity.PatientInfoEntity;
-import bishe.service.MedPrescriptMappService;
-import com.wordnik.swagger.annotations.ApiOperation;
+import bishe.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -17,12 +17,32 @@ import java.util.List;
 public class MedPrescriptMappController {
     @Autowired
     private MedPrescriptMappService medPrescriptMappService;
+    @Autowired
+    private ChineseMedicineInfoService chineseMedicineInfoService;
+    @Autowired
+    private PrescriptionsInfoService prescriptionsInfoService;
+    @Autowired
+    private MeasurementUnitService measurementUnitService;
 
     @RequestMapping(value = "/medprescriptmapp/getall", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<MedPrescriptMappEntity> getMedPrescriptMappAll(){
-        return medPrescriptMappService.getAllMedPrescriptMapp();
+    public List<HashMap<String,String>> getMedPrescriptMappAll(){
+        List<MedPrescriptMappEntity> medPrescriptMappEntities;
+        medPrescriptMappEntities= medPrescriptMappService.getAllMedPrescriptMapp();
+        final List<HashMap<String,String>> medPrescriptMap=new ArrayList<>();
+        for(final MedPrescriptMappEntity medPrescriptMappEntity:medPrescriptMappEntities){
+            medPrescriptMap.add(new HashMap<String, String>(){{
+                put("chineseMedPrescriptMappId",medPrescriptMappEntity.getChineseMedPrescriptMappId().toString());
+                put("tempChineseMedicineId",chineseMedicineInfoService.findByChineseMedicineId(medPrescriptMappEntity.getTempChineseMedicineId()).getMedicineName());
+                put("tempPrescriptionId",prescriptionsInfoService.findByPrescriptionId(medPrescriptMappEntity.getTempPrescriptionId()).getPrescriptionName());
+                put("medicineAmount",medPrescriptMappEntity.getMedicineAmount());
+                put("tempUnitId",measurementUnitService.findByUnitId(medPrescriptMappEntity.getTempUnitId()).getUnitName());
+                put("decoctionMethod",medPrescriptMappEntity.getDecoctionMethod());
+                put("medPrescriptMappRemarks",medPrescriptMappEntity.getMedPrescriptMappRemarks());
+            }});
+        }
+        return medPrescriptMap;
     }
 
     @RequestMapping(value = "/medprescriptmapp/findbyid/{chineseMedPrescriptMappId}", method = RequestMethod.GET, produces = {"application/json"})

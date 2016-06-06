@@ -21,10 +21,27 @@ public class CommonDiseaseInfoEntity implements java.io.Serializable{
     private Long commonDiseaseId;
     private Long tempCommonDiseaseTypeId;
     private String commonDiseaseName;
+    private String commonDiseaseCode;
     private String commonDiseaseExplain;
+    private String patientNumber;
 
     public CommonDiseaseInfoEntity(){
 
+    }
+
+    public CommonDiseaseInfoEntity(Long tempCommonDiseaseTypeId, String commonDiseaseName, String commonDiseaseCode, String commonDiseaseExplain, String patientNumber) {
+        this.tempCommonDiseaseTypeId = tempCommonDiseaseTypeId;
+        this.commonDiseaseName = commonDiseaseName;
+        this.commonDiseaseCode = commonDiseaseCode;
+        this.commonDiseaseExplain = commonDiseaseExplain;
+        this.patientNumber = patientNumber;
+    }
+
+    public CommonDiseaseInfoEntity(Long tempCommonDiseaseTypeId, String commonDiseaseName, String commonDiseaseCode, String commonDiseaseExplain) {
+        this.tempCommonDiseaseTypeId = tempCommonDiseaseTypeId;
+        this.commonDiseaseName = commonDiseaseName;
+        this.commonDiseaseCode = commonDiseaseCode;
+        this.commonDiseaseExplain = commonDiseaseExplain;
     }
 
     public CommonDiseaseInfoEntity(Long tempCommonDiseaseTypeId, String commonDiseaseName, String commonDiseaseExplain) {
@@ -57,11 +74,27 @@ public class CommonDiseaseInfoEntity implements java.io.Serializable{
         this.commonDiseaseName = commonDiseaseName;
     }
 
+    public String getCommonDiseaseCode() {
+        return commonDiseaseCode;
+    }
+
+    public void setCommonDiseaseCode(String commonDiseaseCode) {
+        this.commonDiseaseCode = commonDiseaseCode;
+    }
+
     public String getCommonDiseaseExplain() {
         return commonDiseaseExplain;
     }
 
     public void setCommonDiseaseExplain(String commonDiseaseExplain) {
         this.commonDiseaseExplain = commonDiseaseExplain;
+    }
+
+    public String getPatientNumber() {
+        return patientNumber;
+    }
+
+    public void setPatientNumber(String patientNumber) {
+        this.patientNumber = patientNumber;
     }
 }

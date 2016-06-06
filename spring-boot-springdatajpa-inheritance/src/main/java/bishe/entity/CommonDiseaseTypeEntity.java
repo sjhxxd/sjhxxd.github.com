@@ -20,14 +20,14 @@ public class CommonDiseaseTypeEntity implements java.io.Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long commonDiseaseTypeId;
     private String commonDiseaseTypeName;
-    private Integer commonDiseaseTypeCode;
+    private String commonDiseaseTypeCode;
     private String commonDiseaseTypeExplain;
 
     public CommonDiseaseTypeEntity(){
 
     }
 
-    public CommonDiseaseTypeEntity(String commonDiseaseTypeName, Integer commonDiseaseTypeCode, String commonDiseaseTypeExplain) {
+    public CommonDiseaseTypeEntity(String commonDiseaseTypeName, String commonDiseaseTypeCode, String commonDiseaseTypeExplain) {
         this.commonDiseaseTypeName = commonDiseaseTypeName;
         this.commonDiseaseTypeCode = commonDiseaseTypeCode;
         this.commonDiseaseTypeExplain = commonDiseaseTypeExplain;
@@ -49,11 +49,11 @@ public class CommonDiseaseTypeEntity implements java.io.Serializable{
         this.commonDiseaseTypeName = commonDiseaseTypeName;
     }
 
-    public Integer getCommonDiseaseTypeCode() {
+    public String getCommonDiseaseTypeCode() {
         return commonDiseaseTypeCode;
     }
 
-    public void setCommonDiseaseTypeCode(Integer commonDiseaseTypeCode) {
+    public void setCommonDiseaseTypeCode(String commonDiseaseTypeCode) {
         this.commonDiseaseTypeCode = commonDiseaseTypeCode;
     }
 

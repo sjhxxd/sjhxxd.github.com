@@ -23,7 +23,7 @@ public class FoodMaterialInfoEntity {
     private String foodMaterialProperty;
     private String foodMaterialTaste;
     private String foodMaterialContent;
-    private Long tempPictureLocationId;
+    private String tempPictureLocationId;
     private String foodMaterialRemark;
     private String foodMaterialEffect;
 
@@ -31,7 +31,7 @@ public class FoodMaterialInfoEntity {
 
     }
 
-    public FoodMaterialInfoEntity(String foodMaterialName, String foodMaterialProperty, String foodMaterialTaste, String foodMaterialContent, Long tempPictureLocationId, String foodMaterialRemark, String foodMaterialEffect) {
+    public FoodMaterialInfoEntity(String foodMaterialName, String foodMaterialProperty, String foodMaterialTaste, String foodMaterialContent, String tempPictureLocationId, String foodMaterialRemark, String foodMaterialEffect) {
         this.foodMaterialName = foodMaterialName;
         this.foodMaterialProperty = foodMaterialProperty;
         this.foodMaterialTaste = foodMaterialTaste;
@@ -81,11 +81,11 @@ public class FoodMaterialInfoEntity {
         this.foodMaterialContent = foodMaterialContent;
     }
 
-    public Long getTempPictureLocationId() {
+    public String getTempPictureLocationId() {
         return tempPictureLocationId;
     }
 
-    public void setTempPictureLocationId(Long tempPictureLocationId) {
+    public void setTempPictureLocationId(String tempPictureLocationId) {
         this.tempPictureLocationId = tempPictureLocationId;
     }
 
