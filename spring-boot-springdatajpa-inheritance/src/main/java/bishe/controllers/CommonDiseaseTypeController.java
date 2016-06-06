@@ -34,7 +34,7 @@ public class CommonDiseaseTypeController {
         return commonDiseaseTypeRepository.findByCommonDiseaseTypeName(commonDiseaseTypeName);
     }
 
-    @RequestMapping(value = "/commondiseasetype/findbyname/{commonDiseaseTypeid}", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/commondiseasetype/findbyone/{commonDiseaseTypeid}", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public CommonDiseaseTypeEntity getCommonDiseaseTypeById(@PathVariable Long commonDiseaseTypeid){

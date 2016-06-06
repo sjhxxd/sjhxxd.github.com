@@ -134,11 +134,11 @@ public class DoctorInfoEntity implements java.io.Serializable {
         this.doctorIdentity = doctorIdentity;
     }
 
-    public String getPassword() {
+    public String getDoctorPassword() {
         return doctorPassword;
     }
 
-    public void setPassword(String password) {
+    public void setDoctorPassword(String password) {
         this.doctorPassword = password;
     }
 

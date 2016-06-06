@@ -1,6 +1,7 @@
 package bishe.controllers;
 
 import bishe.entity.NoteEntity;
+import bishe.repository.NoteRepository;
 import bishe.service.NoteService;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -18,6 +19,8 @@ import java.util.List;
 public class NoteController {
     @Autowired
     private NoteService noteService;
+    @Autowired
+    private NoteRepository noteRepository;
     Gson gson = new Gson();
 
     @RequestMapping(value = "getall", method = RequestMethod.GET, produces = {"application/json"})
@@ -25,6 +28,35 @@ public class NoteController {
     @ResponseBody
     public List<NoteEntity> getCaseRecordAll() {
         return noteService.getAllNote();
+    }
+
+
+    @RequestMapping(value = "findbytempchinesemedicineid/{tempChineseMedicineId}", method = RequestMethod.GET, produces = {"application/json"})
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<NoteEntity> getNoteByTempChineseMedicineId(@PathVariable Long tempChineseMedicineId) {
+        return noteRepository.findByTempChineseMedicineId(tempChineseMedicineId);
+    }
+
+    @RequestMapping(value = "findbytempfoodmaterialid/{tempFoodMaterialId}", method = RequestMethod.GET, produces = {"application/json"})
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<NoteEntity> getNoteByTempFoodMaterialId(@PathVariable Long tempFoodMaterialId) {
+        return noteRepository.findByTempFoodMaterialId(tempFoodMaterialId);
+    }
+
+    @RequestMapping(value = "findbytemppatentmedicineid/{tempPatentMedicineId}", method = RequestMethod.GET, produces = {"application/json"})
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<NoteEntity> getNoteByTempPatentMedicineId(@PathVariable Long tempPatentMedicineId) {
+        return noteRepository.findByTempPatentMedicineId(tempPatentMedicineId);
+    }
+
+    @RequestMapping(value = "findbytempprescriptionid/{tempPrescriptionId}", method = RequestMethod.GET, produces = {"application/json"})
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<NoteEntity> getNoteByTempPrescriptionId(@PathVariable Long tempPrescriptionId) {
+        return noteRepository.findByTempPrescriptionId(tempPrescriptionId);
     }
 
     @RequestMapping(value = "saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})

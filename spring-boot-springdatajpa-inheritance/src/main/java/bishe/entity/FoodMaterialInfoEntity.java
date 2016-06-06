@@ -15,7 +15,7 @@ import java.lang.Long;
 @Table(name = "foodmaterialinfo")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class FoodMaterialInfoEntity {
+public class FoodMaterialInfoEntity implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long foodMaterialId;

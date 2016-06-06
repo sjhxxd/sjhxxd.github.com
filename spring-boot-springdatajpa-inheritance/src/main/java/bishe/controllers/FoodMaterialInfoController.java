@@ -30,7 +30,7 @@ public class FoodMaterialInfoController {
     }
 
 
-    @RequestMapping(value = "/foodmaterialinfo/findbyname",params="foodMaterialName", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "/foodmaterialinfo/findbyname", params = "foodMaterialName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public FoodMaterialInfoEntity getFoodMaterialByOne(@RequestParam(value = "foodMaterialName", required = true) String foodMaterialName) {
@@ -43,6 +43,8 @@ public class FoodMaterialInfoController {
     public String saveOrUpdateFood(FoodMaterialInfoEntity foodMaterialInfoEntity) {
         try {
             foodMaterialInfoService.saveOrUpdateFood(foodMaterialInfoEntity);
+            System.out.println("食材-->" + foodMaterialInfoEntity);
+            System.out.println("食材图片-->" + foodMaterialInfoEntity.getTempPictureLocationId());
             return "Success";
         } catch (Exception e) {
             System.out.println("错误:" + e.getMessage());

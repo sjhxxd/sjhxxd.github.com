@@ -105,8 +105,31 @@ public class CaseRecordController {
     @RequestMapping(value = "findbytemppatientid/{tempPatientId}", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public List<CaseRecordEntity> getCaseRecordByTempPatientId(@PathVariable Long tempPatientId) {
-        return caseRecordRepository.findByTempPatientId(tempPatientId);
+    public List<HashMap<String, String>> getCaseRecordByTempPatientId(@PathVariable Long tempPatientId) {
+        List<CaseRecordEntity> caseRecordEntities ;
+        caseRecordEntities = caseRecordRepository.findByTempPatientId(tempPatientId);
+        final List<HashMap<String, String>> caseNameMap = new ArrayList<>();
+        for (final CaseRecordEntity caseRecordEntity : caseRecordEntities) {
+            caseNameMap.add(new HashMap<String, String>() {{
+                put("caseId", caseRecordEntity.getCaseId().toString());
+                put("tempPatientId", patientInfoService.findByPatientId(caseRecordEntity.getTempPatientId()).getPatientName());
+                put("tempDoctorId", doctorInfoService.findByDoctorId(caseRecordEntity.getTempDoctorId()).getDoctorName());
+                put("tempDiseaseId", commonDiseaseInfoService.findByCommonDiseaseId(caseRecordEntity.getTempDiseaseId()).getCommonDiseaseName());
+                put("clinicalTime", caseRecordEntity.getClinicalTime().toString());
+                put("caseDate", caseRecordEntity.getCaseDate().toString());
+                put("patientTalk", caseRecordEntity.getPatientTalk());
+                put("medicalHistory", caseRecordEntity.getMedicalHistory());
+                put("tempPictureLocationId", caseRecordEntity.getTempPictureLocationId());
+                put("diagnosis", caseRecordEntity.getDiagnosis());
+                put("tempDoctorPrescriptionId", doctorPrescriptionService.findByDoctorPrescriptionId(caseRecordEntity.getTempDoctorPrescriptionId()).getPrescriptionName());
+                put("curativeEffect", caseRecordEntity.getCurativeEffect());
+                put("caseRemark", caseRecordEntity.getCaseRemark());
+                put("tipsContent", caseRecordEntity.getTipsContent());
+                put("tempSyndromeId", syndromeTypesService.findBySyndromeId(caseRecordEntity.getTempSyndromeId()).getSyndromeName());
+                put("tempInquiryResultId", tbInquiryresultService.findByInquiryResultId(caseRecordEntity.getTempInquiryResultId()).getInquiryResult());
+            }});
+        }
+        return caseNameMap;
     }
 
     @RequestMapping(value = "findbytempdiseaseid/{tempDiseaseId}", method = RequestMethod.GET, produces = {"application/json"})
