@@ -126,7 +126,7 @@ $(function () {
 //不登录无法直接访问
 if (sessionStorage.getItem('userId') == null) {
     if (sessionStorage.getItem('userName') == null) {
-        location.href = 'login_a.html';
+        location.href = 'login_d.html';
     }
 } else {
     if (sessionStorage.getItem('userName') != null) {
@@ -137,7 +137,7 @@ if (sessionStorage.getItem('userId') == null) {
 $('#logoutBtn').click(function (event) {
     sessionStorage.removeItem('userId');
     sessionStorage.removeItem('userName');
-    location.href = 'login_a.html';
+    location.href = 'login_d.html';
 });
 
 //Bootstrap Table 默认设置

@@ -1,3 +1,6 @@
+/**
+ * Created by sjh on 16/6/6.
+ */
 $(function () {
 
     if (localStorage.getItem('usr') != null) {
@@ -32,7 +35,7 @@ $(function () {
             return false;
         } else {
             $.ajax({
-                url: baseAddress + '/admin/login',
+                url: baseAddress + '/doctorLogin/login',
                 type:'post',
                 data: {
                     userName: $.trim($('#userName').val()),
@@ -45,7 +48,7 @@ $(function () {
                     } else if (data.totalNumber == 1) {
                         sessionStorage.setItem('userId', data.returnData.userId);
                         sessionStorage.setItem('userName', data.returnData.userName);
-                        location.href = 'index.html';
+                        location.href = 'index_d.html';
                     }
                 }
             })

@@ -211,3 +211,40 @@ jQuery(function ($) {
         }
     })
 });
+
+$(document).ready(function () {
+    $('#medPreScriptMappform').bootstrapValidator({
+        excluded: ':disabled',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+
+        fields: {
+            medicineAmount: {
+                validators: {
+                    notEmpty: {
+                        message: '不能为空'
+                    },
+                    regexp: {
+                        regexp: /^[0-9]+([.]{1}[0-9]+){0,1}$/,
+                        message: '请输入正整数或小数'
+                    }
+                }
+            },
+            val1024: {
+                validators: {
+                    notEmpty: {
+                        message: '不能为空'
+                    },
+                    stringLength: {
+                        max: 1024,
+                        message: '请输入不超过1024个字符的内容'
+                    }
+                }
+            }
+        }
+    });
+
+});

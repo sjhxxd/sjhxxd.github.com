@@ -12,8 +12,8 @@
     </select>
 </div>
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <div id="container" style="height: 400px;width: auto "></div>
+    <div class="col-md-10 col-md-offset-1">
+        <div id="container" style="height: 500px;width: auto "></div>
 
     </div>
 </div>
@@ -59,15 +59,11 @@
         var checkText1=$("#diseaseType").find("option:selected").text();
         console.log("checkText1--",checkText1);
         var dataSeries=restful("get",baseAddress+"/commondiseaseinfo/findbytypeid/"+checkText,null);
-        console.log("data-->",dataSeries);
         var xRay=[];
         var data1=[];
         $.each(dataSeries,function(i){
             xRay.push(dataSeries[i].commonDiseaseName);
             data1.push(parseInt(dataSeries[i].patientNumber) );
-            console.log("xRay-->",xRay);
-            console.log("data1-->",data1);
-
         });
         $("#container").highcharts({
            chart:{

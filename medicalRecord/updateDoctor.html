@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>updateAdmin</title>
+    <title>updateDoctor</title>
 </head>
 <body>
 <div class="row " style="margin-top: 40px;">
     <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <h4 class="panel-title" id="changepanel">管理员密码修改</h4>
+                <h4 class="panel-title" id="changepanel">医生密码修改</h4>
             </div>
             <form id="form-info" method="post">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group ">
-                                <label for="user-name">用户名</label>
-                                <input type="text" class="form-control " id="user-name" value="admin" disabled>
+                                <label for="user-name">医生名</label>
+                                <input type="text" class="form-control " id="user-name" value="陈建明" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="user-opwd">旧密码</label>
@@ -66,7 +66,7 @@
                 alert('密码至少六位');
             } else {
                 $.ajax({
-                    url: baseAddress + '/admin/updatePassword',
+                    url: baseAddress + '/doctorLogin/updatePassword',
                     type: "post",
                     data: {
                         userId: parseInt(sessionStorage.getItem('userId')),
@@ -78,7 +78,7 @@
                         if (data.totalNumber == 1) {
                             sessionStorage.setItem('userName', $.trim($('#user-name').val()));
                             alert(data.returnData);
-                            location.href = 'login_a.html';
+                            location.href = 'login_d.html';
 
                         } else {
                             alert(data.returnData);

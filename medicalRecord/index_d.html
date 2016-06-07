@@ -34,7 +34,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top nav_color" style="height: auto">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" style="font-size:20px;" onclick="turnPage('index.html')">中医现代医案管理平台</a>
+            <a class="navbar-brand" style="font-size:20px;" >中医现代医案管理平台</a>
         </div>
         <div style="">
             <div class="head4">欢迎您：<span id="u_name"></span></div>
@@ -45,8 +45,8 @@
                         aria-haspopup="true" >管理员
                     <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="manager" style="margin: 42px 0 0 929px">
-                    <li onclick="turnPage('updateAdmin.html')"><a><span class="glyphicon glyphicon-user"></span>资料</a></li>
+                <ul class="dropdown-menu" aria-labelledby="manager" style="margin: 42px 0 0 935px">
+                    <li onclick="turnPage('updateDoctor.html')"><a><span class="glyphicon glyphicon-user"></span>资料</a></li>
                     <li id="logoutBtn"><a><span class="glyphicon glyphicon-off"></span>退出</a></li>
                 </ul>
             </div>
@@ -62,8 +62,7 @@
                     <li>
                         <a >用户管理<i class='glyphicon glyphicon-chevron-down'></i></a>
                         <ul class='nav submenu'>
-                            <li><a onclick="turnPage('updateAdmin.html')">管理员密码修改</a></li>
-                            <li><a onclick="turnPage('doctor.html')">医生信息管理</a></li>
+                            <li><a onclick="turnPage('updateDoctor.html')">密码修改</a></li>
                         </ul>
                     </li>
                     <li>
@@ -76,25 +75,9 @@
                     <li>
                         <a>临床信息管理<i class='glyphicon glyphicon-chevron-down'></i></a>
                         <ul class='nav submenu'>
-                            <li><a onclick="turnPage('caseRecord.html')">病案信息管理</a></li>
                             <li><a onclick="turnPage('doctorPrescription.html')">医生处方管理</a></li>
                             <li><a onclick="turnPage('chineseMedPreMapp.html')">中药处方映射管理</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a>数据字典管理<i class='glyphicon glyphicon-chevron-down'></i></a>
-                        <ul class='nav submenu'>
-                            <li><a onclick="turnPage('chineseMedicine.html')">中药信息</a></li>
-                            <li><a onclick="turnPage('prescriptions.html')">方剂信息</a></li>
-                            <li><a onclick="turnPage('medPreScriptMapp.html')">中药方剂映射管理</a></li>
-                            <li><a onclick="turnPage('patentMedicine.html')">中成药信息</a></li>
-                            <li><a onclick="turnPage('commonDiseaseInfo.html')">常见疾病信息</a></li>
-                            <li><a onclick="turnPage('commonDiseaseType.html')">常见疾病类别信息</a></li>
-                            <li><a onclick="turnPage('syndromeTypes.html')">证型信息</a></li>
-                            <li><a onclick="turnPage('foodMaterial.html')">食材信息管理</a></li>
-                            <li><a onclick="turnPage('location.html')">行政区划管理</a></li>
-                            <li><a onclick="turnPage('measurementUnit.html')">计量单位管理</a></li>
-                            <li><a onclick="turnPage('pictureList.html')">图片管理</a></li>
+                            <li><a onclick="turnPage('caseRecord.html')">病案信息管理</a></li>
                         </ul>
                     </li>
 
@@ -115,7 +98,7 @@
                 </ul>
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="content">
-                <img src="imgs/zhangzhongjing.jpg" alt="张仲景" id="homeImg">
+                <img src="imgs/zhangzhongjing.jpg" alt="张仲景" id="homeImg" style="width: 100%;height: 570px;">
             </div>
         </div>
     </div>
@@ -125,7 +108,7 @@
 <!--<p>shijiahao </p>-->
 <!--</footer>-->
 
-<script src="js/common.js"></script>
+<script src="js/common_d.js"></script>
 
 </body>
 </html>

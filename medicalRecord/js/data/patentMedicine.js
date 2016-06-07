@@ -29,6 +29,7 @@ function initTable() {
             title: '功能主治'
         }, {
             field: 'shape',
+            formatter: value20,
             title: '性状'
         }, {
             field: 'usageDosage',
@@ -39,9 +40,11 @@ function initTable() {
             title: '注意'
         }, {
             field: 'specifications',
+            formatter: value20,
             title: '规格'
         }, {
             field: 'storageMethod',
+            formatter: value20,
             title: '贮藏方式'
         }, {
             field: 'saute',
@@ -161,4 +164,51 @@ $('#remove').click(function () {
             })
         }
     }
+});
+$(document).ready(function () {
+    $('#patentMedicineform').bootstrapValidator({
+        excluded: ':disabled',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+
+        fields: {
+            val50: {
+                validators: {
+                    notEmpty: {
+                        message: '不能为空'
+                    },
+                    stringLength: {
+                        max: 50,
+                        message: '不能超过50个字符'
+                    }
+                }
+            },
+            val200: {
+                validators: {
+                    notEmpty: {
+                        message: '不能为空'
+                    },
+                    stringLength: {
+                        max: 200,
+                        message: '不能超过50个字符'
+                    }
+                }
+            },
+            val1024: {
+                validators: {
+                    notEmpty: {
+                        message: '不能为空'
+                    },
+                    stringLength: {
+                        max: 1024,
+                        message: '请输入不超过1024个字符的内容'
+                    }
+                }
+            }
+        }
+    });
+
 });

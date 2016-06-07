@@ -21,7 +21,9 @@ function initTable() {
             title: '方剂名称'
         }, {
             field: 'prescriptionOrigin',
-            formatter: value20,
+            formatter: function(value){
+                return "《"+value+"》"
+            },
             title: '出处'
         }, {
             field: 'prescriptionEffect',
@@ -152,4 +154,41 @@ $('#remove').click(function () {
             })
         }
     }
+});
+
+$(document).ready(function () {
+    $('#prescriptionsform').bootstrapValidator({
+        excluded: ':disabled',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+
+        fields: {
+            val200: {
+                validators: {
+                    notEmpty: {
+                        message: '不能为空'
+                    },
+                    stringLength: {
+                        max: 200,
+                        message: '请输入不超过200个字符的内容'
+                    }
+                }
+            },
+            val1024: {
+                validators: {
+                    notEmpty: {
+                        message: '不能为空'
+                    },
+                    stringLength: {
+                        max: 1024,
+                        message: '请输入不超过1024个字符的内容'
+                    }
+                }
+            }
+        }
+    });
+
 });

@@ -148,3 +148,38 @@ jQuery(function ($) {
 
     })
 });
+
+$(document).ready(function () {
+    $('#commonDiseaseInfoform').bootstrapValidator({
+        excluded: ':disabled',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+
+        fields: {
+            patientNumber: {
+                validators: {
+
+                    regexp: {
+                        regexp: /^[0-9]*$/,
+                        message: '请输入正整数'
+                    }
+                }
+            },
+            val1024: {
+                validators: {
+                    notEmpty: {
+                        message: '不能为空'
+                    },
+                    stringLength: {
+                        max: 1024,
+                        message: '请输入不超过1024个字符的内容'
+                    }
+                }
+            }
+        }
+    });
+
+});
