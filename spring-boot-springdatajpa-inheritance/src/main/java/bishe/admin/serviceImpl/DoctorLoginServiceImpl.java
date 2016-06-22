@@ -29,14 +29,14 @@ public class DoctorLoginServiceImpl implements DoctorLoginService{
     }
 
     @Override
-    public String checkPassWord(int userId) {
-        DoctorInfoEntity doctorInfoEntity=repo.findByUserId(userId);
+    public String checkPassWord(int doctorId) {
+        DoctorInfoEntity doctorInfoEntity=repo.findByUserId(doctorId);
         return doctorInfoEntity.getDoctorPassword();
     }
 
     @Override
-    public void updateByUserId(int userId, String userName, String newPassWord) {
-        DoctorInfoEntity doctorInfoEntity=repo.findByUserId(userId);
+    public void updateByUserId(int doctorId, String userName, String newPassWord) {
+        DoctorInfoEntity doctorInfoEntity=repo.findByUserId(doctorId);
         doctorInfoEntity.setDoctorPassword(MD5Util.MD5Encode(newPassWord,"utf-8"));
         doctorInfoEntity.setDoctorName(userName);
         repo.save(doctorInfoEntity);

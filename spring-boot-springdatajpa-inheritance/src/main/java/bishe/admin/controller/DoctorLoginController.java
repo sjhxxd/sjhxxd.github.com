@@ -31,7 +31,7 @@ public class DoctorLoginController {
         try{
             if(service.getUserPassWord(userName).equals(MD5Util.MD5Encode(password, "UTF-8"))) {
                 Map map = new HashMap();
-                map.put("userId", service.getUserId(userName));
+                map.put("doctorId", service.getUserId(userName));
                 map.put("userName", userName);
                 return new ReturnModel(1,map);
             }else{
@@ -43,7 +43,7 @@ public class DoctorLoginController {
     }
 
     @RequestMapping(value = "updatePassword", method = RequestMethod.POST)
-    public ReturnModel UpdateUserPwd(@RequestParam("userId") int userId, @RequestParam("userName") String userName,@RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword) {
+    public ReturnModel UpdateUserPwd(@RequestParam("doctorId") int userId, @RequestParam("userName") String userName,@RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword) {
         if (!service.checkPassWord(userId).equals(MD5Util.MD5Encode(oldPassword, "UTF-8"))){
             return new ReturnModel(0,"原密码不正确");
         } else {

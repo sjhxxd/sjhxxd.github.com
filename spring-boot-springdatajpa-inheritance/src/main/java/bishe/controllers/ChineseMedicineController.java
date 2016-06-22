@@ -15,7 +15,7 @@ import java.util.List;
  * Created by sjh on 16/3/23.
  */
 @RestController
-@RequestMapping(value="/chinesemedicineinfo")
+@RequestMapping(value = "/chinesemedicineinfo")
 public class ChineseMedicineController {
     @Autowired
     private ChineseMedicineInfoRepository chineseMedicineInfoRepository;
@@ -34,45 +34,44 @@ public class ChineseMedicineController {
     @RequestMapping(value = "findbyid/{chineseMedicineId}", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
-    public ChineseMedicineInfoEntity getChineseMedicineById(@PathVariable Long chineseMedicineId){
+    public ChineseMedicineInfoEntity getChineseMedicineById(@PathVariable Long chineseMedicineId) {
         return chineseMedicineInfoService.findByChineseMedicineId(chineseMedicineId);
     }
 
-    @RequestMapping(value = "findbyname",params="medicineName", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "findbyname", params = "medicineName", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<ChineseMedicineInfoEntity> getChineseMedicineByOne(@RequestParam(value = "medicineName", required = true) String medicineName) {
-            return chineseMedicineInfoRepository.findByMedicineName(medicineName);
+        return chineseMedicineInfoRepository.findByMedicineName(medicineName);
     }
 
-    @RequestMapping(value = "findbymedicineproperty",params="medicineProperty", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "findbymedicineproperty", params = "medicineProperty", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<ChineseMedicineInfoEntity> getChineseMedicineByMedicineProperty(@RequestParam(value = "medicineProperty", required = true) String medicineProperty) {
         return chineseMedicineInfoRepository.findByMedicineProperty(medicineProperty);
     }
 
-    @RequestMapping(value = "findbymedicinetaste",params="medicineTaste", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "findbymedicinetaste", params = "medicineTaste", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<ChineseMedicineInfoEntity> getChineseMedicineByMedicineTaste(@RequestParam(value = "medicineTaste", required = true) String medicineTaste) {
         return chineseMedicineInfoRepository.findByMedicineTaste(medicineTaste);
     }
 
-    @RequestMapping(value = "findbyeffecttype",params="effectType", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "findbyeffecttype", params = "effectType", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<ChineseMedicineInfoEntity> getChineseMedicineByEffectType(@RequestParam(value = "effectType", required = true) String effectType) {
         return chineseMedicineInfoRepository.findByEffectType(effectType);
     }
 
-    @RequestMapping(value = "findbymedicinegrade",params="medicineGrade", method = RequestMethod.GET, produces = {"application/json"})
+    @RequestMapping(value = "findbymedicinegrade", params = "medicineGrade", method = RequestMethod.GET, produces = {"application/json"})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public List<ChineseMedicineInfoEntity> getChineseMedicineByMedicineGrade(@RequestParam(value = "medicineGrade", required = true) String medicineGrade) {
         return chineseMedicineInfoRepository.findByMedicineGrade(medicineGrade);
     }
-
 
 
     @RequestMapping(value = "saveorupdate", method = {RequestMethod.POST, RequestMethod.PUT}, produces = {"application/json"})
@@ -93,7 +92,8 @@ public class ChineseMedicineController {
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation(value = "Get a single hotel.", notes = "You have to provide a valid hotel ID.")
     @ResponseBody
-    public Long deleteChineseMedicineInfo(@PathVariable Long chineseMedicineId) {
+    public Long deleteChineseMedicineInfo(
+            @PathVariable Long chineseMedicineId) {
         chineseMedicineInfoService.deleteChineseMedicine(chineseMedicineId);
         return chineseMedicineId;
     }

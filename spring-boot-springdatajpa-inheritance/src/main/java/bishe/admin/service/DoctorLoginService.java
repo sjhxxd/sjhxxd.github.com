@@ -8,7 +8,7 @@ public interface DoctorLoginService {
 
     public  int getUserId(String userName);
 
-    public  String checkPassWord(int userId);
+    public  String checkPassWord(int doctorId);
 
-    public void updateByUserId(int userId,String userName, String newPassWord);
+    public void updateByUserId(int doctorId,String userName, String newPassWord);
 }

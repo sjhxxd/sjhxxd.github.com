@@ -27,29 +27,34 @@ public class AdminController {
     private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 
 
-    @RequestMapping(value="login", method= RequestMethod.POST)
-    public ReturnModel AdminLogin(@RequestParam("userName") String userName, @RequestParam("password") String password){
-        try{
-            if(service.getUserPassWord(userName).equals(MD5Util.MD5Encode(password, "UTF-8"))) {
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public ReturnModel AdminLogin(@RequestParam("userName") String userName, @RequestParam("password") String password) {
+        try {
+            if (service.getUserPassWord(userName).equals(MD5Util.MD5Encode(password, "UTF-8"))) {
                 Map map = new HashMap();
                 map.put("userId", service.getUserId(userName));
                 map.put("userName", userName);
-                return new ReturnModel(1,map);
-            }else{
-                return new ReturnModel(0,"用户名或密码错误");
+                return new ReturnModel(1, map);
+            } else {
+                return new ReturnModel(0, "用户名或密码错误");
             }
-        }catch (Exception e){
-            return new ReturnModel(0,"用户名或密码错误");
+        } catch (Exception e) {
+            return new ReturnModel(0, "用户名或密码错误");
         }
     }
+
     @RequestMapping(value = "updatePassword", method = RequestMethod.POST)
-    public ReturnModel UpdateUserPwd(@RequestParam("userId") int userId, @RequestParam("userName") String userName,@RequestParam("oldPassword") String oldPassword, @RequestParam("newPassword") String newPassword) {
-        if (!service.checkPassWord(userId).equals(MD5Util.MD5Encode(oldPassword, "UTF-8"))){
-            return new ReturnModel(0,"原密码不正确");
+    public ReturnModel UpdateUserPwd(
+            @RequestParam("userId") int userId,
+            @RequestParam("userName") String userName,
+            @RequestParam("oldPassword") String oldPassword,
+            @RequestParam("newPassword") String newPassword) {
+        if (!service.checkPassWord(userId).equals(MD5Util.MD5Encode(oldPassword, "UTF-8"))) {
+            return new ReturnModel(0, "原密码不正确");
         } else {
-            service.updateByUserId(userId, userName,newPassword);
-            System.out.println("新密码是:"+newPassword);
-            return new ReturnModel(1,"修改成功");
+            service.updateByUserId(userId, userName, newPassword);
+            System.out.println("新密码是:" + newPassword);
+            return new ReturnModel(1, "管理员密码修改成功");
         }
     }
 }

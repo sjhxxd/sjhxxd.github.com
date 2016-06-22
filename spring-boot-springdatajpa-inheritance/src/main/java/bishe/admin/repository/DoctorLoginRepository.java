@@ -15,6 +15,6 @@ public interface DoctorLoginRepository extends JpaRepository<DoctorInfoEntity, L
     public int getUserId(String doctorinfo);
 
     @Query(value = "select * from doctorinfo where doctor_id=?1", nativeQuery = true)
-    public DoctorInfoEntity findByUserId(int userId);
+    public DoctorInfoEntity findByUserId(int doctorId);
 
 }
