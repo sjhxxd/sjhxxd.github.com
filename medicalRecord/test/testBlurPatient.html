@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>病人ID</title>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/base_address.js"></script>
+</head>
+<body>
+<div class="form-group">
+    <label for="tempPatientId">病人ID</label>
+    <select class="form-control" id="tempPatientId" onchange="getPatient()"
+            required>
+        <option value="" >--请选择--</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="clinicalTime">诊次</label>
+    <input  class="form-control" id="clinicalTime">
+        <!--<option value="1">初诊</option>-->
+        <!--<option value="2">次诊</option>-->
+        <!--<option value="3">三诊</option>-->
+        <!--<option value="4">四诊</option>-->
+        <!--<option value="5">五诊</option>-->
+    <!--</input>-->
+</div>
+<script>
+    $(function () {
+        jQuery(function ($) {
+            $.ajax({
+                type: "get",
+                dataType: "json",
+                url: baseAddress + "/patientinfo/getall",
+                success: function (msg) {
+                    var str = "";
+                    for (var i in msg) {
+                        str += "<option value =" + msg[i].patientId + " >" + msg[i].patientName + "</option>";
+                    }
+                    $("#tempPatientId").append(str);
+                }
+            })
+        });
+
+
+
+    })
+    function restful(typeInfo, urlInfo, dataInfo) {
+        var result = null;
+        $.ajax({
+            async: false,
+            type: typeInfo,
+            url: urlInfo,
+            dataType: "json",
+            data: dataInfo,
+            success: function (json) {
+                result = json;
+            },
+            error: function () {
+                result = "fail";
+            }
+        });
+        return result;
+    }
+
+
+    function getPatient() {
+        var checkText=$("#tempPatientId").find("option:selected").val();
+        console.log("patientID--->", checkText);
+        var dataSer=restful("get",baseAddress + "/caserecord/findbytemppatientid/"+checkText ,null);
+        var count=dataSer.length+1;
+        console.log("count--->",count);
+        $("#clinicalTime").val(count);
+        console.log("dataSer-->",dataSer);
+
+    }
+
+</script>
+</body>
+</html>

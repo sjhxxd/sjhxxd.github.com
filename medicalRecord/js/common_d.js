@@ -124,7 +124,7 @@ $(function () {
 });
 
 //不登录无法直接访问
-if (sessionStorage.getItem('userId') == null) {
+if (sessionStorage.getItem('doctorId') == null) {
     if (sessionStorage.getItem('userName') == null) {
         location.href = 'login_d.html';
     }
@@ -135,7 +135,7 @@ if (sessionStorage.getItem('userId') == null) {
 }
 //退出登录
 $('#logoutBtn').click(function (event) {
-    sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('doctorId');
     sessionStorage.removeItem('userName');
     location.href = 'login_d.html';
 });

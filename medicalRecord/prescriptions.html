@@ -7,7 +7,7 @@
     <title>TestTable</title>
 </head>
 <body>
-<div id="right-nav"> <strong>中药方剂信息管理</strong></div>
+<div id="right-nav"><strong>中药方剂信息管理</strong></div>
 <hr>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
@@ -45,58 +45,98 @@
             <div class="panel-heading">
                 <h4 class="panel-title" id="changepanel">中药方剂信息添加</h4>
             </div>
-            <form id="prescriptionsform" method="post">
+            <form id="prescriptionsform" method="post" autocomplete="off">
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div id="prescriptionsInfoEntity" name="prescriptionsInfoEntity">
-                                <div class="form-group hidden">
-                                    <label for="prescriptionId">中药方剂ID</label>
-                                    <input type="text" class="form-control " id="prescriptionId"
-                                           disabled="true">
-                                </div>
-                                <div class="form-group">
-                                    <label for="prescriptionName">方剂名称</label>
-                                    <input type="text" class="form-control" id="prescriptionName" name="val200"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="prescriptionOrigin">出处</label>
-                                    <input type="text" class="form-control" id="prescriptionOrigin" name="val200"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="prescriptionEffect">功效</label>
-                                    <input type="text" class="form-control" id="prescriptionEffect" name="val200"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="prescriptionClass">剂型</label>
-                                    <input type="text" class="form-control" id="prescriptionClass" name="val200"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="prescriptionFunction">功能主治</label>
-                                    <textarea  class="form-control" id="prescriptionFunction" name="val1024"
-                                           rows="4" required></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="prescriptionSummary">概述</label>
-                                    <textarea type="text" class="form-control" id="prescriptionSummary" name="val1024"
-                                           rows="3" required></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="prescriptionInstructions">用法说明</label>
-                                    <textarea  class="form-control" id="prescriptionInstructions" name="val1024"
-                                           rows="4" required></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="prescriptionRemark">备注</label>
-                                    <textarea  class="form-control" id="prescriptionRemark" name="val1024"
-                                          rows="2" required></textarea>
-                                </div>
+                        <div class="col-md-5">
+                            <div class="form-group hidden">
+                                <label for="prescriptionId">中药方剂ID</label>
+                                <input type="text" class="form-control " id="prescriptionId"
+                                       disabled="true">
                             </div>
-                        </div> <!--cil-md-12 -->
+                            <div class="form-group">
+                                <label for="prescriptionName">方剂名称</label>
+                                <input type="text" class="form-control" id="prescriptionName" name="val200"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prescriptionOrigin">出处</label>
+                                <select  class="form-control" id="prescriptionOrigin" name="val200"
+                                       required>
+                                    <option value="">--请选择--</option>
+                                    <option value="伤寒论">伤寒论</option>
+                                    <option value="医方考">医方考</option>
+                                    <option value="金匮要略">金匮要略</option>
+                                    <option value="医学正传">医学正传</option>
+                                    <option value="医方类聚">医方类聚</option>
+                                    <option value="医宗金鉴">医宗金鉴</option>
+                                    <option value="医学启源">医学启源</option>
+                                    <option value="医部全录">医部全录</option>
+                                    <option value="麻疹全书">麻疹全书</option>
+                                    <option value="景岳全书">景岳全书</option>
+                                    <option value="温病条辨">温病条辨</option>
+
+                                    <option value="圣济总录">圣济总录</option>
+                                    <option value="正体类要">正体类要</option>
+                                    <option value="丹溪心法">丹溪心法</option>
+                                    <option value="医垒元戎">医垒元戎</option>
+                                    <option value="症因脉治">症因脉治</option>
+                                    <option value="傅青主女科">傅青主女科</option>
+                                    <option value="内外伤辨惑论">内外伤辨惑论</option>
+                                    <option value="瑞竹堂经验方">瑞竹堂经验方</option>
+                                    <option value="古今名医方论">古今名医方论</option>
+                                    <option value="古今医统大全">古今医统大全</option>
+                                    <option value="小儿药证直诀">小儿药证直诀</option>
+                                    <option value="太平惠民和剂局方">太平惠民和剂局方</option>
+                                    <option value="仙授理伤续断秘方">仙授理伤续断秘方</option>
+                                    <option value="三因极一病证方论">三因极一病证方论</option>
+                                    <option value="不明">不明</option>
+
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="prescriptionFunction">功能主治</label>
+                                    <textarea class="form-control" id="prescriptionFunction" name="val1024"
+                                              rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="prescriptionSummary">概述</label>
+                                    <textarea class="form-control" id="prescriptionSummary" name="val1024"
+                                              rows="3" required></textarea>
+                            </div>
+
+                        </div> <!--cil-md-5 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="prescriptionClass">剂型</label>
+                                <select  class="form-control" id="prescriptionClass" name="val200"
+                                       required>
+                                    <option value="">--请选择--</option>
+                                    <option value="丸剂">丸剂</option>
+                                    <option value="细末">细末</option>
+                                    <option value="汤剂">汤剂</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="prescriptionEffect">功效</label>
+                                <input type="text" class="form-control" id="prescriptionEffect" name="val200"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prescriptionInstructions">用法说明</label>
+                                    <textarea class="form-control" id="prescriptionInstructions" name="val1024"
+                                              rows="4" required>
+                                    </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="prescriptionRemark">备注</label>
+                                    <textarea class="form-control" id="prescriptionRemark" name="val1024"
+                                              rows="4" required></textarea>
+                            </div>
+                        </div>
                     </div>  <!--row-->
                 </div>
 

@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="row " style="margin-top: 40px;">
-    <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+    <div class="col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
         <div class="panel panel-success">
             <div class="panel-heading">
                 <h4 class="panel-title" id="changepanel">管理员密码修改</h4>
@@ -21,21 +21,26 @@
                             </div>
                             <div class="form-group">
                                 <label for="user-opwd">旧密码</label>
-                                <input type="text" class="form-control" id="user-opwd"
+                                <input type="password" class="form-control" id="user-opwd"
                                        required>
                             </div>
                             <div class="form-group">
                                 <label for="user-npwd">新密码</label>
-                                <input type="text" class="form-control" id="user-npwd"
+                                <input type="password" class="form-control" id="user-npwd"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-npwd">确认密码</label>
+                                <input type="password" class="form-control" id="confirm-npwd" onblur="confirmCheck()"
                                        required>
                             </div>
                         </div>
-                    </div> <!--cil-md-12 -->
+                    </div> <!--col-md-12 -->
                 </div>  <!--row-->
 
                 <div class="panel-footer">
                     <div class="row">
-                        <div class="col-md-1 col-md-offset-7 col-lg-offset-7 col-lg-1">
+                        <div class="col-md-1 col-md-offset-7 col-lg-offset-6 col-lg-1">
                             <button type="reset" class="btn btn-default" onclick="formReset()">重置
                             </button>
                         </div>
@@ -56,6 +61,19 @@
 
     function formReset() {
         document.getElementById("form-info").reset();
+    }
+
+    function confirmCheck() {
+        var input1 = $("#user-npwd");
+        var input2 = $("#confirm-npwd");
+        if (input1.val() == input2.val()) {
+            return true;
+        } else {
+            alert("两次输入不一致，请重新输入");
+            input1.val("");
+            input2.val("");
+            return false;
+        }
     }
     $(function () {
 

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<div id="right-nav"> <strong>医生处方管理</strong></div>
+<div id="right-nav"><strong>医生处方管理</strong></div>
 <hr>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
@@ -47,48 +47,52 @@
             </div>
             <form id="doctorPrescriptionForm" method="post">
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="doctorPrescriptionEntity" name="doctorPrescriptionEntity">
-                                <div class="form-group hidden">
-                                    <label for="doctorPrescriptionId">处方ID</label>
-                                    <input type="text" class="form-control " id="doctorPrescriptionId"
-                                           disabled="true">
-                                </div>
-                                <div class="form-group">
-                                    <label for="prescriptionName">处方名</label>
-                                    <input type="text" class="form-control" id="prescriptionName"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="prescriptionInstructions">用法说明</label>
-                                    <input type="text" class="form-control" id="prescriptionInstructions"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="oralDoses">服用剂量</label>
-                                    <input type="text" class="form-control" id="oralDoses"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="doctorPrescriptionRemark">备注</label>
-                                    <input type="text" class="form-control" id="doctorPrescriptionRemark"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="prescriptionType">处方类型</label>
-                                    <input type="text" class="form-control" id="prescriptionType"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="prescriptionDate">处方时间</label>
-                                    <input type="text" class="form-control form_datetime" id="prescriptionDate"
-                                           required>
-                                    <!--<span class="add-on"><i class="glyphicon glyphicon-th"></i></span>-->
-                                    <!--<span class="add-on"><i class="glyphicon glyphicon-th"></i></span>-->
-                                </div>
+                    <div class="row" id="doctorPrescriptionEntity">
+                        <div class="col-md-5">
+                            <div class="form-group hidden">
+                                <label for="doctorPrescriptionId">处方ID</label>
+                                <input type="text" class="form-control " id="doctorPrescriptionId"
+                                       disabled="true">
                             </div>
-                        </div> <!--cil-md-12 -->
+                            <div class="form-group">
+                                <label for="prescriptionName">处方名</label>
+                                <input type="text" class="form-control" id="prescriptionName"
+                                       required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="oralDoses">服用剂量</label>
+                                <input type="text" class="form-control" id="oralDoses"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prescriptionInstructions">用法说明</label>
+                                <textarea class="form-control" id="prescriptionInstructions"
+                                          rows="4" required>
+                                    </textarea>
+                            </div>
+
+                        </div> <!--cil-md-5 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="prescriptionType">处方类型</label>
+                                <input type="text" class="form-control" id="prescriptionType"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="prescriptionDate">处方时间</label>
+                                <input type="text" class="form-control form_datetime" id="prescriptionDate"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="doctorPrescriptionRemark">备注</label>
+                                <textarea  class="form-control" id="doctorPrescriptionRemark"
+                                          rows="4" required>
+                                </textarea>
+                            </div>
+
+                        </div>
                     </div>  <!--row-->
                 </div>
 
@@ -115,11 +119,11 @@
 <script src="js/base_address.js"></script>
 <script src="js/data/doctorPrescription.js"></script>
 <script>
-    $(function(){
+    $(function () {
         $(".form_datetime").datetimepicker({
             format: 'yyyy-mm-dd',
             autoclose: true,
-            language:"zh-CN"
+            language: "zh-CN"
 
         });
     })

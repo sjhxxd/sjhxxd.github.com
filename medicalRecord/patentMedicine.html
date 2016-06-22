@@ -5,9 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">    <!--确保适当的绘制和触屏缩放-->
 
     <title>TestTable</title>
+    <script src="js/amazeui.min.js"></script>
+    <link rel="stylesheet" href="css/amazeui.min.css">
+    <style>
+        .am-selected{
+            display: block;
+            margin-left: 14.719px;
+            width: 90%;
+        }
+    </style>
+
 </head>
 <body>
-<div id="right-nav"> <strong>中成药信息管理</strong></div>
+<div id="right-nav"><strong>中成药信息管理</strong></div>
 <hr>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
@@ -36,7 +46,7 @@
     </table>
 </div>
 
-<div class="row addpanel"  style="display: none;">
+<div class="row addpanel" style="display: none;">
     <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
         <div class="panel panel-success">
             <div class="panel-heading">
@@ -44,66 +54,73 @@
             </div>
             <form id="patentMedicineform" method="post">
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="patentMedicineEntity" >
-                                <div class="form-group hidden">
-                                    <label for="patentMedicineId">中成药ID</label>
-                                    <input type="text" class="form-control " id="patentMedicineId"
-                                           disabled="true">
-                                </div>
-                                <div class="form-group">
-                                    <label for="patentMedicineName">中成药名称</label>
-                                    <input type="text" class="form-control" id="patentMedicineName" name="val50"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="patentMedicineContent">中成药内容</label>
-                                    <input type="text" class="form-control" id="patentMedicineContent" name="val200"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="indicationsFunction">功能主治</label>
-                                    <input type="text" class="form-control" id="indicationsFunction" name="val200"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="shape">性状</label>
-                                    <input type="text" class="form-control" id="shape" name="val200"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="usageDosage">用法与用量</label>
-                                    <input type="text" class="form-control" id="usageDosage" name="val200"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="attention">注意</label>
-                                    <input type="text" class="form-control" id="attention" name="val200"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="specifications">规格</label>
-                                    <input type="text" class="form-control" id="specifications" name="val200"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="storageMethod">贮藏方式</label>
-                                    <input type="text" class="form-control" id="storageMethod" name="val50"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="saute">制法</label>
-                                    <input type="text" class="form-control" id="saute" name="val1024"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="patentMedicineRemark">备注</label>
-                                    <input type="text" class="form-control" id="patentMedicineRemark" name="val200"
-                                           required>
-                                </div>
+                    <div class="row" id="patentMedicineEntity">
+                        <div class="col-md-5">
+                            <div class="form-group hidden">
+                                <label for="patentMedicineId">中成药ID</label>
+                                <input type="text" class="form-control " id="patentMedicineId"
+                                       disabled="true">
                             </div>
-                        </div> <!--cil-md-5 -->
+                            <div class="form-group">
+                                <label for="patentMedicineName">中成药名称</label>
+                                <input type="text" class="form-control" id="patentMedicineName" name="val50"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patentMedicineContent">中成药内容</label>
+                                    <textarea class="form-control" id="patentMedicineContent" name="val200"
+                                              rows="2" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="indicationsFunction">功能主治</label>
+                                    <textarea class="form-control" id="indicationsFunction" name="val200"
+                                              rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="shape">性状</label>
+                                    <textarea class="form-control" id="shape" name="val200"
+                                              rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="usageDosage">用法与用量</label>
+                                    <textarea class="form-control" id="usageDosage" name="val200"
+                                              rows="4" required></textarea>
+                            </div>
+                        </div> <!--col-md-5 -->
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="attention">注意</label>
+                                <input type="text" class="form-control" id="attention" name="val200"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="storageMethod">贮藏方式</label>
+                                <select class="form-control " id="storageMethod" name="val50" multiple data-am-selected
+                                        required>
+                                    <option value="密封">密封</option>
+                                    <option value="置于阴凉处">置于阴凉处</option>
+                                    <option value="防晒">防晒</option>
+                                    <option value="防潮">防潮</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="specifications">规格</label>
+                                <textarea class="form-control" id="specifications" name="val200"
+                                          rows="2" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="saute">制法</label>
+                                <textarea class="form-control" id="saute" name="val1024"
+                                          rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="patentMedicineRemark">备注</label>
+                                <textarea class="form-control" id="patentMedicineRemark" name="val200"
+                                          rows="4" required></textarea>
+                            </div>
+                        </div>
                     </div>  <!--row-->
                 </div>
 
@@ -129,4 +146,5 @@
 </body>
 <script src="js/base_address.js"></script>
 <script src="js/data/patentMedicine.js"></script>
+
 </html>

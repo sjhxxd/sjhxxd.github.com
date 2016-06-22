@@ -91,10 +91,27 @@ $("#caseDate").datetimepicker({
     autoclose: true
 });
 
-$("#add").click(function () {
-    $('.showpanel').css('display', 'none');
-    $('.addpanel').css('display', 'block');
-});
+//$("#add").click(function () {
+//    $('.showpanel').css('display', 'none');
+//    $('.addpanel').css('display', 'block');
+//    function getPatient(){
+//        var patientID=$("tempPatientId").val();
+//        console.log("patientID--->",patientID);
+//        $.ajax({
+//            type: "get",
+//            dataType: "json",
+//            url: baseAddress + "/caserecord/findbytemppatientid/"+patientID,
+//            success: function (data) {
+//                console.log("data-->",data)
+//            }
+//        });
+//    }
+//
+//    //if(1==1){
+//    //    $("#clinicalTime").val("2");
+//    //
+//    //}
+//});
 
 //阻止表单提交
 $("form").submit(function (e) {

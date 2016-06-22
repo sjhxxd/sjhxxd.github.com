@@ -152,11 +152,11 @@ a {
 }
 
 .head-button2 {
-    margin: 8px 10px 8px 0;
+    margin: 8px 10px 8px 8px;
     float: right;
 }
 
-.head4{
+.head4 {
     margin: 15px 25px 8px 8px;
     float: right;
     font-size: 15px;
@@ -226,8 +226,15 @@ hr {
 #saveBtn {
     margin-left: 30px;
 }
-#homeImg{
-    width:100%;
-    height:100%;
+
+#homeImg {
+    width: 100%;
+    height: 100%;
 }
+
+/*!*圆角*!*/
+/*#toolbar button {*/
+    /*border-radius: 8px;*/
+
+/*}*/
 

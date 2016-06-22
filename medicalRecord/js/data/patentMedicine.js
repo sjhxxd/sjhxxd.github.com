@@ -91,6 +91,8 @@ $("#edit").click(function () {
         $("#storageMethod").val(jsonobject.storageMethod);
         $("#saute").val(jsonobject.saute);
         $("#patentMedicineRemark").val(jsonobject.patentMedicineRemark);
+        var data=jsonobject.storageMethod
+        console.log("data-->",data)
 
         $('.showpanel').css('display', 'none');
         $('.addpanel').css('display', 'block');
@@ -114,7 +116,7 @@ $(function () {
             var usageDosage = $("#usageDosage").val();
             var attention = $("#attention").val();
             var specifications = $("#specifications").val();
-            var storageMethod = $("#storageMethod").val();
+            var storageMethod = $("#storageMethod").val().toString();
             var saute = $("#saute").val();
             var patentMedicineRemark = $("#patentMedicineRemark").val();
 
@@ -139,7 +141,7 @@ $(function () {
                     console.log("patentMedicine_success:" + msg);
                     turnPage('patentMedicine.html')
                 },
-                error: function (msg) {
+                error: function (msg,data) {
                     console.log("patentMedicine_error:" + msg)
                 }
 
@@ -193,7 +195,7 @@ $(document).ready(function () {
                     },
                     stringLength: {
                         max: 200,
-                        message: '不能超过50个字符'
+                        message: '不能超过200个字符'
                     }
                 }
             },

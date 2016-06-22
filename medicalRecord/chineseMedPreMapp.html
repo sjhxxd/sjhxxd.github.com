@@ -43,11 +43,11 @@
             <div class="panel-heading">
                 <h4 class="panel-title" id="changepanel">中药处方映射关系添加</h4>
             </div>
-            <form id="chineseMedPreMappform" method="post">
+            <form id="chineseMedPreMappform" method="post" autocomplete="off">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <div id="dchineseMedPreMappEntity" name="chineseMedPreMappEntity">
+                            <div id="dchineseMedPreMappEntity" >
                                 <div class="form-group hidden">
                                     <label for="chineseMedPrescriptMappId">中药处方映射ID</label>
                                     <input type="text" class="form-control " id="chineseMedPrescriptMappId"
@@ -57,14 +57,14 @@
                                     <label for="tempChineseMedicineId">中药ID</label>
                                     <select  class="form-control" id="tempChineseMedicineId"
                                            required>
-
+                                        <option value="" disabled>--请选择--</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="tempDoctorPrescriptionId">处方ID</label>
                                     <select class="form-control" id="tempDoctorPrescriptionId"
                                            required>
-
+                                        <option value="" disabled>--请选择--</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -76,7 +76,7 @@
                                     <label for="tempUnitId">计量单位ID</label>
                                     <select  class="form-control" id="tempUnitId"
                                             required>
-
+                                        <option value="" disabled>--请选择--</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

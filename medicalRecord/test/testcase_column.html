@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>疾病大类</title>
+    <title>病案证型</title>
+    <script src="../js/jquery-1.11.3.min.js"></script>
+    <script src="../js/highCharts/highcharts.js"></script>
+    <script src="../js/base_address.js"></script>
 </head>
 <body>
 <div class="control-group" style="padding-bottom: 30px">
-    <span>请选择疾病类别：</span>
-    <select class="input_select" id="diseaseType" style="width: 190px;" onchange="showChart()">
+    <span>请选择证型类别：</span>
+    <select class="input_select" id="syndType" style="width: 190px;" onchange="showChart()">
         <option value="">--请选择--</option>
     </select>
 </div>
@@ -18,7 +21,7 @@
     </div>
 </div>
 <script>
-    function restful(typeInfo,urlInfo,dataInfo) {
+    function restful(typeInfo, urlInfo, dataInfo) {
         /**typeInfo:操作类型；
          * urlInfo:地址；
          * dataInfo:json数据；
@@ -31,16 +34,16 @@
          * */
         var result = null;
         $.ajax({
-            async:false,
+            async: false,
             type: typeInfo,
             url: urlInfo,
-            dataType:"json",
-            data:dataInfo,
-            success:function(json){
-                result=json;
+            dataType: "json",
+            data: dataInfo,
+            success: function (json) {
+                result = json;
             },
-            error:function(){
-                result="fail";
+            error: function () {
+                result = "fail";
             }
         });
         //	.success(function (json) {
@@ -54,27 +57,40 @@
         return result;
     }
     //点击切换疾病类别
-    function showChart(){
-        var checkText=$("#diseaseType").find("option:selected").val();
-        var checkText1=$("#diseaseType").find("option:selected").text();
-        console.log("checkText--",checkText);
-        console.log("checkText1--",checkText1);
-        var dataSeries=restful("get",baseAddress+"/commondiseaseinfo/findbytypeid/"+checkText,null);
-        var xRay=[];
-        var data1=[];
-        $.each(dataSeries,function(i){
+    function showChart() {
+        var checkText = $("#syndType").find("option:selected").val();
+        var checkText1 = $("#syndType").find("option:selected").text();
+        console.log("checkText--", checkText);
+        console.log("checkText1--", checkText1);
+        var dataSeries = restful("get", baseAddress + "/caserecord/getall/", null);
+        console.log("dataSeries-->", dataSeries);
+        $.each(dataSeries, function (i) {
+            var historytempSyndromeId = "";
+            var tempSyndromeId = dataSeries[i].tempSyndromeId;
+            historytempSyndromeId = tempSyndromeId;
+            if (historytempSyndromeId == tempSyndromeId) {
+                var count = 0;
+                count++;
+                console.log("count", count)
+
+            }
+            console.log("tempSyndromeId-->", tempSyndromeId)
+        });
+        var xRay = [];
+        var data1 = [];
+        $.each(dataSeries, function (i) {
             xRay.push(dataSeries[i].commonDiseaseName);
-            data1.push(parseInt(dataSeries[i].patientNumber) );
+            data1.push(parseInt(dataSeries[i].patientNumber));
         });
         $("#container").highcharts({
-           chart:{
-               type: 'column'
-           },
-            title:{
-                text:checkText1+" 病人图表"
+            chart: {
+                type: 'column'
             },
-            credits:{
-              enabled:false
+            title: {
+                text: checkText1 + " 病人图表"
+            },
+            credits: {
+                enabled: false
             },
             xAxis: {
                 categories: xRay
@@ -100,9 +116,9 @@
                 }
             },
             series: [{
-                colorByPoint : true,
-                name:xRay,
-                data:data1
+                colorByPoint: true,
+                name: xRay,
+                data: data1
             }]
 
         });
@@ -110,12 +126,12 @@
 
     $(function () {
         /*************疾病类别下拉框**********************/
-        var msg = restful("get", baseAddress + "/commondiseasetype/getall");
+        var msg = restful("get", baseAddress + "/syndrometypes/getall",null);
         var str = "";
         $.each(msg, function (i) {
-            str += "<option value=" + msg[i].commonDiseaseTypeId + ">" + msg[i].commonDiseaseTypeName + "</option>";
+            str += "<option value=" + msg[i].syndromeId + ">" + msg[i].syndromeName + "</option>";
         });
-        $("#diseaseType").html(str);
+        $("#syndType").html(str);
     });
 </script>
 </body>

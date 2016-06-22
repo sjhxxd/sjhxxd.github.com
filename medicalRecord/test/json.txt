@@ -1,0 +1,9 @@
+[{
+        "storageMethods": "密封"
+    }, {
+        "storageMethods": "防潮"
+    }, {
+        "storageMethods": "防嗮"
+    }, {
+        "storageMethods": "置于阴凉处"
+    }]

@@ -191,7 +191,7 @@
     <form  name="f" method="post" >
         <div class="input_outer">
             <span class="u_user"></span>
-            <input id="userName" name="logname" class="text" autocomplete="off"
+            <input id="doctorName" name="logname" class="text" autocomplete="off"
                    onFocus=" if(this.value=='医生名登录') this.value=''"
                    onBlur="if(this.value=='') this.value='医生名登录'" value="医生名登录"
                    style="color: #FFFFFF !important" type="text">
@@ -199,14 +199,14 @@
         <div class="input_outer">
             <span class="us_uer"></span>
             <label class="l-login login_password" style="color: rgb(255, 255, 255);display: block;">输入密码</label>
-            <input id="password" name="logpass" class="text" autocomplete="off"
+            <input id="doctorPassword" name="logpass" class="text" autocomplete="off"
                    style="color: #FFFFFF !important; position:absolute; z-index:100;"
                    onFocus=" $('.login_password').hide()"
                    onBlur="if(this.value=='') $('.login_password').show()"
                    value="" type="password">
         </div>
         <div class="mb2"><a class="act-but submit" id="login" style="color: #FFFFFF">登录</a></div>
-        <!--<input id="remember" name="savesid" value="0" id="check-box" class="checkbox" type="checkbox" ><span>记住用户名</span>-->
+        <input id="remember" name="savesid" value="0" id="check-box" class="checkbox" type="checkbox" ><span>记住用户名</span>
     </form>
 
 

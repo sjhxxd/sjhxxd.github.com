@@ -151,10 +151,10 @@ $.extend($.fn.bootstrapTable.defaults, {
 $("input[name='btSelectAll']").on("click", function () {
     if ($(this).prop("checked") === true) {
         $("input[name='btSelectItem']").prop("checked", $(this).prop("checked"));
-        $('$table tbody tr').addClass('selected');
+        $(' tbody tr').addClass('selected');
     } else {
         $("input[name='btSelectItem']").prop("checked", false);
-        $('$table tbody tr').removeClass('selected');
+        $(' tbody tr').removeClass('selected');
     }
 });
 //检验选择了几个checkbox
@@ -177,21 +177,21 @@ function value20(value) {
 }
 
 //显示图片
-//function showPic(value) {
-//    if (value != null) {
-//        return '<img src="' + value + '" alt="抢修中..." height="50" width="50">'
-//    }
-//    else if (value == null) {
-//        return value;
-//    }
-//}
-
 function showPic(value) {
     if (value != null) {
-        return '<a href="localhost:8888'+value+'" target="_blank">点击</a>'
+        return '<img src="' + value + '" alt="抢修中..." height="50" width="50">'
     }
     else if (value == null) {
         return value;
     }
 }
+
+//function showPic(value) {
+//    if (value != null) {
+//        return '<a href="localhost:8888'+value+'" target="_blank">点击</a>'
+//    }
+//    else if (value == null) {
+//        return value;
+//    }
+//}
 

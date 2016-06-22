@@ -9,7 +9,7 @@
     <title>TestTable</title>
 </head>
 <body>
-<div id="right-nav"> <strong>病人信息管理</strong></div>
+<div id="right-nav"><strong>病人信息管理</strong></div>
 <hr>
 <div class="container-fluid showpanel">
     <div id="toolbar" class="btn-group ">
@@ -46,81 +46,87 @@
             </div>
             <form id="patientform" method="POST" autocomplete="off">
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div id="patientInfoEntity" name="patientInfoEntity">
-                                <div class="form-group hidden">
-                                    <label for="patientId">病人ID</label>
-                                    <input type="text" class="form-control " id="patientId"
-                                           disabled="true">
-                                </div>
-                                <div class="form-group">
-                                    <label for="patientName">病人姓名</label>
-                                    <input type="text" class="form-control" id="patientName" onfocus="true" name="patientName"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="patientSex">病人性别</label>
-                                    <select  class="form-control" id="patientSex"
-                                           required>
-                                        <option value="男">男</option>
-                                        <option value="女">女</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="patientAge">病人年龄</label>
-                                    <input type="text" class="form-control" id="patientAge" name="patientAge"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="patientPhoneNumber">手机号码</label>
-                                    <input type="text" class="form-control" id="patientPhoneNumber"
-                                           name="patientPhoneNumber"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="patientIdentityCard">身份证</label>
-                                    <input type="text" class="form-control" id="patientIdentityCard" name="patientIdentityCard"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="patientHeight">病人身高</label>
-                                    <input type="text" class="form-control" id="patientHeight" placeholder="单位为:cm" min="100" max="250"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="patientWeight">病人体重</label>
-                                    <input type="text" class="form-control" id="patientWeight" placeholder="单位为:kg" name="patientWeight"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="patientPosture">病人体态</label>
-                                    <select  class="form-control" id="patientPosture"
-                                           required>
-                                        <option value="偏瘦">偏瘦</option>
-                                        <option value="正常">正常</option>
-                                        <option value="偏胖">偏胖</option>
-                                        </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="patientProfessional">病人职业</label>
-                                    <input type="text" class="form-control" id="patientProfessional" name="val50"
-                                           required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="patientAddress">病人住址</label>
-                                    <input type="text" class="form-control" id="patientAddress" name="val50"
-                                           >
-                                </div>
-                                <div class="form-group">
-                                    <label for="patientRemark">备注</label>
-                                        <textarea type="text" class="form-control" id="patientRemark" name="val1024"
-                                                  cols="4" rows="6" >
-                                        </textarea>
-                                </div>
+                    <div class="row" id="patientInfoEntity">
+                        <div class="col-md-5">
+                            <div class="form-group hidden">
+                                <label for="patientId">病人ID</label>
+                                <input type="text" class="form-control " id="patientId"
+                                       disabled="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="patientName">病人姓名</label>
+                                <input type="text" class="form-control" id="patientName" onfocus="true"
+                                       name="patientName"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientSex">病人性别</label>
+                                <select class="form-control" id="patientSex"
+                                        required>
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientAge">病人年龄</label>
+                                <input type="text" class="form-control" id="patientAge" name="patientAge"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientPhoneNumber">手机号码</label>
+                                <input type="text" class="form-control" id="patientPhoneNumber"
+                                       name="patientPhoneNumber"
+                                       required>
                             </div>
 
-                        </div> <!--cil-md-5 -->
+                            <div class="form-group">
+                                <label for="patientHeight">病人身高</label>
+                                <input type="text" class="form-control" id="patientHeight" placeholder="单位为:cm"
+                                       min="100" max="250"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientWeight">病人体重</label>
+                                <input type="text" class="form-control" id="patientWeight" placeholder="单位为:kg"
+                                       name="patientWeight"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="patientIdentityCard">身份证</label>
+                                <input type="text" class="form-control" id="patientIdentityCard"
+                                       name="patientIdentityCard"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientPosture">病人体态</label>
+                                <select class="form-control" id="patientPosture"
+                                        required>
+                                    <option value="偏瘦">偏瘦</option>
+                                    <option value="正常">正常</option>
+                                    <option value="偏胖">偏胖</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientProfessional">病人职业</label>
+                                <input type="text" class="form-control" id="patientProfessional" name="val50"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientAddress">病人住址</label>
+                                <input type="text" class="form-control" id="patientAddress" name="val50">
+                            </div>
+                            <div class="form-group">
+                                <label for="patientRemark">备注</label>
+                                        <textarea class="form-control" id="patientRemark" name="val1024"
+                                                  rows="4">
+                                        </textarea>
+                            </div>
+
+                        </div>
+
                     </div>  <!--row-->
                 </div>
 
