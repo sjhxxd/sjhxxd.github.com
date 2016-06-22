@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.head {
+    background-color: #000;
+    height: 4rem;
+    /*height:60px;*/
+}
+
+.logo {
+    float: left;
+    width: 5rem;
+    margin: .5rem 0 0 .5rem
+}
+
+.ulList {
+    float: right;
+}
+
+.ulList li {
+    position: relative;
+    list-style-type: none;
+    float: left;
+    color: #fff;
+    cursor: pointer;
+    margin: 1.5rem 1.5rem 0 0;
+}
+
+.article {
+    padding: 1rem;
+    border: 1rem solid #ccc;
+}
+.article:last-of-type{
+    border-top-width: 2rem;
+}
+.article h1 {
+    /*font-size: 1.2rem;*/
+
+}
+
+.article h2,
+.article span {
+    color: #777
+}
+
+blockquote p {
+    text-indent: 2em;
+}
+.article1 a,
+.article2 a{
+    color: #0000ff;
+
+}
+
+.article1 img,
+.article2 img {
+    margin: 1rem 0;
+}
+
+.listTable {
+    margin-left: 2rem;
+}
+
+.listTable li {
+    list-style-type: none;
+
+}
+
+.content {
+    border: 1px solid #ccc;
+    width: 6.25rem;
+    height: 6.25rem;
+    padding: .625rem;
+    margin: 1rem 0 0 4rem
+}
+
+.content p {
+    text-align: center;
+}
+
+.content img {
+    width: 100%;
+    padding-top: .5rem;
+}
+
+.olList {
+    padding: 1rem 0 1rem 3rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    text-align: left;
+    background-color: #000;
+    color: #fff
+}
+
+table th,
+table td {
+    padding: .4rem;
+    border: 1px solid #ccc ;
+
+}
+
+table tr:last-of-type {
+    background-color: #bbb;
+    font-weight: bold;
+}
+
+form > div {
+    margin: 1rem 0
+}
+
+form >span {
+    margin-left: 35.5%
+}
+
+form > div > label {
+    display: inline-block;
+    margin-right: 0.5%;
+    width: 35%;
+    text-align: right;
+    vertical-align: top;
+}
+
+form > div > textarea {
+    width: 50%;
+    height: 8rem;
+}
+
+.hobby > input {
+    margin-left: .5rem
+}
+
+.btn{
+    width: 100%;
+    display: block;
+    margin:1rem 5% 0 0;
+    color: #fff;
+    height: 3rem;
+    background-color: #0000FF;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .5s;
+}
+.btn:hover{
+    background-color: #ff0000;
+}
+.footer{
+    width:100%;
+    background: #000;
+    height:4rem;
+    color:#fff
+}
+.footer >p{
+    text-align: center;
+    padding-top: 1.5rem;
+}
