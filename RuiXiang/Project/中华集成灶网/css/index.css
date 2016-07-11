@@ -251,3 +251,27 @@ a {
 .content_right {
     width: 350px;
 }
+
+.jindi_info{
+    margin-top: 44px;
+    width:300px;
+}
+.info_1{
+    padding-top: 35px;
+    width:140px;;
+    margin: 0 auto;
+}
+.info_1 p{
+    text-align: center;
+    margin: 15px 0 0 10px;
+}
+.info_1 >div{
+    width: 100px;
+    margin: 15px auto;
+    background: #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    height: 18px;
+    padding-top: 4px;
+}
