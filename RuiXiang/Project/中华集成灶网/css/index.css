@@ -12,12 +12,14 @@
     border-bottom: 1px solid #EDEEF0;
     color: #828282;
     font-size: 12px;
-    font-family:"宋体";
+    font-family: "宋体";
 }
-.top a{
+
+.top a {
     margin-right: 25px;
 }
-.top a:first-child{
+
+.top a:first-child {
     margin-left: 10px;
 }
 
@@ -80,14 +82,17 @@ a {
 .content_left {
     width: 800px;
 }
-.banner{
-    font-size:14px;
-    font-family:"微软雅黑";
+
+.banner {
+    font-size: 14px;
+    font-family: "微软雅黑";
     margin: 15px 0;
 }
+
 .banner span {
     margin-right: 15px;
 }
+
 .jieshao {
     width: 100%;
     height: 165px;
@@ -104,8 +109,8 @@ a {
 }
 
 .jindi_logo img {
-    height: 130px;
-    width: 180px;
+    height: 114px;
+    width: 192px;
 }
 
 .jieshao_center {
@@ -171,7 +176,7 @@ a {
 }
 
 .pinpai_content p {
-    padding: 5px 15px 15px 15px;
+    padding: 5px 50px 35px 20px;
 }
 
 .woyaojiameng {
@@ -226,17 +231,20 @@ a {
     width: 280px;
 }
 
-.info_left .label {
+.info_left .label,
+.info_right .label{
     padding-left: 25px;
     font-size: 18px;
 }
-.info_left .xing_bi{
-    color:#f00;
+
+.xing_bi {
+    color: #f00;
 }
 
-.info_left input {
+.info_left input ,
+.info_right input{
     width: 160px;
-    height:23px;
+    height: 25px;
 }
 
 #userName {
@@ -246,7 +254,48 @@ a {
 #userMobile {
     background: url("../images/form_mobile.png") no-repeat 0 -4px;
 }
-
+#userPhone{
+    background: url("../images/form_phone.png") no-repeat 0 -4px;
+}
+#userMSN{
+    background: url("../images/form_msn.png") no-repeat 0 -4px;
+}
+textarea{
+    margin-top: 10px;
+    height:140px;
+    width:275px;
+}
+.info_left button{
+    height: 30px;
+    width:95px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+#likezixun{
+    margin: 14px 20px 0 35px;
+    background: rgb(255, 174, 47);
+    color: #fff;
+}
+.info_right {
+    margin-right: 20%;
+}
+.liuyan_tip{
+    width: 300px;
+    height:30px;
+    margin-top: 10px;
+    padding-left: 20px;
+    font-size: 14px;
+}
+.liuyan_xuan{
+    background: url("../images/");
+}
+.kuaijie_list li{
+    border-bottom: 1px dashed #ccc;
+    line-height: 34px;
+    margin-left: 50px;
+    font-size: 12px;
+}
 /*右侧内容*/
 .content_right {
     width: 350px;
