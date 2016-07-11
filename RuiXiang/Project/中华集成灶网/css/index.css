@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.top {
+    background: #FCFCFC;
+    width: 100%;
+    top: 0px;
+    height: 35px;
+    line-height: 25px;
+    border-bottom: 1px solid #EDEEF0;
+    color: #828282;
+    font-size: 12px;
+    font-family:"宋体";
+}
+.top a{
+    margin-right: 25px;
+}
+.top a:first-child{
+    margin-left: 10px;
+}
+
+.wrapper {
+    width: 1150px;
+    margin: 0 auto;
+
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.main_nav {
+    width: 100%;
+    height: 100px;
+    border-bottom: 3px solid rgb(216, 0, 15)
+}
+
+.logo {
+    background: url("../images/zsdetail_0048_矢量智能对象.png");
+    margin-top: 16px;
+}
+
+.right_nav > ul li {
+    display: inline-block;
+}
+
+.right_nav > ul li img {
+    margin-left: 45px;
+    margin-top: 20px;
+}
+
+.right_nav > ul li span {
+    margin-left: 10px;
+}
+
+.zhaoshang {
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    border-bottom: 1px solid #EDEEF0;
+}
+
+.tab_zhaoshang li {
+    display: inline-block;
+    padding: 10px;
+}
+
+/*左侧内容*/
+.content_left {
+    width: 800px;
+}
+.banner{
+    font-size:14px;
+    font-family:"微软雅黑";
+    margin: 15px 0;
+}
+.banner span {
+    margin-right: 15px;
+}
+.jieshao {
+    width: 100%;
+    height: 165px;
+    border: 1px solid #EDEEF0;
+}
+
+.jieshao_left {
+    width: 180px;
+}
+
+.jindi_logo {
+    height: 160px;
+    padding: 20px 20px 40px 20px;
+}
+
+.jindi_logo img {
+    height: 130px;
+    width: 180px;
+}
+
+.jieshao_center {
+    width: 380px;
+    margin-left: 225px;
+    margin-right: 180px;
+    font-size: 14px;
+}
+
+.jiashao_content {
+    padding: 20px;
+    line-height: 25px;
+}
+
+.jieshao_center p:first-child {
+    color: rgb(212, 212, 212);;
+}
+
+.fenxiang li {
+    display: inline-block;
+}
+
+.jieshao_right {
+    width: 160px;
+}
+
+.jieshao_right div {
+    width: 137px;
+    height: 50px;
+}
+
+.jieshao_right a {
+    padding: 10px 18px;
+    color: #fff;
+    font-size: 25px;
+}
+
+.woyaoyouhui {
+    background: rgb(255, 174, 47);
+}
+
+.shoucang {
+    background: rgb(215, 215, 215);
+}
+
+.pingpaiyoushi,
+.jiamengzhengce {
+    position: relative;
+    margin-top: 10px;
+}
+
+.pinpai_banner {
+    background: url("../images/jiameng_bg.png") no-repeat;
+    height: 50px;
+}
+
+.pinpai_banner span {
+    position: absolute;
+    left: 30px;
+    top: 10px;
+    font-size: 18px;
+    color: #fff;;
+}
+
+.pinpai_content p {
+    padding: 5px 15px 15px 15px;
+}
+
+.woyaojiameng {
+    width: 100%;
+    height: 490px;
+    border: 1px solid #EDEEF0;
+}
+
+.jiameng {
+    width: 100px;
+    height: 35px;
+    margin: 15px 0 20px 5%;
+    padding: 10px 0 0 20px;
+    background: rgb(255, 174, 47);
+}
+
+.jiameng a {
+    color: #fff;
+    font-size: 20px;
+}
+
+.touzi ul li,
+.lianxi ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.lianxi ul {
+    margin-right: 25%;
+}
+
+.touzi {
+    margin-top: 16px;
+}
+
+.touzi ul {
+    margin-right: 17.5%;
+}
+
+.lianxi, .touzi {
+    margin-left: 5%;
+    width: 80%;
+    height: 33px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.info {
+    margin: 10px 0 0 5%;
+}
+
+.info_left {
+    width: 280px;
+}
+
+.info_left .label {
+    padding-left: 25px;
+    font-size: 18px;
+}
+.info_left .xing_bi{
+    color:#f00;
+}
+
+.info_left input {
+    width: 160px;
+    height:23px;
+}
+
+#userName {
+    background: url("../images/form_name.png") no-repeat 0 -4px;
+}
+
+#userMobile {
+    background: url("../images/form_mobile.png") no-repeat 0 -4px;
+}
+
+/*右侧内容*/
+.content_right {
+    width: 350px;
+}
