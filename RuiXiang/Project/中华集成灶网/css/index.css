@@ -46,10 +46,6 @@ a:hover, a:active, a:focus { color:#ff8400; text-decoration:none; }
 
 }
 
-a {
-    text-decoration: none;
-    color: #000;
-}
 
 .fl {
     float: left;
@@ -69,19 +65,54 @@ a {
     background: url("../images/zsdetail_0048_矢量智能对象.png");
     margin-top: 16px;
 }
-
+.right_nav{
+    margin-left: 60px;
+    margin-top: 25px;
+    font-family: "微软雅黑";
+    font-size: 12px;
+}
 .right_nav > ul li {
     display: inline-block;
+    padding-left: 35px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.right_nav span{
+    margin-left: 15px;
+    margin-right: 20px;
+}
+.right_nav_1{
+    background: url("../images/zixun.png") no-repeat left center;
+}
+.right_nav_2{
+    background: url("../images/chanpin.png") no-repeat left center;
+}
+.right_nav_3{
+    background: url("../images/pinpai.png") no-repeat left center;
+}
+.right_nav_4{
+    background: url("../images/shangji.png") no-repeat left center;
+}
+.right_nav_5{
+    background: url("../images/tuku.png") no-repeat left center;
+}
+.right_nav_6{
+    background: url("../images/baike.png") no-repeat left center;
+}
+.right_nav_7{
+    background: url("../images/gongqiu.png") no-repeat left center;
 }
 
-.right_nav > ul li img {
-    margin-left: 45px;
-    margin-top: 30px;
-}
 
-.right_nav > ul li span {
-    margin-left: 10px;
-}
+/*.right_nav > ul li img {*/
+
+    /*margin-top: 30px;*/
+/*}*/
+
+/*.right_nav > ul li span {*/
+    /*margin-left: 15px;*/
+    /*margin-right: 20px;*/
+/*}*/
 
 .zhaoshang {
     width: 100%;
@@ -145,7 +176,7 @@ a {
 }
 
 .jieshao_center p:first-child {
-    color: rgb(212, 212, 212);;
+    color:#888891;
 }
 .jiashao_content span{
     background: url("../images/xingji.png") no-repeat right;
@@ -156,6 +187,7 @@ a {
 
 .jieshao_right {
     width: 160px;
+    margin-right: 20px;
 }
 .jieshao_right button{
     width: 138px;
@@ -221,18 +253,19 @@ a {
 }
 
 .jiameng {
-    width: 100px;
-    height: 35px;
-    margin: 15px 0 20px 5%;
-    padding: 10px 0 0 30px;
-    background: rgb(255, 174, 47);
+    margin-left: 5%;
+    font-family: "微软雅黑";
+
 }
 
 .jiameng button {
-    color: #fff;
+    width: 138px;
+    height: 48px;
     font-size: 20px;
-    border:none;
-    font-family: "微软雅黑";
+    background: rgb(255, 174, 47);
+    color: #fff;
+    border: none;
+    margin-top: 20px;
 }
 
 .touzi ul li,
@@ -243,7 +276,7 @@ a {
 
 .lianxi ul {
     padding-top: 10px;
-    margin-right: 25%;
+    margin-right: 38%;
 }
 
 .touzi {
@@ -252,7 +285,7 @@ a {
 
 .touzi ul {
     padding-top: 10px;
-    margin-right: 17.5%;
+    margin-right: 30%;
 }
 
 .lianxi p, .touzi p {
@@ -261,7 +294,7 @@ a {
 
 .lianxi, .touzi {
     margin-left: 5%;
-    width: 80%;
+    width: 600px;
     height: 37px;
     border-bottom: 1px dashed #ccc;
 }
@@ -274,10 +307,15 @@ a {
     width: 280px;
 }
 
-.info_left .label,
-.info_right .label {
-    padding-left: 25px;
-    font-size: 16px;
+.info_left .label {
+    padding-left: 20px;
+    width: 44px;
+    font-size: 12px;
+}
+.info_right .label{
+    padding-left: 20px;
+    width: 64px;
+    font-size: 12px;
 }
 
 .xing_bi {
@@ -365,9 +403,10 @@ textarea {
 
 .kuaijie_list li {
     border-bottom: 1px dashed #ccc;
-    line-height: 34px;
+    line-height: 30px;
     margin-left: 50px;
     font-size: 12px;
+    list-style: disc;
 }
 
 .kuaijie_list li:last-child {
@@ -536,10 +575,13 @@ textarea {
     margin: 6px 0;
     overflow: hidden;
 }
+.rectangle-list .top3 {
+    background: #f00;
+}
 .rectangle-list p{
     width: 22px;
     height: 22px;
-    background: #f00;
+    background: #ccc;
     color: #FFF;
     text-align: center;
     font-size: 14px;
