@@ -168,6 +168,7 @@ a:hover, a:active, a:focus {
 .right_nav span {
     margin-left: 15px;
     margin-right: 20px;
+    font-size: 12.5px;
 }
 
 .right_nav_1 {
@@ -198,27 +199,18 @@ a:hover, a:active, a:focus {
     background: url("../images/gongqiu.png") no-repeat left center;
 }
 
-/*.right_nav > ul li img {*/
-
-/*margin-top: 30px;*/
-/*}*/
-
-/*.right_nav > ul li span {*/
-/*margin-left: 15px;*/
-/*margin-right: 20px;*/
-/*}*/
-
-.zhaoshang {
+/*招商TAB*/
+.tab_zhaoshang {
     width: 100%;
     height: 40px;
-    font-size: 16px;
     border-bottom: 1px solid #EDEEF0;
-    font-family: "微软雅黑";
 }
 
 .tab_zhaoshang li {
     display: inline-block;
     padding: 10px;
+    font-size: 16px;
+    font-family: "微软雅黑";
 }
 
 .tab_zhaoshang .active li {
@@ -235,16 +227,17 @@ a:hover, a:active, a:focus {
     font-size: 14px;
     font-family: "微软雅黑";
     margin: 15px 0;
-    color: rgb(189, 174, 174);
+
 }
 
 .banner span {
     margin-right: 20px;
+    color: rgb(189, 174, 174);
 }
 
 .jieshao {
     width: 100%;
-    height: 165px;
+    height: 163px;
     border: 1px solid #EDEEF0;
 }
 
@@ -263,24 +256,24 @@ a:hover, a:active, a:focus {
 }
 
 .jieshao_center {
+    padding: 20px;
     width: 380px;
     margin-left: 225px;
     margin-right: 180px;
     font-size: 14px;
-}
-
-.jiashao_content {
-    padding: 20px;
     line-height: 25px;
     font-family: "SimSun", "宋体";
+
 }
+
+
 
 .jieshao_center p:first-child {
     color: #888891;
     font-family: "微软雅黑";
 }
 
-.jiashao_content span {
+.jieshao_center span {
     background: url("../images/xingji.png") no-repeat right;
     padding-right: 110px;
 }
@@ -350,7 +343,7 @@ a:hover, a:active, a:focus {
 .pinpai_content p {
     padding: 10px 50px 35px 25px;
     font-size: 14px;
-    font-family: "微软雅黑";
+    font-family: "Microsoft YaHei";
     color: #828282;
     line-height: 25px;
 }
@@ -361,22 +354,23 @@ a:hover, a:active, a:focus {
     border: 1px solid #EDEEF0;
 }
 
-.jiameng {
-    margin-left: 5%;
-    font-family: "微软雅黑";
-
-}
-
-.jiameng button {
+.woyaojiameng>p span {
     width: 138px;
     height: 48px;
     font-size: 20px;
-    background: rgb(255, 174, 47);
+    font-family: "微软雅黑";
     color: #fff;
-    border: none;
     margin-top: 20px;
 }
-
+.woyaojiameng>p{
+    margin-left: 5%;
+    margin-top: 15px;
+    padding-top: 15px;
+    background: rgb(255, 174, 47);
+    width: 138px;
+    height: 35px;
+    text-align: center;
+}
 .touzi ul li,
 .lianxi ul li {
     display: inline-block;
@@ -497,26 +491,27 @@ textarea {
     height: 30px;
     margin-top: 10px;
     padding-left: 20px;
-    background: url("../images/liuyan_bg_03.png") no-repeat;
+    background: url("../images/liuyanBG_03.png") no-repeat;
 }
-
-.kuaijie {
-    color: #f00;
-    font-weight: bold;
+.liuyan_tip p{
+    padding-top: 5px;
+    padding-left: 15px;
+}
+.liuyan_tip p span:first-child{
+    color: #cf4504;
+    margin-right: 10px;
+}.liuyan_tip p span:last-child{
+    color: #ff0000;
 }
 
 .kuaijie_list li {
-    border-bottom: 1px dashed #ccc;
+    border-top: 1px dashed #ccc;
     line-height: 29px;
     margin-left: 35px;
     width: 260px;
     font-size: 12px;
     font-family: "宋体";
     list-style: disc;
-}
-
-.kuaijie_list li:last-child {
-    border-bottom: none;
 }
 
 /*右侧内容*/
@@ -598,8 +593,8 @@ textarea {
     font-weight: bold;
 }
 
-.guanweihao,
-.guanwanghao {
+.guanweihao a,
+.guanwanghao a {
     color: #828282;
     font-weight: bold;
 }

@@ -43,8 +43,10 @@
         </div>
     </div>
 </div>
-<div class="zhaoshang">
+
+<div class="main_content">
     <div class="wrapper">
+        <!--招商TAB-->
         <ul class="tab_zhaoshang">
             <a href="#" class="active">
                 <li>品牌招商</li>
@@ -56,16 +58,16 @@
                 <li>招商会</li>
             </a>
         </ul>
-    </div>
-</div>
-<div class="main_content">
-    <div class="wrapper">
         <div class="content_left fl">
             <div class="banner">
-                <span>首页 ></span>
-                <span>招商 ></span>
-                <span>品牌 ></span>
-                <span>金帝集成灶</span>
+                <a href="#"> <span>首页 ></span>
+                </a>
+                <a href="#"> <span>招商 ></span>
+                </a>
+                <a href="#"> <span>品牌 ></span>
+                </a>
+                <a href="#"> <span>金帝集成灶</span>
+                </a>
             </div>
             <div class="jieshao">
                 <div class="jieshao_left fl">
@@ -77,34 +79,31 @@
                 <div class="jieshao_right fr">
                     <a href="#" class="woyaoyouhui"><p>我要优惠</p></a>
                     <a href="#" class="shoucang"><p>收藏项目</p></a>
-
                 </div>
                 <div class="jieshao_center">
-                    <div class="jiashao_content">
-                        <p>金帝集成灶</p>
-                        <p>基本投资：20-50万</p>
-                        <span>品牌口碑：</span>
-                        <!--分享按钮-->
-                        <div class="bdsharebuttonbox" style="margin-top: 10px;">
-                            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                            <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
-                            <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
-                        </div>
-                        <script>window._bd_share_config = {
-                            "common": {
-                                "bdSnsKey": {},
-                                "bdText": "",
-                                "bdMini": "2",
-                                "bdMiniList": false,
-                                "bdPic": "",
-                                "bdStyle": "1",
-                                "bdSize": "24"
-                            }, "share": {}
-                        };
-                        with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+                    <p>金帝集成灶</p>
+                    <p>基本投资：20-50万</p>
+                    <span>品牌口碑：</span>
+                    <!--分享按钮-->
+                    <div class="bdsharebuttonbox" style="margin-top: 10px;">
+                        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                        <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                        <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+                        <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
                     </div>
+                    <script>window._bd_share_config = {
+                        "common": {
+                            "bdSnsKey": {},
+                            "bdText": "",
+                            "bdMini": "2",
+                            "bdMiniList": false,
+                            "bdPic": "",
+                            "bdStyle": "1",
+                            "bdSize": "24"
+                        }, "share": {}
+                    };
+                    with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
 
                 </div>
             </div>
@@ -137,18 +136,18 @@
                 </div>
             </div>
             <div class="woyaojiameng">
-                <div class="jiameng">
-                    <button>我要加盟</button>
-                </div>
+                <p>
+                    <span>我要加盟</span>
+                </p>
                 <form action="">
                     <div class="lianxi">
                         <p class="fl">联系时间：</p>
                         <ul class=" fr">
-                            <li><input type="radio">随时</li>
-                            <li><input type="radio">上班时间</li>
-                            <li><input type="radio">下班时间</li>
-                            <li><input type="radio">周末</li>
-                            <li><input type="radio">其他</li>
+                            <li><input type="radio" value="随时">随时</li>
+                            <li><input type="radio" value="上班时间">上班时间</li>
+                            <li><input type="radio" value="下班时间">下班时间</li>
+                            <li><input type="radio" value="周末">周末</li>
+                            <li><input type="radio" value="其他">其他</li>
                         </ul>
                     </div>
                     <div class="touzi">
@@ -181,6 +180,10 @@
                             <p class="label fl" id="userMSN">QQ或MSN</p>
                             <input type="text" name="user_msn">
                             <div class="liuyan_tip">
+                                <p>
+                                    <span>请您填写留言或选择下列</span>
+                                    <span>[快捷留言]</span>
+                                </p>
 
                             </div>
                             <ul class="kuaijie_list">
@@ -223,9 +226,10 @@
                     <p class="rexian lianxi_fashi">热线电话：</p>
                     <p class="rexaindianhua">4000-315-315</p>
                     <p class="guanwei lianxi_fashi">官方微博：</p>
-                    <p class="guanweihao">http://weibo.com/fotile</p>
+                    <p class="guanweihao"><a href="http://weibo.com/fotile" target="_blank">http://weibo.com/fotile</a>
+                    </p>
                     <p class="guanwang lianxi_fashi">官方网址：</p>
-                    <p class="guanwanghao">http://www.fotile.com</p>
+                    <p class="guanwanghao"><a href="http://www.fotile.com" target="_blank">http://www.fotile.com</a></p>
                 </div>
                 <div class="info_3">
                     <p>微信公众号</p>
