@@ -1,25 +1,111 @@
-body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
-body { color:#333; font:12px/20px "Microsoft YaHei", "微软雅黑", "SimSun", "宋体",HELVETICA; background:#fff; /* overflow-y:scroll;*/ }
-em{font-style:normal}
-li{list-style:none}
-fieldset, img { border:none; }
-img{border:0;vertical-align:middle}
-address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:normal; }
-ul, ol { list-style:none; }
-input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}
-input::-moz-focus-inner { border:none; padding:0; }
-select, input { vertical-align:middle; }
-select, input, textarea { font-size:12px; margin:0; }
-input[type="text"], input[type="password"], textarea { outline-style:none; -webkit-appearance:none; }
-textarea { resize:none; }
-p {word-wrap:break-word}
-table { border-collapse:collapse; }
-.clearfix:after { content:"."; display:block; height:0; visibility:hidden; clear:both; }
-.clearfix { zoom:1; }
-.clearit { clear:both; height:0; font-size:0; overflow:hidden; }
-a{ color:#333; text-decoration:none; }
-a:visited { color:#333; text-decoration:none;}
-a:hover, a:active, a:focus { color:#ff8400; text-decoration:none; }
+body, ol, ul, h1, h2, h3, h4, h5, h6, p, th, td, dl, dd, form, fieldset, legend, input, textarea, select {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    color: #333;
+    font: 12px/20px "Microsoft YaHei", "微软雅黑", "SimSun", "宋体", HELVETICA;
+    background: #fff; /* overflow-y:scroll;*/
+}
+
+em {
+    font-style: normal
+}
+
+li {
+    list-style: none
+}
+
+fieldset, img {
+    border: none;
+}
+
+img {
+    border: 0;
+    vertical-align: middle
+}
+
+address, caption, cite, code, dfn, th, var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+input {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: "SimSun", "宋体";
+}
+
+input::-moz-focus-inner {
+    border: none;
+    padding: 0;
+}
+
+select, input {
+    vertical-align: middle;
+}
+
+select, input, textarea {
+    font-size: 12px;
+    margin: 0;
+}
+
+input[type="text"], input[type="password"], textarea {
+    outline-style: none;
+    -webkit-appearance: none;
+}
+
+none
+textarea {
+    resize: none;
+}
+
+p {
+    word-wrap: break-word
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearit {
+    clear: both;
+    height: 0;
+    font-size: 0;
+    overflow: hidden;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover, a:active, a:focus {
+    color: #ff8400;
+    text-decoration: none;
+}
 
 .top {
     background: #FCFCFC;
@@ -46,7 +132,6 @@ a:hover, a:active, a:focus { color:#ff8400; text-decoration:none; }
 
 }
 
-
 .fl {
     float: left;
 }
@@ -62,56 +147,65 @@ a:hover, a:active, a:focus { color:#ff8400; text-decoration:none; }
 }
 
 .logo {
-    background: url("../images/zsdetail_0048_矢量智能对象.png");
+    background: url("../images/Logo.png");
     margin-top: 16px;
 }
-.right_nav{
+
+.right_nav {
     margin-left: 60px;
     margin-top: 25px;
     font-family: "微软雅黑";
     font-size: 12px;
 }
+
 .right_nav > ul li {
     display: inline-block;
     padding-left: 35px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
-.right_nav span{
+
+.right_nav span {
     margin-left: 15px;
     margin-right: 20px;
 }
-.right_nav_1{
+
+.right_nav_1 {
     background: url("../images/zixun.png") no-repeat left center;
 }
-.right_nav_2{
+
+.right_nav_2 {
     background: url("../images/chanpin.png") no-repeat left center;
 }
-.right_nav_3{
+
+.right_nav_3 {
     background: url("../images/pinpai.png") no-repeat left center;
 }
-.right_nav_4{
+
+.right_nav_4 {
     background: url("../images/shangji.png") no-repeat left center;
 }
-.right_nav_5{
+
+.right_nav_5 {
     background: url("../images/tuku.png") no-repeat left center;
 }
-.right_nav_6{
+
+.right_nav_6 {
     background: url("../images/baike.png") no-repeat left center;
 }
-.right_nav_7{
+
+.right_nav_7 {
     background: url("../images/gongqiu.png") no-repeat left center;
 }
 
-
 /*.right_nav > ul li img {*/
 
-    /*margin-top: 30px;*/
+/*margin-top: 30px;*/
 /*}*/
 
 /*.right_nav > ul li span {*/
-    /*margin-left: 15px;*/
-    /*margin-right: 20px;*/
+/*margin-left: 15px;*/
+/*margin-right: 20px;*/
 /*}*/
 
 .zhaoshang {
@@ -127,6 +221,11 @@ a:hover, a:active, a:focus { color:#ff8400; text-decoration:none; }
     padding: 10px;
 }
 
+.tab_zhaoshang .active li {
+    background: #d8000f;;
+    color: #FFF;
+}
+
 /*左侧内容*/
 .content_left {
     width: 800px;
@@ -136,7 +235,7 @@ a:hover, a:active, a:focus { color:#ff8400; text-decoration:none; }
     font-size: 14px;
     font-family: "微软雅黑";
     margin: 15px 0;
-    color: rgb(189,174,174);
+    color: rgb(189, 174, 174);
 }
 
 .banner span {
@@ -173,25 +272,27 @@ a:hover, a:active, a:focus { color:#ff8400; text-decoration:none; }
 .jiashao_content {
     padding: 20px;
     line-height: 25px;
+    font-family: "SimSun", "宋体";
 }
 
 .jieshao_center p:first-child {
-    color:#888891;
+    color: #888891;
+    font-family: "微软雅黑";
 }
-.jiashao_content span{
+
+.jiashao_content span {
     background: url("../images/xingji.png") no-repeat right;
     padding-right: 110px;
 }
-
-
 
 .jieshao_right {
     width: 160px;
     margin-right: 20px;
 }
-.jieshao_right button{
+
+.jieshao_right button {
     width: 138px;
-    height:48px;
+    height: 48px;
     font-size: 18px;
     font-family: "微软雅黑";
     color: #fff;
@@ -200,15 +301,22 @@ a:hover, a:active, a:focus { color:#ff8400; text-decoration:none; }
 
 }
 
-.jieshao_right div {
-    width: 137px;
-    height: 50px;
+.jieshao_right p {
+    width: 138px;
+    height: 48px;
+    text-align: center;
+    padding-top: 14px;
+    font-family: "微软雅黑";
+    font-size: 18px;
+    color: #fff;
+
 }
 
 .jieshao_right a {
-    padding: 10px 18px;
-    color: #fff;
-    font-size: 25px;
+    display: block;
+    width: 138px;
+    height: 48px;
+    margin-top: 20px;
 }
 
 .woyaoyouhui {
@@ -244,6 +352,7 @@ a:hover, a:active, a:focus { color:#ff8400; text-decoration:none; }
     font-size: 14px;
     font-family: "微软雅黑";
     color: #828282;
+    line-height: 25px;
 }
 
 .woyaojiameng {
@@ -312,7 +421,8 @@ a:hover, a:active, a:focus { color:#ff8400; text-decoration:none; }
     width: 44px;
     font-size: 12px;
 }
-.info_right .label{
+
+.info_right .label {
     padding-left: 20px;
     width: 64px;
     font-size: 12px;
@@ -326,6 +436,7 @@ a:hover, a:active, a:focus { color:#ff8400; text-decoration:none; }
 .info_right input {
     width: 160px;
     height: 25px;
+    border: 1px solid #ccc;
 }
 
 #userName {
@@ -386,14 +497,7 @@ textarea {
     height: 30px;
     margin-top: 10px;
     padding-left: 20px;
-    font-size: 14px;
-}
-
-.liuyan_xuan {
-    background: url("../images/xiajiantou.png") no-repeat 0;
-    padding-left: 30px;
-    color: #cf6a4d;
-    font-weight: bold;
+    background: url("../images/liuyan_bg_03.png") no-repeat;
 }
 
 .kuaijie {
@@ -403,9 +507,11 @@ textarea {
 
 .kuaijie_list li {
     border-bottom: 1px dashed #ccc;
-    line-height: 30px;
-    margin-left: 50px;
+    line-height: 29px;
+    margin-left: 35px;
+    width: 260px;
     font-size: 12px;
+    font-family: "宋体";
     list-style: disc;
 }
 
@@ -435,9 +541,15 @@ textarea {
     margin-left: 25%;
 }
 
+.info_1 h3 {
+    margin: 15px 0 10px 0;
+    text-align: center;
+}
+
 .info_1 p {
     text-align: center;
-    margin: 15px 0 0 10px;
+    margin-bottom: 20px;
+
 }
 
 .info_1 > div {
@@ -515,18 +627,16 @@ textarea {
     margin-left: 20px;
 }
 
-
-
-
-
 .info_5 {
     width: 280px;
     margin: 0 50px 0 20px;
 }
 
 .info5_banner {
-    height: 70px;
+    height: 50px;
     width: 100%;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
 }
 
 .info5_banner span {
@@ -535,7 +645,11 @@ textarea {
 
 .info5_img {
     height: 480px;
-    width: 100%;
+    width: 300px;
+}
+
+.info5_img li {
+    margin-right: 20px;
 }
 
 .info5_img img {
@@ -569,16 +683,19 @@ textarea {
 .info5_redianwenzhang .fl {
     font-size: 30px;
 }
-.rectangle-list li{
+
+.rectangle-list li {
     width: 350px;
     height: 29px;
     margin: 6px 0;
     overflow: hidden;
 }
+
 .rectangle-list .top3 {
     background: #f00;
 }
-.rectangle-list p{
+
+.rectangle-list p {
     width: 22px;
     height: 22px;
     background: #ccc;
@@ -589,7 +706,8 @@ textarea {
     float: left;
     border: none !important;
 }
-.rectangle-list span{
+
+.rectangle-list span {
     font-size: 14px;
     line-height: 22px;
     color: #333333;
