@@ -269,7 +269,7 @@ a:hover, a:active, a:focus {
 
 
 .jieshao_center p:first-child {
-    color: #888891;
+    color: #000;
     font-family: "微软雅黑";
 }
 
@@ -410,13 +410,13 @@ a:hover, a:active, a:focus {
     width: 280px;
 }
 
-.info_left .label {
+.info_left label {
     padding-left: 20px;
     width: 44px;
     font-size: 12px;
 }
 
-.info_right .label {
+.info_right label {
     padding-left: 20px;
     width: 64px;
     font-size: 12px;
@@ -424,6 +424,7 @@ a:hover, a:active, a:focus {
 
 .xing_bi {
     color: #f00;
+    font-size: 16px;
 }
 
 .info_left input,
@@ -455,31 +456,23 @@ textarea {
     width: 275px;
 }
 
-/*.info_left button{*/
-/*height: 30px;*/
-/*width:95px;*/
-/*border-radius: 5px;*/
-/*font-size: 14px;*/
-/*font-weight: bold;*/
-/*}*/
-/*#likezixun{*/
-/*margin: 14px 20px 0 35px;*/
-/*background: rgb(255, 174, 47);*/
-/*color: #fff;*/
-/*}*/
 .info_left button {
     width: 100px;
     height: 40px;
     border: none;
+    padding-bottom: 5px;
+    font-size: 14px;
+    font-family: "微软雅黑";
 }
 
 #likezixun {
+    color: #fff;
     margin: 10px 10px 0 30px;
-    background: url("../images/formbutton_03.png") no-repeat;
+    background: url("../images/zsdetail_05.jpg") no-repeat;
 }
 
 #reset {
-    background: url("../images/formbutton_05.png") no-repeat;
+    background: url("../images/zsdetail_07.jpg") no-repeat;
 }
 
 .info_right {
@@ -542,9 +535,11 @@ textarea {
 }
 
 .info_1 p {
+    width: 100px;
+    margin:0 auto 20px auto;
+    background: #f4f4f4;
+    border-radius: 10px;
     text-align: center;
-    margin-bottom: 20px;
-
 }
 
 .info_1 > div {
@@ -578,7 +573,7 @@ textarea {
 }
 
 .guanwang {
-    background: url(../images/guanwang.png) no-repeat 70px;
+    background: url("../images/guanwang.png") no-repeat 70px;
 }
 
 .lianxi_fashi {
@@ -587,8 +582,8 @@ textarea {
     margin-top: 25px;
 }
 
-.rexaindianhua {
-    color: #dd465f;
+.info_2 p:nth-child(2) {
+    color: #dd3333;
     font-size: 20px;
     font-weight: bold;
 }
@@ -669,14 +664,12 @@ textarea {
     background: #ee4433;
 }
 
-.info5_redianwenzhang div {
-    width: 285px;
-    height: 50px;
-    border-bottom: 1px solid #eeeeee;
-}
-
 .info5_redianwenzhang .fl {
     font-size: 30px;
+    width: 285px;
+    height: 50px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eeeeee;
 }
 
 .rectangle-list li {
@@ -687,7 +680,7 @@ textarea {
 }
 
 .rectangle-list .top3 {
-    background: #f00;
+    background: #ee4433;
 }
 
 .rectangle-list p {
@@ -710,6 +703,34 @@ textarea {
     margin-left: 10px;
     width: 270px;
 }
+
+
+#gotop{
+    display:block;
+    width:60px;
+    height:60px;
+    position:fixed;
+    bottom:10px;
+    right:40px;
+    z-index: 9999;
+    border-radius:10px 10px 10px 10px;
+    text-decoration:none;
+    background-color:#999999;
+}
+
+#gotop span{
+    display:block;
+    width:60px;
+    color:#dddddd;
+    font-size:40px;
+    text-align:center;
+    padding-top: 15px;
+}
+#gotop span:hover{
+    color:#cccccc;
+}
+
+
 
 
 

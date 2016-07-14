@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>中华集成灶网</title>
     <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/index.js"></script>
 </head>
 <body>
 <div class="top">
@@ -162,23 +164,23 @@
                     </div>
                     <div class="info">
                         <div class="info_left fl">
-                            <p class="label fl" id="userName">姓 名</p>
-                            <input type="text" name="user_name">
+                            <label for="user_name" class=" fl" id="userName">姓 名</label>
+                            <input type="text" name="user_name" id="user_name">
                             <span class="xing_bi">*</span>
                             <br><br>
-                            <p class="label fl" id="userMobile">手 机</p>
-                            <input type="text" name="user_mobile">
+                            <label for="user_mobile" class=" fl" id="userMobile">手 机</label>
+                            <input type="text" name="user_mobile" id="user_mobile">
                             <span class="xing_bi">*</span>
                             <textarea id="zixuncontent" style="overflow-y:hidden"></textarea>
-                            <button id="likezixun"></button>
-                            <button id="reset" type="reset"></button>
+                            <button id="likezixun">立即咨询</button>
+                            <button id="reset" type="reset">重新填写</button>
                         </div>
                         <div class="info_right fr">
-                            <p class="label fl" id="userPhone">联系电话</p>
-                            <input type="text" name="user_phone">
+                            <label for="user_phone" class=" fl" id="userPhone">联系电话</label>
+                            <input type="text" name="user_phone" id="user_phone">
                             <br><br>
-                            <p class="label fl" id="userMSN">QQ或MSN</p>
-                            <input type="text" name="user_msn">
+                            <label for="user_msn" class=" fl" id="userMSN">QQ或MSN</label>
+                            <input type="text" name="user_msn" id="user_msn">
                             <div class="liuyan_tip">
                                 <p>
                                     <span>请您填写留言或选择下列</span>
@@ -191,7 +193,7 @@
                                     <li>我想了解乐宜家衣柜合作流程？</li>
                                 </a>
                                 <a href="#">
-                                    <li>我想了解乐宜家衣柜合作流程？</li>
+                                    <li>我想了解乐宜家衣柜需要投资多少和利润？</li>
                                 </a>
                                 <a href="#">
                                     <li>我想了解乐宜家衣柜合作流程？</li>
@@ -224,7 +226,7 @@
                 </div>
                 <div class="info_2">
                     <p class="rexian lianxi_fashi">热线电话：</p>
-                    <p class="rexaindianhua">4000-315-315</p>
+                    <p>4000-315-315</p>
                     <p class="guanwei lianxi_fashi">官方微博：</p>
                     <p class="guanweihao"><a href="http://weibo.com/fotile" target="_blank">http://weibo.com/fotile</a>
                     </p>
@@ -309,9 +311,7 @@
                         </ul>
                     </div>
                     <div class="info5_redianwenzhang">
-                        <div>
-                            <p class="fl">热点文章</p>
-                        </div>
+                        <p class="fl">热点文章</p>
                         <div>
                             <ul class="rectangle-list">
                                 <li><p class="top3">1</p><span><a href="" class="qiansan">瓷砖和地板谁更好</a></span></li>
@@ -330,6 +330,8 @@
 
     </div>
 </div>
-</div>
+<a id="gotop" href="#" title="返回顶部">
+    <span>▲</span>
+</a>
 </body>
 </html>
