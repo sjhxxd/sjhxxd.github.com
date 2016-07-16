@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片轮播</title>
+    <link rel="stylesheet" href="css/unslider.css">
+    <link rel="stylesheet" href="css/unslider-dots.css">
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/unslider-min.js"></script>
+    <style>
+        .unslider{
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            height: 350px;
+        }
+        .banner {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .banner li {
+            list-style: none;
+        }
+
+        .banner ul li {
+            display: block;
+            float: left;
+            min-height: 350px;
+        }
+
+        .unslider-nav {
+            position: absolute;
+            left: 0;
+            right:0;
+            bottom: 20px;
+        }
+
+        .unslider-nav li {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+            text-indent: -999em;
+            border: 2px solid #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: .4;
+            -webkit-transition: background .5s, opacity .5s;
+            -moz-transition: background .5s, opacity .5s;
+            transition: background .5s, opacity .5s;
+        }
+
+        .unslider-nav li.unslider-active {
+            background: #fff;
+            opacity: 1;
+        }
+        .unslider-arrow {
+            display: block;
+            width: 32px;
+            height: 32px;
+            top: 50%;
+            margin-top: -16px;
+            overflow: hidden;
+            background: rgba(0,0,0,.2) no-repeat 50% 50%;
+            background-size: 7px 11px;
+            border-radius: 32px;
+            text-indent: -999em;
+            opacity: .6;
+            transition: opacity .2s;
+        }
+        .unslider-arrow:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="banner has-dots" dir="rtl">
+    <ul>
+        <li style="background-image: url(images/11_g2jw.jpg)"></li>
+        <li style="background-image: url(images/bi6j.jpg)"></li>
+        <li style="background-image: url(images/fe54.jpg)"></li>
+    </ul>
+</div>
+<script>
+    $(function () {
+        $('.banner').unslider({
+            delay: 3000,
+            autoplay: true,
+            arrows: true,
+            dots: true
+        });
+    });
+</script>
+</body>
+</html>
