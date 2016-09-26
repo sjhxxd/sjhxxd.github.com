@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title> touch </title>
+    <script type="text/javascript">
+        var _x1, _x2, _y1, _y2;
+        var msg = null;
+
+        document.addEventListener("DOMContentLoaded", function(){
+            msg = document.getElementById("msg");
+        });
+
+        document.addEventListener("touchstart", function(e){
+            //e.preventDefault(); //如果要阻止默认事件要加上这个
+            if(!e.touches.length){return;}
+            var touch = e.touches[0];
+            _x1 = touch.clientX;
+            _y1 = touch.clientY;
+        }, false);
+
+        document.addEventListener("touchmove", function(e){
+            //e.preventDefault(); //如果要阻止默认事件要加上这个
+            if(!e.touches.length){return;}
+            var touch = e.touches[0];
+            _x2 = touch.clientX;
+            _y2 = touch.clientY;
+        }, false);
+
+        document.addEventListener("touchend", function(e){
+            var _dx = _x2 - _x1;
+            var _dy = _y2 - _y1;
+
+            if(Math.abs(_dx) > 30 || Math.abs(_dy) > 30){
+                if(Math.abs(_dx) > Math.abs(_dy)){
+                    if(_dx < 0){
+                        msg.innerHTML = "向左滑动";
+                    }else{
+                        msg.innerHTML = "向右滑动";
+                    }
+                }else{
+                    if(_dy < 0){
+                        msg.innerHTML = "向上滑动";
+                    }else{
+                        msg.innerHTML = "向下滑动";
+                    }
+                }
+            }
+        }, false);
+
+    </script>
+</head>
+
+<body>
+
+<p id="msg">请在手机或模拟器上滑动</p>
+
+
+</body>
+</html>
